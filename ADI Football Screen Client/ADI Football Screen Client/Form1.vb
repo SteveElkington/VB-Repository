@@ -2526,6 +2526,9 @@ Public Class CasparTest2NoPvw
     End Sub
 
     Private Sub TSCrawlOnBTN_Click(sender As Object, e As EventArgs) Handles TSCrawlOnBTN.Click
+
+
+
         If Me.CasparDevice.IsConnected = True Then
             ' If Me.SubOff.SelectedIndex >= 0 Then
             'CasparDevice.Channels(0).CG.Stop(2)
@@ -2533,32 +2536,29 @@ Public Class CasparTest2NoPvw
 
             If ShowHomeFirstElevenCrawl.Checked = True Then
 
-                CasparCGDataCollection.SetData("TeamName", ListBox1.Items(0).ToString)
-                For i As Integer = 1 To ListBox1.Items.Count - 8
-                    CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox1.Items(i).ToString)
-                Next i
+                'CasparCGDataCollection.SetData("TeamName", ListBox1.Items(0).ToString)
+                'For i As Integer = 1 To ListBox1.Items.Count - 8
+                ' CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox1.Items(i).ToString)
+                CasparCGDataCollection.SetData("f0", "Teamsheet:  " + HomeTeamName.Text + ListBox3.Items(0).ToString + "  " + ListBox3.Items(1).ToString + "  " + ListBox3.Items(2).ToString + "  " + ListBox3.Items(3).ToString + "  " + ListBox3.Items(4).ToString + "  " + ListBox3.Items(5).ToString + "  " + ListBox3.Items(6).ToString + "  " + ListBox3.Items(7).ToString + "  " + ListBox3.Items(8).ToString + "  " + ListBox3.Items(9).ToString + "  " + ListBox3.Items(10).ToString + "   SUBSTITUTES " + ListBox3.Items(11).ToString + "  " + ListBox3.Items(12).ToString + "  " + ListBox3.Items(13).ToString + "  " + ListBox3.Items(14).ToString + "  " + ListBox3.Items(15).ToString + "  " + ListBox3.Items(16).ToString + "  " + ListBox3.Items(17).ToString)
+                'Next i
             End If
 
             If ShowAwayFirstElevenCrawl.Checked = True Then
-                CasparCGDataCollection.SetData("TeamName", ListBox2.Items(0).ToString)
-                For i As Integer = 1 To ListBox2.Items.Count - 8
-                    CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox2.Items(i).ToString)
-                Next i
+                '  CasparCGDataCollection.SetData("TeamName", ListBox2.Items(0).ToString)
+                '  For i As Integer = 1 To ListBox2.Items.Count - 8
+                '  CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox2.Items(i).ToString)
+                CasparCGDataCollection.SetData("f0", "Teamsheet:  " + AwayTeamName.Text + ListBox4.Items(0).ToString + "  " + ListBox4.Items(1).ToString + "  " + ListBox4.Items(2).ToString + "  " + ListBox4.Items(3).ToString + "  " + ListBox4.Items(4).ToString + "  " + ListBox4.Items(5).ToString + "  " + ListBox4.Items(6).ToString + "  " + ListBox4.Items(7).ToString + "  " + ListBox4.Items(8).ToString + "  " + ListBox4.Items(9).ToString + "  " + ListBox4.Items(10).ToString + "   SUBSTITUTES " + ListBox4.Items(11).ToString + "  " + ListBox4.Items(12).ToString + "  " + ListBox4.Items(13).ToString + "  " + ListBox4.Items(14).ToString + "  " + ListBox4.Items(15).ToString + "  " + ListBox4.Items(16).ToString + "  " + ListBox4.Items(17).ToString)
+                '   Next i
             End If
 
-            CasparDevice.Channels(0).CG.Add(101, "efc_teamsheet_tempLT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+        CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(0).CG.Play(101)
-            CasparDevice.SendString("play 1-102 LTFlare")
             CasparDevice.SendString("play 1-104 LT_crawl_crest")
             CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
-            TSCrawlOnBTN.BackColor = Color.Green
-            'other buttons not green
-            'ShowTeamSheet.UseVisualStyleBackColor = True
-            'ShowSubsSheet.UseVisualStyleBackColor = True
-            'HomeTSPVW.UseVisualStyleBackColor = True
-
-
-            'End If
+            'CasparDevice.SendString("play 1-102 LT_crawl_crest")
+            CasparDevice.SendString("play 1-103 LTFlare")
+            CrawlOn.BackColor = Color.Green
+            crawlToggle = True
         End If
     End Sub
 

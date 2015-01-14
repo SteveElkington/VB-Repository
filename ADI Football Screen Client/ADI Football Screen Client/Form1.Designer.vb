@@ -2970,7 +2970,7 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox7.Controls.Add(Me.TSCrawlOnBTN)
         Me.GroupBox7.Location = New System.Drawing.Point(18, 520)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(376, 73)
+        Me.GroupBox7.Size = New System.Drawing.Size(369, 73)
         Me.GroupBox7.TabIndex = 117
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Team Sheet Crawl"
@@ -3227,7 +3227,7 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox5.Controls.Add(Me.aw_subOff)
         Me.GroupBox5.Location = New System.Drawing.Point(18, 357)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(376, 157)
+        Me.GroupBox5.Size = New System.Drawing.Size(369, 157)
         Me.GroupBox5.TabIndex = 3
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Subs"
