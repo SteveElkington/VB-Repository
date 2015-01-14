@@ -3,6 +3,7 @@ Imports System
 Imports System.Xml
 
 'with preview
+' NB to make this work with Broadcast Play, copy Caspar v2.0.7 over the Caspar contents that are already in BP directory
 Public Class CasparTest2NoPvw
     Dim CasparDevice As New Svt.Caspar.CasparDevice
     Dim CasparCGDataCollection As New Svt.Caspar.CasparCGDataCollection
@@ -2539,7 +2540,7 @@ Public Class CasparTest2NoPvw
                 'CasparCGDataCollection.SetData("TeamName", ListBox1.Items(0).ToString)
                 'For i As Integer = 1 To ListBox1.Items.Count - 8
                 ' CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox1.Items(i).ToString)
-                CasparCGDataCollection.SetData("f0", "Teamsheet:  " + HomeTeamName.Text + ListBox3.Items(0).ToString + "  " + ListBox3.Items(1).ToString + "  " + ListBox3.Items(2).ToString + "  " + ListBox3.Items(3).ToString + "  " + ListBox3.Items(4).ToString + "  " + ListBox3.Items(5).ToString + "  " + ListBox3.Items(6).ToString + "  " + ListBox3.Items(7).ToString + "  " + ListBox3.Items(8).ToString + "  " + ListBox3.Items(9).ToString + "  " + ListBox3.Items(10).ToString + "   SUBSTITUTES " + ListBox3.Items(11).ToString + "  " + ListBox3.Items(12).ToString + "  " + ListBox3.Items(13).ToString + "  " + ListBox3.Items(14).ToString + "  " + ListBox3.Items(15).ToString + "  " + ListBox3.Items(16).ToString + "  " + ListBox3.Items(17).ToString)
+                CasparCGDataCollection.SetData("f0", HomeTeamName.Text + " TEAMSHEET:   " + ListBox3.Items(0).ToString + "  " + ListBox3.Items(1).ToString + "  " + ListBox3.Items(2).ToString + "  " + ListBox3.Items(3).ToString + "  " + ListBox3.Items(4).ToString + "  " + ListBox3.Items(5).ToString + "  " + ListBox3.Items(6).ToString + "  " + ListBox3.Items(7).ToString + "  " + ListBox3.Items(8).ToString + "  " + ListBox3.Items(9).ToString + "  " + ListBox3.Items(10).ToString + "   SUBSTITUTES:  " + ListBox3.Items(11).ToString + "  " + ListBox3.Items(12).ToString + "  " + ListBox3.Items(13).ToString + "  " + ListBox3.Items(14).ToString + "  " + ListBox3.Items(15).ToString + "  " + ListBox3.Items(16).ToString + "  " + ListBox3.Items(17).ToString)
                 'Next i
             End If
 
@@ -2547,7 +2548,7 @@ Public Class CasparTest2NoPvw
                 '  CasparCGDataCollection.SetData("TeamName", ListBox2.Items(0).ToString)
                 '  For i As Integer = 1 To ListBox2.Items.Count - 8
                 '  CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox2.Items(i).ToString)
-                CasparCGDataCollection.SetData("f0", "Teamsheet:  " + AwayTeamName.Text + ListBox4.Items(0).ToString + "  " + ListBox4.Items(1).ToString + "  " + ListBox4.Items(2).ToString + "  " + ListBox4.Items(3).ToString + "  " + ListBox4.Items(4).ToString + "  " + ListBox4.Items(5).ToString + "  " + ListBox4.Items(6).ToString + "  " + ListBox4.Items(7).ToString + "  " + ListBox4.Items(8).ToString + "  " + ListBox4.Items(9).ToString + "  " + ListBox4.Items(10).ToString + "   SUBSTITUTES " + ListBox4.Items(11).ToString + "  " + ListBox4.Items(12).ToString + "  " + ListBox4.Items(13).ToString + "  " + ListBox4.Items(14).ToString + "  " + ListBox4.Items(15).ToString + "  " + ListBox4.Items(16).ToString + "  " + ListBox4.Items(17).ToString)
+                CasparCGDataCollection.SetData("f0", AwayTeamName.Text + " TEAMSHEET:  " + ListBox4.Items(0).ToString + "  " + ListBox4.Items(1).ToString + "  " + ListBox4.Items(2).ToString + "  " + ListBox4.Items(3).ToString + "  " + ListBox4.Items(4).ToString + "  " + ListBox4.Items(5).ToString + "  " + ListBox4.Items(6).ToString + "  " + ListBox4.Items(7).ToString + "  " + ListBox4.Items(8).ToString + "  " + ListBox4.Items(9).ToString + "  " + ListBox4.Items(10).ToString + "   SUBSTITUTES:  " + ListBox4.Items(11).ToString + "  " + ListBox4.Items(12).ToString + "  " + ListBox4.Items(13).ToString + "  " + ListBox4.Items(14).ToString + "  " + ListBox4.Items(15).ToString + "  " + ListBox4.Items(16).ToString + "  " + ListBox4.Items(17).ToString)
                 '   Next i
             End If
 
@@ -2557,7 +2558,7 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
             CasparDevice.SendString("play 1-103 LTFlare")
-            CrawlOn.BackColor = Color.Green
+            TSCrawlOnBTN.BackColor = Color.Green
             crawlToggle = True
         End If
     End Sub
@@ -2638,13 +2639,17 @@ Public Class CasparTest2NoPvw
     End Sub
 
     Private Sub addHomeSquad_Click(sender As Object, e As EventArgs) Handles addHomeSquad.Click
-        HomeTeam.Items.Add(FullHomeSquad.Text)
-        FullHomeSquad.Items.Remove(FullHomeSquad.Text)
-        homePlayerCount.Text = Convert.ToInt32(homePlayerCount.Text) + 1
-        If Convert.ToInt32(homePlayerCount.Text) > 18 Then
-            homePlayerCount.ForeColor = Color.Red
+        If Me.FullHomeSquad.SelectedIndex >= 0 Then
+            HomeTeam.Items.Add(FullHomeSquad.Text)
+            FullHomeSquad.Items.Remove(FullHomeSquad.Text)
+            homePlayerCount.Text = Convert.ToInt32(homePlayerCount.Text) + 1
+            If Convert.ToInt32(homePlayerCount.Text) > 18 Then
+                homePlayerCount.ForeColor = Color.Red
+            End If
+            If FullHomeSquad.Items.Count > 0 Then
+                FullHomeSquad.SetSelected(0, True)
+            End If
         End If
-
     End Sub
 
     Private Sub removeHomeSquad_Click(sender As Object, e As EventArgs) Handles removeHomeSquad.Click
@@ -2670,11 +2675,16 @@ Public Class CasparTest2NoPvw
     End Sub
 
     Private Sub addAwaySquad_Click(sender As Object, e As EventArgs) Handles addAwaySquad.Click
-        AwayTeam.Items.Add(FullAwaySquad.Text)
-        FullAwaySquad.Items.Remove(FullAwaySquad.Text)
-        AwayPlayerCount.Text = Convert.ToInt32(AwayPlayerCount.Text) + 1
-        If Convert.ToInt32(AwayPlayerCount.Text) > 18 Then
-            AwayPlayerCount.ForeColor = Color.Red
+        If Me.FullAwaySquad.SelectedIndex >= 0 Then
+            AwayTeam.Items.Add(FullAwaySquad.Text)
+            FullAwaySquad.Items.Remove(FullAwaySquad.Text)
+            AwayPlayerCount.Text = Convert.ToInt32(AwayPlayerCount.Text) + 1
+            If Convert.ToInt32(AwayPlayerCount.Text) > 18 Then
+                AwayPlayerCount.ForeColor = Color.Red
+            End If
+            If FullAwaySquad.Items.Count > 0 Then
+                FullAwaySquad.SetSelected(0, True)
+            End If
         End If
     End Sub
 
