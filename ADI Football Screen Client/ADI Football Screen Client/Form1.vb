@@ -2780,18 +2780,45 @@ Public Class CasparTest2NoPvw
     End Sub
 
     Private Sub AddtoSquadNotListed_Click(sender As Object, e As EventArgs) Handles AddtoSquadNotListed.Click
-        HomeTeam.Items.Add(HomePlayerNotListed.Text)
-        homePlayerCount.Text = Convert.ToInt32(homePlayerCount.Text) + 1
-        If Convert.ToInt32(homePlayerCount.Text) > 18 Then
-            homePlayerCount.ForeColor = Color.Red
+        If HomePlayerNotListed.Text <> "" Then
+
+
+            FullHomeSquad.Items.Add(HomePlayerNotListed.Text)
+            'homePlayerCount.Text = Convert.ToInt32(homePlayerCount.Text) + 1
+            'If Convert.ToInt32(homePlayerCount.Text) > 18 Then
+            'homePlayerCount.ForeColor = Color.Red
+            ' End If
+
+            'save to text file
+            Dim FileNumber As Integer = FreeFile()
+            FileOpen(FileNumber, "c:\home_team.txt", OpenMode.Output)
+            For Each Item As Object In FullHomeSquad.Items
+                PrintLine(FileNumber, Item.ToString)
+            Next
+            FileClose(FileNumber)
+        Else
+            MessageBox.Show("You need to type a name in here", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
+
     End Sub
 
     Private Sub AddtoSqaudNotListedAway_Click(sender As Object, e As EventArgs) Handles AddtoSqaudNotListedAway.Click
-        AwayTeam.Items.Add(AwayPlayerNotListed.Text)
-        AwayPlayerCount.Text = Convert.ToInt32(AwayPlayerCount.Text) + 1
-        If Convert.ToInt32(AwayPlayerCount.Text) > 18 Then
-            AwayPlayerCount.ForeColor = Color.Red
+        If AwayPlayerNotListed.Text <> "" Then
+            FullAwaySquad.Items.Add(AwayPlayerNotListed.Text)
+            'AwayPlayerCount.Text = Convert.ToInt32(AwayPlayerCount.Text) + 1
+            ' If Convert.ToInt32(AwayPlayerCount.Text) > 18 Then
+            'AwayPlayerCount.ForeColor = Color.Red
+            'End If
+
+            'save to text file
+            Dim FileNumber As Integer = FreeFile()
+            FileOpen(FileNumber, "c:\away_team.txt", OpenMode.Output)
+            For Each Item As Object In FullAwaySquad.Items
+                PrintLine(FileNumber, Item.ToString)
+            Next
+            FileClose(FileNumber)
+        Else
+            MessageBox.Show("You need to type a name in here", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
