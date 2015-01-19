@@ -132,6 +132,12 @@ Public Class CasparTest2NoPvw
             'CasparDevice.SendString("stop 2-400")
             'showClock.BackColor = Color.FromKnownColor(KnownColor.Control)
             showClock.UseVisualStyleBackColor = True
+
+            'stopping added time
+            CasparDevice.Channels(0).CG.Stop(391)
+            CasparDevice.SendString("stop 1-390")
+            showAddedTimeBTN.BackColor = Color.FromKnownColor(KnownColor.Control)
+            showAddedTimeBTN.UseVisualStyleBackColor = True
         End If
     End Sub
 
@@ -2540,7 +2546,7 @@ Public Class CasparTest2NoPvw
                 'CasparCGDataCollection.SetData("TeamName", ListBox1.Items(0).ToString)
                 'For i As Integer = 1 To ListBox1.Items.Count - 8
                 ' CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox1.Items(i).ToString)
-                CasparCGDataCollection.SetData("f0", HomeTeamName.Text + " TEAMSHEET:   " + ListBox3.Items(0).ToString + "  " + ListBox3.Items(1).ToString + "  " + ListBox3.Items(2).ToString + "  " + ListBox3.Items(3).ToString + "  " + ListBox3.Items(4).ToString + "  " + ListBox3.Items(5).ToString + "  " + ListBox3.Items(6).ToString + "  " + ListBox3.Items(7).ToString + "  " + ListBox3.Items(8).ToString + "  " + ListBox3.Items(9).ToString + "  " + ListBox3.Items(10).ToString + "   SUBSTITUTES:  " + ListBox3.Items(11).ToString + "  " + ListBox3.Items(12).ToString + "  " + ListBox3.Items(13).ToString + "  " + ListBox3.Items(14).ToString + "  " + ListBox3.Items(15).ToString + "  " + ListBox3.Items(16).ToString + "  " + ListBox3.Items(17).ToString)
+                CasparCGDataCollection.SetData("f0", HomeTeamName.Text + " TEAMSHEET:       " + ListBox3.Items(0).ToString + "      " + ListBox3.Items(1).ToString + "      " + ListBox3.Items(2).ToString + "      " + ListBox3.Items(3).ToString + "      " + ListBox3.Items(4).ToString + "      " + ListBox3.Items(5).ToString + "      " + ListBox3.Items(6).ToString + "      " + ListBox3.Items(7).ToString + "      " + ListBox3.Items(8).ToString + "      " + ListBox3.Items(9).ToString + "      " + ListBox3.Items(10).ToString + "     SUBSTITUTES:        " + ListBox3.Items(11).ToString + "     " + ListBox3.Items(12).ToString + "     " + ListBox3.Items(13).ToString + "     " + ListBox3.Items(14).ToString + "     " + ListBox3.Items(15).ToString + "     " + ListBox3.Items(16).ToString + "     " + ListBox3.Items(17).ToString)
                 'Next i
             End If
 
@@ -2548,7 +2554,7 @@ Public Class CasparTest2NoPvw
                 '  CasparCGDataCollection.SetData("TeamName", ListBox2.Items(0).ToString)
                 '  For i As Integer = 1 To ListBox2.Items.Count - 8
                 '  CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox2.Items(i).ToString)
-                CasparCGDataCollection.SetData("f0", AwayTeamName.Text + " TEAMSHEET:  " + ListBox4.Items(0).ToString + "  " + ListBox4.Items(1).ToString + "  " + ListBox4.Items(2).ToString + "  " + ListBox4.Items(3).ToString + "  " + ListBox4.Items(4).ToString + "  " + ListBox4.Items(5).ToString + "  " + ListBox4.Items(6).ToString + "  " + ListBox4.Items(7).ToString + "  " + ListBox4.Items(8).ToString + "  " + ListBox4.Items(9).ToString + "  " + ListBox4.Items(10).ToString + "   SUBSTITUTES:  " + ListBox4.Items(11).ToString + "  " + ListBox4.Items(12).ToString + "  " + ListBox4.Items(13).ToString + "  " + ListBox4.Items(14).ToString + "  " + ListBox4.Items(15).ToString + "  " + ListBox4.Items(16).ToString + "  " + ListBox4.Items(17).ToString)
+                CasparCGDataCollection.SetData("f0", AwayTeamName.Text + " TEAMSHEET:       " + ListBox4.Items(0).ToString + "      " + ListBox4.Items(1).ToString + "      " + ListBox4.Items(2).ToString + "      " + ListBox4.Items(3).ToString + "      " + ListBox4.Items(4).ToString + "      " + ListBox4.Items(5).ToString + "      " + ListBox4.Items(6).ToString + "      " + ListBox4.Items(7).ToString + "      " + ListBox4.Items(8).ToString + "      " + ListBox4.Items(9).ToString + "      " + ListBox4.Items(10).ToString + "     SUBSTITUTES:        " + ListBox4.Items(11).ToString + "     " + ListBox4.Items(12).ToString + "     " + ListBox4.Items(13).ToString + "     " + ListBox4.Items(14).ToString + "     " + ListBox4.Items(15).ToString + "     " + ListBox4.Items(16).ToString + "     " + ListBox4.Items(17).ToString)
                 '   Next i
             End If
 
@@ -2792,6 +2798,7 @@ Public Class CasparTest2NoPvw
             'save to text file
             Dim FileNumber As Integer = FreeFile()
             FileOpen(FileNumber, "c:\home_team.txt", OpenMode.Output)
+            PrintLine(FileNumber, HomeTeamName.Text)
             For Each Item As Object In FullHomeSquad.Items
                 PrintLine(FileNumber, Item.ToString)
             Next
@@ -2813,6 +2820,7 @@ Public Class CasparTest2NoPvw
             'save to text file
             Dim FileNumber As Integer = FreeFile()
             FileOpen(FileNumber, "c:\away_team.txt", OpenMode.Output)
+            PrintLine(FileNumber, AwayTeamName.Text)
             For Each Item As Object In FullAwaySquad.Items
                 PrintLine(FileNumber, Item.ToString)
             Next
