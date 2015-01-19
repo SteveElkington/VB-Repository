@@ -2332,7 +2332,7 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(0).CG.Stop(101)
             CasparDevice.Channels(0).CG.Stop(102)
             CasparDevice.Channels(0).CG.Stop(400)
-            CasparDevice.Channels(0).CG.Stop(401)
+            'CasparDevice.Channels(0).CG.Stop(401)
             CasparDevice.Channels(0).CG.Stop(390)
             CasparDevice.Channels(0).CG.Stop(391)
             CasparDevice.SendString("stop 1-50")
@@ -2340,10 +2340,11 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("stop 1-100")
             CasparDevice.SendString("stop 1-101")
             CasparDevice.SendString("stop 1-102")
-            CasparDevice.SendString("stop 1-400")
-            CasparDevice.SendString("stop 1-401")
+            'CasparDevice.SendString("stop 1-400")
+            'CasparDevice.SendString("stop 1-401")
             CasparDevice.SendString("stop 1-390")
             CasparDevice.SendString("stop 1-391")
+            CasparDevice.SendString("stop 1-104")
 
             CasparDevice.Channels(1).CG.Stop(50)
             CasparDevice.Channels(1).CG.Stop(99)
@@ -2363,12 +2364,13 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("stop 2-401")
             CasparDevice.SendString("stop 2-390")
             CasparDevice.SendString("stop 2-391")
+
             ' this also needs to reset buttons
             ShowTeamSheet.UseVisualStyleBackColor = True
             ShowSubsSheet.UseVisualStyleBackColor = True
             ShowAwayFirstEleven.UseVisualStyleBackColor = True
             ShowAwaySubsSheet.UseVisualStyleBackColor = True
-            showClock.UseVisualStyleBackColor = True
+            'showClock.UseVisualStyleBackColor = True
             playVid.UseVisualStyleBackColor = True
             playNext.UseVisualStyleBackColor = True
             LoopVid.UseVisualStyleBackColor = True
@@ -2382,7 +2384,7 @@ Public Class CasparTest2NoPvw
             showSub.UseVisualStyleBackColor = True
             AwaySubOn.UseVisualStyleBackColor = True
             showAddedTimeBTN.UseVisualStyleBackColor = True
-            ShowClockInGameBTN.UseVisualStyleBackColor = True
+            'ShowClockInGameBTN.UseVisualStyleBackColor = True
             PlayVidInGame.UseVisualStyleBackColor = True
             PlayNextVidInGame.UseVisualStyleBackColor = True
             LoopVidInGame.UseVisualStyleBackColor = True
