@@ -457,10 +457,29 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("m5", middle17.Text)
             CasparCGDataCollection.SetData("m6", middle18.Text)
 
-            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(1).CG.Play(101)
-            ' CasparDevice.SendString("play 2-102 LATESTSCORES")
-            CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
+
+            ' altering colour
+            If FT1.Checked = True Then
+                CasparCGDataCollection.SetData("ft1", "0xff0000")
+            End If
+            If FT2.Checked = True Then
+                CasparCGDataCollection.SetData("ft2", "0xff0000")
+            End If
+            If FT3.Checked = True Then
+                CasparCGDataCollection.SetData("ft3", "0xff0000")
+            End If
+            If FT4.Checked = True Then
+                CasparCGDataCollection.SetData("ft4", "0xff0000")
+            End If
+            If FT5.Checked = True Then
+                CasparCGDataCollection.SetData("ft5", "0xff0000")
+            End If
+            If FT6.Checked = True Then
+                CasparCGDataCollection.SetData("ft6", "0xff0000")
+            End If
+
+
+
 
 
             'showing layers of bars
@@ -488,6 +507,10 @@ Public Class CasparTest2NoPvw
             End If
 
 
+            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+            ' CasparDevice.SendString("play 2-102 LATESTSCORES")
+            CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
             showPremScores.BackColor = Color.Green
             TXPremScores_2BTN.UseVisualStyleBackColor = True
 
@@ -1442,10 +1465,28 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("m5", middle23.Text)
             CasparCGDataCollection.SetData("m6", middle24.Text)
 
-            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(1).CG.Play(101)
-            ' CasparDevice.SendString("play 2-102 LATESTSCORES")
-            CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
+
+
+            ' altering colour
+            If FT7.Checked = True Then
+                CasparCGDataCollection.SetData("ft1", "0xff0000")
+            End If
+            If FT8.Checked = True Then
+                CasparCGDataCollection.SetData("ft2", "0xff0000")
+            End If
+            If FT9.Checked = True Then
+                CasparCGDataCollection.SetData("ft3", "0xff0000")
+            End If
+            If FT10.Checked = True Then
+                CasparCGDataCollection.SetData("ft4", "0xff0000")
+            End If
+            If FT11.Checked = True Then
+                CasparCGDataCollection.SetData("ft5", "0xff0000")
+            End If
+            If FT12.Checked = True Then
+                CasparCGDataCollection.SetData("ft6", "0xff0000")
+            End If
+
 
             'showing layers of bars
             If CheckBox19.Checked = True Then
@@ -1472,6 +1513,10 @@ Public Class CasparTest2NoPvw
             End If
 
 
+            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+            ' CasparDevice.SendString("play 2-102 LATESTSCORES")
+            CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
 
             TXPremScores_2BTN.BackColor = Color.Green
             showPremScores.UseVisualStyleBackColor = True
@@ -1574,11 +1619,25 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("m5", middle5.Text)
             CasparCGDataCollection.SetData("m6", middle6.Text)
 
-
-            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(1).CG.Play(101)
-            ' CasparDevice.SendString("play 2-110 LATESTSCORES")
-            CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
+            ' altering colour
+            If FT13.Checked = True Then
+                CasparCGDataCollection.SetData("ft1", "0xff0000")
+            End If
+            If FT14.Checked = True Then
+                CasparCGDataCollection.SetData("ft2", "0xff0000")
+            End If
+            If FT15.Checked = True Then
+                CasparCGDataCollection.SetData("ft3", "0xff0000")
+            End If
+            If FT16.Checked = True Then
+                CasparCGDataCollection.SetData("ft4", "0xff0000")
+            End If
+            If FT17.Checked = True Then
+                CasparCGDataCollection.SetData("ft5", "0xff0000")
+            End If
+            If FT18.Checked = True Then
+                CasparCGDataCollection.SetData("ft6", "0xff0000")
+            End If
 
             'showing layers of bars
             If CheckBox1.Checked = True Then
@@ -1604,6 +1663,13 @@ Public Class CasparTest2NoPvw
                 CasparDevice.SendString("play 2-109 SCORESBAR_6")
             End If
 
+
+
+
+            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+            ' CasparDevice.SendString("play 2-110 LATESTSCORES")
+            CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
             ChampTX1Btn.BackColor = Color.Green
             ChampTX2Btn.UseVisualStyleBackColor = True
 
@@ -1666,12 +1732,27 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("m5", middle11.Text)
             CasparCGDataCollection.SetData("m6", middle12.Text)
 
-            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(1).CG.Play(101)
-            CasparDevice.SendString("play 2-110 LATESTSCORES")
-            CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
 
 
+            ' altering colour
+            If FT19.Checked = True Then
+                CasparCGDataCollection.SetData("ft1", "0xff0000")
+            End If
+            If FT20.Checked = True Then
+                CasparCGDataCollection.SetData("ft2", "0xff0000")
+            End If
+            If FT21.Checked = True Then
+                CasparCGDataCollection.SetData("ft3", "0xff0000")
+            End If
+            If FT22.Checked = True Then
+                CasparCGDataCollection.SetData("ft4", "0xff0000")
+            End If
+            If FT23.Checked = True Then
+                CasparCGDataCollection.SetData("ft5", "0xff0000")
+            End If
+            If FT24.Checked = True Then
+                CasparCGDataCollection.SetData("ft6", "0xff0000")
+            End If
 
             'showing layers of bars
             If CheckBox12.Checked = True Then
@@ -1697,6 +1778,11 @@ Public Class CasparTest2NoPvw
                 CasparDevice.SendString("play 2-109 SCORESBAR_6")
             End If
 
+
+            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+            ' CasparDevice.SendString("play 2-110 LATESTSCORES")
+            CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
 
             ChampTX2Btn.BackColor = Color.Green
             ChampTX1Btn.UseVisualStyleBackColor = True

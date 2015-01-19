@@ -356,6 +356,38 @@ Partial Class CasparTest2NoPvw
         Me.unknownGoalHome = New System.Windows.Forms.Button()
         Me.ChampScoresTitle2 = New System.Windows.Forms.TextBox()
         Me.PremScoresTitle2 = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.FT6 = New System.Windows.Forms.CheckBox()
+        Me.FT5 = New System.Windows.Forms.CheckBox()
+        Me.FT4 = New System.Windows.Forms.CheckBox()
+        Me.FT3 = New System.Windows.Forms.CheckBox()
+        Me.FT2 = New System.Windows.Forms.CheckBox()
+        Me.FT1 = New System.Windows.Forms.CheckBox()
+        Me.FT12 = New System.Windows.Forms.CheckBox()
+        Me.FT11 = New System.Windows.Forms.CheckBox()
+        Me.FT10 = New System.Windows.Forms.CheckBox()
+        Me.FT9 = New System.Windows.Forms.CheckBox()
+        Me.FT8 = New System.Windows.Forms.CheckBox()
+        Me.FT7 = New System.Windows.Forms.CheckBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.FT18 = New System.Windows.Forms.CheckBox()
+        Me.FT17 = New System.Windows.Forms.CheckBox()
+        Me.FT16 = New System.Windows.Forms.CheckBox()
+        Me.FT15 = New System.Windows.Forms.CheckBox()
+        Me.FT14 = New System.Windows.Forms.CheckBox()
+        Me.FT13 = New System.Windows.Forms.CheckBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.FT24 = New System.Windows.Forms.CheckBox()
+        Me.FT23 = New System.Windows.Forms.CheckBox()
+        Me.FT22 = New System.Windows.Forms.CheckBox()
+        Me.FT21 = New System.Windows.Forms.CheckBox()
+        Me.FT20 = New System.Windows.Forms.CheckBox()
+        Me.FT19 = New System.Windows.Forms.CheckBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -1663,12 +1695,28 @@ Partial Class CasparTest2NoPvw
         Me.TabControl2.Location = New System.Drawing.Point(17, 223)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(876, 322)
+        Me.TabControl2.Size = New System.Drawing.Size(935, 322)
         Me.TabControl2.TabIndex = 18
         '
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage3.Controls.Add(Me.FT12)
+        Me.TabPage3.Controls.Add(Me.FT11)
+        Me.TabPage3.Controls.Add(Me.FT10)
+        Me.TabPage3.Controls.Add(Me.FT9)
+        Me.TabPage3.Controls.Add(Me.FT8)
+        Me.TabPage3.Controls.Add(Me.FT7)
+        Me.TabPage3.Controls.Add(Me.Label18)
+        Me.TabPage3.Controls.Add(Me.Label19)
+        Me.TabPage3.Controls.Add(Me.FT6)
+        Me.TabPage3.Controls.Add(Me.FT5)
+        Me.TabPage3.Controls.Add(Me.FT4)
+        Me.TabPage3.Controls.Add(Me.FT3)
+        Me.TabPage3.Controls.Add(Me.FT2)
+        Me.TabPage3.Controls.Add(Me.FT1)
+        Me.TabPage3.Controls.Add(Me.Label17)
+        Me.TabPage3.Controls.Add(Me.Label16)
         Me.TabPage3.Controls.Add(Me.PremScoresTitle2)
         Me.TabPage3.Controls.Add(Me.CheckBox24)
         Me.TabPage3.Controls.Add(Me.CheckBox23)
@@ -1750,7 +1798,7 @@ Partial Class CasparTest2NoPvw
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(868, 296)
+        Me.TabPage3.Size = New System.Drawing.Size(927, 296)
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Premiership Scores"
         '
@@ -1997,6 +2045,22 @@ Partial Class CasparTest2NoPvw
         'TabPage4
         '
         Me.TabPage4.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage4.Controls.Add(Me.FT24)
+        Me.TabPage4.Controls.Add(Me.FT23)
+        Me.TabPage4.Controls.Add(Me.FT22)
+        Me.TabPage4.Controls.Add(Me.FT21)
+        Me.TabPage4.Controls.Add(Me.FT20)
+        Me.TabPage4.Controls.Add(Me.FT19)
+        Me.TabPage4.Controls.Add(Me.Label22)
+        Me.TabPage4.Controls.Add(Me.Label23)
+        Me.TabPage4.Controls.Add(Me.FT18)
+        Me.TabPage4.Controls.Add(Me.FT17)
+        Me.TabPage4.Controls.Add(Me.FT16)
+        Me.TabPage4.Controls.Add(Me.FT15)
+        Me.TabPage4.Controls.Add(Me.FT14)
+        Me.TabPage4.Controls.Add(Me.FT13)
+        Me.TabPage4.Controls.Add(Me.Label20)
+        Me.TabPage4.Controls.Add(Me.Label21)
         Me.TabPage4.Controls.Add(Me.ChampScoresTitle2)
         Me.TabPage4.Controls.Add(Me.middle12)
         Me.TabPage4.Controls.Add(Me.middle11)
@@ -2078,7 +2142,7 @@ Partial Class CasparTest2NoPvw
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(868, 296)
+        Me.TabPage4.Size = New System.Drawing.Size(927, 296)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Championship Scores"
         '
@@ -3494,6 +3558,294 @@ Partial Class CasparTest2NoPvw
         Me.PremScoresTitle2.TabIndex = 126
         Me.PremScoresTitle2.Text = "LATEST SCORES"
         '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(383, 26)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(29, 13)
+        Me.Label16.TabIndex = 127
+        Me.Label16.Text = "USE"
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(418, 26)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(20, 13)
+        Me.Label17.TabIndex = 128
+        Me.Label17.Text = "FT"
+        '
+        'FT6
+        '
+        Me.FT6.AutoSize = True
+        Me.FT6.Location = New System.Drawing.Point(423, 183)
+        Me.FT6.Name = "FT6"
+        Me.FT6.Size = New System.Drawing.Size(15, 14)
+        Me.FT6.TabIndex = 134
+        Me.FT6.UseVisualStyleBackColor = True
+        '
+        'FT5
+        '
+        Me.FT5.AutoSize = True
+        Me.FT5.Location = New System.Drawing.Point(423, 156)
+        Me.FT5.Name = "FT5"
+        Me.FT5.Size = New System.Drawing.Size(15, 14)
+        Me.FT5.TabIndex = 133
+        Me.FT5.UseVisualStyleBackColor = True
+        '
+        'FT4
+        '
+        Me.FT4.AutoSize = True
+        Me.FT4.Location = New System.Drawing.Point(423, 131)
+        Me.FT4.Name = "FT4"
+        Me.FT4.Size = New System.Drawing.Size(15, 14)
+        Me.FT4.TabIndex = 132
+        Me.FT4.UseVisualStyleBackColor = True
+        '
+        'FT3
+        '
+        Me.FT3.AutoSize = True
+        Me.FT3.Location = New System.Drawing.Point(423, 105)
+        Me.FT3.Name = "FT3"
+        Me.FT3.Size = New System.Drawing.Size(15, 14)
+        Me.FT3.TabIndex = 131
+        Me.FT3.UseVisualStyleBackColor = True
+        '
+        'FT2
+        '
+        Me.FT2.AutoSize = True
+        Me.FT2.Location = New System.Drawing.Point(423, 78)
+        Me.FT2.Name = "FT2"
+        Me.FT2.Size = New System.Drawing.Size(15, 14)
+        Me.FT2.TabIndex = 130
+        Me.FT2.UseVisualStyleBackColor = True
+        '
+        'FT1
+        '
+        Me.FT1.AutoSize = True
+        Me.FT1.Location = New System.Drawing.Point(423, 53)
+        Me.FT1.Name = "FT1"
+        Me.FT1.Size = New System.Drawing.Size(15, 14)
+        Me.FT1.TabIndex = 129
+        Me.FT1.UseVisualStyleBackColor = True
+        '
+        'FT12
+        '
+        Me.FT12.AutoSize = True
+        Me.FT12.Location = New System.Drawing.Point(863, 183)
+        Me.FT12.Name = "FT12"
+        Me.FT12.Size = New System.Drawing.Size(15, 14)
+        Me.FT12.TabIndex = 142
+        Me.FT12.UseVisualStyleBackColor = True
+        '
+        'FT11
+        '
+        Me.FT11.AutoSize = True
+        Me.FT11.Location = New System.Drawing.Point(863, 156)
+        Me.FT11.Name = "FT11"
+        Me.FT11.Size = New System.Drawing.Size(15, 14)
+        Me.FT11.TabIndex = 141
+        Me.FT11.UseVisualStyleBackColor = True
+        '
+        'FT10
+        '
+        Me.FT10.AutoSize = True
+        Me.FT10.Location = New System.Drawing.Point(863, 131)
+        Me.FT10.Name = "FT10"
+        Me.FT10.Size = New System.Drawing.Size(15, 14)
+        Me.FT10.TabIndex = 140
+        Me.FT10.UseVisualStyleBackColor = True
+        '
+        'FT9
+        '
+        Me.FT9.AutoSize = True
+        Me.FT9.Location = New System.Drawing.Point(863, 105)
+        Me.FT9.Name = "FT9"
+        Me.FT9.Size = New System.Drawing.Size(15, 14)
+        Me.FT9.TabIndex = 139
+        Me.FT9.UseVisualStyleBackColor = True
+        '
+        'FT8
+        '
+        Me.FT8.AutoSize = True
+        Me.FT8.Location = New System.Drawing.Point(863, 79)
+        Me.FT8.Name = "FT8"
+        Me.FT8.Size = New System.Drawing.Size(15, 14)
+        Me.FT8.TabIndex = 138
+        Me.FT8.UseVisualStyleBackColor = True
+        '
+        'FT7
+        '
+        Me.FT7.AutoSize = True
+        Me.FT7.Location = New System.Drawing.Point(861, 53)
+        Me.FT7.Name = "FT7"
+        Me.FT7.Size = New System.Drawing.Size(15, 14)
+        Me.FT7.TabIndex = 137
+        Me.FT7.UseVisualStyleBackColor = True
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(858, 26)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(20, 13)
+        Me.Label18.TabIndex = 136
+        Me.Label18.Text = "FT"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(823, 26)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(29, 13)
+        Me.Label19.TabIndex = 135
+        Me.Label19.Text = "USE"
+        '
+        'FT18
+        '
+        Me.FT18.AutoSize = True
+        Me.FT18.Location = New System.Drawing.Point(410, 183)
+        Me.FT18.Name = "FT18"
+        Me.FT18.Size = New System.Drawing.Size(15, 14)
+        Me.FT18.TabIndex = 144
+        Me.FT18.UseVisualStyleBackColor = True
+        '
+        'FT17
+        '
+        Me.FT17.AutoSize = True
+        Me.FT17.Location = New System.Drawing.Point(410, 156)
+        Me.FT17.Name = "FT17"
+        Me.FT17.Size = New System.Drawing.Size(15, 14)
+        Me.FT17.TabIndex = 143
+        Me.FT17.UseVisualStyleBackColor = True
+        '
+        'FT16
+        '
+        Me.FT16.AutoSize = True
+        Me.FT16.Location = New System.Drawing.Point(410, 131)
+        Me.FT16.Name = "FT16"
+        Me.FT16.Size = New System.Drawing.Size(15, 14)
+        Me.FT16.TabIndex = 142
+        Me.FT16.UseVisualStyleBackColor = True
+        '
+        'FT15
+        '
+        Me.FT15.AutoSize = True
+        Me.FT15.Location = New System.Drawing.Point(410, 105)
+        Me.FT15.Name = "FT15"
+        Me.FT15.Size = New System.Drawing.Size(15, 14)
+        Me.FT15.TabIndex = 141
+        Me.FT15.UseVisualStyleBackColor = True
+        '
+        'FT14
+        '
+        Me.FT14.AutoSize = True
+        Me.FT14.Location = New System.Drawing.Point(410, 78)
+        Me.FT14.Name = "FT14"
+        Me.FT14.Size = New System.Drawing.Size(15, 14)
+        Me.FT14.TabIndex = 140
+        Me.FT14.UseVisualStyleBackColor = True
+        '
+        'FT13
+        '
+        Me.FT13.AutoSize = True
+        Me.FT13.Location = New System.Drawing.Point(410, 53)
+        Me.FT13.Name = "FT13"
+        Me.FT13.Size = New System.Drawing.Size(15, 14)
+        Me.FT13.TabIndex = 139
+        Me.FT13.UseVisualStyleBackColor = True
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(405, 26)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(20, 13)
+        Me.Label20.TabIndex = 138
+        Me.Label20.Text = "FT"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(370, 26)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(29, 13)
+        Me.Label21.TabIndex = 137
+        Me.Label21.Text = "USE"
+        '
+        'FT24
+        '
+        Me.FT24.AutoSize = True
+        Me.FT24.Location = New System.Drawing.Point(864, 183)
+        Me.FT24.Name = "FT24"
+        Me.FT24.Size = New System.Drawing.Size(15, 14)
+        Me.FT24.TabIndex = 152
+        Me.FT24.UseVisualStyleBackColor = True
+        '
+        'FT23
+        '
+        Me.FT23.AutoSize = True
+        Me.FT23.Location = New System.Drawing.Point(864, 156)
+        Me.FT23.Name = "FT23"
+        Me.FT23.Size = New System.Drawing.Size(15, 14)
+        Me.FT23.TabIndex = 151
+        Me.FT23.UseVisualStyleBackColor = True
+        '
+        'FT22
+        '
+        Me.FT22.AutoSize = True
+        Me.FT22.Location = New System.Drawing.Point(864, 131)
+        Me.FT22.Name = "FT22"
+        Me.FT22.Size = New System.Drawing.Size(15, 14)
+        Me.FT22.TabIndex = 150
+        Me.FT22.UseVisualStyleBackColor = True
+        '
+        'FT21
+        '
+        Me.FT21.AutoSize = True
+        Me.FT21.Location = New System.Drawing.Point(864, 105)
+        Me.FT21.Name = "FT21"
+        Me.FT21.Size = New System.Drawing.Size(15, 14)
+        Me.FT21.TabIndex = 149
+        Me.FT21.UseVisualStyleBackColor = True
+        '
+        'FT20
+        '
+        Me.FT20.AutoSize = True
+        Me.FT20.Location = New System.Drawing.Point(864, 78)
+        Me.FT20.Name = "FT20"
+        Me.FT20.Size = New System.Drawing.Size(15, 14)
+        Me.FT20.TabIndex = 148
+        Me.FT20.UseVisualStyleBackColor = True
+        '
+        'FT19
+        '
+        Me.FT19.AutoSize = True
+        Me.FT19.Location = New System.Drawing.Point(864, 53)
+        Me.FT19.Name = "FT19"
+        Me.FT19.Size = New System.Drawing.Size(15, 14)
+        Me.FT19.TabIndex = 147
+        Me.FT19.UseVisualStyleBackColor = True
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(859, 26)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(20, 13)
+        Me.Label22.TabIndex = 146
+        Me.Label22.Text = "FT"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(824, 26)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(29, 13)
+        Me.Label23.TabIndex = 145
+        Me.Label23.Text = "USE"
+        '
         'CasparTest2NoPvw
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3884,5 +4236,37 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents unknownGoalHome As System.Windows.Forms.Button
     Friend WithEvents ChampScoresTitle2 As System.Windows.Forms.TextBox
     Friend WithEvents PremScoresTitle2 As System.Windows.Forms.TextBox
+    Friend WithEvents FT6 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT5 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT4 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT3 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT2 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT1 As System.Windows.Forms.CheckBox
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents FT12 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT11 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT10 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT9 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT8 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT7 As System.Windows.Forms.CheckBox
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents FT24 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT23 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT22 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT21 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT20 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT19 As System.Windows.Forms.CheckBox
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents FT18 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT17 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT16 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT15 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT14 As System.Windows.Forms.CheckBox
+    Friend WithEvents FT13 As System.Windows.Forms.CheckBox
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
 
 End Class
