@@ -3685,4 +3685,123 @@ Public Class CasparTest2NoPvw
             msg1OnBtn.UseVisualStyleBackColor = True
         End If
     End Sub
+
+    Private Sub ReloadBackgroundsComboBx2_Click(sender As Object, e As EventArgs) Handles ReloadBackgroundsComboBx2.Click
+        If Me.CasparDevice.IsConnected = True Then
+            Dim File As Svt.Caspar.MediaInfo
+            CasparDevice.RefreshMediafiles()
+            'Clear list box in case of reload
+            backgrounds2.Items.Clear()
+            Threading.Thread.Sleep(250)
+
+            For Each File In CasparDevice.Mediafiles
+                backgrounds2.Items.Add((UCase(Replace((File.FullName), "\", "/"))))
+            Next
+        End If
+    End Sub
+
+    Private Sub ReloadBackgroundsComboBx3_Click(sender As Object, e As EventArgs) Handles ReloadBackgroundsComboBx3.Click
+        If Me.CasparDevice.IsConnected = True Then
+            Dim File As Svt.Caspar.MediaInfo
+            CasparDevice.RefreshMediafiles()
+            'Clear list box in case of reload
+            backgrounds3.Items.Clear()
+            Threading.Thread.Sleep(250)
+
+            For Each File In CasparDevice.Mediafiles
+                backgrounds3.Items.Add((UCase(Replace((File.FullName), "\", "/"))))
+            Next
+        End If
+    End Sub
+
+    Private Sub ReloadBackgroundsComboBx4_Click(sender As Object, e As EventArgs) Handles ReloadBackgroundsComboBx4.Click
+        If Me.CasparDevice.IsConnected = True Then
+            Dim File As Svt.Caspar.MediaInfo
+            CasparDevice.RefreshMediafiles()
+            'Clear list box in case of reload
+            backgrounds4.Items.Clear()
+            Threading.Thread.Sleep(250)
+
+            For Each File In CasparDevice.Mediafiles
+                backgrounds4.Items.Add((UCase(Replace((File.FullName), "\", "/"))))
+            Next
+        End If
+    End Sub
+
+    Private Sub msg2OnBtn_Click(sender As Object, e As EventArgs) Handles msg2OnBtn.Click
+        If Me.CasparDevice.IsConnected = True Then
+
+            CasparCGDataCollection.Clear() 'cgData.Clear()
+            CasparCGDataCollection.SetData("f0", msg2Title.Text)
+            CasparCGDataCollection.SetData("f1", msg2Line1.Text)
+            CasparCGDataCollection.SetData("f2", msg2Line2.Text)
+            CasparCGDataCollection.SetData("f3", msg2Line3.Text)
+            CasparCGDataCollection.SetData("f4", msg2Line4.Text)
+
+            CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+            CasparDevice.SendString("play 2-99 " & backgrounds2.Text)
+            msg2OnBtn.BackColor = Color.Green
+
+        End If
+    End Sub
+
+    Private Sub msg3OnBtn_Click(sender As Object, e As EventArgs) Handles msg3OnBtn.Click
+        If Me.CasparDevice.IsConnected = True Then
+
+            CasparCGDataCollection.Clear() 'cgData.Clear()
+            CasparCGDataCollection.SetData("f0", msg3Title.Text)
+            CasparCGDataCollection.SetData("f1", msg3Line1.Text)
+            CasparCGDataCollection.SetData("f2", msg3Line2.Text)
+            CasparCGDataCollection.SetData("f3", msg3Line3.Text)
+            CasparCGDataCollection.SetData("f4", msg3Line4.Text)
+
+            CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+            CasparDevice.SendString("play 2-99 " & backgrounds3.Text)
+            msg3OnBtn.BackColor = Color.Green
+        End If
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles msg4OnBtn.Click
+        If Me.CasparDevice.IsConnected = True Then
+
+            CasparCGDataCollection.Clear() 'cgData.Clear()
+            CasparCGDataCollection.SetData("f0", msg4Title.Text)
+            CasparCGDataCollection.SetData("f1", msg4Line1.Text)
+            CasparCGDataCollection.SetData("f2", msg4Line2.Text)
+            CasparCGDataCollection.SetData("f3", msg4Line3.Text)
+            CasparCGDataCollection.SetData("f4", msg4Line4.Text)
+
+            CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+            CasparDevice.SendString("play 2-99 " & backgrounds1.Text)
+            msg4OnBtn.BackColor = Color.Green
+
+        End If
+    End Sub
+
+    Private Sub msg2OffBtn_Click(sender As Object, e As EventArgs) Handles msg2OffBtn.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.SendString("stop 2-99")
+            CasparDevice.Channels(1).CG.Stop(101)
+            msg2OnBtn.UseVisualStyleBackColor = True
+        End If
+    End Sub
+
+    Private Sub msg3OffBtn_Click(sender As Object, e As EventArgs) Handles msg3OffBtn.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.SendString("stop 2-99")
+            CasparDevice.Channels(1).CG.Stop(101)
+            msg3OnBtn.UseVisualStyleBackColor = True
+        End If
+    End Sub
+
+    Private Sub msg4OffBtn_Click(sender As Object, e As EventArgs) Handles msg4OffBtn.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.SendString("stop 2-99")
+            CasparDevice.Channels(1).CG.Stop(101)
+            msg4OnBtn.UseVisualStyleBackColor = True
+        End If
+    End Sub
 End Class

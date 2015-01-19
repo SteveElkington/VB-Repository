@@ -404,6 +404,51 @@ Partial Class CasparTest2NoPvw
         Me.TimeOfDayCLock = New System.Windows.Forms.Timer(Me.components)
         Me.BPlayChanFadeOut = New System.Windows.Forms.Timer(Me.components)
         Me.scoresFadeOut = New System.Windows.Forms.Timer(Me.components)
+        Me.msg2OffBtn = New System.Windows.Forms.Button()
+        Me.msg2OnBtn = New System.Windows.Forms.Button()
+        Me.ReloadBackgroundsComboBx2 = New System.Windows.Forms.Button()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.backgrounds2 = New System.Windows.Forms.ComboBox()
+        Me.msg2Line4 = New System.Windows.Forms.TextBox()
+        Me.msg2Line3 = New System.Windows.Forms.TextBox()
+        Me.msg2Line2 = New System.Windows.Forms.TextBox()
+        Me.msg2Line1 = New System.Windows.Forms.TextBox()
+        Me.msg2Title = New System.Windows.Forms.TextBox()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.msg3OffBtn = New System.Windows.Forms.Button()
+        Me.msg3OnBtn = New System.Windows.Forms.Button()
+        Me.ReloadBackgroundsComboBx3 = New System.Windows.Forms.Button()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.backgrounds3 = New System.Windows.Forms.ComboBox()
+        Me.msg3Line4 = New System.Windows.Forms.TextBox()
+        Me.msg3Line3 = New System.Windows.Forms.TextBox()
+        Me.msg3Line2 = New System.Windows.Forms.TextBox()
+        Me.msg3Line1 = New System.Windows.Forms.TextBox()
+        Me.msg3Title = New System.Windows.Forms.TextBox()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.msg4OffBtn = New System.Windows.Forms.Button()
+        Me.msg4OnBtn = New System.Windows.Forms.Button()
+        Me.ReloadBackgroundsComboBx4 = New System.Windows.Forms.Button()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.backgrounds4 = New System.Windows.Forms.ComboBox()
+        Me.msg4Line4 = New System.Windows.Forms.TextBox()
+        Me.msg4Line3 = New System.Windows.Forms.TextBox()
+        Me.msg4Line2 = New System.Windows.Forms.TextBox()
+        Me.msg4Line1 = New System.Windows.Forms.TextBox()
+        Me.msg4Title = New System.Windows.Forms.TextBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.Label47 = New System.Windows.Forms.Label()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -3762,6 +3807,51 @@ Partial Class CasparTest2NoPvw
         'TabPage7
         '
         Me.TabPage7.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage7.Controls.Add(Me.msg4OffBtn)
+        Me.TabPage7.Controls.Add(Me.msg4OnBtn)
+        Me.TabPage7.Controls.Add(Me.ReloadBackgroundsComboBx4)
+        Me.TabPage7.Controls.Add(Me.Label42)
+        Me.TabPage7.Controls.Add(Me.backgrounds4)
+        Me.TabPage7.Controls.Add(Me.msg4Line4)
+        Me.TabPage7.Controls.Add(Me.msg4Line3)
+        Me.TabPage7.Controls.Add(Me.msg4Line2)
+        Me.TabPage7.Controls.Add(Me.msg4Line1)
+        Me.TabPage7.Controls.Add(Me.msg4Title)
+        Me.TabPage7.Controls.Add(Me.Label43)
+        Me.TabPage7.Controls.Add(Me.Label44)
+        Me.TabPage7.Controls.Add(Me.Label45)
+        Me.TabPage7.Controls.Add(Me.Label46)
+        Me.TabPage7.Controls.Add(Me.Label47)
+        Me.TabPage7.Controls.Add(Me.msg3OffBtn)
+        Me.TabPage7.Controls.Add(Me.msg3OnBtn)
+        Me.TabPage7.Controls.Add(Me.ReloadBackgroundsComboBx3)
+        Me.TabPage7.Controls.Add(Me.Label36)
+        Me.TabPage7.Controls.Add(Me.backgrounds3)
+        Me.TabPage7.Controls.Add(Me.msg3Line4)
+        Me.TabPage7.Controls.Add(Me.msg3Line3)
+        Me.TabPage7.Controls.Add(Me.msg3Line2)
+        Me.TabPage7.Controls.Add(Me.msg3Line1)
+        Me.TabPage7.Controls.Add(Me.msg3Title)
+        Me.TabPage7.Controls.Add(Me.Label37)
+        Me.TabPage7.Controls.Add(Me.Label38)
+        Me.TabPage7.Controls.Add(Me.Label39)
+        Me.TabPage7.Controls.Add(Me.Label40)
+        Me.TabPage7.Controls.Add(Me.Label41)
+        Me.TabPage7.Controls.Add(Me.msg2OffBtn)
+        Me.TabPage7.Controls.Add(Me.msg2OnBtn)
+        Me.TabPage7.Controls.Add(Me.ReloadBackgroundsComboBx2)
+        Me.TabPage7.Controls.Add(Me.Label30)
+        Me.TabPage7.Controls.Add(Me.backgrounds2)
+        Me.TabPage7.Controls.Add(Me.msg2Line4)
+        Me.TabPage7.Controls.Add(Me.msg2Line3)
+        Me.TabPage7.Controls.Add(Me.msg2Line2)
+        Me.TabPage7.Controls.Add(Me.msg2Line1)
+        Me.TabPage7.Controls.Add(Me.msg2Title)
+        Me.TabPage7.Controls.Add(Me.Label31)
+        Me.TabPage7.Controls.Add(Me.Label32)
+        Me.TabPage7.Controls.Add(Me.Label33)
+        Me.TabPage7.Controls.Add(Me.Label34)
+        Me.TabPage7.Controls.Add(Me.Label35)
         Me.TabPage7.Controls.Add(Me.msg1OffBtn)
         Me.TabPage7.Controls.Add(Me.msg1OnBtn)
         Me.TabPage7.Controls.Add(Me.ReloadBackgroundsComboBx)
@@ -3785,7 +3875,7 @@ Partial Class CasparTest2NoPvw
         '
         'msg1OffBtn
         '
-        Me.msg1OffBtn.Location = New System.Drawing.Point(163, 228)
+        Me.msg1OffBtn.Location = New System.Drawing.Point(187, 223)
         Me.msg1OffBtn.Name = "msg1OffBtn"
         Me.msg1OffBtn.Size = New System.Drawing.Size(133, 23)
         Me.msg1OffBtn.TabIndex = 14
@@ -3794,7 +3884,7 @@ Partial Class CasparTest2NoPvw
         '
         'msg1OnBtn
         '
-        Me.msg1OnBtn.Location = New System.Drawing.Point(26, 228)
+        Me.msg1OnBtn.Location = New System.Drawing.Point(50, 223)
         Me.msg1OnBtn.Name = "msg1OnBtn"
         Me.msg1OnBtn.Size = New System.Drawing.Size(133, 23)
         Me.msg1OnBtn.TabIndex = 13
@@ -3803,7 +3893,7 @@ Partial Class CasparTest2NoPvw
         '
         'ReloadBackgroundsComboBx
         '
-        Me.ReloadBackgroundsComboBx.Location = New System.Drawing.Point(224, 185)
+        Me.ReloadBackgroundsComboBx.Location = New System.Drawing.Point(248, 180)
         Me.ReloadBackgroundsComboBx.Name = "ReloadBackgroundsComboBx"
         Me.ReloadBackgroundsComboBx.Size = New System.Drawing.Size(72, 23)
         Me.ReloadBackgroundsComboBx.TabIndex = 12
@@ -3813,7 +3903,7 @@ Partial Class CasparTest2NoPvw
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(23, 190)
+        Me.Label29.Location = New System.Drawing.Point(47, 185)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(68, 13)
         Me.Label29.TabIndex = 11
@@ -3822,42 +3912,42 @@ Partial Class CasparTest2NoPvw
         'backgrounds1
         '
         Me.backgrounds1.FormattingEnabled = True
-        Me.backgrounds1.Location = New System.Drawing.Point(97, 187)
+        Me.backgrounds1.Location = New System.Drawing.Point(121, 182)
         Me.backgrounds1.Name = "backgrounds1"
         Me.backgrounds1.Size = New System.Drawing.Size(121, 21)
         Me.backgrounds1.TabIndex = 10
         '
         'msg1Line4
         '
-        Me.msg1Line4.Location = New System.Drawing.Point(97, 161)
+        Me.msg1Line4.Location = New System.Drawing.Point(121, 156)
         Me.msg1Line4.Name = "msg1Line4"
         Me.msg1Line4.Size = New System.Drawing.Size(199, 20)
         Me.msg1Line4.TabIndex = 9
         '
         'msg1Line3
         '
-        Me.msg1Line3.Location = New System.Drawing.Point(97, 135)
+        Me.msg1Line3.Location = New System.Drawing.Point(121, 130)
         Me.msg1Line3.Name = "msg1Line3"
         Me.msg1Line3.Size = New System.Drawing.Size(199, 20)
         Me.msg1Line3.TabIndex = 8
         '
         'msg1Line2
         '
-        Me.msg1Line2.Location = New System.Drawing.Point(97, 109)
+        Me.msg1Line2.Location = New System.Drawing.Point(121, 104)
         Me.msg1Line2.Name = "msg1Line2"
         Me.msg1Line2.Size = New System.Drawing.Size(199, 20)
         Me.msg1Line2.TabIndex = 7
         '
         'msg1Line1
         '
-        Me.msg1Line1.Location = New System.Drawing.Point(97, 83)
+        Me.msg1Line1.Location = New System.Drawing.Point(121, 78)
         Me.msg1Line1.Name = "msg1Line1"
         Me.msg1Line1.Size = New System.Drawing.Size(199, 20)
         Me.msg1Line1.TabIndex = 6
         '
         'msg1Title
         '
-        Me.msg1Title.Location = New System.Drawing.Point(97, 49)
+        Me.msg1Title.Location = New System.Drawing.Point(121, 44)
         Me.msg1Title.Name = "msg1Title"
         Me.msg1Title.Size = New System.Drawing.Size(199, 20)
         Me.msg1Title.TabIndex = 5
@@ -3865,7 +3955,7 @@ Partial Class CasparTest2NoPvw
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(52, 164)
+        Me.Label28.Location = New System.Drawing.Point(76, 159)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(39, 13)
         Me.Label28.TabIndex = 4
@@ -3874,7 +3964,7 @@ Partial Class CasparTest2NoPvw
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(52, 138)
+        Me.Label27.Location = New System.Drawing.Point(76, 133)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(39, 13)
         Me.Label27.TabIndex = 3
@@ -3883,7 +3973,7 @@ Partial Class CasparTest2NoPvw
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(52, 112)
+        Me.Label26.Location = New System.Drawing.Point(76, 107)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(39, 13)
         Me.Label26.TabIndex = 2
@@ -3892,7 +3982,7 @@ Partial Class CasparTest2NoPvw
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(52, 86)
+        Me.Label25.Location = New System.Drawing.Point(76, 81)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(39, 13)
         Me.Label25.TabIndex = 1
@@ -3901,7 +3991,7 @@ Partial Class CasparTest2NoPvw
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(61, 52)
+        Me.Label24.Location = New System.Drawing.Point(85, 47)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(30, 13)
         Me.Label24.TabIndex = 0
@@ -4011,6 +4101,378 @@ Partial Class CasparTest2NoPvw
         '
         'scoresFadeOut
         '
+        '
+        'msg2OffBtn
+        '
+        Me.msg2OffBtn.Location = New System.Drawing.Point(478, 223)
+        Me.msg2OffBtn.Name = "msg2OffBtn"
+        Me.msg2OffBtn.Size = New System.Drawing.Size(133, 23)
+        Me.msg2OffBtn.TabIndex = 29
+        Me.msg2OffBtn.Text = "Message Off"
+        Me.msg2OffBtn.UseVisualStyleBackColor = True
+        '
+        'msg2OnBtn
+        '
+        Me.msg2OnBtn.Location = New System.Drawing.Point(341, 223)
+        Me.msg2OnBtn.Name = "msg2OnBtn"
+        Me.msg2OnBtn.Size = New System.Drawing.Size(133, 23)
+        Me.msg2OnBtn.TabIndex = 28
+        Me.msg2OnBtn.Text = "Message On"
+        Me.msg2OnBtn.UseVisualStyleBackColor = True
+        '
+        'ReloadBackgroundsComboBx2
+        '
+        Me.ReloadBackgroundsComboBx2.Location = New System.Drawing.Point(539, 180)
+        Me.ReloadBackgroundsComboBx2.Name = "ReloadBackgroundsComboBx2"
+        Me.ReloadBackgroundsComboBx2.Size = New System.Drawing.Size(72, 23)
+        Me.ReloadBackgroundsComboBx2.TabIndex = 27
+        Me.ReloadBackgroundsComboBx2.Text = "Reload"
+        Me.ReloadBackgroundsComboBx2.UseVisualStyleBackColor = True
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(338, 185)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(68, 13)
+        Me.Label30.TabIndex = 26
+        Me.Label30.Text = "Background:"
+        '
+        'backgrounds2
+        '
+        Me.backgrounds2.FormattingEnabled = True
+        Me.backgrounds2.Location = New System.Drawing.Point(412, 182)
+        Me.backgrounds2.Name = "backgrounds2"
+        Me.backgrounds2.Size = New System.Drawing.Size(121, 21)
+        Me.backgrounds2.TabIndex = 25
+        '
+        'msg2Line4
+        '
+        Me.msg2Line4.Location = New System.Drawing.Point(412, 156)
+        Me.msg2Line4.Name = "msg2Line4"
+        Me.msg2Line4.Size = New System.Drawing.Size(199, 20)
+        Me.msg2Line4.TabIndex = 24
+        '
+        'msg2Line3
+        '
+        Me.msg2Line3.Location = New System.Drawing.Point(412, 130)
+        Me.msg2Line3.Name = "msg2Line3"
+        Me.msg2Line3.Size = New System.Drawing.Size(199, 20)
+        Me.msg2Line3.TabIndex = 23
+        '
+        'msg2Line2
+        '
+        Me.msg2Line2.Location = New System.Drawing.Point(412, 104)
+        Me.msg2Line2.Name = "msg2Line2"
+        Me.msg2Line2.Size = New System.Drawing.Size(199, 20)
+        Me.msg2Line2.TabIndex = 22
+        '
+        'msg2Line1
+        '
+        Me.msg2Line1.Location = New System.Drawing.Point(412, 78)
+        Me.msg2Line1.Name = "msg2Line1"
+        Me.msg2Line1.Size = New System.Drawing.Size(199, 20)
+        Me.msg2Line1.TabIndex = 21
+        '
+        'msg2Title
+        '
+        Me.msg2Title.Location = New System.Drawing.Point(412, 44)
+        Me.msg2Title.Name = "msg2Title"
+        Me.msg2Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg2Title.TabIndex = 20
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(367, 159)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(39, 13)
+        Me.Label31.TabIndex = 19
+        Me.Label31.Text = "Line 4:"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(367, 133)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(39, 13)
+        Me.Label32.TabIndex = 18
+        Me.Label32.Text = "Line 3:"
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(367, 107)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(39, 13)
+        Me.Label33.TabIndex = 17
+        Me.Label33.Text = "Line 2:"
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(367, 81)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(39, 13)
+        Me.Label34.TabIndex = 16
+        Me.Label34.Text = "Line 1:"
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(376, 47)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(30, 13)
+        Me.Label35.TabIndex = 15
+        Me.Label35.Text = "Title:"
+        '
+        'msg3OffBtn
+        '
+        Me.msg3OffBtn.Location = New System.Drawing.Point(777, 223)
+        Me.msg3OffBtn.Name = "msg3OffBtn"
+        Me.msg3OffBtn.Size = New System.Drawing.Size(133, 23)
+        Me.msg3OffBtn.TabIndex = 44
+        Me.msg3OffBtn.Text = "Message Off"
+        Me.msg3OffBtn.UseVisualStyleBackColor = True
+        '
+        'msg3OnBtn
+        '
+        Me.msg3OnBtn.Location = New System.Drawing.Point(640, 223)
+        Me.msg3OnBtn.Name = "msg3OnBtn"
+        Me.msg3OnBtn.Size = New System.Drawing.Size(133, 23)
+        Me.msg3OnBtn.TabIndex = 43
+        Me.msg3OnBtn.Text = "Message On"
+        Me.msg3OnBtn.UseVisualStyleBackColor = True
+        '
+        'ReloadBackgroundsComboBx3
+        '
+        Me.ReloadBackgroundsComboBx3.Location = New System.Drawing.Point(838, 180)
+        Me.ReloadBackgroundsComboBx3.Name = "ReloadBackgroundsComboBx3"
+        Me.ReloadBackgroundsComboBx3.Size = New System.Drawing.Size(72, 23)
+        Me.ReloadBackgroundsComboBx3.TabIndex = 42
+        Me.ReloadBackgroundsComboBx3.Text = "Reload"
+        Me.ReloadBackgroundsComboBx3.UseVisualStyleBackColor = True
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(637, 185)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(68, 13)
+        Me.Label36.TabIndex = 41
+        Me.Label36.Text = "Background:"
+        '
+        'backgrounds3
+        '
+        Me.backgrounds3.FormattingEnabled = True
+        Me.backgrounds3.Location = New System.Drawing.Point(711, 182)
+        Me.backgrounds3.Name = "backgrounds3"
+        Me.backgrounds3.Size = New System.Drawing.Size(121, 21)
+        Me.backgrounds3.TabIndex = 40
+        '
+        'msg3Line4
+        '
+        Me.msg3Line4.Location = New System.Drawing.Point(711, 156)
+        Me.msg3Line4.Name = "msg3Line4"
+        Me.msg3Line4.Size = New System.Drawing.Size(199, 20)
+        Me.msg3Line4.TabIndex = 39
+        '
+        'msg3Line3
+        '
+        Me.msg3Line3.Location = New System.Drawing.Point(711, 130)
+        Me.msg3Line3.Name = "msg3Line3"
+        Me.msg3Line3.Size = New System.Drawing.Size(199, 20)
+        Me.msg3Line3.TabIndex = 38
+        '
+        'msg3Line2
+        '
+        Me.msg3Line2.Location = New System.Drawing.Point(711, 104)
+        Me.msg3Line2.Name = "msg3Line2"
+        Me.msg3Line2.Size = New System.Drawing.Size(199, 20)
+        Me.msg3Line2.TabIndex = 37
+        '
+        'msg3Line1
+        '
+        Me.msg3Line1.Location = New System.Drawing.Point(711, 78)
+        Me.msg3Line1.Name = "msg3Line1"
+        Me.msg3Line1.Size = New System.Drawing.Size(199, 20)
+        Me.msg3Line1.TabIndex = 36
+        '
+        'msg3Title
+        '
+        Me.msg3Title.Location = New System.Drawing.Point(711, 44)
+        Me.msg3Title.Name = "msg3Title"
+        Me.msg3Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg3Title.TabIndex = 35
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(666, 159)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(39, 13)
+        Me.Label37.TabIndex = 34
+        Me.Label37.Text = "Line 4:"
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(666, 133)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(39, 13)
+        Me.Label38.TabIndex = 33
+        Me.Label38.Text = "Line 3:"
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(666, 107)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(39, 13)
+        Me.Label39.TabIndex = 32
+        Me.Label39.Text = "Line 2:"
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(666, 81)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(39, 13)
+        Me.Label40.TabIndex = 31
+        Me.Label40.Text = "Line 1:"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(675, 47)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(30, 13)
+        Me.Label41.TabIndex = 30
+        Me.Label41.Text = "Title:"
+        '
+        'msg4OffBtn
+        '
+        Me.msg4OffBtn.Location = New System.Drawing.Point(1073, 223)
+        Me.msg4OffBtn.Name = "msg4OffBtn"
+        Me.msg4OffBtn.Size = New System.Drawing.Size(133, 23)
+        Me.msg4OffBtn.TabIndex = 59
+        Me.msg4OffBtn.Text = "Message Off"
+        Me.msg4OffBtn.UseVisualStyleBackColor = True
+        '
+        'msg4OnBtn
+        '
+        Me.msg4OnBtn.Location = New System.Drawing.Point(936, 223)
+        Me.msg4OnBtn.Name = "msg4OnBtn"
+        Me.msg4OnBtn.Size = New System.Drawing.Size(133, 23)
+        Me.msg4OnBtn.TabIndex = 58
+        Me.msg4OnBtn.Text = "Message On"
+        Me.msg4OnBtn.UseVisualStyleBackColor = True
+        '
+        'ReloadBackgroundsComboBx4
+        '
+        Me.ReloadBackgroundsComboBx4.Location = New System.Drawing.Point(1134, 180)
+        Me.ReloadBackgroundsComboBx4.Name = "ReloadBackgroundsComboBx4"
+        Me.ReloadBackgroundsComboBx4.Size = New System.Drawing.Size(72, 23)
+        Me.ReloadBackgroundsComboBx4.TabIndex = 57
+        Me.ReloadBackgroundsComboBx4.Text = "Reload"
+        Me.ReloadBackgroundsComboBx4.UseVisualStyleBackColor = True
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(933, 185)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(68, 13)
+        Me.Label42.TabIndex = 56
+        Me.Label42.Text = "Background:"
+        '
+        'backgrounds4
+        '
+        Me.backgrounds4.FormattingEnabled = True
+        Me.backgrounds4.Location = New System.Drawing.Point(1007, 182)
+        Me.backgrounds4.Name = "backgrounds4"
+        Me.backgrounds4.Size = New System.Drawing.Size(121, 21)
+        Me.backgrounds4.TabIndex = 55
+        '
+        'msg4Line4
+        '
+        Me.msg4Line4.Location = New System.Drawing.Point(1007, 156)
+        Me.msg4Line4.Name = "msg4Line4"
+        Me.msg4Line4.Size = New System.Drawing.Size(199, 20)
+        Me.msg4Line4.TabIndex = 54
+        '
+        'msg4Line3
+        '
+        Me.msg4Line3.Location = New System.Drawing.Point(1007, 130)
+        Me.msg4Line3.Name = "msg4Line3"
+        Me.msg4Line3.Size = New System.Drawing.Size(199, 20)
+        Me.msg4Line3.TabIndex = 53
+        '
+        'msg4Line2
+        '
+        Me.msg4Line2.Location = New System.Drawing.Point(1007, 104)
+        Me.msg4Line2.Name = "msg4Line2"
+        Me.msg4Line2.Size = New System.Drawing.Size(199, 20)
+        Me.msg4Line2.TabIndex = 52
+        '
+        'msg4Line1
+        '
+        Me.msg4Line1.Location = New System.Drawing.Point(1007, 78)
+        Me.msg4Line1.Name = "msg4Line1"
+        Me.msg4Line1.Size = New System.Drawing.Size(199, 20)
+        Me.msg4Line1.TabIndex = 51
+        '
+        'msg4Title
+        '
+        Me.msg4Title.Location = New System.Drawing.Point(1007, 44)
+        Me.msg4Title.Name = "msg4Title"
+        Me.msg4Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg4Title.TabIndex = 50
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(962, 159)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(39, 13)
+        Me.Label43.TabIndex = 49
+        Me.Label43.Text = "Line 4:"
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(962, 133)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(39, 13)
+        Me.Label44.TabIndex = 48
+        Me.Label44.Text = "Line 3:"
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(962, 107)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(39, 13)
+        Me.Label45.TabIndex = 47
+        Me.Label45.Text = "Line 2:"
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(962, 81)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(39, 13)
+        Me.Label46.TabIndex = 46
+        Me.Label46.Text = "Line 1:"
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(971, 47)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(30, 13)
+        Me.Label47.TabIndex = 45
+        Me.Label47.Text = "Title:"
         '
         'CasparTest2NoPvw
         '
@@ -4452,5 +4914,50 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents msg4OffBtn As System.Windows.Forms.Button
+    Friend WithEvents msg4OnBtn As System.Windows.Forms.Button
+    Friend WithEvents ReloadBackgroundsComboBx4 As System.Windows.Forms.Button
+    Friend WithEvents Label42 As System.Windows.Forms.Label
+    Friend WithEvents backgrounds4 As System.Windows.Forms.ComboBox
+    Friend WithEvents msg4Line4 As System.Windows.Forms.TextBox
+    Friend WithEvents msg4Line3 As System.Windows.Forms.TextBox
+    Friend WithEvents msg4Line2 As System.Windows.Forms.TextBox
+    Friend WithEvents msg4Line1 As System.Windows.Forms.TextBox
+    Friend WithEvents msg4Title As System.Windows.Forms.TextBox
+    Friend WithEvents Label43 As System.Windows.Forms.Label
+    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents Label45 As System.Windows.Forms.Label
+    Friend WithEvents Label46 As System.Windows.Forms.Label
+    Friend WithEvents Label47 As System.Windows.Forms.Label
+    Friend WithEvents msg3OffBtn As System.Windows.Forms.Button
+    Friend WithEvents msg3OnBtn As System.Windows.Forms.Button
+    Friend WithEvents ReloadBackgroundsComboBx3 As System.Windows.Forms.Button
+    Friend WithEvents Label36 As System.Windows.Forms.Label
+    Friend WithEvents backgrounds3 As System.Windows.Forms.ComboBox
+    Friend WithEvents msg3Line4 As System.Windows.Forms.TextBox
+    Friend WithEvents msg3Line3 As System.Windows.Forms.TextBox
+    Friend WithEvents msg3Line2 As System.Windows.Forms.TextBox
+    Friend WithEvents msg3Line1 As System.Windows.Forms.TextBox
+    Friend WithEvents msg3Title As System.Windows.Forms.TextBox
+    Friend WithEvents Label37 As System.Windows.Forms.Label
+    Friend WithEvents Label38 As System.Windows.Forms.Label
+    Friend WithEvents Label39 As System.Windows.Forms.Label
+    Friend WithEvents Label40 As System.Windows.Forms.Label
+    Friend WithEvents Label41 As System.Windows.Forms.Label
+    Friend WithEvents msg2OffBtn As System.Windows.Forms.Button
+    Friend WithEvents msg2OnBtn As System.Windows.Forms.Button
+    Friend WithEvents ReloadBackgroundsComboBx2 As System.Windows.Forms.Button
+    Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents backgrounds2 As System.Windows.Forms.ComboBox
+    Friend WithEvents msg2Line4 As System.Windows.Forms.TextBox
+    Friend WithEvents msg2Line3 As System.Windows.Forms.TextBox
+    Friend WithEvents msg2Line2 As System.Windows.Forms.TextBox
+    Friend WithEvents msg2Line1 As System.Windows.Forms.TextBox
+    Friend WithEvents msg2Title As System.Windows.Forms.TextBox
+    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents Label32 As System.Windows.Forms.Label
+    Friend WithEvents Label33 As System.Windows.Forms.Label
+    Friend WithEvents Label34 As System.Windows.Forms.Label
+    Friend WithEvents Label35 As System.Windows.Forms.Label
 
 End Class
