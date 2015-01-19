@@ -356,6 +356,8 @@ Partial Class CasparTest2NoPvw
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.unknownGoalAway = New System.Windows.Forms.Button()
+        Me.unknownGoalHome = New System.Windows.Forms.Button()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -2881,6 +2883,8 @@ Partial Class CasparTest2NoPvw
         '
         'GroupBox8
         '
+        Me.GroupBox8.Controls.Add(Me.unknownGoalAway)
+        Me.GroupBox8.Controls.Add(Me.unknownGoalHome)
         Me.GroupBox8.Controls.Add(Me.AwayHomeGoalBTN)
         Me.GroupBox8.Controls.Add(Me.HomeOwnGoalBTN)
         Me.GroupBox8.Controls.Add(Me.goalAway)
@@ -2898,7 +2902,7 @@ Partial Class CasparTest2NoPvw
         '
         'AwayHomeGoalBTN
         '
-        Me.AwayHomeGoalBTN.Location = New System.Drawing.Point(246, 389)
+        Me.AwayHomeGoalBTN.Location = New System.Drawing.Point(246, 418)
         Me.AwayHomeGoalBTN.Name = "AwayHomeGoalBTN"
         Me.AwayHomeGoalBTN.Size = New System.Drawing.Size(220, 23)
         Me.AwayHomeGoalBTN.TabIndex = 32
@@ -2907,7 +2911,7 @@ Partial Class CasparTest2NoPvw
         '
         'HomeOwnGoalBTN
         '
-        Me.HomeOwnGoalBTN.Location = New System.Drawing.Point(6, 389)
+        Me.HomeOwnGoalBTN.Location = New System.Drawing.Point(4, 418)
         Me.HomeOwnGoalBTN.Name = "HomeOwnGoalBTN"
         Me.HomeOwnGoalBTN.Size = New System.Drawing.Size(220, 23)
         Me.HomeOwnGoalBTN.TabIndex = 31
@@ -2920,7 +2924,7 @@ Partial Class CasparTest2NoPvw
         Me.goalAway.Name = "goalAway"
         Me.goalAway.Size = New System.Drawing.Size(220, 23)
         Me.goalAway.TabIndex = 30
-        Me.goalAway.Text = "GOAL"
+        Me.goalAway.Text = "GOAL - Known Scorer"
         Me.goalAway.UseVisualStyleBackColor = True
         '
         'goalHome
@@ -2929,7 +2933,7 @@ Partial Class CasparTest2NoPvw
         Me.goalHome.Name = "goalHome"
         Me.goalHome.Size = New System.Drawing.Size(220, 23)
         Me.goalHome.TabIndex = 29
-        Me.goalHome.Text = "GOAL"
+        Me.goalHome.Text = "GOAL - Known Scorer"
         Me.goalHome.UseVisualStyleBackColor = True
         '
         'Label9
@@ -3496,6 +3500,24 @@ Partial Class CasparTest2NoPvw
         Me.Label15.TabIndex = 21
         Me.Label15.Text = "ON:"
         '
+        'unknownGoalAway
+        '
+        Me.unknownGoalAway.Location = New System.Drawing.Point(246, 389)
+        Me.unknownGoalAway.Name = "unknownGoalAway"
+        Me.unknownGoalAway.Size = New System.Drawing.Size(220, 23)
+        Me.unknownGoalAway.TabIndex = 34
+        Me.unknownGoalAway.Text = "GOAL - Unknown Scorer"
+        Me.unknownGoalAway.UseVisualStyleBackColor = True
+        '
+        'unknownGoalHome
+        '
+        Me.unknownGoalHome.Location = New System.Drawing.Point(4, 389)
+        Me.unknownGoalHome.Name = "unknownGoalHome"
+        Me.unknownGoalHome.Size = New System.Drawing.Size(220, 23)
+        Me.unknownGoalHome.TabIndex = 33
+        Me.unknownGoalHome.Text = "GOAL - Unknown Scorer"
+        Me.unknownGoalHome.UseVisualStyleBackColor = True
+        '
         'CasparTest2NoPvw
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3886,5 +3908,7 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents unknownGoalAway As System.Windows.Forms.Button
+    Friend WithEvents unknownGoalHome As System.Windows.Forms.Button
 
 End Class

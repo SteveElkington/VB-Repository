@@ -3504,7 +3504,7 @@ Public Class CasparTest2NoPvw
                 GoalTime = Convert.ToString(stopClockTime.Text)
             End If
             'homeScorers.Text = homeScorers.Text + TrimmedNewHomeScorer + "    " + GoalTime + "'" + Environment.NewLine
-            awayScorers.Items.Add(GoalTime + "'" + "    " + TrimmedNewAwayScorer + "(OG) ")
+            awayScorers.Items.Add(GoalTime + "'" + "    " + TrimmedNewAwayScorer + " (OG)")
         Else
             MessageBox.Show("You need to select a player to score", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -3532,4 +3532,28 @@ Public Class CasparTest2NoPvw
     End Sub
 
   
+    Private Sub unknownGoalHome_Click(sender As Object, e As EventArgs) Handles unknownGoalHome.Click
+        HomeScore.Text = Convert.ToInt32(HomeScore.Text) + 1
+
+        'get goal time
+        Dim GoalTime As String = Convert.ToInt32(min.Text) + 1
+        'make sure if goal is after clocks stopped it shows time of end of clock, not clock plus 1
+        If (Convert.ToInt32(GoalTime) >= Convert.ToInt32(stopClockTime.Text)) Then
+            GoalTime = Convert.ToString(stopClockTime.Text)
+        End If
+        'homeScorers.Text = homeScorers.Text + TrimmedNewHomeScorer + "    " + GoalTime + "'" + Environment.NewLine
+        HomeScorers.Items.Add("A. PLAYER    " + GoalTime + "'")
+    End Sub
+
+    Private Sub unknownGoalAway_Click(sender As Object, e As EventArgs) Handles unknownGoalAway.Click
+        AwayScore.Text = Convert.ToInt32(AwayScore.Text) + 1
+        'get goal time
+        Dim GoalTime As String = Convert.ToInt32(min.Text) + 1
+        'make sure if goal is after clocks stopped it shows time of end of clock, not clock plus 1
+        If (Convert.ToInt32(GoalTime) >= Convert.ToInt32(stopClockTime.Text)) Then
+            GoalTime = Convert.ToString(stopClockTime.Text)
+        End If
+        'awayScorers.Text = awayScorers.Text + GoalTime + "'    " + TrimmedNewAwayScorer + Environment.NewLine
+        awayScorers.Items.Add(GoalTime + "'" + "    A.PLAYER")
+    End Sub
 End Class
