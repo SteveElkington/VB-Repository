@@ -93,9 +93,7 @@ Partial Class CasparTest2NoPvw
         Me.Score28 = New System.Windows.Forms.TextBox()
         Me.Score26 = New System.Windows.Forms.TextBox()
         Me.Score25 = New System.Windows.Forms.TextBox()
-        Me.loadData = New System.Windows.Forms.Button()
         Me.HidePremScores = New System.Windows.Forms.Button()
-        Me.saveData = New System.Windows.Forms.Button()
         Me.showPremScores = New System.Windows.Forms.Button()
         Me.Score23 = New System.Windows.Forms.TextBox()
         Me.Score24 = New System.Windows.Forms.TextBox()
@@ -276,9 +274,7 @@ Partial Class CasparTest2NoPvw
         Me.ChampScore26 = New System.Windows.Forms.TextBox()
         Me.ChampTX1Btn = New System.Windows.Forms.Button()
         Me.ChampScore25 = New System.Windows.Forms.TextBox()
-        Me.saveDataChampBTN = New System.Windows.Forms.Button()
         Me.ChampHide1BTN = New System.Windows.Forms.Button()
-        Me.loadDataChampBTN = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.SendEditedAwayScorers = New System.Windows.Forms.Button()
         Me.EditTextAwayScorers = New System.Windows.Forms.TextBox()
@@ -358,6 +354,8 @@ Partial Class CasparTest2NoPvw
         Me.Label15 = New System.Windows.Forms.Label()
         Me.unknownGoalAway = New System.Windows.Forms.Button()
         Me.unknownGoalHome = New System.Windows.Forms.Button()
+        Me.ChampScoresTitle2 = New System.Windows.Forms.TextBox()
+        Me.PremScoresTitle2 = New System.Windows.Forms.TextBox()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -760,7 +758,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.PremScoresTitle.Location = New System.Drawing.Point(21, 19)
         Me.PremScoresTitle.Name = "PremScoresTitle"
-        Me.PremScoresTitle.Size = New System.Drawing.Size(321, 20)
+        Me.PremScoresTitle.Size = New System.Drawing.Size(238, 20)
         Me.PremScoresTitle.TabIndex = 55
         Me.PremScoresTitle.Text = "LATEST SCORES"
         '
@@ -950,15 +948,6 @@ Partial Class CasparTest2NoPvw
         Me.Score25.Size = New System.Drawing.Size(126, 20)
         Me.Score25.TabIndex = 28
         '
-        'loadData
-        '
-        Me.loadData.Location = New System.Drawing.Point(429, 244)
-        Me.loadData.Name = "loadData"
-        Me.loadData.Size = New System.Drawing.Size(75, 26)
-        Me.loadData.TabIndex = 27
-        Me.loadData.Text = "Load"
-        Me.loadData.UseVisualStyleBackColor = True
-        '
         'HidePremScores
         '
         Me.HidePremScores.Location = New System.Drawing.Point(289, 206)
@@ -967,15 +956,6 @@ Partial Class CasparTest2NoPvw
         Me.HidePremScores.TabIndex = 25
         Me.HidePremScores.Text = "Hide"
         Me.HidePremScores.UseVisualStyleBackColor = True
-        '
-        'saveData
-        '
-        Me.saveData.Location = New System.Drawing.Point(343, 244)
-        Me.saveData.Name = "saveData"
-        Me.saveData.Size = New System.Drawing.Size(75, 26)
-        Me.saveData.TabIndex = 26
-        Me.saveData.Text = "Save"
-        Me.saveData.UseVisualStyleBackColor = True
         '
         'showPremScores
         '
@@ -1689,6 +1669,7 @@ Partial Class CasparTest2NoPvw
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage3.Controls.Add(Me.PremScoresTitle2)
         Me.TabPage3.Controls.Add(Me.CheckBox24)
         Me.TabPage3.Controls.Add(Me.CheckBox23)
         Me.TabPage3.Controls.Add(Me.CheckBox22)
@@ -1765,9 +1746,7 @@ Partial Class CasparTest2NoPvw
         Me.TabPage3.Controls.Add(Me.Score26)
         Me.TabPage3.Controls.Add(Me.showPremScores)
         Me.TabPage3.Controls.Add(Me.Score25)
-        Me.TabPage3.Controls.Add(Me.saveData)
         Me.TabPage3.Controls.Add(Me.HidePremScores)
-        Me.TabPage3.Controls.Add(Me.loadData)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
@@ -2018,6 +1997,7 @@ Partial Class CasparTest2NoPvw
         'TabPage4
         '
         Me.TabPage4.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage4.Controls.Add(Me.ChampScoresTitle2)
         Me.TabPage4.Controls.Add(Me.middle12)
         Me.TabPage4.Controls.Add(Me.middle11)
         Me.TabPage4.Controls.Add(Me.middle10)
@@ -2094,9 +2074,7 @@ Partial Class CasparTest2NoPvw
         Me.TabPage4.Controls.Add(Me.ChampScore26)
         Me.TabPage4.Controls.Add(Me.ChampTX1Btn)
         Me.TabPage4.Controls.Add(Me.ChampScore25)
-        Me.TabPage4.Controls.Add(Me.saveDataChampBTN)
         Me.TabPage4.Controls.Add(Me.ChampHide1BTN)
-        Me.TabPage4.Controls.Add(Me.loadDataChampBTN)
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
@@ -2346,9 +2324,9 @@ Partial Class CasparTest2NoPvw
         '
         'ChampScoresTitle
         '
-        Me.ChampScoresTitle.Location = New System.Drawing.Point(21, 19)
+        Me.ChampScoresTitle.Location = New System.Drawing.Point(6, 19)
         Me.ChampScoresTitle.Name = "ChampScoresTitle"
-        Me.ChampScoresTitle.Size = New System.Drawing.Size(321, 20)
+        Me.ChampScoresTitle.Size = New System.Drawing.Size(240, 20)
         Me.ChampScoresTitle.TabIndex = 112
         Me.ChampScoresTitle.Text = "LATEST SCORES"
         '
@@ -2715,15 +2693,6 @@ Partial Class CasparTest2NoPvw
         Me.ChampScore25.Size = New System.Drawing.Size(126, 20)
         Me.ChampScore25.TabIndex = 85
         '
-        'saveDataChampBTN
-        '
-        Me.saveDataChampBTN.Location = New System.Drawing.Point(343, 244)
-        Me.saveDataChampBTN.Name = "saveDataChampBTN"
-        Me.saveDataChampBTN.Size = New System.Drawing.Size(75, 26)
-        Me.saveDataChampBTN.TabIndex = 83
-        Me.saveDataChampBTN.Text = "Save"
-        Me.saveDataChampBTN.UseVisualStyleBackColor = True
-        '
         'ChampHide1BTN
         '
         Me.ChampHide1BTN.Location = New System.Drawing.Point(276, 206)
@@ -2732,15 +2701,6 @@ Partial Class CasparTest2NoPvw
         Me.ChampHide1BTN.TabIndex = 82
         Me.ChampHide1BTN.Text = "Hide"
         Me.ChampHide1BTN.UseVisualStyleBackColor = True
-        '
-        'loadDataChampBTN
-        '
-        Me.loadDataChampBTN.Location = New System.Drawing.Point(429, 244)
-        Me.loadDataChampBTN.Name = "loadDataChampBTN"
-        Me.loadDataChampBTN.Size = New System.Drawing.Size(75, 26)
-        Me.loadDataChampBTN.TabIndex = 84
-        Me.loadDataChampBTN.Text = "Load"
-        Me.loadDataChampBTN.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -3518,6 +3478,22 @@ Partial Class CasparTest2NoPvw
         Me.unknownGoalHome.Text = "GOAL - Unknown Scorer"
         Me.unknownGoalHome.UseVisualStyleBackColor = True
         '
+        'ChampScoresTitle2
+        '
+        Me.ChampScoresTitle2.Location = New System.Drawing.Point(456, 19)
+        Me.ChampScoresTitle2.Name = "ChampScoresTitle2"
+        Me.ChampScoresTitle2.Size = New System.Drawing.Size(240, 20)
+        Me.ChampScoresTitle2.TabIndex = 136
+        Me.ChampScoresTitle2.Text = "LATEST SCORES"
+        '
+        'PremScoresTitle2
+        '
+        Me.PremScoresTitle2.Location = New System.Drawing.Point(460, 19)
+        Me.PremScoresTitle2.Name = "PremScoresTitle2"
+        Me.PremScoresTitle2.Size = New System.Drawing.Size(238, 20)
+        Me.PremScoresTitle2.TabIndex = 126
+        Me.PremScoresTitle2.Text = "LATEST SCORES"
+        '
         'CasparTest2NoPvw
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3633,8 +3609,6 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents Score4 As System.Windows.Forms.TextBox
     Friend WithEvents Score2 As System.Windows.Forms.TextBox
     Friend WithEvents Score1 As System.Windows.Forms.TextBox
-    Friend WithEvents saveData As System.Windows.Forms.Button
-    Friend WithEvents loadData As System.Windows.Forms.Button
     Friend WithEvents AwayTeamsOff As System.Windows.Forms.Button
     Friend WithEvents ShowAwaySubsSheet As System.Windows.Forms.Button
     Friend WithEvents ShowAwayFirstEleven As System.Windows.Forms.Button
@@ -3755,9 +3729,7 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents ChampScore26 As System.Windows.Forms.TextBox
     Friend WithEvents ChampTX1Btn As System.Windows.Forms.Button
     Friend WithEvents ChampScore25 As System.Windows.Forms.TextBox
-    Friend WithEvents saveDataChampBTN As System.Windows.Forms.Button
     Friend WithEvents ChampHide1BTN As System.Windows.Forms.Button
-    Friend WithEvents loadDataChampBTN As System.Windows.Forms.Button
     Friend WithEvents LTStrapHideBTN As System.Windows.Forms.Button
     Friend WithEvents LTStrapTXBTN As System.Windows.Forms.Button
     Friend WithEvents LTStrapKO As System.Windows.Forms.TextBox
@@ -3910,5 +3882,7 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents unknownGoalAway As System.Windows.Forms.Button
     Friend WithEvents unknownGoalHome As System.Windows.Forms.Button
+    Friend WithEvents ChampScoresTitle2 As System.Windows.Forms.TextBox
+    Friend WithEvents PremScoresTitle2 As System.Windows.Forms.TextBox
 
 End Class

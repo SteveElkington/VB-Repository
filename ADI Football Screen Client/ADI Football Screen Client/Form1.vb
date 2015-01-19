@@ -514,7 +514,7 @@ Public Class CasparTest2NoPvw
         End If
     End Sub
 
-    Private Sub saveData_Click(sender As Object, e As EventArgs) Handles saveData.Click
+    Private Sub saveData_Click(sender As Object, e As EventArgs)
         'first let's check if there is a file MyXML.xml into our application folder
         'if there wasn't a file something like that, then let's create a new one.
 
@@ -844,7 +844,7 @@ Public Class CasparTest2NoPvw
         ' End If
     End Sub
 
-    Private Sub loadData_Click(sender As Object, e As EventArgs) Handles loadData.Click
+    Private Sub loadData_Click(sender As Object, e As EventArgs)
         'check if file myxml.xml is existing
         If (IO.File.Exists("MyXML.xml")) Then
 
@@ -1409,7 +1409,7 @@ Public Class CasparTest2NoPvw
     Private Sub TXPremScores_2BTN_Click(sender As Object, e As EventArgs) Handles TXPremScores_2BTN.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.Clear()
-            CasparCGDataCollection.SetData("TITLE", PremScoresTitle.Text)
+            CasparCGDataCollection.SetData("TITLE", PremScoresTitle2.Text)
             CasparCGDataCollection.SetData("f0", Score25.Text)
             CasparCGDataCollection.SetData("f1", Score26.Text)
             CasparCGDataCollection.SetData("f2", Score27.Text)
@@ -1633,7 +1633,7 @@ Public Class CasparTest2NoPvw
     Private Sub ChampTX2Btn_Click(sender As Object, e As EventArgs) Handles ChampTX2Btn.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.Clear()
-            CasparCGDataCollection.SetData("TITLE", ChampScoresTitle.Text)
+            CasparCGDataCollection.SetData("TITLE", ChampScoresTitle2.Text)
             CasparCGDataCollection.SetData("f0", ChampScore25.Text)
             CasparCGDataCollection.SetData("f1", ChampScore26.Text)
             CasparCGDataCollection.SetData("f2", ChampScore27.Text)
@@ -1724,7 +1724,7 @@ Public Class CasparTest2NoPvw
         End If
     End Sub
 
-    Private Sub saveDataChampBTN_Click(sender As Object, e As EventArgs) Handles saveDataChampBTN.Click
+    Private Sub saveDataChampBTN_Click(sender As Object, e As EventArgs)
         'first let's check if there is a file MyXML.xml into our application folder
         'if there wasn't a file something like that, then let's create a new one.
 
@@ -2054,7 +2054,7 @@ Public Class CasparTest2NoPvw
         ' End If
     End Sub
 
-    Private Sub loadDataChampBTN_Click(sender As Object, e As EventArgs) Handles loadDataChampBTN.Click
+    Private Sub loadDataChampBTN_Click(sender As Object, e As EventArgs)
         'check if file myxml.xml is existing
         If (IO.File.Exists("MyXML.xml")) Then
 
