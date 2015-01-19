@@ -3644,4 +3644,45 @@ Public Class CasparTest2NoPvw
         'awayScorers.Text = awayScorers.Text + GoalTime + "'    " + TrimmedNewAwayScorer + Environment.NewLine
         awayScorers.Items.Add(GoalTime + "'" + "    A.PLAYER")
     End Sub
+
+    Private Sub ReloadBackgroundsComboBx_Click(sender As Object, e As EventArgs) Handles ReloadBackgroundsComboBx.Click
+        If Me.CasparDevice.IsConnected = True Then
+            Dim File As Svt.Caspar.MediaInfo
+            CasparDevice.RefreshMediafiles()
+            'Clear list box in case of reload
+            backgrounds1.Items.Clear()
+            Threading.Thread.Sleep(250)
+
+            For Each File In CasparDevice.Mediafiles
+                backgrounds1.Items.Add((UCase(Replace((File.FullName), "\", "/"))))
+            Next
+        End If
+    End Sub
+
+
+    Private Sub msg1OnBtn_Click(sender As Object, e As EventArgs) Handles msg1OnBtn.Click
+        If Me.CasparDevice.IsConnected = True Then
+
+            CasparCGDataCollection.Clear() 'cgData.Clear()
+            CasparCGDataCollection.SetData("f0", msg1Title.Text)
+            CasparCGDataCollection.SetData("f1", msg1Line1.Text)
+            CasparCGDataCollection.SetData("f2", msg1Line2.Text)
+            CasparCGDataCollection.SetData("f3", msg1Line3.Text)
+            CasparCGDataCollection.SetData("f4", msg1Line4.Text)
+
+            CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+            CasparDevice.SendString("play 2-99 " & backgrounds1.Text)
+            msg1OnBtn.BackColor = Color.Green
+
+        End If
+    End Sub
+
+    Private Sub msg1OffBtn_Click(sender As Object, e As EventArgs) Handles msg1OffBtn.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.SendString("stop 2-99")
+            CasparDevice.Channels(1).CG.Stop(101)
+            msg1OnBtn.UseVisualStyleBackColor = True
+        End If
+    End Sub
 End Class

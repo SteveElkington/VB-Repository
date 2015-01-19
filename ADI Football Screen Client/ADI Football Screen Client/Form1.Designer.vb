@@ -173,6 +173,23 @@ Partial Class CasparTest2NoPvw
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.FT12 = New System.Windows.Forms.CheckBox()
+        Me.FT11 = New System.Windows.Forms.CheckBox()
+        Me.FT10 = New System.Windows.Forms.CheckBox()
+        Me.FT9 = New System.Windows.Forms.CheckBox()
+        Me.FT8 = New System.Windows.Forms.CheckBox()
+        Me.FT7 = New System.Windows.Forms.CheckBox()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.FT6 = New System.Windows.Forms.CheckBox()
+        Me.FT5 = New System.Windows.Forms.CheckBox()
+        Me.FT4 = New System.Windows.Forms.CheckBox()
+        Me.FT3 = New System.Windows.Forms.CheckBox()
+        Me.FT2 = New System.Windows.Forms.CheckBox()
+        Me.FT1 = New System.Windows.Forms.CheckBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.PremScoresTitle2 = New System.Windows.Forms.TextBox()
         Me.CheckBox24 = New System.Windows.Forms.CheckBox()
         Me.CheckBox23 = New System.Windows.Forms.CheckBox()
         Me.CheckBox22 = New System.Windows.Forms.CheckBox()
@@ -198,6 +215,23 @@ Partial Class CasparTest2NoPvw
         Me.middle14 = New System.Windows.Forms.ComboBox()
         Me.middle13 = New System.Windows.Forms.ComboBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.FT24 = New System.Windows.Forms.CheckBox()
+        Me.FT23 = New System.Windows.Forms.CheckBox()
+        Me.FT22 = New System.Windows.Forms.CheckBox()
+        Me.FT21 = New System.Windows.Forms.CheckBox()
+        Me.FT20 = New System.Windows.Forms.CheckBox()
+        Me.FT19 = New System.Windows.Forms.CheckBox()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.FT18 = New System.Windows.Forms.CheckBox()
+        Me.FT17 = New System.Windows.Forms.CheckBox()
+        Me.FT16 = New System.Windows.Forms.CheckBox()
+        Me.FT15 = New System.Windows.Forms.CheckBox()
+        Me.FT14 = New System.Windows.Forms.CheckBox()
+        Me.FT13 = New System.Windows.Forms.CheckBox()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.ChampScoresTitle2 = New System.Windows.Forms.TextBox()
         Me.middle12 = New System.Windows.Forms.ComboBox()
         Me.middle11 = New System.Windows.Forms.ComboBox()
         Me.middle10 = New System.Windows.Forms.ComboBox()
@@ -290,6 +324,8 @@ Partial Class CasparTest2NoPvw
         Me.showBigScore = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.unknownGoalAway = New System.Windows.Forms.Button()
+        Me.unknownGoalHome = New System.Windows.Forms.Button()
         Me.AwayHomeGoalBTN = New System.Windows.Forms.Button()
         Me.HomeOwnGoalBTN = New System.Windows.Forms.Button()
         Me.goalAway = New System.Windows.Forms.Button()
@@ -324,6 +360,10 @@ Partial Class CasparTest2NoPvw
         Me.playlistFilesInGame = New System.Windows.Forms.ListBox()
         Me.SourceFilesInGame = New System.Windows.Forms.ListBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.FullScreenSubsCheck = New System.Windows.Forms.RadioButton()
         Me.LowerThirdSubsCheck = New System.Windows.Forms.RadioButton()
         Me.AwayTeamSubsLabel = New System.Windows.Forms.Label()
@@ -335,6 +375,22 @@ Partial Class CasparTest2NoPvw
         Me.LTStrapHideBTN = New System.Windows.Forms.Button()
         Me.LTStrapKO = New System.Windows.Forms.TextBox()
         Me.LTStrapTXBTN = New System.Windows.Forms.Button()
+        Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.msg1OffBtn = New System.Windows.Forms.Button()
+        Me.msg1OnBtn = New System.Windows.Forms.Button()
+        Me.ReloadBackgroundsComboBx = New System.Windows.Forms.Button()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.backgrounds1 = New System.Windows.Forms.ComboBox()
+        Me.msg1Line4 = New System.Windows.Forms.TextBox()
+        Me.msg1Line3 = New System.Windows.Forms.TextBox()
+        Me.msg1Line2 = New System.Windows.Forms.TextBox()
+        Me.msg1Line1 = New System.Windows.Forms.TextBox()
+        Me.msg1Title = New System.Windows.Forms.TextBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
         Me.AwayScore = New System.Windows.Forms.TextBox()
         Me.awayThreeLetters = New System.Windows.Forms.TextBox()
         Me.HomeScore = New System.Windows.Forms.TextBox()
@@ -348,46 +404,6 @@ Partial Class CasparTest2NoPvw
         Me.TimeOfDayCLock = New System.Windows.Forms.Timer(Me.components)
         Me.BPlayChanFadeOut = New System.Windows.Forms.Timer(Me.components)
         Me.scoresFadeOut = New System.Windows.Forms.Timer(Me.components)
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.unknownGoalAway = New System.Windows.Forms.Button()
-        Me.unknownGoalHome = New System.Windows.Forms.Button()
-        Me.ChampScoresTitle2 = New System.Windows.Forms.TextBox()
-        Me.PremScoresTitle2 = New System.Windows.Forms.TextBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.FT6 = New System.Windows.Forms.CheckBox()
-        Me.FT5 = New System.Windows.Forms.CheckBox()
-        Me.FT4 = New System.Windows.Forms.CheckBox()
-        Me.FT3 = New System.Windows.Forms.CheckBox()
-        Me.FT2 = New System.Windows.Forms.CheckBox()
-        Me.FT1 = New System.Windows.Forms.CheckBox()
-        Me.FT12 = New System.Windows.Forms.CheckBox()
-        Me.FT11 = New System.Windows.Forms.CheckBox()
-        Me.FT10 = New System.Windows.Forms.CheckBox()
-        Me.FT9 = New System.Windows.Forms.CheckBox()
-        Me.FT8 = New System.Windows.Forms.CheckBox()
-        Me.FT7 = New System.Windows.Forms.CheckBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.FT18 = New System.Windows.Forms.CheckBox()
-        Me.FT17 = New System.Windows.Forms.CheckBox()
-        Me.FT16 = New System.Windows.Forms.CheckBox()
-        Me.FT15 = New System.Windows.Forms.CheckBox()
-        Me.FT14 = New System.Windows.Forms.CheckBox()
-        Me.FT13 = New System.Windows.Forms.CheckBox()
-        Me.Label20 = New System.Windows.Forms.Label()
-        Me.Label21 = New System.Windows.Forms.Label()
-        Me.FT24 = New System.Windows.Forms.CheckBox()
-        Me.FT23 = New System.Windows.Forms.CheckBox()
-        Me.FT22 = New System.Windows.Forms.CheckBox()
-        Me.FT21 = New System.Windows.Forms.CheckBox()
-        Me.FT20 = New System.Windows.Forms.CheckBox()
-        Me.FT19 = New System.Windows.Forms.CheckBox()
-        Me.Label22 = New System.Windows.Forms.Label()
-        Me.Label23 = New System.Windows.Forms.Label()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -406,6 +422,7 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.TabPage7.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -1217,6 +1234,7 @@ Partial Class CasparTest2NoPvw
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage5)
+        Me.TabControl1.Controls.Add(Me.TabPage7)
         Me.TabControl1.Location = New System.Drawing.Point(12, 100)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
@@ -1802,6 +1820,158 @@ Partial Class CasparTest2NoPvw
         Me.TabPage3.TabIndex = 0
         Me.TabPage3.Text = "Premiership Scores"
         '
+        'FT12
+        '
+        Me.FT12.AutoSize = True
+        Me.FT12.Location = New System.Drawing.Point(863, 183)
+        Me.FT12.Name = "FT12"
+        Me.FT12.Size = New System.Drawing.Size(15, 14)
+        Me.FT12.TabIndex = 142
+        Me.FT12.UseVisualStyleBackColor = True
+        '
+        'FT11
+        '
+        Me.FT11.AutoSize = True
+        Me.FT11.Location = New System.Drawing.Point(863, 156)
+        Me.FT11.Name = "FT11"
+        Me.FT11.Size = New System.Drawing.Size(15, 14)
+        Me.FT11.TabIndex = 141
+        Me.FT11.UseVisualStyleBackColor = True
+        '
+        'FT10
+        '
+        Me.FT10.AutoSize = True
+        Me.FT10.Location = New System.Drawing.Point(863, 131)
+        Me.FT10.Name = "FT10"
+        Me.FT10.Size = New System.Drawing.Size(15, 14)
+        Me.FT10.TabIndex = 140
+        Me.FT10.UseVisualStyleBackColor = True
+        '
+        'FT9
+        '
+        Me.FT9.AutoSize = True
+        Me.FT9.Location = New System.Drawing.Point(863, 105)
+        Me.FT9.Name = "FT9"
+        Me.FT9.Size = New System.Drawing.Size(15, 14)
+        Me.FT9.TabIndex = 139
+        Me.FT9.UseVisualStyleBackColor = True
+        '
+        'FT8
+        '
+        Me.FT8.AutoSize = True
+        Me.FT8.Location = New System.Drawing.Point(863, 79)
+        Me.FT8.Name = "FT8"
+        Me.FT8.Size = New System.Drawing.Size(15, 14)
+        Me.FT8.TabIndex = 138
+        Me.FT8.UseVisualStyleBackColor = True
+        '
+        'FT7
+        '
+        Me.FT7.AutoSize = True
+        Me.FT7.Location = New System.Drawing.Point(861, 53)
+        Me.FT7.Name = "FT7"
+        Me.FT7.Size = New System.Drawing.Size(15, 14)
+        Me.FT7.TabIndex = 137
+        Me.FT7.UseVisualStyleBackColor = True
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(858, 26)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(20, 13)
+        Me.Label18.TabIndex = 136
+        Me.Label18.Text = "FT"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(823, 26)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(29, 13)
+        Me.Label19.TabIndex = 135
+        Me.Label19.Text = "USE"
+        '
+        'FT6
+        '
+        Me.FT6.AutoSize = True
+        Me.FT6.Location = New System.Drawing.Point(423, 183)
+        Me.FT6.Name = "FT6"
+        Me.FT6.Size = New System.Drawing.Size(15, 14)
+        Me.FT6.TabIndex = 134
+        Me.FT6.UseVisualStyleBackColor = True
+        '
+        'FT5
+        '
+        Me.FT5.AutoSize = True
+        Me.FT5.Location = New System.Drawing.Point(423, 156)
+        Me.FT5.Name = "FT5"
+        Me.FT5.Size = New System.Drawing.Size(15, 14)
+        Me.FT5.TabIndex = 133
+        Me.FT5.UseVisualStyleBackColor = True
+        '
+        'FT4
+        '
+        Me.FT4.AutoSize = True
+        Me.FT4.Location = New System.Drawing.Point(423, 131)
+        Me.FT4.Name = "FT4"
+        Me.FT4.Size = New System.Drawing.Size(15, 14)
+        Me.FT4.TabIndex = 132
+        Me.FT4.UseVisualStyleBackColor = True
+        '
+        'FT3
+        '
+        Me.FT3.AutoSize = True
+        Me.FT3.Location = New System.Drawing.Point(423, 105)
+        Me.FT3.Name = "FT3"
+        Me.FT3.Size = New System.Drawing.Size(15, 14)
+        Me.FT3.TabIndex = 131
+        Me.FT3.UseVisualStyleBackColor = True
+        '
+        'FT2
+        '
+        Me.FT2.AutoSize = True
+        Me.FT2.Location = New System.Drawing.Point(423, 78)
+        Me.FT2.Name = "FT2"
+        Me.FT2.Size = New System.Drawing.Size(15, 14)
+        Me.FT2.TabIndex = 130
+        Me.FT2.UseVisualStyleBackColor = True
+        '
+        'FT1
+        '
+        Me.FT1.AutoSize = True
+        Me.FT1.Location = New System.Drawing.Point(423, 53)
+        Me.FT1.Name = "FT1"
+        Me.FT1.Size = New System.Drawing.Size(15, 14)
+        Me.FT1.TabIndex = 129
+        Me.FT1.UseVisualStyleBackColor = True
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(418, 26)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(20, 13)
+        Me.Label17.TabIndex = 128
+        Me.Label17.Text = "FT"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(383, 26)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(29, 13)
+        Me.Label16.TabIndex = 127
+        Me.Label16.Text = "USE"
+        '
+        'PremScoresTitle2
+        '
+        Me.PremScoresTitle2.Location = New System.Drawing.Point(460, 19)
+        Me.PremScoresTitle2.Name = "PremScoresTitle2"
+        Me.PremScoresTitle2.Size = New System.Drawing.Size(238, 20)
+        Me.PremScoresTitle2.TabIndex = 126
+        Me.PremScoresTitle2.Text = "LATEST SCORES"
+        '
         'CheckBox24
         '
         Me.CheckBox24.AutoSize = True
@@ -2145,6 +2315,158 @@ Partial Class CasparTest2NoPvw
         Me.TabPage4.Size = New System.Drawing.Size(927, 296)
         Me.TabPage4.TabIndex = 1
         Me.TabPage4.Text = "Championship Scores"
+        '
+        'FT24
+        '
+        Me.FT24.AutoSize = True
+        Me.FT24.Location = New System.Drawing.Point(864, 183)
+        Me.FT24.Name = "FT24"
+        Me.FT24.Size = New System.Drawing.Size(15, 14)
+        Me.FT24.TabIndex = 152
+        Me.FT24.UseVisualStyleBackColor = True
+        '
+        'FT23
+        '
+        Me.FT23.AutoSize = True
+        Me.FT23.Location = New System.Drawing.Point(864, 156)
+        Me.FT23.Name = "FT23"
+        Me.FT23.Size = New System.Drawing.Size(15, 14)
+        Me.FT23.TabIndex = 151
+        Me.FT23.UseVisualStyleBackColor = True
+        '
+        'FT22
+        '
+        Me.FT22.AutoSize = True
+        Me.FT22.Location = New System.Drawing.Point(864, 131)
+        Me.FT22.Name = "FT22"
+        Me.FT22.Size = New System.Drawing.Size(15, 14)
+        Me.FT22.TabIndex = 150
+        Me.FT22.UseVisualStyleBackColor = True
+        '
+        'FT21
+        '
+        Me.FT21.AutoSize = True
+        Me.FT21.Location = New System.Drawing.Point(864, 105)
+        Me.FT21.Name = "FT21"
+        Me.FT21.Size = New System.Drawing.Size(15, 14)
+        Me.FT21.TabIndex = 149
+        Me.FT21.UseVisualStyleBackColor = True
+        '
+        'FT20
+        '
+        Me.FT20.AutoSize = True
+        Me.FT20.Location = New System.Drawing.Point(864, 78)
+        Me.FT20.Name = "FT20"
+        Me.FT20.Size = New System.Drawing.Size(15, 14)
+        Me.FT20.TabIndex = 148
+        Me.FT20.UseVisualStyleBackColor = True
+        '
+        'FT19
+        '
+        Me.FT19.AutoSize = True
+        Me.FT19.Location = New System.Drawing.Point(864, 53)
+        Me.FT19.Name = "FT19"
+        Me.FT19.Size = New System.Drawing.Size(15, 14)
+        Me.FT19.TabIndex = 147
+        Me.FT19.UseVisualStyleBackColor = True
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(859, 26)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(20, 13)
+        Me.Label22.TabIndex = 146
+        Me.Label22.Text = "FT"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(824, 26)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(29, 13)
+        Me.Label23.TabIndex = 145
+        Me.Label23.Text = "USE"
+        '
+        'FT18
+        '
+        Me.FT18.AutoSize = True
+        Me.FT18.Location = New System.Drawing.Point(410, 183)
+        Me.FT18.Name = "FT18"
+        Me.FT18.Size = New System.Drawing.Size(15, 14)
+        Me.FT18.TabIndex = 144
+        Me.FT18.UseVisualStyleBackColor = True
+        '
+        'FT17
+        '
+        Me.FT17.AutoSize = True
+        Me.FT17.Location = New System.Drawing.Point(410, 156)
+        Me.FT17.Name = "FT17"
+        Me.FT17.Size = New System.Drawing.Size(15, 14)
+        Me.FT17.TabIndex = 143
+        Me.FT17.UseVisualStyleBackColor = True
+        '
+        'FT16
+        '
+        Me.FT16.AutoSize = True
+        Me.FT16.Location = New System.Drawing.Point(410, 131)
+        Me.FT16.Name = "FT16"
+        Me.FT16.Size = New System.Drawing.Size(15, 14)
+        Me.FT16.TabIndex = 142
+        Me.FT16.UseVisualStyleBackColor = True
+        '
+        'FT15
+        '
+        Me.FT15.AutoSize = True
+        Me.FT15.Location = New System.Drawing.Point(410, 105)
+        Me.FT15.Name = "FT15"
+        Me.FT15.Size = New System.Drawing.Size(15, 14)
+        Me.FT15.TabIndex = 141
+        Me.FT15.UseVisualStyleBackColor = True
+        '
+        'FT14
+        '
+        Me.FT14.AutoSize = True
+        Me.FT14.Location = New System.Drawing.Point(410, 78)
+        Me.FT14.Name = "FT14"
+        Me.FT14.Size = New System.Drawing.Size(15, 14)
+        Me.FT14.TabIndex = 140
+        Me.FT14.UseVisualStyleBackColor = True
+        '
+        'FT13
+        '
+        Me.FT13.AutoSize = True
+        Me.FT13.Location = New System.Drawing.Point(410, 53)
+        Me.FT13.Name = "FT13"
+        Me.FT13.Size = New System.Drawing.Size(15, 14)
+        Me.FT13.TabIndex = 139
+        Me.FT13.UseVisualStyleBackColor = True
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(405, 26)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(20, 13)
+        Me.Label20.TabIndex = 138
+        Me.Label20.Text = "FT"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(370, 26)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(29, 13)
+        Me.Label21.TabIndex = 137
+        Me.Label21.Text = "USE"
+        '
+        'ChampScoresTitle2
+        '
+        Me.ChampScoresTitle2.Location = New System.Drawing.Point(456, 19)
+        Me.ChampScoresTitle2.Name = "ChampScoresTitle2"
+        Me.ChampScoresTitle2.Size = New System.Drawing.Size(240, 20)
+        Me.ChampScoresTitle2.TabIndex = 136
+        Me.ChampScoresTitle2.Text = "LATEST SCORES"
         '
         'middle12
         '
@@ -2924,6 +3246,24 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Scoring"
         '
+        'unknownGoalAway
+        '
+        Me.unknownGoalAway.Location = New System.Drawing.Point(246, 389)
+        Me.unknownGoalAway.Name = "unknownGoalAway"
+        Me.unknownGoalAway.Size = New System.Drawing.Size(220, 23)
+        Me.unknownGoalAway.TabIndex = 34
+        Me.unknownGoalAway.Text = "GOAL - Unknown Scorer"
+        Me.unknownGoalAway.UseVisualStyleBackColor = True
+        '
+        'unknownGoalHome
+        '
+        Me.unknownGoalHome.Location = New System.Drawing.Point(4, 389)
+        Me.unknownGoalHome.Name = "unknownGoalHome"
+        Me.unknownGoalHome.Size = New System.Drawing.Size(220, 23)
+        Me.unknownGoalHome.TabIndex = 33
+        Me.unknownGoalHome.Text = "GOAL - Unknown Scorer"
+        Me.unknownGoalHome.UseVisualStyleBackColor = True
+        '
         'AwayHomeGoalBTN
         '
         Me.AwayHomeGoalBTN.Location = New System.Drawing.Point(246, 418)
@@ -3268,6 +3608,46 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Subs"
         '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.ForeColor = System.Drawing.Color.Red
+        Me.Label14.Location = New System.Drawing.Point(194, 77)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(30, 13)
+        Me.Label14.TabIndex = 22
+        Me.Label14.Text = "OFF:"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.ForeColor = System.Drawing.Color.Green
+        Me.Label15.Location = New System.Drawing.Point(198, 50)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(26, 13)
+        Me.Label15.TabIndex = 21
+        Me.Label15.Text = "ON:"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.ForeColor = System.Drawing.Color.Red
+        Me.Label13.Location = New System.Drawing.Point(19, 77)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(30, 13)
+        Me.Label13.TabIndex = 20
+        Me.Label13.Text = "OFF:"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.ForeColor = System.Drawing.Color.Green
+        Me.Label12.Location = New System.Drawing.Point(23, 50)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(26, 13)
+        Me.Label12.TabIndex = 19
+        Me.Label12.Text = "ON:"
+        '
         'FullScreenSubsCheck
         '
         Me.FullScreenSubsCheck.AutoSize = True
@@ -3379,6 +3759,154 @@ Partial Class CasparTest2NoPvw
         Me.LTStrapTXBTN.Text = "Show"
         Me.LTStrapTXBTN.UseVisualStyleBackColor = True
         '
+        'TabPage7
+        '
+        Me.TabPage7.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage7.Controls.Add(Me.msg1OffBtn)
+        Me.TabPage7.Controls.Add(Me.msg1OnBtn)
+        Me.TabPage7.Controls.Add(Me.ReloadBackgroundsComboBx)
+        Me.TabPage7.Controls.Add(Me.Label29)
+        Me.TabPage7.Controls.Add(Me.backgrounds1)
+        Me.TabPage7.Controls.Add(Me.msg1Line4)
+        Me.TabPage7.Controls.Add(Me.msg1Line3)
+        Me.TabPage7.Controls.Add(Me.msg1Line2)
+        Me.TabPage7.Controls.Add(Me.msg1Line1)
+        Me.TabPage7.Controls.Add(Me.msg1Title)
+        Me.TabPage7.Controls.Add(Me.Label28)
+        Me.TabPage7.Controls.Add(Me.Label27)
+        Me.TabPage7.Controls.Add(Me.Label26)
+        Me.TabPage7.Controls.Add(Me.Label25)
+        Me.TabPage7.Controls.Add(Me.Label24)
+        Me.TabPage7.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage7.Name = "TabPage7"
+        Me.TabPage7.Size = New System.Drawing.Size(1252, 609)
+        Me.TabPage7.TabIndex = 4
+        Me.TabPage7.Text = "Generic Messages"
+        '
+        'msg1OffBtn
+        '
+        Me.msg1OffBtn.Location = New System.Drawing.Point(163, 228)
+        Me.msg1OffBtn.Name = "msg1OffBtn"
+        Me.msg1OffBtn.Size = New System.Drawing.Size(133, 23)
+        Me.msg1OffBtn.TabIndex = 14
+        Me.msg1OffBtn.Text = "Message Off"
+        Me.msg1OffBtn.UseVisualStyleBackColor = True
+        '
+        'msg1OnBtn
+        '
+        Me.msg1OnBtn.Location = New System.Drawing.Point(26, 228)
+        Me.msg1OnBtn.Name = "msg1OnBtn"
+        Me.msg1OnBtn.Size = New System.Drawing.Size(133, 23)
+        Me.msg1OnBtn.TabIndex = 13
+        Me.msg1OnBtn.Text = "Message On"
+        Me.msg1OnBtn.UseVisualStyleBackColor = True
+        '
+        'ReloadBackgroundsComboBx
+        '
+        Me.ReloadBackgroundsComboBx.Location = New System.Drawing.Point(224, 185)
+        Me.ReloadBackgroundsComboBx.Name = "ReloadBackgroundsComboBx"
+        Me.ReloadBackgroundsComboBx.Size = New System.Drawing.Size(72, 23)
+        Me.ReloadBackgroundsComboBx.TabIndex = 12
+        Me.ReloadBackgroundsComboBx.Text = "Reload"
+        Me.ReloadBackgroundsComboBx.UseVisualStyleBackColor = True
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(23, 190)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(68, 13)
+        Me.Label29.TabIndex = 11
+        Me.Label29.Text = "Background:"
+        '
+        'backgrounds1
+        '
+        Me.backgrounds1.FormattingEnabled = True
+        Me.backgrounds1.Location = New System.Drawing.Point(97, 187)
+        Me.backgrounds1.Name = "backgrounds1"
+        Me.backgrounds1.Size = New System.Drawing.Size(121, 21)
+        Me.backgrounds1.TabIndex = 10
+        '
+        'msg1Line4
+        '
+        Me.msg1Line4.Location = New System.Drawing.Point(97, 161)
+        Me.msg1Line4.Name = "msg1Line4"
+        Me.msg1Line4.Size = New System.Drawing.Size(199, 20)
+        Me.msg1Line4.TabIndex = 9
+        '
+        'msg1Line3
+        '
+        Me.msg1Line3.Location = New System.Drawing.Point(97, 135)
+        Me.msg1Line3.Name = "msg1Line3"
+        Me.msg1Line3.Size = New System.Drawing.Size(199, 20)
+        Me.msg1Line3.TabIndex = 8
+        '
+        'msg1Line2
+        '
+        Me.msg1Line2.Location = New System.Drawing.Point(97, 109)
+        Me.msg1Line2.Name = "msg1Line2"
+        Me.msg1Line2.Size = New System.Drawing.Size(199, 20)
+        Me.msg1Line2.TabIndex = 7
+        '
+        'msg1Line1
+        '
+        Me.msg1Line1.Location = New System.Drawing.Point(97, 83)
+        Me.msg1Line1.Name = "msg1Line1"
+        Me.msg1Line1.Size = New System.Drawing.Size(199, 20)
+        Me.msg1Line1.TabIndex = 6
+        '
+        'msg1Title
+        '
+        Me.msg1Title.Location = New System.Drawing.Point(97, 49)
+        Me.msg1Title.Name = "msg1Title"
+        Me.msg1Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg1Title.TabIndex = 5
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(52, 164)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(39, 13)
+        Me.Label28.TabIndex = 4
+        Me.Label28.Text = "Line 4:"
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(52, 138)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(39, 13)
+        Me.Label27.TabIndex = 3
+        Me.Label27.Text = "Line 3:"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(52, 112)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(39, 13)
+        Me.Label26.TabIndex = 2
+        Me.Label26.Text = "Line 2:"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(52, 86)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(39, 13)
+        Me.Label25.TabIndex = 1
+        Me.Label25.Text = "Line 1:"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(61, 52)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(30, 13)
+        Me.Label24.TabIndex = 0
+        Me.Label24.Text = "Title:"
+        '
         'AwayScore
         '
         Me.AwayScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -3484,368 +4012,6 @@ Partial Class CasparTest2NoPvw
         'scoresFadeOut
         '
         '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.ForeColor = System.Drawing.Color.Green
-        Me.Label12.Location = New System.Drawing.Point(23, 50)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(26, 13)
-        Me.Label12.TabIndex = 19
-        Me.Label12.Text = "ON:"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.ForeColor = System.Drawing.Color.Red
-        Me.Label13.Location = New System.Drawing.Point(19, 77)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(30, 13)
-        Me.Label13.TabIndex = 20
-        Me.Label13.Text = "OFF:"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.ForeColor = System.Drawing.Color.Red
-        Me.Label14.Location = New System.Drawing.Point(194, 77)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(30, 13)
-        Me.Label14.TabIndex = 22
-        Me.Label14.Text = "OFF:"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.ForeColor = System.Drawing.Color.Green
-        Me.Label15.Location = New System.Drawing.Point(198, 50)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(26, 13)
-        Me.Label15.TabIndex = 21
-        Me.Label15.Text = "ON:"
-        '
-        'unknownGoalAway
-        '
-        Me.unknownGoalAway.Location = New System.Drawing.Point(246, 389)
-        Me.unknownGoalAway.Name = "unknownGoalAway"
-        Me.unknownGoalAway.Size = New System.Drawing.Size(220, 23)
-        Me.unknownGoalAway.TabIndex = 34
-        Me.unknownGoalAway.Text = "GOAL - Unknown Scorer"
-        Me.unknownGoalAway.UseVisualStyleBackColor = True
-        '
-        'unknownGoalHome
-        '
-        Me.unknownGoalHome.Location = New System.Drawing.Point(4, 389)
-        Me.unknownGoalHome.Name = "unknownGoalHome"
-        Me.unknownGoalHome.Size = New System.Drawing.Size(220, 23)
-        Me.unknownGoalHome.TabIndex = 33
-        Me.unknownGoalHome.Text = "GOAL - Unknown Scorer"
-        Me.unknownGoalHome.UseVisualStyleBackColor = True
-        '
-        'ChampScoresTitle2
-        '
-        Me.ChampScoresTitle2.Location = New System.Drawing.Point(456, 19)
-        Me.ChampScoresTitle2.Name = "ChampScoresTitle2"
-        Me.ChampScoresTitle2.Size = New System.Drawing.Size(240, 20)
-        Me.ChampScoresTitle2.TabIndex = 136
-        Me.ChampScoresTitle2.Text = "LATEST SCORES"
-        '
-        'PremScoresTitle2
-        '
-        Me.PremScoresTitle2.Location = New System.Drawing.Point(460, 19)
-        Me.PremScoresTitle2.Name = "PremScoresTitle2"
-        Me.PremScoresTitle2.Size = New System.Drawing.Size(238, 20)
-        Me.PremScoresTitle2.TabIndex = 126
-        Me.PremScoresTitle2.Text = "LATEST SCORES"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(383, 26)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(29, 13)
-        Me.Label16.TabIndex = 127
-        Me.Label16.Text = "USE"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(418, 26)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(20, 13)
-        Me.Label17.TabIndex = 128
-        Me.Label17.Text = "FT"
-        '
-        'FT6
-        '
-        Me.FT6.AutoSize = True
-        Me.FT6.Location = New System.Drawing.Point(423, 183)
-        Me.FT6.Name = "FT6"
-        Me.FT6.Size = New System.Drawing.Size(15, 14)
-        Me.FT6.TabIndex = 134
-        Me.FT6.UseVisualStyleBackColor = True
-        '
-        'FT5
-        '
-        Me.FT5.AutoSize = True
-        Me.FT5.Location = New System.Drawing.Point(423, 156)
-        Me.FT5.Name = "FT5"
-        Me.FT5.Size = New System.Drawing.Size(15, 14)
-        Me.FT5.TabIndex = 133
-        Me.FT5.UseVisualStyleBackColor = True
-        '
-        'FT4
-        '
-        Me.FT4.AutoSize = True
-        Me.FT4.Location = New System.Drawing.Point(423, 131)
-        Me.FT4.Name = "FT4"
-        Me.FT4.Size = New System.Drawing.Size(15, 14)
-        Me.FT4.TabIndex = 132
-        Me.FT4.UseVisualStyleBackColor = True
-        '
-        'FT3
-        '
-        Me.FT3.AutoSize = True
-        Me.FT3.Location = New System.Drawing.Point(423, 105)
-        Me.FT3.Name = "FT3"
-        Me.FT3.Size = New System.Drawing.Size(15, 14)
-        Me.FT3.TabIndex = 131
-        Me.FT3.UseVisualStyleBackColor = True
-        '
-        'FT2
-        '
-        Me.FT2.AutoSize = True
-        Me.FT2.Location = New System.Drawing.Point(423, 78)
-        Me.FT2.Name = "FT2"
-        Me.FT2.Size = New System.Drawing.Size(15, 14)
-        Me.FT2.TabIndex = 130
-        Me.FT2.UseVisualStyleBackColor = True
-        '
-        'FT1
-        '
-        Me.FT1.AutoSize = True
-        Me.FT1.Location = New System.Drawing.Point(423, 53)
-        Me.FT1.Name = "FT1"
-        Me.FT1.Size = New System.Drawing.Size(15, 14)
-        Me.FT1.TabIndex = 129
-        Me.FT1.UseVisualStyleBackColor = True
-        '
-        'FT12
-        '
-        Me.FT12.AutoSize = True
-        Me.FT12.Location = New System.Drawing.Point(863, 183)
-        Me.FT12.Name = "FT12"
-        Me.FT12.Size = New System.Drawing.Size(15, 14)
-        Me.FT12.TabIndex = 142
-        Me.FT12.UseVisualStyleBackColor = True
-        '
-        'FT11
-        '
-        Me.FT11.AutoSize = True
-        Me.FT11.Location = New System.Drawing.Point(863, 156)
-        Me.FT11.Name = "FT11"
-        Me.FT11.Size = New System.Drawing.Size(15, 14)
-        Me.FT11.TabIndex = 141
-        Me.FT11.UseVisualStyleBackColor = True
-        '
-        'FT10
-        '
-        Me.FT10.AutoSize = True
-        Me.FT10.Location = New System.Drawing.Point(863, 131)
-        Me.FT10.Name = "FT10"
-        Me.FT10.Size = New System.Drawing.Size(15, 14)
-        Me.FT10.TabIndex = 140
-        Me.FT10.UseVisualStyleBackColor = True
-        '
-        'FT9
-        '
-        Me.FT9.AutoSize = True
-        Me.FT9.Location = New System.Drawing.Point(863, 105)
-        Me.FT9.Name = "FT9"
-        Me.FT9.Size = New System.Drawing.Size(15, 14)
-        Me.FT9.TabIndex = 139
-        Me.FT9.UseVisualStyleBackColor = True
-        '
-        'FT8
-        '
-        Me.FT8.AutoSize = True
-        Me.FT8.Location = New System.Drawing.Point(863, 79)
-        Me.FT8.Name = "FT8"
-        Me.FT8.Size = New System.Drawing.Size(15, 14)
-        Me.FT8.TabIndex = 138
-        Me.FT8.UseVisualStyleBackColor = True
-        '
-        'FT7
-        '
-        Me.FT7.AutoSize = True
-        Me.FT7.Location = New System.Drawing.Point(861, 53)
-        Me.FT7.Name = "FT7"
-        Me.FT7.Size = New System.Drawing.Size(15, 14)
-        Me.FT7.TabIndex = 137
-        Me.FT7.UseVisualStyleBackColor = True
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(858, 26)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(20, 13)
-        Me.Label18.TabIndex = 136
-        Me.Label18.Text = "FT"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(823, 26)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(29, 13)
-        Me.Label19.TabIndex = 135
-        Me.Label19.Text = "USE"
-        '
-        'FT18
-        '
-        Me.FT18.AutoSize = True
-        Me.FT18.Location = New System.Drawing.Point(410, 183)
-        Me.FT18.Name = "FT18"
-        Me.FT18.Size = New System.Drawing.Size(15, 14)
-        Me.FT18.TabIndex = 144
-        Me.FT18.UseVisualStyleBackColor = True
-        '
-        'FT17
-        '
-        Me.FT17.AutoSize = True
-        Me.FT17.Location = New System.Drawing.Point(410, 156)
-        Me.FT17.Name = "FT17"
-        Me.FT17.Size = New System.Drawing.Size(15, 14)
-        Me.FT17.TabIndex = 143
-        Me.FT17.UseVisualStyleBackColor = True
-        '
-        'FT16
-        '
-        Me.FT16.AutoSize = True
-        Me.FT16.Location = New System.Drawing.Point(410, 131)
-        Me.FT16.Name = "FT16"
-        Me.FT16.Size = New System.Drawing.Size(15, 14)
-        Me.FT16.TabIndex = 142
-        Me.FT16.UseVisualStyleBackColor = True
-        '
-        'FT15
-        '
-        Me.FT15.AutoSize = True
-        Me.FT15.Location = New System.Drawing.Point(410, 105)
-        Me.FT15.Name = "FT15"
-        Me.FT15.Size = New System.Drawing.Size(15, 14)
-        Me.FT15.TabIndex = 141
-        Me.FT15.UseVisualStyleBackColor = True
-        '
-        'FT14
-        '
-        Me.FT14.AutoSize = True
-        Me.FT14.Location = New System.Drawing.Point(410, 78)
-        Me.FT14.Name = "FT14"
-        Me.FT14.Size = New System.Drawing.Size(15, 14)
-        Me.FT14.TabIndex = 140
-        Me.FT14.UseVisualStyleBackColor = True
-        '
-        'FT13
-        '
-        Me.FT13.AutoSize = True
-        Me.FT13.Location = New System.Drawing.Point(410, 53)
-        Me.FT13.Name = "FT13"
-        Me.FT13.Size = New System.Drawing.Size(15, 14)
-        Me.FT13.TabIndex = 139
-        Me.FT13.UseVisualStyleBackColor = True
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(405, 26)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(20, 13)
-        Me.Label20.TabIndex = 138
-        Me.Label20.Text = "FT"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(370, 26)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(29, 13)
-        Me.Label21.TabIndex = 137
-        Me.Label21.Text = "USE"
-        '
-        'FT24
-        '
-        Me.FT24.AutoSize = True
-        Me.FT24.Location = New System.Drawing.Point(864, 183)
-        Me.FT24.Name = "FT24"
-        Me.FT24.Size = New System.Drawing.Size(15, 14)
-        Me.FT24.TabIndex = 152
-        Me.FT24.UseVisualStyleBackColor = True
-        '
-        'FT23
-        '
-        Me.FT23.AutoSize = True
-        Me.FT23.Location = New System.Drawing.Point(864, 156)
-        Me.FT23.Name = "FT23"
-        Me.FT23.Size = New System.Drawing.Size(15, 14)
-        Me.FT23.TabIndex = 151
-        Me.FT23.UseVisualStyleBackColor = True
-        '
-        'FT22
-        '
-        Me.FT22.AutoSize = True
-        Me.FT22.Location = New System.Drawing.Point(864, 131)
-        Me.FT22.Name = "FT22"
-        Me.FT22.Size = New System.Drawing.Size(15, 14)
-        Me.FT22.TabIndex = 150
-        Me.FT22.UseVisualStyleBackColor = True
-        '
-        'FT21
-        '
-        Me.FT21.AutoSize = True
-        Me.FT21.Location = New System.Drawing.Point(864, 105)
-        Me.FT21.Name = "FT21"
-        Me.FT21.Size = New System.Drawing.Size(15, 14)
-        Me.FT21.TabIndex = 149
-        Me.FT21.UseVisualStyleBackColor = True
-        '
-        'FT20
-        '
-        Me.FT20.AutoSize = True
-        Me.FT20.Location = New System.Drawing.Point(864, 78)
-        Me.FT20.Name = "FT20"
-        Me.FT20.Size = New System.Drawing.Size(15, 14)
-        Me.FT20.TabIndex = 148
-        Me.FT20.UseVisualStyleBackColor = True
-        '
-        'FT19
-        '
-        Me.FT19.AutoSize = True
-        Me.FT19.Location = New System.Drawing.Point(864, 53)
-        Me.FT19.Name = "FT19"
-        Me.FT19.Size = New System.Drawing.Size(15, 14)
-        Me.FT19.TabIndex = 147
-        Me.FT19.UseVisualStyleBackColor = True
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(859, 26)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(20, 13)
-        Me.Label22.TabIndex = 146
-        Me.Label22.Text = "FT"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(824, 26)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(29, 13)
-        Me.Label23.TabIndex = 145
-        Me.Label23.Text = "USE"
-        '
         'CasparTest2NoPvw
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3899,6 +4065,8 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.TabPage7.ResumeLayout(False)
+        Me.TabPage7.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -4268,5 +4436,21 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents FT13 As System.Windows.Forms.CheckBox
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents TabPage7 As System.Windows.Forms.TabPage
+    Friend WithEvents msg1OffBtn As System.Windows.Forms.Button
+    Friend WithEvents msg1OnBtn As System.Windows.Forms.Button
+    Friend WithEvents ReloadBackgroundsComboBx As System.Windows.Forms.Button
+    Friend WithEvents Label29 As System.Windows.Forms.Label
+    Friend WithEvents backgrounds1 As System.Windows.Forms.ComboBox
+    Friend WithEvents msg1Line4 As System.Windows.Forms.TextBox
+    Friend WithEvents msg1Line3 As System.Windows.Forms.TextBox
+    Friend WithEvents msg1Line2 As System.Windows.Forms.TextBox
+    Friend WithEvents msg1Line1 As System.Windows.Forms.TextBox
+    Friend WithEvents msg1Title As System.Windows.Forms.TextBox
+    Friend WithEvents Label28 As System.Windows.Forms.Label
+    Friend WithEvents Label27 As System.Windows.Forms.Label
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents Label24 As System.Windows.Forms.Label
 
 End Class
