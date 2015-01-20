@@ -80,7 +80,8 @@ Public Class CasparTest2NoPvw
     Private Sub StartBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StartBtn.Click
         OnScreenClock.Enabled = True
         aa = Val(Now.Second.ToString) 'new code
-
+        'disable button so cant be re-pressed
+        StartBtn.Enabled = False
     End Sub
 
     Private Sub ResetBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ResetBtn.Click
@@ -98,27 +99,33 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(0).CG.Stop(4)
 
         End If
-
+        're-enable start button 
+        StartBtn.Enabled = True
     End Sub
 
 
     Private Sub showClock_Click(sender As Object, e As EventArgs) Handles showClock.Click
-        CasparCGDataCollection.Clear()
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear()
 
-        CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
-        'note - the following are only for Jamies graphics
-        CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
-        CasparCGDataCollection.SetData("f2", HomeScore.Text)
-        CasparCGDataCollection.SetData("f3", AwayScore.Text)
-        CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
-        ' showing
-        CasparDevice.Channels(0).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
-        CasparDevice.Channels(0).CG.Play(401)
-        CasparDevice.SendString("play 1-400 EFC-CLOCK")
+            CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
+            'note - the following are only for Jamies graphics
+            CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
+            CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
+            ' showing
+            CasparDevice.Channels(0).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(401)
+            CasparDevice.SendString("play 1-400 EFC-CLOCK")
 
-        showClock.BackColor = Color.Green
-        ShowClockInGameBTN.BackColor = Color.Green
-
+            showClock.BackColor = Color.Green
+            ShowClockInGameBTN.BackColor = Color.Green
+            'disbale button so cant be re-pressed
+            showClock.Enabled = False
+            startAndShowClockBTN.Enabled = False
+            ShowClockInGameBTN.Enabled = False
+        End If
     End Sub
 
     Private Sub HideClock_Click(sender As Object, e As EventArgs) Handles HideClock.Click
@@ -138,6 +145,10 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("stop 1-390")
             showAddedTimeBTN.BackColor = Color.FromKnownColor(KnownColor.Control)
             showAddedTimeBTN.UseVisualStyleBackColor = True
+            're-enable show button
+            showClock.Enabled = True
+            startAndShowClockBTN.Enabled = True
+            ShowClockInGameBTN.Enabled = True
         End If
     End Sub
 
@@ -180,6 +191,9 @@ Public Class CasparTest2NoPvw
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
             CasparDevice.SendString("play 1-103 LTFlare")
             CrawlOn.BackColor = Color.Green
+            'disable button
+            CrawlOn.Enabled = False
+
             crawlToggle = True
         End If
     End Sub
@@ -197,7 +211,8 @@ Public Class CasparTest2NoPvw
             CrawlOn.UseVisualStyleBackColor = True
             crawlToggle = False
 
-
+            're-enable button
+            CrawlOn.Enabled = True
         End If
     End Sub
 
@@ -294,7 +309,8 @@ Public Class CasparTest2NoPvw
                     showSub.BackColor = Color.Green
                 End If
 
-
+                'disable button
+                showSub.Enabled = False
             End If
         End If
     End Sub
@@ -319,8 +335,10 @@ Public Class CasparTest2NoPvw
 
             End If
             showSub.BackColor = Color.FromKnownColor(KnownColor.Control)
-
             showSub.UseVisualStyleBackColor = True
+            're-enable button
+            showSub.Enabled = True
+
 
             'and to switch round the subs with their first eleven player
             Dim subOnIndex = SubOn.SelectedIndex
@@ -348,9 +366,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub ShowTeamSheet_Click(sender As Object, e As EventArgs) Handles ShowTeamSheet.Click
         If Me.CasparDevice.IsConnected = True Then
-            ' If Me.SubOff.SelectedIndex >= 0 Then
-            'CasparDevice.Channels(0).CG.Stop(2)
-            CasparCGDataCollection.Clear() 'cgData.Clear()
+            CasparCGDataCollection.Clear()
 
             For i As Integer = 0 To ListBox1.Items.Count - 8
                 CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
@@ -360,13 +376,11 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("play 2-102 FIRST_11")
             CasparDevice.SendString("play 2-100 efcTeamSheet")
             ShowTeamSheet.BackColor = Color.Green
-            'other buttons not green
-            'ShowTeamSheet.UseVisualStyleBackColor = True
             ShowSubsSheet.UseVisualStyleBackColor = True
-            'HomeTSPVW.UseVisualStyleBackColor = True
 
 
-            'End If
+            'disable button so cant be pressed again
+            ShowTeamSheet.Enabled = False
         End If
     End Sub
 
@@ -384,7 +398,9 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Stop(101)
             CasparDevice.SendString("stop 2-102")
             'CasparDevice.SendString("stop 2-100")
-
+            're-enable buttons
+            ShowTeamSheet.Enabled = True
+            ShowSubsSheet.Enabled = True
         End If
     End Sub
 
@@ -403,7 +419,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("play 2-100 efcTeamSubs")
             ShowSubsSheet.BackColor = Color.Green
             ShowTeamSheet.UseVisualStyleBackColor = True
-
+            'disable button so cant be pressed again
+            ShowSubsSheet.Enabled = False
         End If
     End Sub
 
@@ -514,6 +531,9 @@ Public Class CasparTest2NoPvw
             showPremScores.BackColor = Color.Green
             TXPremScores_2BTN.UseVisualStyleBackColor = True
 
+            'disable button
+            showPremScores.Enabled = False
+
         End If
     End Sub
 
@@ -534,6 +554,9 @@ Public Class CasparTest2NoPvw
             showPremScores.UseVisualStyleBackColor = True
             showPremScores.UseVisualStyleBackColor = True
             TXPremScores_2BTN.UseVisualStyleBackColor = True
+            'disable button
+            showPremScores.Enabled = True
+
         End If
     End Sub
 
@@ -1134,8 +1157,9 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("play 2-100 awayEFCTeamSheet")
             ShowAwayFirstEleven.BackColor = Color.Green
             ShowAwaySubsSheet.UseVisualStyleBackColor = True
-
-            'PVWAwayTeam.UseVisualStyleBackColor = True
+            ShowSubsSheet.UseVisualStyleBackColor = True
+            ' disable button so cant be pressed again
+            ShowAwayFirstEleven.Enabled = False
         End If
     End Sub
 
@@ -1153,6 +1177,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("play 2-100 awayTeamSubs")
             ShowAwaySubsSheet.BackColor = Color.Green
             ShowAwayFirstEleven.UseVisualStyleBackColor = True
+            ' disable button so cant be pressed again
+            ShowAwaySubsSheet.Enabled = False
         End If
     End Sub
 
@@ -1167,8 +1193,11 @@ Public Class CasparTest2NoPvw
             ShowAwaySubsSheet.BackColor = Color.FromKnownColor(KnownColor.Control)
             ShowAwayFirstEleven.UseVisualStyleBackColor = True
             ShowAwaySubsSheet.UseVisualStyleBackColor = True
-
-
+            're-enable buttons
+            ShowAwayFirstEleven.Enabled = True
+            ShowAwaySubsSheet.Enabled = True
+            ShowTeamSheet.Enabled = True
+            ShowSubsSheet.Enabled = True
         End If
     End Sub
 
@@ -1195,7 +1224,8 @@ Public Class CasparTest2NoPvw
                     ' showSub.BackColor = Color.Green
                 End If
                 AwaySubOn.BackColor = Color.Green
-
+                'disable button
+                AwaySubOn.Enabled = False
             End If
         End If
     End Sub
@@ -1220,7 +1250,8 @@ Public Class CasparTest2NoPvw
             End If
             AwaySubOn.BackColor = Color.FromKnownColor(KnownColor.Control)
             AwaySubOn.UseVisualStyleBackColor = True
-
+            're-enable button
+            AwaySubOn.Enabled = True
 
             'and to switch round the subs with their first eleven player
             Dim aw_subOnIndex = aw_subOn.SelectedIndex
@@ -1385,6 +1416,8 @@ Public Class CasparTest2NoPvw
                 CasparDevice.SendString("play 2-100 efc_bigScoreBack")
                 '"play 1-1 " & ListBox3.Text & " loop auto"
                 showBigScore.BackColor = Color.Green
+                'disabale button
+                showBigScore.Enabled = False
 
             End If
         Else
@@ -1400,7 +1433,8 @@ Public Class CasparTest2NoPvw
             countTimer.Enabled = True
             showBigScore.BackColor = Color.FromKnownColor(KnownColor.Control)
             showBigScore.UseVisualStyleBackColor = True
-
+            'reenable button
+            showBigScore.Enabled = True
         End If
     End Sub
 
@@ -1427,6 +1461,11 @@ Public Class CasparTest2NoPvw
         showClock.BackColor = Color.Green
         'Timer3.Enabled = True
         'Timer2.Enabled = True
+
+        'disbale button so cant be re-pressed
+        showClock.Enabled = False
+        startAndShowClockBTN.Enabled = False
+        ShowClockInGameBTN.Enabled = False
     End Sub
 
     Private Sub TXPremScores_2BTN_Click(sender As Object, e As EventArgs) Handles TXPremScores_2BTN.Click
@@ -1524,6 +1563,10 @@ Public Class CasparTest2NoPvw
             'stop preview
             'CasparDevice.Channels(1).CG.Stop(101)
             ' CasparDevice.SendString("stop 2-100")
+
+            'disable button
+            TXPremScores_2BTN.Enabled = False
+            showPremScores.Enabled = True
         End If
     End Sub
 
@@ -1544,6 +1587,11 @@ Public Class CasparTest2NoPvw
             showPremScores.BackColor = Color.FromKnownColor(KnownColor.Control)
             showPremScores.UseVisualStyleBackColor = True
             TXPremScores_2BTN.UseVisualStyleBackColor = True
+
+            'reenable buttons
+            'disable button
+            showPremScores.Enabled = True
+            TXPremScores_2BTN.Enabled = True
         End If
     End Sub
 
@@ -1673,6 +1721,9 @@ Public Class CasparTest2NoPvw
             ChampTX1Btn.BackColor = Color.Green
             ChampTX2Btn.UseVisualStyleBackColor = True
 
+            'disable button
+            ChampHide1BTN.Enabled = False
+
         End If
     End Sub
 
@@ -1693,6 +1744,8 @@ Public Class CasparTest2NoPvw
             ChampTX1Btn.UseVisualStyleBackColor = True
             ChampTX2Btn.UseVisualStyleBackColor = True
 
+            're-enable button
+            ChampHide1BTN.Enabled = True
         End If
     End Sub
 
@@ -1787,6 +1840,11 @@ Public Class CasparTest2NoPvw
             ChampTX2Btn.BackColor = Color.Green
             ChampTX1Btn.UseVisualStyleBackColor = True
 
+            'disable button
+            ChampHide2BTN.Enabled = False
+
+            'disable button
+            ChampHide1BTN.Enabled = True
         End If
     End Sub
 
@@ -1807,6 +1865,9 @@ Public Class CasparTest2NoPvw
             ChampTX1Btn.UseVisualStyleBackColor = True
             ChampTX2Btn.UseVisualStyleBackColor = True
 
+            'disable button
+            ChampHide1BTN.Enabled = True
+            ChampHide2BTN.Enabled = True
         End If
     End Sub
 
@@ -2364,6 +2425,8 @@ Public Class CasparTest2NoPvw
 
                 '"play 1-1 " & ListBox3.Text & " loop auto"
                 LTStrapTXBTN.BackColor = Color.Green
+                'disable button
+                LTStrapTXBTN.Enabled = False
             Else
                 MessageBox.Show("You need to load some squad sheets", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
@@ -2379,7 +2442,8 @@ Public Class CasparTest2NoPvw
             BPlayChanFadeOut.Enabled = True
             LTStrapTXBTN.BackColor = Color.FromKnownColor(KnownColor.Control)
             LTStrapTXBTN.UseVisualStyleBackColor = True
-
+            're-enebla button
+            LTStrapTXBTN.Enabled = True
         End If
     End Sub
 
@@ -2587,6 +2651,10 @@ Public Class CasparTest2NoPvw
         ' CasparDevice.SendString("play 2-400 EFC-CLOCK")
         showClock.BackColor = Color.Green
         ShowClockInGameBTN.BackColor = Color.Green
+        're-enable show button
+        showClock.Enabled = False
+        startAndShowClockBTN.Enabled = False
+        ShowClockInGameBTN.Enabled = False
     End Sub
 
     Private Sub HideClockInGameBTN_Click(sender As Object, e As EventArgs) Handles HideClockInGameBTN.Click
@@ -2607,6 +2675,11 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("stop 1-390")
             showAddedTimeBTN.BackColor = Color.FromKnownColor(KnownColor.Control)
             showAddedTimeBTN.UseVisualStyleBackColor = True
+
+            're-enable show button
+            showClock.Enabled = True
+            startAndShowClockBTN.Enabled = True
+            ShowClockInGameBTN.Enabled = True
         End If
     End Sub
 
@@ -2646,6 +2719,15 @@ Public Class CasparTest2NoPvw
                 '   Next i
             End If
 
+
+            If ShowBothTeamCrawl.Checked = True Then
+                '  CasparCGDataCollection.SetData("TeamName", ListBox2.Items(0).ToString)
+                '  For i As Integer = 1 To ListBox2.Items.Count - 8
+                '  CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox2.Items(i).ToString)
+                CasparCGDataCollection.SetData("f0", HomeTeamName.Text + " TEAMSHEET:       " + ListBox3.Items(0).ToString + "      " + ListBox3.Items(1).ToString + "      " + ListBox3.Items(2).ToString + "      " + ListBox3.Items(3).ToString + "      " + ListBox3.Items(4).ToString + "      " + ListBox3.Items(5).ToString + "      " + ListBox3.Items(6).ToString + "      " + ListBox3.Items(7).ToString + "      " + ListBox3.Items(8).ToString + "      " + ListBox3.Items(9).ToString + "      " + ListBox3.Items(10).ToString + "     SUBSTITUTES:        " + ListBox3.Items(11).ToString + "     " + ListBox3.Items(12).ToString + "     " + ListBox3.Items(13).ToString + "     " + ListBox3.Items(14).ToString + "     " + ListBox3.Items(15).ToString + "     " + ListBox3.Items(16).ToString + "     " + ListBox3.Items(17).ToString + "             " + AwayTeamName.Text + " TEAMSHEET:       " + ListBox4.Items(0).ToString + "      " + ListBox4.Items(1).ToString + "      " + ListBox4.Items(2).ToString + "      " + ListBox4.Items(3).ToString + "      " + ListBox4.Items(4).ToString + "      " + ListBox4.Items(5).ToString + "      " + ListBox4.Items(6).ToString + "      " + ListBox4.Items(7).ToString + "      " + ListBox4.Items(8).ToString + "      " + ListBox4.Items(9).ToString + "      " + ListBox4.Items(10).ToString + "     SUBSTITUTES:        " + ListBox4.Items(11).ToString + "     " + ListBox4.Items(12).ToString + "     " + ListBox4.Items(13).ToString + "     " + ListBox4.Items(14).ToString + "     " + ListBox4.Items(15).ToString + "     " + ListBox4.Items(16).ToString + "     " + ListBox4.Items(17).ToString)
+                '   Next i
+            End If
+
         CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(0).CG.Play(101)
             CasparDevice.SendString("play 1-104 LT_crawl_crest")
@@ -2653,6 +2735,8 @@ Public Class CasparTest2NoPvw
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
             CasparDevice.SendString("play 1-103 LTFlare")
             TSCrawlOnBTN.BackColor = Color.Green
+            'disable button
+            TSCrawlOnBTN.Enabled = False
             crawlToggle = True
         End If
     End Sub
@@ -2669,7 +2753,8 @@ Public Class CasparTest2NoPvw
             CrawlOn.BackColor = Color.FromKnownColor(KnownColor.Control)
             TSCrawlOnBTN.UseVisualStyleBackColor = True
             'crawlToggle = False
-
+            'disable button
+            TSCrawlOnBTN.Enabled = True
 
         End If
     End Sub
@@ -3674,7 +3759,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-99 " & backgrounds1.Text)
             msg1OnBtn.BackColor = Color.Green
-
+            'disable button
+            msg1OnBtn.Enabled = False
         End If
     End Sub
 
@@ -3683,6 +3769,22 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("stop 2-99")
             CasparDevice.Channels(1).CG.Stop(101)
             msg1OnBtn.UseVisualStyleBackColor = True
+            msg2OnBtn.UseVisualStyleBackColor = True
+            msg3OnBtn.UseVisualStyleBackColor = True
+            msg4OnBtn.UseVisualStyleBackColor = True
+            msg5OnBtn.UseVisualStyleBackColor = True
+            msg6OnBtn.UseVisualStyleBackColor = True
+            msg7OnBtn.UseVisualStyleBackColor = True
+            msg8OnBtn.UseVisualStyleBackColor = True
+            'reenable button
+            msg1OnBtn.Enabled = True
+            msg2OnBtn.Enabled = True
+            msg3OnBtn.Enabled = True
+            msg4OnBtn.Enabled = True
+            msg5OnBtn.Enabled = True
+            msg6OnBtn.Enabled = True
+            msg7OnBtn.Enabled = True
+            msg8OnBtn.Enabled = True
         End If
     End Sub
 
@@ -3742,7 +3844,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-99 " & backgrounds2.Text)
             msg2OnBtn.BackColor = Color.Green
-
+            'disable button
+            msg2OnBtn.Enabled = False
         End If
     End Sub
 
@@ -3760,6 +3863,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-99 " & backgrounds3.Text)
             msg3OnBtn.BackColor = Color.Green
+            'disable button
+            msg3OnBtn.Enabled = False
         End If
     End Sub
 
@@ -3777,7 +3882,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-99 " & backgrounds4.Text)
             msg4OnBtn.BackColor = Color.Green
-
+            'disable button
+            msg4OnBtn.Enabled = False
         End If
     End Sub
 
@@ -3785,7 +3891,23 @@ Public Class CasparTest2NoPvw
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.SendString("stop 2-99")
             CasparDevice.Channels(1).CG.Stop(101)
+            msg1OnBtn.UseVisualStyleBackColor = True
             msg2OnBtn.UseVisualStyleBackColor = True
+            msg3OnBtn.UseVisualStyleBackColor = True
+            msg4OnBtn.UseVisualStyleBackColor = True
+            msg5OnBtn.UseVisualStyleBackColor = True
+            msg6OnBtn.UseVisualStyleBackColor = True
+            msg7OnBtn.UseVisualStyleBackColor = True
+            msg8OnBtn.UseVisualStyleBackColor = True
+            'reenable button
+            msg1OnBtn.Enabled = True
+            msg2OnBtn.Enabled = True
+            msg3OnBtn.Enabled = True
+            msg4OnBtn.Enabled = True
+            msg5OnBtn.Enabled = True
+            msg6OnBtn.Enabled = True
+            msg7OnBtn.Enabled = True
+            msg8OnBtn.Enabled = True
         End If
     End Sub
 
@@ -3793,7 +3915,23 @@ Public Class CasparTest2NoPvw
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.SendString("stop 2-99")
             CasparDevice.Channels(1).CG.Stop(101)
+            msg1OnBtn.UseVisualStyleBackColor = True
+            msg2OnBtn.UseVisualStyleBackColor = True
             msg3OnBtn.UseVisualStyleBackColor = True
+            msg4OnBtn.UseVisualStyleBackColor = True
+            msg5OnBtn.UseVisualStyleBackColor = True
+            msg6OnBtn.UseVisualStyleBackColor = True
+            msg7OnBtn.UseVisualStyleBackColor = True
+            msg8OnBtn.UseVisualStyleBackColor = True
+            'reenable button
+            msg1OnBtn.Enabled = True
+            msg2OnBtn.Enabled = True
+            msg3OnBtn.Enabled = True
+            msg4OnBtn.Enabled = True
+            msg5OnBtn.Enabled = True
+            msg6OnBtn.Enabled = True
+            msg7OnBtn.Enabled = True
+            msg8OnBtn.Enabled = True
         End If
     End Sub
 
@@ -3801,7 +3939,23 @@ Public Class CasparTest2NoPvw
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.SendString("stop 2-99")
             CasparDevice.Channels(1).CG.Stop(101)
+            msg1OnBtn.UseVisualStyleBackColor = True
+            msg2OnBtn.UseVisualStyleBackColor = True
+            msg3OnBtn.UseVisualStyleBackColor = True
             msg4OnBtn.UseVisualStyleBackColor = True
+            msg5OnBtn.UseVisualStyleBackColor = True
+            msg6OnBtn.UseVisualStyleBackColor = True
+            msg7OnBtn.UseVisualStyleBackColor = True
+            msg8OnBtn.UseVisualStyleBackColor = True
+            'reenable button
+            msg1OnBtn.Enabled = True
+            msg2OnBtn.Enabled = True
+            msg3OnBtn.Enabled = True
+            msg4OnBtn.Enabled = True
+            msg5OnBtn.Enabled = True
+            msg6OnBtn.Enabled = True
+            msg7OnBtn.Enabled = True
+            msg8OnBtn.Enabled = True
         End If
     End Sub
 
@@ -3875,7 +4029,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-99 " & backgrounds5.Text)
             msg5OnBtn.BackColor = Color.Green
-
+            'disable button
+            msg5OnBtn.Enabled = False
         End If
     End Sub
 
@@ -3893,7 +4048,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-99 " & backgrounds6.Text)
             msg6OnBtn.BackColor = Color.Green
-
+            'disable button
+            msg6OnBtn.Enabled = False
         End If
     End Sub
 
@@ -3911,7 +4067,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-99 " & backgrounds7.Text)
             msg7OnBtn.BackColor = Color.Green
-
+            'disable button
+            msg7OnBtn.Enabled = False
         End If
     End Sub
 
@@ -3929,7 +4086,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-99 " & backgrounds8.Text)
             msg8OnBtn.BackColor = Color.Green
-
+            'disable button
+            msg8OnBtn.Enabled = False
         End If
     End Sub
 
@@ -3937,7 +4095,23 @@ Public Class CasparTest2NoPvw
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.SendString("stop 2-99")
             CasparDevice.Channels(1).CG.Stop(101)
+            msg1OnBtn.UseVisualStyleBackColor = True
+            msg2OnBtn.UseVisualStyleBackColor = True
+            msg3OnBtn.UseVisualStyleBackColor = True
+            msg4OnBtn.UseVisualStyleBackColor = True
             msg5OnBtn.UseVisualStyleBackColor = True
+            msg6OnBtn.UseVisualStyleBackColor = True
+            msg7OnBtn.UseVisualStyleBackColor = True
+            msg8OnBtn.UseVisualStyleBackColor = True
+            'reenable button
+            msg1OnBtn.Enabled = True
+            msg2OnBtn.Enabled = True
+            msg3OnBtn.Enabled = True
+            msg4OnBtn.Enabled = True
+            msg5OnBtn.Enabled = True
+            msg6OnBtn.Enabled = True
+            msg7OnBtn.Enabled = True
+            msg8OnBtn.Enabled = True
         End If
     End Sub
 
@@ -3945,7 +4119,23 @@ Public Class CasparTest2NoPvw
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.SendString("stop 2-99")
             CasparDevice.Channels(1).CG.Stop(101)
+            msg1OnBtn.UseVisualStyleBackColor = True
+            msg2OnBtn.UseVisualStyleBackColor = True
+            msg3OnBtn.UseVisualStyleBackColor = True
+            msg4OnBtn.UseVisualStyleBackColor = True
+            msg5OnBtn.UseVisualStyleBackColor = True
             msg6OnBtn.UseVisualStyleBackColor = True
+            msg7OnBtn.UseVisualStyleBackColor = True
+            msg8OnBtn.UseVisualStyleBackColor = True
+            'reenable button
+            msg1OnBtn.Enabled = True
+            msg2OnBtn.Enabled = True
+            msg3OnBtn.Enabled = True
+            msg4OnBtn.Enabled = True
+            msg5OnBtn.Enabled = True
+            msg6OnBtn.Enabled = True
+            msg7OnBtn.Enabled = True
+            msg8OnBtn.Enabled = True
         End If
     End Sub
 
@@ -3953,7 +4143,23 @@ Public Class CasparTest2NoPvw
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.SendString("stop 2-99")
             CasparDevice.Channels(1).CG.Stop(101)
+            msg1OnBtn.UseVisualStyleBackColor = True
+            msg2OnBtn.UseVisualStyleBackColor = True
+            msg3OnBtn.UseVisualStyleBackColor = True
+            msg4OnBtn.UseVisualStyleBackColor = True
+            msg5OnBtn.UseVisualStyleBackColor = True
+            msg6OnBtn.UseVisualStyleBackColor = True
             msg7OnBtn.UseVisualStyleBackColor = True
+            msg8OnBtn.UseVisualStyleBackColor = True
+            'reenable button
+            msg1OnBtn.Enabled = True
+            msg2OnBtn.Enabled = True
+            msg3OnBtn.Enabled = True
+            msg4OnBtn.Enabled = True
+            msg5OnBtn.Enabled = True
+            msg6OnBtn.Enabled = True
+            msg7OnBtn.Enabled = True
+            msg8OnBtn.Enabled = True
         End If
     End Sub
 
@@ -3961,7 +4167,23 @@ Public Class CasparTest2NoPvw
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.SendString("stop 2-99")
             CasparDevice.Channels(1).CG.Stop(101)
+            msg1OnBtn.UseVisualStyleBackColor = True
+            msg2OnBtn.UseVisualStyleBackColor = True
+            msg3OnBtn.UseVisualStyleBackColor = True
+            msg4OnBtn.UseVisualStyleBackColor = True
+            msg5OnBtn.UseVisualStyleBackColor = True
+            msg6OnBtn.UseVisualStyleBackColor = True
+            msg7OnBtn.UseVisualStyleBackColor = True
             msg8OnBtn.UseVisualStyleBackColor = True
+            'reenable button
+            msg1OnBtn.Enabled = True
+            msg2OnBtn.Enabled = True
+            msg3OnBtn.Enabled = True
+            msg4OnBtn.Enabled = True
+            msg5OnBtn.Enabled = True
+            msg6OnBtn.Enabled = True
+            msg7OnBtn.Enabled = True
+            msg8OnBtn.Enabled = True
         End If
     End Sub
 End Class
