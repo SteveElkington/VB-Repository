@@ -335,6 +335,7 @@ Partial Class CasparTest2NoPvw
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.ListBox4 = New System.Windows.Forms.ListBox()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.ShowBothTeamCrawl = New System.Windows.Forms.RadioButton()
         Me.ShowAwayFirstElevenCrawl = New System.Windows.Forms.RadioButton()
         Me.ShowHomeFirstElevenCrawl = New System.Windows.Forms.RadioButton()
         Me.TSCrawlOffBTN = New System.Windows.Forms.Button()
@@ -509,7 +510,6 @@ Partial Class CasparTest2NoPvw
         Me.TimeOfDayCLock = New System.Windows.Forms.Timer(Me.components)
         Me.BPlayChanFadeOut = New System.Windows.Forms.Timer(Me.components)
         Me.scoresFadeOut = New System.Windows.Forms.Timer(Me.components)
-        Me.ShowBothTeamCrawl = New System.Windows.Forms.RadioButton()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -3454,6 +3454,16 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Team Sheet Crawl"
         '
+        'ShowBothTeamCrawl
+        '
+        Me.ShowBothTeamCrawl.AutoSize = True
+        Me.ShowBothTeamCrawl.Location = New System.Drawing.Point(230, 21)
+        Me.ShowBothTeamCrawl.Name = "ShowBothTeamCrawl"
+        Me.ShowBothTeamCrawl.Size = New System.Drawing.Size(82, 17)
+        Me.ShowBothTeamCrawl.TabIndex = 120
+        Me.ShowBothTeamCrawl.Text = "Both Teams"
+        Me.ShowBothTeamCrawl.UseVisualStyleBackColor = True
+        '
         'ShowAwayFirstElevenCrawl
         '
         Me.ShowAwayFirstElevenCrawl.AutoSize = True
@@ -5091,16 +5101,6 @@ Partial Class CasparTest2NoPvw
         '
         'scoresFadeOut
         '
-        '
-        'ShowBothTeamCrawl
-        '
-        Me.ShowBothTeamCrawl.AutoSize = True
-        Me.ShowBothTeamCrawl.Location = New System.Drawing.Point(230, 21)
-        Me.ShowBothTeamCrawl.Name = "ShowBothTeamCrawl"
-        Me.ShowBothTeamCrawl.Size = New System.Drawing.Size(82, 17)
-        Me.ShowBothTeamCrawl.TabIndex = 120
-        Me.ShowBothTeamCrawl.Text = "Both Teams"
-        Me.ShowBothTeamCrawl.UseVisualStyleBackColor = True
         '
         'CasparTest2NoPvw
         '

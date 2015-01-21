@@ -186,8 +186,19 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(0).CG.Play(101)
+
+            'fading in image
+            CasparDevice.SendString("MIXER 1-104 OPACITY 0")
             CasparDevice.SendString("play 1-104 LT_crawl_crest")
+            CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
+
+            'fading in image
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
             CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
+            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
+
+
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
             CasparDevice.SendString("play 1-103 LTFlare")
             CrawlOn.BackColor = Color.Green
@@ -297,7 +308,12 @@ Public Class CasparTest2NoPvw
                     CasparDevice.Channels(1).CG.Add(101, "efc_sub_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(1).CG.Play(101)
                     CasparDevice.SendString("play 2-102 Sub_flare02")
+
+                    'fading in image
+                    CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                     CasparDevice.SendString("play 2-100 efcSub")
+                    CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+
                     showSub.BackColor = Color.Green
                 End If
 
@@ -305,7 +321,11 @@ Public Class CasparTest2NoPvw
                     CasparDevice.Channels(0).CG.Add(101, "efc_sub_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(0).CG.Play(101)
                     CasparDevice.SendString("play 1-102 LTFlare")
+                    'fading in image
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 0")
                     CasparDevice.SendString("play 1-100 LOWER_THIRD_SUB")
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
                     showSub.BackColor = Color.Green
                 End If
 
@@ -317,50 +337,57 @@ Public Class CasparTest2NoPvw
 
     Private Sub SubOFFBtn_Click(sender As Object, e As EventArgs) Handles SubOFFBtn.Click
         If Me.CasparDevice.IsConnected = True Then
+            If Me.SubOff.SelectedIndex >= 0 Then
+                If FullScreenSubsCheck.Checked = True Then
+                    CasparDevice.Channels(1).CG.Stop(101)
+                    CasparDevice.SendString("STOP 2-102")
+                    CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+                    count = 0
+                    countTimer.Enabled = True
 
-            If FullScreenSubsCheck.Checked = True Then
-                CasparDevice.Channels(1).CG.Stop(101)
-                CasparDevice.SendString("STOP 2-102")
-                CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
-                count = 0
-                countTimer.Enabled = True
+                End If
+                If LowerThirdSubsCheck.Checked = True Then
+                    CasparDevice.Channels(0).CG.Stop(101)
+                    CasparDevice.SendString("STOP 1-102")
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
+                    countBPS = 0
+                    BPlayChanFadeOut.Enabled = True
 
+                End If
+                showSub.BackColor = Color.FromKnownColor(KnownColor.Control)
+                showSub.UseVisualStyleBackColor = True
+                're-enable button
+                showSub.Enabled = True
+
+
+                'and to switch round the subs with their first eleven player
+                Dim subOnIndex = SubOn.SelectedIndex
+                Dim subOffIndex = SubOff.SelectedIndex
+
+                ' first to move sub on to Playing section of list
+                SubOff.Items.Insert(subOnIndex, SubOff.SelectedItem)
+                SubOff.Items.RemoveAt(SubOff.SelectedIndex)
+                ' then to move sub off to subs list
+                SubOff.Items.Insert(subOffIndex + 1, SubOn.SelectedItem)
+                SubOff.Items.RemoveAt(SubOn.SelectedIndex + 1)
+                'finaly to update all instances of this list
+                ListBox1.Items.Clear()
+                ListBox3.Items.Clear()
+                SubOn.Items.Clear()
+                'SubOff.Items.Clear()
+                For i As Integer = 0 To HomeTeam.Items.Count - 1
+                    ListBox1.Items.Add(SubOff.Items(i))
+                    ListBox3.Items.Add(SubOff.Items(i))
+                    SubOn.Items.Add(SubOff.Items(i))
+                    'SubOff.Items.Add(SubOff.Items(i))
+                Next
+
+                'and to select real items
+                SubOn.SelectedIndex = -1
+                SubOn.Text = ""
+                SubOff.SelectedIndex = -1
+                SubOff.Text = ""
             End If
-            If LowerThirdSubsCheck.Checked = True Then
-                CasparDevice.Channels(0).CG.Stop(101)
-                CasparDevice.SendString("STOP 1-102")
-                CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
-                countBPS = 0
-                BPlayChanFadeOut.Enabled = True
-
-            End If
-            showSub.BackColor = Color.FromKnownColor(KnownColor.Control)
-            showSub.UseVisualStyleBackColor = True
-            're-enable button
-            showSub.Enabled = True
-
-
-            'and to switch round the subs with their first eleven player
-            Dim subOnIndex = SubOn.SelectedIndex
-            Dim subOffIndex = SubOff.SelectedIndex
-
-            ' first to move sub on to Playing section of list
-            SubOff.Items.Insert(subOnIndex, SubOff.SelectedItem)
-            SubOff.Items.RemoveAt(SubOff.SelectedIndex)
-            ' then to move sub off to subs list
-            SubOff.Items.Insert(subOffIndex + 1, SubOn.SelectedItem)
-            SubOff.Items.RemoveAt(SubOn.SelectedIndex + 1)
-            'finaly to update all instances of this list
-            ListBox1.Items.Clear()
-            ListBox3.Items.Clear()
-            SubOn.Items.Clear()
-            'SubOff.Items.Clear()
-            For i As Integer = 0 To HomeTeam.Items.Count - 1
-                ListBox1.Items.Add(SubOff.Items(i))
-                ListBox3.Items.Add(SubOff.Items(i))
-                SubOn.Items.Add(SubOff.Items(i))
-                'SubOff.Items.Add(SubOff.Items(i))
-            Next
         End If
     End Sub
 
@@ -371,10 +398,17 @@ Public Class CasparTest2NoPvw
             For i As Integer = 0 To ListBox1.Items.Count - 8
                 CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
             Next i
+
+            'fading in image
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 efcTeamSheet")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+
+
             CasparDevice.Channels(1).CG.Add(101, "efc_teamsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-102 FIRST_11")
-            CasparDevice.SendString("play 2-100 efcTeamSheet")
+
             ShowTeamSheet.BackColor = Color.Green
             ShowSubsSheet.UseVisualStyleBackColor = True
 
@@ -416,7 +450,10 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "efc_subsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-102 SUBS")
+            'fade in
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
             CasparDevice.SendString("play 2-100 efcTeamSubs")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             ShowSubsSheet.BackColor = Color.Green
             ShowTeamSheet.UseVisualStyleBackColor = True
             'disable button so cant be pressed again
@@ -501,26 +538,38 @@ Public Class CasparTest2NoPvw
 
             'showing layers of bars
             If CheckBox13.Checked = True Then
+                CasparDevice.SendString("MIXER 2-104 OPACITY 0")
                 CasparDevice.SendString("play 2-104 SCORESBAR_1")
+                CasparDevice.SendString("MIXER 2-104 OPACITY 1 48 linear")
             End If
             If CheckBox14.Checked = True Then
+                CasparDevice.SendString("MIXER 2-105 OPACITY 0")
                 CasparDevice.SendString("play 2-105 SCORESBAR_2")
+                CasparDevice.SendString("MIXER 2-105 OPACITY 1 48 linear")
             End If
 
             If CheckBox15.Checked = True Then
+                CasparDevice.SendString("MIXER 2-106 OPACITY 0")
                 CasparDevice.SendString("play 2-106 SCORESBAR_3")
+                CasparDevice.SendString("MIXER 2-106 OPACITY 1 48 linear")
             End If
 
             If CheckBox16.Checked = True Then
+                CasparDevice.SendString("MIXER 2-107 OPACITY 0")
                 CasparDevice.SendString("play 2-107 SCORESBAR_4")
+                CasparDevice.SendString("MIXER 2-107 OPACITY 1 48 linear")
             End If
 
             If CheckBox17.Checked = True Then
+                CasparDevice.SendString("MIXER 2-108 OPACITY 0")
                 CasparDevice.SendString("play 2-108 SCORESBAR_5")
+                CasparDevice.SendString("MIXER 2-108 OPACITY 1 48 linear")
             End If
 
             If CheckBox18.Checked = True Then
+                CasparDevice.SendString("MIXER 2-109 OPACITY 0")
                 CasparDevice.SendString("play 2-109 SCORESBAR_6")
+                CasparDevice.SendString("MIXER 2-109 OPACITY 1 48 linear")
             End If
 
 
@@ -1154,7 +1203,11 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "efc_teamsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-102 FIRST_11")
+            'fading in image
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
             CasparDevice.SendString("play 2-100 awayEFCTeamSheet")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+
             ShowAwayFirstEleven.BackColor = Color.Green
             ShowAwaySubsSheet.UseVisualStyleBackColor = True
             ShowSubsSheet.UseVisualStyleBackColor = True
@@ -1174,7 +1227,11 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "efc_subsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-102 SUBS")
+            'fading in image
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
             CasparDevice.SendString("play 2-100 awayTeamSubs")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+
             ShowAwaySubsSheet.BackColor = Color.Green
             ShowAwayFirstEleven.UseVisualStyleBackColor = True
             ' disable button so cant be pressed again
@@ -1212,7 +1269,11 @@ Public Class CasparTest2NoPvw
                     CasparDevice.Channels(1).CG.Add(101, "efc_sub_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(1).CG.Play(101)
                     CasparDevice.SendString("play 2-102 Sub_flare02")
+                    'fading in image
+                    CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                     CasparDevice.SendString("play 2-100 awayEFCSub")
+                    CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+
                     'showSub.BackColor = Color.Green
                 End If
 
@@ -1220,7 +1281,11 @@ Public Class CasparTest2NoPvw
                     CasparDevice.Channels(0).CG.Add(101, "efc_sub_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(0).CG.Play(101)
                     CasparDevice.SendString("play 1-102 LTFlare")
+                    'fading in image
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 0")
                     CasparDevice.SendString("play 1-100 LOWER_THIRD_SUB_AWAY")
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
                     ' showSub.BackColor = Color.Green
                 End If
                 AwaySubOn.BackColor = Color.Green
@@ -1232,49 +1297,55 @@ Public Class CasparTest2NoPvw
 
     Private Sub AwaySubOff_Click(sender As Object, e As EventArgs) Handles AwaySubOff.Click
         If Me.CasparDevice.IsConnected = True Then
-            If FullScreenSubsCheck.Checked = True Then
-                CasparDevice.Channels(1).CG.Stop(101)
-                CasparDevice.SendString("STOP 2-102")
-                CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
-                count = 0
-                countTimer.Enabled = True
+            If Me.aw_subOff.SelectedIndex >= 0 Then
+                If FullScreenSubsCheck.Checked = True Then
+                    CasparDevice.Channels(1).CG.Stop(101)
+                    CasparDevice.SendString("STOP 2-102")
+                    CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+                    count = 0
+                    countTimer.Enabled = True
 
+                End If
+                If LowerThirdSubsCheck.Checked = True Then
+                    CasparDevice.Channels(0).CG.Stop(101)
+                    CasparDevice.SendString("STOP 1-102")
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
+                    countBPS = 0
+                    BPlayChanFadeOut.Enabled = True
+
+                End If
+                AwaySubOn.BackColor = Color.FromKnownColor(KnownColor.Control)
+                AwaySubOn.UseVisualStyleBackColor = True
+                're-enable button
+                AwaySubOn.Enabled = True
+
+                'and to switch round the subs with their first eleven player
+                Dim aw_subOnIndex = aw_subOn.SelectedIndex
+                Dim aw_subOffIndex = aw_subOff.SelectedIndex
+
+                ' first to move sub on to Playing section of list
+                aw_subOff.Items.Insert(aw_subOnIndex, aw_subOff.SelectedItem)
+                aw_subOff.Items.RemoveAt(aw_subOff.SelectedIndex)
+                ' then to move sub off to subs list
+                aw_subOff.Items.Insert(aw_subOffIndex + 1, aw_subOn.SelectedItem)
+                aw_subOff.Items.RemoveAt(aw_subOn.SelectedIndex + 1)
+                'finaly to update all instances of this list
+                ListBox2.Items.Clear()
+                ListBox4.Items.Clear()
+                aw_subOn.Items.Clear()
+                'SubOff.Items.Clear()
+                For i As Integer = 0 To HomeTeam.Items.Count - 1
+                    ListBox2.Items.Add(aw_subOff.Items(i))
+                    ListBox4.Items.Add(aw_subOff.Items(i))
+                    aw_subOn.Items.Add(aw_subOff.Items(i))
+                    'aw_subOff.Items.Add(aw_subOff.Items(i))
+                Next
+                'and to select real items
+                aw_subOn.SelectedIndex = -1
+                aw_subOn.Text = ""
+                aw_subOff.SelectedIndex = -1
+                aw_subOff.Text = ""
             End If
-            If LowerThirdSubsCheck.Checked = True Then
-                CasparDevice.Channels(0).CG.Stop(101)
-                CasparDevice.SendString("STOP 1-102")
-                CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
-                countBPS = 0
-                BPlayChanFadeOut.Enabled = True
-
-            End If
-            AwaySubOn.BackColor = Color.FromKnownColor(KnownColor.Control)
-            AwaySubOn.UseVisualStyleBackColor = True
-            're-enable button
-            AwaySubOn.Enabled = True
-
-            'and to switch round the subs with their first eleven player
-            Dim aw_subOnIndex = aw_subOn.SelectedIndex
-            Dim aw_subOffIndex = aw_subOff.SelectedIndex
-
-            ' first to move sub on to Playing section of list
-            aw_subOff.Items.Insert(aw_subOnIndex, aw_subOff.SelectedItem)
-            aw_subOff.Items.RemoveAt(aw_subOff.SelectedIndex)
-            ' then to move sub off to subs list
-            aw_subOff.Items.Insert(aw_subOffIndex + 1, aw_subOn.SelectedItem)
-            aw_subOff.Items.RemoveAt(aw_subOn.SelectedIndex + 1)
-            'finaly to update all instances of this list
-            ListBox2.Items.Clear()
-            ListBox4.Items.Clear()
-            aw_subOn.Items.Clear()
-            'SubOff.Items.Clear()
-            For i As Integer = 0 To HomeTeam.Items.Count - 1
-                ListBox2.Items.Add(aw_subOff.Items(i))
-                ListBox4.Items.Add(aw_subOff.Items(i))
-                aw_subOn.Items.Add(aw_subOff.Items(i))
-                'aw_subOff.Items.Add(aw_subOff.Items(i))
-            Next
-
         End If
     End Sub
 
@@ -1413,7 +1484,11 @@ Public Class CasparTest2NoPvw
 
                 CasparDevice.Channels(1).CG.Add(101, "efc_bigScore", True, CasparCGDataCollection.ToAMCPEscapedXml)
                 CasparDevice.Channels(1).CG.Play(101)
+                'fading in image
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 efc_bigScoreBack")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+
                 '"play 1-1 " & ListBox3.Text & " loop auto"
                 showBigScore.BackColor = Color.Green
                 'disabale button
@@ -1529,26 +1604,38 @@ Public Class CasparTest2NoPvw
 
             'showing layers of bars
             If CheckBox19.Checked = True Then
+                CasparDevice.SendString("MIXER 2-104 OPACITY 0")
                 CasparDevice.SendString("play 2-104 SCORESBAR_1")
+                CasparDevice.SendString("MIXER 2-104 OPACITY 1 48 linear")
             End If
             If CheckBox20.Checked = True Then
+                CasparDevice.SendString("MIXER 2-105 OPACITY 0")
                 CasparDevice.SendString("play 2-105 SCORESBAR_2")
+                CasparDevice.SendString("MIXER 2-105 OPACITY 1 48 linear")
             End If
 
             If CheckBox21.Checked = True Then
+                CasparDevice.SendString("MIXER 2-106 OPACITY 0")
                 CasparDevice.SendString("play 2-106 SCORESBAR_3")
+                CasparDevice.SendString("MIXER 2-106 OPACITY 1 48 linear")
             End If
 
             If CheckBox22.Checked = True Then
+                CasparDevice.SendString("MIXER 2-107 OPACITY 0")
                 CasparDevice.SendString("play 2-107 SCORESBAR_4")
+                CasparDevice.SendString("MIXER 2-107 OPACITY 1 48 linear")
             End If
 
             If CheckBox23.Checked = True Then
+                CasparDevice.SendString("MIXER 2-108 OPACITY 0")
                 CasparDevice.SendString("play 2-108 SCORESBAR_5")
+                CasparDevice.SendString("MIXER 2-108 OPACITY 1 48 linear")
             End If
 
             If CheckBox24.Checked = True Then
+                CasparDevice.SendString("MIXER 2-109 OPACITY 0")
                 CasparDevice.SendString("play 2-109 SCORESBAR_6")
+                CasparDevice.SendString("MIXER 2-109 OPACITY 1 48 linear")
             End If
 
 
@@ -1689,26 +1776,38 @@ Public Class CasparTest2NoPvw
 
             'showing layers of bars
             If CheckBox1.Checked = True Then
+                CasparDevice.SendString("MIXER 2-104 OPACITY 0")
                 CasparDevice.SendString("play 2-104 SCORESBAR_1")
+                CasparDevice.SendString("MIXER 2-104 OPACITY 1 48 linear")
             End If
             If CheckBox2.Checked = True Then
+                CasparDevice.SendString("MIXER 2-105 OPACITY 0")
                 CasparDevice.SendString("play 2-105 SCORESBAR_2")
+                CasparDevice.SendString("MIXER 2-105 OPACITY 1 48 linear")
             End If
 
             If CheckBox3.Checked = True Then
+                CasparDevice.SendString("MIXER 2-106 OPACITY 0")
                 CasparDevice.SendString("play 2-106 SCORESBAR_3")
+                CasparDevice.SendString("MIXER 2-106 OPACITY 1 48 linear")
             End If
 
             If CheckBox4.Checked = True Then
+                CasparDevice.SendString("MIXER 2-107 OPACITY 0")
                 CasparDevice.SendString("play 2-107 SCORESBAR_4")
+                CasparDevice.SendString("MIXER 2-107 OPACITY 1 48 linear")
             End If
 
             If CheckBox5.Checked = True Then
+                CasparDevice.SendString("MIXER 2-108 OPACITY 0")
                 CasparDevice.SendString("play 2-108 SCORESBAR_5")
+                CasparDevice.SendString("MIXER 2-108 OPACITY 1 48 linear")
             End If
 
             If CheckBox6.Checked = True Then
+                CasparDevice.SendString("MIXER 2-109 OPACITY 0")
                 CasparDevice.SendString("play 2-109 SCORESBAR_6")
+                CasparDevice.SendString("MIXER 2-109 OPACITY 1 48 linear")
             End If
 
 
@@ -1809,26 +1908,38 @@ Public Class CasparTest2NoPvw
 
             'showing layers of bars
             If CheckBox12.Checked = True Then
+                CasparDevice.SendString("MIXER 2-104 OPACITY 0")
                 CasparDevice.SendString("play 2-104 SCORESBAR_1")
+                CasparDevice.SendString("MIXER 2-104 OPACITY 1 48 linear")
             End If
             If CheckBox11.Checked = True Then
+                CasparDevice.SendString("MIXER 2-105 OPACITY 0")
                 CasparDevice.SendString("play 2-105 SCORESBAR_2")
+                CasparDevice.SendString("MIXER 2-105 OPACITY 1 48 linear")
             End If
 
             If CheckBox10.Checked = True Then
+                CasparDevice.SendString("MIXER 2-106 OPACITY 0")
                 CasparDevice.SendString("play 2-106 SCORESBAR_3")
+                CasparDevice.SendString("MIXER 2-106 OPACITY 1 48 linear")
             End If
 
             If CheckBox9.Checked = True Then
+                CasparDevice.SendString("MIXER 2-107 OPACITY 0")
                 CasparDevice.SendString("play 2-107 SCORESBAR_4")
+                CasparDevice.SendString("MIXER 2-107 OPACITY 1 48 linear")
             End If
 
             If CheckBox8.Checked = True Then
+                CasparDevice.SendString("MIXER 2-108 OPACITY 0")
                 CasparDevice.SendString("play 2-108 SCORESBAR_5")
+                CasparDevice.SendString("MIXER 2-108 OPACITY 1 48 linear")
             End If
 
             If CheckBox7.Checked = True Then
+                CasparDevice.SendString("MIXER 2-109 OPACITY 0")
                 CasparDevice.SendString("play 2-109 SCORESBAR_6")
+                CasparDevice.SendString("MIXER 2-109 OPACITY 1 48 linear")
             End If
 
 
@@ -2409,7 +2520,12 @@ Public Class CasparTest2NoPvw
                     CasparDevice.Channels(0).CG.Add(101, "LowerThirdMatchScore", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(0).CG.Play(101)
                     CasparDevice.SendString("play 1-102 LTFlare")
+
+                    'fading in image
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 0")
                     CasparDevice.SendString("play 1-100 LOWER_THIRD2")
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
                 End If
                 If LTMatchIDRadioBut.Checked = True Then
                     CasparCGDataCollection.SetData("f0", HomeTeamName.Text)
@@ -2420,7 +2536,10 @@ Public Class CasparTest2NoPvw
                     CasparDevice.Channels(0).CG.Add(101, "LowerThirdMatchIDst", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(0).CG.Play(101)
                     CasparDevice.SendString("play 1-102 LTFlare")
+                    'fading in image
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 0")
                     CasparDevice.SendString("play 1-100 LOWER_THIRD2")
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
                 End If
 
                 '"play 1-1 " & ListBox3.Text & " loop auto"
@@ -2730,8 +2849,18 @@ Public Class CasparTest2NoPvw
 
         CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(0).CG.Play(101)
+
+            'fading in image
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
             CasparDevice.SendString("play 1-104 LT_crawl_crest")
+            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
+
+            'fading in image
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
             CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
+            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
             CasparDevice.SendString("play 1-103 LTFlare")
             TSCrawlOnBTN.BackColor = Color.Green
@@ -3757,7 +3886,11 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
+            'fading in image
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
             CasparDevice.SendString("play 2-99 " & backgrounds1.Text)
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+
             msg1OnBtn.BackColor = Color.Green
             'disable button
             msg1OnBtn.Enabled = False
@@ -3842,7 +3975,10 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
+            'fading in image
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
             CasparDevice.SendString("play 2-99 " & backgrounds2.Text)
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
             msg2OnBtn.BackColor = Color.Green
             'disable button
             msg2OnBtn.Enabled = False
@@ -3861,7 +3997,10 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
+            'fading in image
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
             CasparDevice.SendString("play 2-99 " & backgrounds3.Text)
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
             msg3OnBtn.BackColor = Color.Green
             'disable button
             msg3OnBtn.Enabled = False
@@ -3880,7 +4019,10 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
+            'fading in image
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
             CasparDevice.SendString("play 2-99 " & backgrounds4.Text)
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
             msg4OnBtn.BackColor = Color.Green
             'disable button
             msg4OnBtn.Enabled = False
@@ -4027,7 +4169,10 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
+            'fading in image
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
             CasparDevice.SendString("play 2-99 " & backgrounds5.Text)
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
             msg5OnBtn.BackColor = Color.Green
             'disable button
             msg5OnBtn.Enabled = False
@@ -4046,7 +4191,10 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
+            'fading in image
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
             CasparDevice.SendString("play 2-99 " & backgrounds6.Text)
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
             msg6OnBtn.BackColor = Color.Green
             'disable button
             msg6OnBtn.Enabled = False
@@ -4065,7 +4213,10 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
+            'fading in image
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
             CasparDevice.SendString("play 2-99 " & backgrounds7.Text)
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
             msg7OnBtn.BackColor = Color.Green
             'disable button
             msg7OnBtn.Enabled = False
@@ -4084,7 +4235,10 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
+            'fading in image
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
             CasparDevice.SendString("play 2-99 " & backgrounds8.Text)
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
             msg8OnBtn.BackColor = Color.Green
             'disable button
             msg8OnBtn.Enabled = False
@@ -4186,4 +4340,5 @@ Public Class CasparTest2NoPvw
             msg8OnBtn.Enabled = True
         End If
     End Sub
+
 End Class
