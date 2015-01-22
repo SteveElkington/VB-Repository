@@ -2633,13 +2633,6 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("stop 2-401")
             CasparDevice.SendString("stop 2-390")
             CasparDevice.SendString("stop 2-391")
-            'scores page
-            CasparDevice.SendString("stop 2-104")
-            CasparDevice.SendString("stop 2-105")
-            CasparDevice.SendString("stop 2-106")
-            CasparDevice.SendString("stop 2-107")
-            CasparDevice.SendString("stop 2-108")
-            CasparDevice.SendString("stop 2-109")
 
             ' this also needs to reset buttons
             ShowTeamSheet.UseVisualStyleBackColor = True
