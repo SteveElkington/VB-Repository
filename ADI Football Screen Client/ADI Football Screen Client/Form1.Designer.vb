@@ -350,7 +350,6 @@ Partial Class CasparTest2NoPvw
         Me.PlayNextVidInGame = New System.Windows.Forms.Button()
         Me.PLInGameMoveUp = New System.Windows.Forms.Button()
         Me.stopVidInGame = New System.Windows.Forms.Button()
-        Me.LoopVidInGame = New System.Windows.Forms.Button()
         Me.PlayVidInGame = New System.Windows.Forms.Button()
         Me.ClearPlaylistInGame = New System.Windows.Forms.Button()
         Me.RemovePlaylistInGame = New System.Windows.Forms.Button()
@@ -3558,7 +3557,6 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox6.Controls.Add(Me.PlayNextVidInGame)
         Me.GroupBox6.Controls.Add(Me.PLInGameMoveUp)
         Me.GroupBox6.Controls.Add(Me.stopVidInGame)
-        Me.GroupBox6.Controls.Add(Me.LoopVidInGame)
         Me.GroupBox6.Controls.Add(Me.PlayVidInGame)
         Me.GroupBox6.Controls.Add(Me.ClearPlaylistInGame)
         Me.GroupBox6.Controls.Add(Me.RemovePlaylistInGame)
@@ -3585,9 +3583,9 @@ Partial Class CasparTest2NoPvw
         '
         'PlayNextVidInGame
         '
-        Me.PlayNextVidInGame.Location = New System.Drawing.Point(86, 496)
+        Me.PlayNextVidInGame.Location = New System.Drawing.Point(122, 496)
         Me.PlayNextVidInGame.Name = "PlayNextVidInGame"
-        Me.PlayNextVidInGame.Size = New System.Drawing.Size(99, 23)
+        Me.PlayNextVidInGame.Size = New System.Drawing.Size(110, 23)
         Me.PlayNextVidInGame.TabIndex = 8
         Me.PlayNextVidInGame.Text = "Play Next"
         Me.PlayNextVidInGame.UseVisualStyleBackColor = True
@@ -3603,27 +3601,18 @@ Partial Class CasparTest2NoPvw
         '
         'stopVidInGame
         '
-        Me.stopVidInGame.Location = New System.Drawing.Point(270, 496)
+        Me.stopVidInGame.Location = New System.Drawing.Point(233, 496)
         Me.stopVidInGame.Name = "stopVidInGame"
-        Me.stopVidInGame.Size = New System.Drawing.Size(72, 23)
+        Me.stopVidInGame.Size = New System.Drawing.Size(109, 23)
         Me.stopVidInGame.TabIndex = 10
         Me.stopVidInGame.Text = "Stop"
         Me.stopVidInGame.UseVisualStyleBackColor = True
-        '
-        'LoopVidInGame
-        '
-        Me.LoopVidInGame.Location = New System.Drawing.Point(191, 496)
-        Me.LoopVidInGame.Name = "LoopVidInGame"
-        Me.LoopVidInGame.Size = New System.Drawing.Size(73, 23)
-        Me.LoopVidInGame.TabIndex = 9
-        Me.LoopVidInGame.Text = "Loop"
-        Me.LoopVidInGame.UseVisualStyleBackColor = True
         '
         'PlayVidInGame
         '
         Me.PlayVidInGame.Location = New System.Drawing.Point(7, 496)
         Me.PlayVidInGame.Name = "PlayVidInGame"
-        Me.PlayVidInGame.Size = New System.Drawing.Size(73, 23)
+        Me.PlayVidInGame.Size = New System.Drawing.Size(115, 23)
         Me.PlayVidInGame.TabIndex = 7
         Me.PlayVidInGame.Text = "Play"
         Me.PlayVidInGame.UseVisualStyleBackColor = True
@@ -5342,7 +5331,6 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents PlayNextVidInGame As System.Windows.Forms.Button
     Friend WithEvents stopVidInGame As System.Windows.Forms.Button
-    Friend WithEvents LoopVidInGame As System.Windows.Forms.Button
     Friend WithEvents PlayVidInGame As System.Windows.Forms.Button
     Friend WithEvents ClearPlaylistInGame As System.Windows.Forms.Button
     Friend WithEvents RemovePlaylistInGame As System.Windows.Forms.Button
