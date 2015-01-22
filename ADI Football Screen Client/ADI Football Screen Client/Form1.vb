@@ -35,7 +35,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub countTimer_Tick(sender As Object, e As EventArgs) Handles countTimer.Tick
         count = count + 1
-        If count >= 10 Then
+        If count >= 5 Then
             CasparDevice.SendString("stop 2-100")
             CasparDevice.SendString("MIXER 2-100 OPACITY 1 12 linear")
             countTimer.Enabled = False
@@ -154,7 +154,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub clockAnimation_Tick(sender As Object, e As EventArgs) Handles clockAnimation.Tick
         count = count + 1
-        If count >= 10 Then
+        If count >= 5 Then
             CasparDevice.SendString("stop 1-400")
             CasparDevice.SendString("MIXER 1-400 OPACITY 1 12 linear")
             clockAnimation.Enabled = False
@@ -2804,7 +2804,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub BPlayChanFadeOut_Tick(sender As Object, e As EventArgs) Handles BPlayChanFadeOut.Tick
         countBPS = countBPS + 1
-        If countBPS >= 10 Then
+        If countBPS >= 5 Then
             CasparDevice.SendString("stop 1-100")
             CasparDevice.SendString("MIXER 1-100 OPACITY 1 12 linear")
             BPlayChanFadeOut.Enabled = False
@@ -3061,7 +3061,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub scoresFadeOut_Tick(sender As Object, e As EventArgs) Handles scoresFadeOut.Tick
         countScores = countScores + 1
-        If countScores >= 10 Then
+        If countScores >= 5 Then
             CasparDevice.SendString("stop 2-100")
             CasparDevice.SendString("MIXER 2-100 OPACITY 1 12 linear")
 
@@ -3887,9 +3887,9 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             'fading in image
-            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            CasparDevice.SendString("play 2-99 " & backgrounds1.Text)
-            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 " & backgrounds1.Text)
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
             msg1OnBtn.BackColor = Color.Green
             'disable button
@@ -3899,7 +3899,11 @@ Public Class CasparTest2NoPvw
 
     Private Sub msg1OffBtn_Click(sender As Object, e As EventArgs) Handles msg1OffBtn.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("stop 2-99")
+            'fade off image in background
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+            count = 0
+            countTimer.Enabled = True
+            'then fade out the rest and set buttons
             CasparDevice.Channels(1).CG.Stop(101)
             msg1OnBtn.UseVisualStyleBackColor = True
             msg2OnBtn.UseVisualStyleBackColor = True
@@ -3976,9 +3980,9 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             'fading in image
-            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            CasparDevice.SendString("play 2-99 " & backgrounds2.Text)
-            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 " & backgrounds2.Text)
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             msg2OnBtn.BackColor = Color.Green
             'disable button
             msg2OnBtn.Enabled = False
@@ -3998,9 +4002,9 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             'fading in image
-            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            CasparDevice.SendString("play 2-99 " & backgrounds3.Text)
-            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 " & backgrounds3.Text)
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             msg3OnBtn.BackColor = Color.Green
             'disable button
             msg3OnBtn.Enabled = False
@@ -4020,9 +4024,9 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             'fading in image
-            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            CasparDevice.SendString("play 2-99 " & backgrounds4.Text)
-            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 " & backgrounds4.Text)
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             msg4OnBtn.BackColor = Color.Green
             'disable button
             msg4OnBtn.Enabled = False
@@ -4031,7 +4035,11 @@ Public Class CasparTest2NoPvw
 
     Private Sub msg2OffBtn_Click(sender As Object, e As EventArgs) Handles msg2OffBtn.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("stop 2-99")
+            'fade off image in background
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+            count = 0
+            countTimer.Enabled = True
+            'then fade out the rest and set buttons
             CasparDevice.Channels(1).CG.Stop(101)
             msg1OnBtn.UseVisualStyleBackColor = True
             msg2OnBtn.UseVisualStyleBackColor = True
@@ -4055,7 +4063,11 @@ Public Class CasparTest2NoPvw
 
     Private Sub msg3OffBtn_Click(sender As Object, e As EventArgs) Handles msg3OffBtn.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("stop 2-99")
+            'fade off image in background
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+            count = 0
+            countTimer.Enabled = True
+            'then fade out the rest and set buttons
             CasparDevice.Channels(1).CG.Stop(101)
             msg1OnBtn.UseVisualStyleBackColor = True
             msg2OnBtn.UseVisualStyleBackColor = True
@@ -4079,7 +4091,11 @@ Public Class CasparTest2NoPvw
 
     Private Sub msg4OffBtn_Click(sender As Object, e As EventArgs) Handles msg4OffBtn.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("stop 2-99")
+            'fade off image in background
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+            count = 0
+            countTimer.Enabled = True
+            'then fade out the rest and set buttons
             CasparDevice.Channels(1).CG.Stop(101)
             msg1OnBtn.UseVisualStyleBackColor = True
             msg2OnBtn.UseVisualStyleBackColor = True
@@ -4170,9 +4186,9 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             'fading in image
-            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            CasparDevice.SendString("play 2-99 " & backgrounds5.Text)
-            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 " & backgrounds5.Text)
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             msg5OnBtn.BackColor = Color.Green
             'disable button
             msg5OnBtn.Enabled = False
@@ -4192,9 +4208,9 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             'fading in image
-            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            CasparDevice.SendString("play 2-99 " & backgrounds6.Text)
-            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 " & backgrounds6.Text)
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             msg6OnBtn.BackColor = Color.Green
             'disable button
             msg6OnBtn.Enabled = False
@@ -4214,9 +4230,9 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             'fading in image
-            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            CasparDevice.SendString("play 2-99 " & backgrounds7.Text)
-            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 " & backgrounds7.Text)
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             msg7OnBtn.BackColor = Color.Green
             'disable button
             msg7OnBtn.Enabled = False
@@ -4236,9 +4252,9 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             'fading in image
-            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            CasparDevice.SendString("play 2-99 " & backgrounds8.Text)
-            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 " & backgrounds8.Text)
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             msg8OnBtn.BackColor = Color.Green
             'disable button
             msg8OnBtn.Enabled = False
@@ -4247,7 +4263,11 @@ Public Class CasparTest2NoPvw
 
     Private Sub msg5OffBtn_Click(sender As Object, e As EventArgs) Handles msg5OffBtn.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("stop 2-99")
+            'fade off image in background
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+            count = 0
+            countTimer.Enabled = True
+            'then fade out the rest and set buttons
             CasparDevice.Channels(1).CG.Stop(101)
             msg1OnBtn.UseVisualStyleBackColor = True
             msg2OnBtn.UseVisualStyleBackColor = True
@@ -4271,7 +4291,11 @@ Public Class CasparTest2NoPvw
 
     Private Sub msg6OffBtn_Click(sender As Object, e As EventArgs) Handles msg6OffBtn.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("stop 2-99")
+            'fade off image in background
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+            count = 0
+            countTimer.Enabled = True
+            'then fade out the rest and set buttons
             CasparDevice.Channels(1).CG.Stop(101)
             msg1OnBtn.UseVisualStyleBackColor = True
             msg2OnBtn.UseVisualStyleBackColor = True
@@ -4295,7 +4319,11 @@ Public Class CasparTest2NoPvw
 
     Private Sub msg7OffBtn_Click(sender As Object, e As EventArgs) Handles msg7OffBtn.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("stop 2-99")
+            'fade off image in background
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+            count = 0
+            countTimer.Enabled = True
+            'then fade out the rest and set buttons
             CasparDevice.Channels(1).CG.Stop(101)
             msg1OnBtn.UseVisualStyleBackColor = True
             msg2OnBtn.UseVisualStyleBackColor = True
@@ -4319,7 +4347,11 @@ Public Class CasparTest2NoPvw
 
     Private Sub msg8OffBtn_Click(sender As Object, e As EventArgs) Handles msg8OffBtn.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("stop 2-99")
+            'fade off image in background
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+            count = 0
+            countTimer.Enabled = True
+            'then fade out the rest and set buttons
             CasparDevice.Channels(1).CG.Stop(101)
             msg1OnBtn.UseVisualStyleBackColor = True
             msg2OnBtn.UseVisualStyleBackColor = True
