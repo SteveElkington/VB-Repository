@@ -161,7 +161,6 @@ Partial Class CasparTest2NoPvw
         Me.playNext = New System.Windows.Forms.Button()
         Me.PL1MoveUp = New System.Windows.Forms.Button()
         Me.stopVid = New System.Windows.Forms.Button()
-        Me.LoopVid = New System.Windows.Forms.Button()
         Me.playVid = New System.Windows.Forms.Button()
         Me.ClearPlaylist = New System.Windows.Forms.Button()
         Me.RemovePlaylist = New System.Windows.Forms.Button()
@@ -1669,7 +1668,6 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox2.Controls.Add(Me.playNext)
         Me.GroupBox2.Controls.Add(Me.PL1MoveUp)
         Me.GroupBox2.Controls.Add(Me.stopVid)
-        Me.GroupBox2.Controls.Add(Me.LoopVid)
         Me.GroupBox2.Controls.Add(Me.playVid)
         Me.GroupBox2.Controls.Add(Me.ClearPlaylist)
         Me.GroupBox2.Controls.Add(Me.RemovePlaylist)
@@ -1696,9 +1694,9 @@ Partial Class CasparTest2NoPvw
         '
         'playNext
         '
-        Me.playNext.Location = New System.Drawing.Point(85, 491)
+        Me.playNext.Location = New System.Drawing.Point(129, 491)
         Me.playNext.Name = "playNext"
-        Me.playNext.Size = New System.Drawing.Size(99, 23)
+        Me.playNext.Size = New System.Drawing.Size(105, 23)
         Me.playNext.TabIndex = 8
         Me.playNext.Text = "Play Next"
         Me.playNext.UseVisualStyleBackColor = True
@@ -1714,27 +1712,18 @@ Partial Class CasparTest2NoPvw
         '
         'stopVid
         '
-        Me.stopVid.Location = New System.Drawing.Point(269, 491)
+        Me.stopVid.Location = New System.Drawing.Point(240, 491)
         Me.stopVid.Name = "stopVid"
-        Me.stopVid.Size = New System.Drawing.Size(72, 23)
+        Me.stopVid.Size = New System.Drawing.Size(101, 23)
         Me.stopVid.TabIndex = 10
         Me.stopVid.Text = "Stop"
         Me.stopVid.UseVisualStyleBackColor = True
-        '
-        'LoopVid
-        '
-        Me.LoopVid.Location = New System.Drawing.Point(190, 491)
-        Me.LoopVid.Name = "LoopVid"
-        Me.LoopVid.Size = New System.Drawing.Size(73, 23)
-        Me.LoopVid.TabIndex = 9
-        Me.LoopVid.Text = "Loop"
-        Me.LoopVid.UseVisualStyleBackColor = True
         '
         'playVid
         '
         Me.playVid.Location = New System.Drawing.Point(6, 491)
         Me.playVid.Name = "playVid"
-        Me.playVid.Size = New System.Drawing.Size(73, 23)
+        Me.playVid.Size = New System.Drawing.Size(117, 23)
         Me.playVid.TabIndex = 7
         Me.playVid.Text = "Play"
         Me.playVid.UseVisualStyleBackColor = True
@@ -5229,7 +5218,6 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents playNext As System.Windows.Forms.Button
     Friend WithEvents stopVid As System.Windows.Forms.Button
-    Friend WithEvents LoopVid As System.Windows.Forms.Button
     Friend WithEvents playVid As System.Windows.Forms.Button
     Friend WithEvents ClearPlaylist As System.Windows.Forms.Button
     Friend WithEvents RemovePlaylist As System.Windows.Forms.Button

@@ -16,6 +16,7 @@ Public Class CasparTest2NoPvw
     Dim playlistPositionInGame As Integer = 0
     Dim backgroundOnPGM As Boolean = False
     Dim backgroundOnPVW As Boolean = False
+    Dim PreMatchPlayNext As Boolean = False
 
 
 
@@ -1160,19 +1161,42 @@ Public Class CasparTest2NoPvw
 
     Private Sub playVid_Click(sender As Object, e As EventArgs) Handles playVid.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("play 2-99 " & playlistFiles.Text)
+            If PreMatchPlayNext = False Then
+                If Me.CasparDevice.IsConnected = True Then
+                    'fading in image
+                    CasparDevice.SendString("MIXER 2-99 OPACITY 0")
+                    CasparDevice.SendString("play 2-99 " & playlistFiles.Text)
+                    CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+                    'fade out other layer
+                    CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
+                    PreMatchPlayNext = True
+                End If
+            End If
+            If PreMatchPlayNext = True Then
+                If Me.CasparDevice.IsConnected = True Then
+                    'fading in image
+                    CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+                    CasparDevice.SendString("play 2-100 " & playlistFiles.Text)
+                    CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+                    'fade out other layer
+                    CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
+                    'reset for next if
+                    PreMatchPlayNext = False
+                End If
+            End If
+
             playVid.BackColor = Color.Green
-            LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-            LoopVid.UseVisualStyleBackColor = True
+            ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+            'LoopVid.UseVisualStyleBackColor = True
             playNext.BackColor = Color.FromKnownColor(KnownColor.Control)
             playNext.UseVisualStyleBackColor = True
         End If
     End Sub
 
-    Private Sub LoopVid_Click(sender As Object, e As EventArgs) Handles LoopVid.Click
+    Private Sub LoopVid_Click(sender As Object, e As EventArgs)
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " loop auto")
-            LoopVid.BackColor = Color.Green
+            'LoopVid.BackColor = Color.Green
             playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
             playVid.UseVisualStyleBackColor = True
             playNext.BackColor = Color.FromKnownColor(KnownColor.Control)
@@ -1183,10 +1207,13 @@ Public Class CasparTest2NoPvw
     Private Sub stopVid_Click(sender As Object, e As EventArgs) Handles stopVid.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.SendString("stop 2-99")
+            CasparDevice.SendString("stop 2-100")
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 0 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 0 linear")
             playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
             playVid.UseVisualStyleBackColor = True
-            LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-            LoopVid.UseVisualStyleBackColor = True
+            '  LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+            '  LoopVid.UseVisualStyleBackColor = True
             playNext.BackColor = Color.FromKnownColor(KnownColor.Control)
             playNext.UseVisualStyleBackColor = True
         End If
@@ -1360,18 +1387,43 @@ Public Class CasparTest2NoPvw
         End If
         ' something is wrong here, it should loop but i think the previous statement is stopping it getting there.
 
+        If PreMatchPlayNext = False Then
+            If Me.CasparDevice.IsConnected = True Then
+                'fading in image
+                CasparDevice.SendString("MIXER 2-99 OPACITY 0")
+                CasparDevice.SendString("play 2-99 " & playlistFiles.Text)
+                CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+                'fade out other layer
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
 
-        If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("play 2-99 " & playlistFiles.Text)
-            playNext.BackColor = Color.Green
-            playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-            playVid.UseVisualStyleBackColor = True
-            LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-            LoopVid.UseVisualStyleBackColor = True
+                playNext.BackColor = Color.Green
+                playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+                playVid.UseVisualStyleBackColor = True
+                ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+                ' LoopVid.UseVisualStyleBackColor = True
 
+                'reset for next if
+                PreMatchPlayNext = True
+            End If
+        End If
+        If PreMatchPlayNext = True Then
+            If Me.CasparDevice.IsConnected = True Then
+                'fading in image
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+                CasparDevice.SendString("play 2-100 " & playlistFiles.Text)
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+                'fade out other layer
+                CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
 
+                playNext.BackColor = Color.Green
+                playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+                playVid.UseVisualStyleBackColor = True
+                ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+                ' LoopVid.UseVisualStyleBackColor = True
 
-
+                'reset for next if
+                PreMatchPlayNext = False
+            End If
         End If
     End Sub
 
@@ -2649,7 +2701,7 @@ Public Class CasparTest2NoPvw
             'showClock.UseVisualStyleBackColor = True
             playVid.UseVisualStyleBackColor = True
             playNext.UseVisualStyleBackColor = True
-            LoopVid.UseVisualStyleBackColor = True
+            'LoopVid.UseVisualStyleBackColor = True
             showBigScore.UseVisualStyleBackColor = True
             showPremScores.UseVisualStyleBackColor = True
             TXPremScores_2BTN.UseVisualStyleBackColor = True
