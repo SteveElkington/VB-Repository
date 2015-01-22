@@ -508,6 +508,14 @@ Partial Class CasparTest2NoPvw
         Me.TimeOfDayCLock = New System.Windows.Forms.Timer(Me.components)
         Me.BPlayChanFadeOut = New System.Windows.Forms.Timer(Me.components)
         Me.scoresFadeOut = New System.Windows.Forms.Timer(Me.components)
+        Me.Label72 = New System.Windows.Forms.Label()
+        Me.MixTrans = New System.Windows.Forms.RadioButton()
+        Me.PushTrans = New System.Windows.Forms.RadioButton()
+        Me.WipeTrans = New System.Windows.Forms.RadioButton()
+        Me.WipeTransInGame = New System.Windows.Forms.RadioButton()
+        Me.PushTransInGame = New System.Windows.Forms.RadioButton()
+        Me.MixTransInGame = New System.Windows.Forms.RadioButton()
+        Me.Label73 = New System.Windows.Forms.Label()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -1663,6 +1671,10 @@ Partial Class CasparTest2NoPvw
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.WipeTrans)
+        Me.GroupBox2.Controls.Add(Me.PushTrans)
+        Me.GroupBox2.Controls.Add(Me.MixTrans)
+        Me.GroupBox2.Controls.Add(Me.Label72)
         Me.GroupBox2.Controls.Add(Me.PL1MoveDown)
         Me.GroupBox2.Controls.Add(Me.playNext)
         Me.GroupBox2.Controls.Add(Me.PL1MoveUp)
@@ -1677,7 +1689,7 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox2.Controls.Add(Me.SourceFiles)
         Me.GroupBox2.Location = New System.Drawing.Point(847, 22)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(347, 523)
+        Me.GroupBox2.Size = New System.Drawing.Size(347, 568)
         Me.GroupBox2.TabIndex = 18
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Stills Playout"
@@ -3553,6 +3565,10 @@ Partial Class CasparTest2NoPvw
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.WipeTransInGame)
+        Me.GroupBox6.Controls.Add(Me.PushTransInGame)
+        Me.GroupBox6.Controls.Add(Me.MixTransInGame)
+        Me.GroupBox6.Controls.Add(Me.Label73)
         Me.GroupBox6.Controls.Add(Me.PLInGameMoveDown)
         Me.GroupBox6.Controls.Add(Me.PlayNextVidInGame)
         Me.GroupBox6.Controls.Add(Me.PLInGameMoveUp)
@@ -3567,7 +3583,7 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox6.Controls.Add(Me.SourceFilesInGame)
         Me.GroupBox6.Location = New System.Drawing.Point(900, 18)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(347, 526)
+        Me.GroupBox6.Size = New System.Drawing.Size(347, 569)
         Me.GroupBox6.TabIndex = 116
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Stills Playout"
@@ -5080,6 +5096,88 @@ Partial Class CasparTest2NoPvw
         'scoresFadeOut
         '
         '
+        'Label72
+        '
+        Me.Label72.AutoSize = True
+        Me.Label72.Location = New System.Drawing.Point(6, 526)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(58, 13)
+        Me.Label72.TabIndex = 25
+        Me.Label72.Text = "Transitions"
+        '
+        'MixTrans
+        '
+        Me.MixTrans.AutoSize = True
+        Me.MixTrans.Checked = True
+        Me.MixTrans.Location = New System.Drawing.Point(9, 546)
+        Me.MixTrans.Name = "MixTrans"
+        Me.MixTrans.Size = New System.Drawing.Size(41, 17)
+        Me.MixTrans.TabIndex = 25
+        Me.MixTrans.TabStop = True
+        Me.MixTrans.Text = "Mix"
+        Me.MixTrans.UseVisualStyleBackColor = True
+        '
+        'PushTrans
+        '
+        Me.PushTrans.AutoSize = True
+        Me.PushTrans.Location = New System.Drawing.Point(128, 546)
+        Me.PushTrans.Name = "PushTrans"
+        Me.PushTrans.Size = New System.Drawing.Size(49, 17)
+        Me.PushTrans.TabIndex = 80
+        Me.PushTrans.Text = "Push"
+        Me.PushTrans.UseVisualStyleBackColor = True
+        '
+        'WipeTrans
+        '
+        Me.WipeTrans.AutoSize = True
+        Me.WipeTrans.Location = New System.Drawing.Point(240, 546)
+        Me.WipeTrans.Name = "WipeTrans"
+        Me.WipeTrans.Size = New System.Drawing.Size(50, 17)
+        Me.WipeTrans.TabIndex = 26
+        Me.WipeTrans.Text = "Wipe"
+        Me.WipeTrans.UseVisualStyleBackColor = True
+        '
+        'WipeTransInGame
+        '
+        Me.WipeTransInGame.AutoSize = True
+        Me.WipeTransInGame.Location = New System.Drawing.Point(240, 542)
+        Me.WipeTransInGame.Name = "WipeTransInGame"
+        Me.WipeTransInGame.Size = New System.Drawing.Size(50, 17)
+        Me.WipeTransInGame.TabIndex = 122
+        Me.WipeTransInGame.Text = "Wipe"
+        Me.WipeTransInGame.UseVisualStyleBackColor = True
+        '
+        'PushTransInGame
+        '
+        Me.PushTransInGame.AutoSize = True
+        Me.PushTransInGame.Location = New System.Drawing.Point(128, 542)
+        Me.PushTransInGame.Name = "PushTransInGame"
+        Me.PushTransInGame.Size = New System.Drawing.Size(49, 17)
+        Me.PushTransInGame.TabIndex = 123
+        Me.PushTransInGame.Text = "Push"
+        Me.PushTransInGame.UseVisualStyleBackColor = True
+        '
+        'MixTransInGame
+        '
+        Me.MixTransInGame.AutoSize = True
+        Me.MixTransInGame.Checked = True
+        Me.MixTransInGame.Location = New System.Drawing.Point(9, 542)
+        Me.MixTransInGame.Name = "MixTransInGame"
+        Me.MixTransInGame.Size = New System.Drawing.Size(41, 17)
+        Me.MixTransInGame.TabIndex = 120
+        Me.MixTransInGame.TabStop = True
+        Me.MixTransInGame.Text = "Mix"
+        Me.MixTransInGame.UseVisualStyleBackColor = True
+        '
+        'Label73
+        '
+        Me.Label73.AutoSize = True
+        Me.Label73.Location = New System.Drawing.Point(6, 525)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(58, 13)
+        Me.Label73.TabIndex = 121
+        Me.Label73.Text = "Transitions"
+        '
         'CasparTest2NoPvw
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5624,5 +5722,13 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents Label70 As System.Windows.Forms.Label
     Friend WithEvents Label71 As System.Windows.Forms.Label
     Friend WithEvents ShowBothTeamCrawl As System.Windows.Forms.RadioButton
+    Friend WithEvents WipeTrans As System.Windows.Forms.RadioButton
+    Friend WithEvents PushTrans As System.Windows.Forms.RadioButton
+    Friend WithEvents MixTrans As System.Windows.Forms.RadioButton
+    Friend WithEvents Label72 As System.Windows.Forms.Label
+    Friend WithEvents WipeTransInGame As System.Windows.Forms.RadioButton
+    Friend WithEvents PushTransInGame As System.Windows.Forms.RadioButton
+    Friend WithEvents MixTransInGame As System.Windows.Forms.RadioButton
+    Friend WithEvents Label73 As System.Windows.Forms.Label
 
 End Class
