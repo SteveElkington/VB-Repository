@@ -17,8 +17,14 @@ Public Class CasparTest2NoPvw
     Dim backgroundOnPGM As Boolean = False
     Dim backgroundOnPVW As Boolean = False
     Dim PreMatchPlayNext As Boolean = False
-
-
+    Dim msg1Colour As String
+    Dim msg2Colour As String
+    Dim msg3Colour As String
+    Dim msg4Colour As String
+    Dim msg5Colour As String
+    Dim msg6Colour As String
+    Dim msg7Colour As String
+    Dim msg8Colour As String
 
     Private Sub Connect_Click(sender As Object, e As EventArgs) Handles Connect.Click
         CasparDevice.Settings.Hostname = "localhost"
@@ -4028,6 +4034,7 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("f2", msg1Line2.Text)
             CasparCGDataCollection.SetData("f3", msg1Line3.Text)
             CasparCGDataCollection.SetData("f4", msg1Line4.Text)
+            CasparCGDataCollection.SetData("col1", "0x" + msg1Colour)
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
@@ -4121,6 +4128,7 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("f2", msg2Line2.Text)
             CasparCGDataCollection.SetData("f3", msg2Line3.Text)
             CasparCGDataCollection.SetData("f4", msg2Line4.Text)
+            CasparCGDataCollection.SetData("col1", "0x" + msg2Colour)
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
@@ -4143,6 +4151,7 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("f2", msg3Line2.Text)
             CasparCGDataCollection.SetData("f3", msg3Line3.Text)
             CasparCGDataCollection.SetData("f4", msg3Line4.Text)
+            CasparCGDataCollection.SetData("col1", "0x" + msg3Colour)
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
@@ -4165,6 +4174,7 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("f2", msg4Line2.Text)
             CasparCGDataCollection.SetData("f3", msg4Line3.Text)
             CasparCGDataCollection.SetData("f4", msg4Line4.Text)
+            CasparCGDataCollection.SetData("col1", "0x" + msg4Colour)
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
@@ -4327,6 +4337,7 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("f2", msg5Line2.Text)
             CasparCGDataCollection.SetData("f3", msg5Line3.Text)
             CasparCGDataCollection.SetData("f4", msg5Line4.Text)
+            CasparCGDataCollection.SetData("col1", "0x" + msg5Colour)
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
@@ -4349,6 +4360,7 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("f2", msg6Line2.Text)
             CasparCGDataCollection.SetData("f3", msg6Line3.Text)
             CasparCGDataCollection.SetData("f4", msg6Line4.Text)
+            CasparCGDataCollection.SetData("col1", "0x" + msg6Colour)
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
@@ -4371,6 +4383,7 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("f2", msg7Line2.Text)
             CasparCGDataCollection.SetData("f3", msg7Line3.Text)
             CasparCGDataCollection.SetData("f4", msg7Line4.Text)
+            CasparCGDataCollection.SetData("col1", "0x" + msg7Colour)
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
@@ -4393,6 +4406,7 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.SetData("f2", msg8Line2.Text)
             CasparCGDataCollection.SetData("f3", msg8Line3.Text)
             CasparCGDataCollection.SetData("f4", msg8Line4.Text)
+            CasparCGDataCollection.SetData("col1", "0x" + msg8Colour)
 
             CasparDevice.Channels(1).CG.Add(101, "generalMessage", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
@@ -4518,4 +4532,57 @@ Public Class CasparTest2NoPvw
         End If
     End Sub
 
+    Private Sub Msg1ColPickBTN_Click(sender As Object, e As EventArgs) Handles Msg1ColPickBTN.Click
+        If ColorDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            ' Label24.ForeColor = ColorDialog1.Color
+            '  msg1Colour = System.Drawing.ColorTranslator.ToHtml(ColorDialog1.Color)
+
+            msg1Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog1.Color.R, ColorDialog1.Color.G, ColorDialog1.Color.B)
+           
+        End If
+    End Sub
+
+ 
+    Private Sub Msg2ColPickBTN_Click(sender As Object, e As EventArgs) Handles Msg2ColPickBTN.Click
+        If ColorDialog2.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            msg2Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog2.Color.R, ColorDialog2.Color.G, ColorDialog2.Color.B)
+        End If
+    End Sub
+
+    Private Sub Msg3ColPickBTN_Click(sender As Object, e As EventArgs) Handles Msg3ColPickBTN.Click
+        If ColorDialog3.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            msg3Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog3.Color.R, ColorDialog3.Color.G, ColorDialog3.Color.B)
+        End If
+    End Sub
+
+    Private Sub Msg4ColPickBTN_Click(sender As Object, e As EventArgs) Handles Msg4ColPickBTN.Click
+        If ColorDialog4.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            msg4Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog4.Color.R, ColorDialog4.Color.G, ColorDialog4.Color.B)
+        End If
+    End Sub
+
+    Private Sub Msg5ColPickBTN_Click(sender As Object, e As EventArgs) Handles Msg5ColPickBTN.Click
+        If ColorDialog5.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            msg5Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog5.Color.R, ColorDialog5.Color.G, ColorDialog5.Color.B)
+        End If
+    End Sub
+
+    Private Sub Msg6ColPickBTN_Click(sender As Object, e As EventArgs) Handles Msg6ColPickBTN.Click
+        If ColorDialog6.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            msg6Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog6.Color.R, ColorDialog6.Color.G, ColorDialog6.Color.B)
+        End If
+    End Sub
+
+
+    Private Sub Msg7ColPickBTN_Click(sender As Object, e As EventArgs) Handles Msg7ColPickBTN.Click
+        If ColorDialog7.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            msg7Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog7.Color.R, ColorDialog7.Color.G, ColorDialog7.Color.B)
+        End If
+    End Sub
+
+    Private Sub Msg8ColPickBTN_Click(sender As Object, e As EventArgs) Handles Msg8ColPickBTN.Click
+        If ColorDialog8.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            msg8Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog8.Color.R, ColorDialog8.Color.G, ColorDialog8.Color.B)
+        End If
+    End Sub
 End Class

@@ -126,6 +126,8 @@ Partial Class CasparTest2NoPvw
         Me.AwaySubOn = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.Label75 = New System.Windows.Forms.Label()
+        Me.Label74 = New System.Windows.Forms.Label()
         Me.AwayTeamName = New System.Windows.Forms.TextBox()
         Me.HomeTeamName = New System.Windows.Forms.TextBox()
         Me.AwayMoveDown = New System.Windows.Forms.Button()
@@ -157,6 +159,10 @@ Partial Class CasparTest2NoPvw
         Me.AwayTeamLabel = New System.Windows.Forms.Label()
         Me.HomeTeamLabel = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.WipeTrans = New System.Windows.Forms.RadioButton()
+        Me.PushTrans = New System.Windows.Forms.RadioButton()
+        Me.MixTrans = New System.Windows.Forms.RadioButton()
+        Me.Label72 = New System.Windows.Forms.Label()
         Me.PL1MoveDown = New System.Windows.Forms.Button()
         Me.playNext = New System.Windows.Forms.Button()
         Me.PL1MoveUp = New System.Windows.Forms.Button()
@@ -346,6 +352,10 @@ Partial Class CasparTest2NoPvw
         Me.addedTimeVals = New System.Windows.Forms.ComboBox()
         Me.showAddedTimeBTN = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.WipeTransInGame = New System.Windows.Forms.RadioButton()
+        Me.PushTransInGame = New System.Windows.Forms.RadioButton()
+        Me.MixTransInGame = New System.Windows.Forms.RadioButton()
+        Me.Label73 = New System.Windows.Forms.Label()
         Me.PLInGameMoveDown = New System.Windows.Forms.Button()
         Me.PlayNextVidInGame = New System.Windows.Forms.Button()
         Me.PLInGameMoveUp = New System.Windows.Forms.Button()
@@ -375,6 +385,14 @@ Partial Class CasparTest2NoPvw
         Me.LTStrapKO = New System.Windows.Forms.TextBox()
         Me.LTStrapTXBTN = New System.Windows.Forms.Button()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
+        Me.Msg8ColPickBTN = New System.Windows.Forms.Button()
+        Me.Msg7ColPickBTN = New System.Windows.Forms.Button()
+        Me.Msg6ColPickBTN = New System.Windows.Forms.Button()
+        Me.Msg5ColPickBTN = New System.Windows.Forms.Button()
+        Me.Msg4ColPickBTN = New System.Windows.Forms.Button()
+        Me.Msg3ColPickBTN = New System.Windows.Forms.Button()
+        Me.Msg2ColPickBTN = New System.Windows.Forms.Button()
+        Me.Msg1ColPickBTN = New System.Windows.Forms.Button()
         Me.msg8OffBtn = New System.Windows.Forms.Button()
         Me.msg8OnBtn = New System.Windows.Forms.Button()
         Me.ReloadBackgroundsComboBx8 = New System.Windows.Forms.Button()
@@ -508,14 +526,14 @@ Partial Class CasparTest2NoPvw
         Me.TimeOfDayCLock = New System.Windows.Forms.Timer(Me.components)
         Me.BPlayChanFadeOut = New System.Windows.Forms.Timer(Me.components)
         Me.scoresFadeOut = New System.Windows.Forms.Timer(Me.components)
-        Me.Label72 = New System.Windows.Forms.Label()
-        Me.MixTrans = New System.Windows.Forms.RadioButton()
-        Me.PushTrans = New System.Windows.Forms.RadioButton()
-        Me.WipeTrans = New System.Windows.Forms.RadioButton()
-        Me.WipeTransInGame = New System.Windows.Forms.RadioButton()
-        Me.PushTransInGame = New System.Windows.Forms.RadioButton()
-        Me.MixTransInGame = New System.Windows.Forms.RadioButton()
-        Me.Label73 = New System.Windows.Forms.Label()
+        Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.ColorDialog2 = New System.Windows.Forms.ColorDialog()
+        Me.ColorDialog3 = New System.Windows.Forms.ColorDialog()
+        Me.ColorDialog4 = New System.Windows.Forms.ColorDialog()
+        Me.ColorDialog5 = New System.Windows.Forms.ColorDialog()
+        Me.ColorDialog6 = New System.Windows.Forms.ColorDialog()
+        Me.ColorDialog7 = New System.Windows.Forms.ColorDialog()
+        Me.ColorDialog8 = New System.Windows.Forms.ColorDialog()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -857,7 +875,7 @@ Partial Class CasparTest2NoPvw
         Me.LoadTeams.Name = "LoadTeams"
         Me.LoadTeams.Size = New System.Drawing.Size(98, 39)
         Me.LoadTeams.TabIndex = 0
-        Me.LoadTeams.Text = "Load Teams"
+        Me.LoadTeams.Text = "Load Squads"
         Me.LoadTeams.UseVisualStyleBackColor = True
         '
         'showSub
@@ -1356,6 +1374,8 @@ Partial Class CasparTest2NoPvw
         'TabPage6
         '
         Me.TabPage6.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage6.Controls.Add(Me.Label75)
+        Me.TabPage6.Controls.Add(Me.Label74)
         Me.TabPage6.Controls.Add(Me.AwayTeamName)
         Me.TabPage6.Controls.Add(Me.HomeTeamName)
         Me.TabPage6.Controls.Add(Me.AwayMoveDown)
@@ -1389,6 +1409,26 @@ Partial Class CasparTest2NoPvw
         Me.TabPage6.Size = New System.Drawing.Size(1252, 609)
         Me.TabPage6.TabIndex = 3
         Me.TabPage6.Text = "Set Up Teams"
+        '
+        'Label75
+        '
+        Me.Label75.AutoSize = True
+        Me.Label75.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label75.Location = New System.Drawing.Point(630, 51)
+        Me.Label75.Name = "Label75"
+        Me.Label75.Size = New System.Drawing.Size(80, 16)
+        Me.Label75.TabIndex = 81
+        Me.Label75.Text = "Away Team"
+        '
+        'Label74
+        '
+        Me.Label74.AutoSize = True
+        Me.Label74.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label74.Location = New System.Drawing.Point(424, 51)
+        Me.Label74.Name = "Label74"
+        Me.Label74.Size = New System.Drawing.Size(84, 16)
+        Me.Label74.TabIndex = 80
+        Me.Label74.Text = "Home Team"
         '
         'AwayTeamName
         '
@@ -1549,7 +1589,7 @@ Partial Class CasparTest2NoPvw
         Me.clearAwaySquad.Name = "clearAwaySquad"
         Me.clearAwaySquad.Size = New System.Drawing.Size(118, 23)
         Me.clearAwaySquad.TabIndex = 10
-        Me.clearAwaySquad.Text = "Clear Squad List"
+        Me.clearAwaySquad.Text = "Clear Team List"
         Me.clearAwaySquad.UseVisualStyleBackColor = True
         '
         'removeAwaySquad
@@ -1558,7 +1598,7 @@ Partial Class CasparTest2NoPvw
         Me.removeAwaySquad.Name = "removeAwaySquad"
         Me.removeAwaySquad.Size = New System.Drawing.Size(118, 23)
         Me.removeAwaySquad.TabIndex = 9
-        Me.removeAwaySquad.Text = "Remove from Squad"
+        Me.removeAwaySquad.Text = "Remove from Team"
         Me.removeAwaySquad.UseVisualStyleBackColor = True
         '
         'addAwaySquad
@@ -1567,7 +1607,7 @@ Partial Class CasparTest2NoPvw
         Me.addAwaySquad.Name = "addAwaySquad"
         Me.addAwaySquad.Size = New System.Drawing.Size(118, 23)
         Me.addAwaySquad.TabIndex = 8
-        Me.addAwaySquad.Text = "Add to Squad"
+        Me.addAwaySquad.Text = "Add to Team"
         Me.addAwaySquad.UseVisualStyleBackColor = True
         '
         'HomeClearSquadList
@@ -1576,7 +1616,7 @@ Partial Class CasparTest2NoPvw
         Me.HomeClearSquadList.Name = "HomeClearSquadList"
         Me.HomeClearSquadList.Size = New System.Drawing.Size(118, 23)
         Me.HomeClearSquadList.TabIndex = 7
-        Me.HomeClearSquadList.Text = "Clear Squad List"
+        Me.HomeClearSquadList.Text = "Clear Team List"
         Me.HomeClearSquadList.UseVisualStyleBackColor = True
         '
         'removeHomeSquad
@@ -1585,7 +1625,7 @@ Partial Class CasparTest2NoPvw
         Me.removeHomeSquad.Name = "removeHomeSquad"
         Me.removeHomeSquad.Size = New System.Drawing.Size(118, 23)
         Me.removeHomeSquad.TabIndex = 6
-        Me.removeHomeSquad.Text = "Remove from Squad"
+        Me.removeHomeSquad.Text = "Remove from Team"
         Me.removeHomeSquad.UseVisualStyleBackColor = True
         '
         'addHomeSquad
@@ -1594,7 +1634,7 @@ Partial Class CasparTest2NoPvw
         Me.addHomeSquad.Name = "addHomeSquad"
         Me.addHomeSquad.Size = New System.Drawing.Size(118, 23)
         Me.addHomeSquad.TabIndex = 5
-        Me.addHomeSquad.Text = "Add to Squad"
+        Me.addHomeSquad.Text = "Add to Team"
         Me.addHomeSquad.UseVisualStyleBackColor = True
         '
         'FullAwaySquad
@@ -1693,6 +1733,47 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox2.TabIndex = 18
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Stills Playout"
+        '
+        'WipeTrans
+        '
+        Me.WipeTrans.AutoSize = True
+        Me.WipeTrans.Location = New System.Drawing.Point(240, 546)
+        Me.WipeTrans.Name = "WipeTrans"
+        Me.WipeTrans.Size = New System.Drawing.Size(50, 17)
+        Me.WipeTrans.TabIndex = 26
+        Me.WipeTrans.Text = "Wipe"
+        Me.WipeTrans.UseVisualStyleBackColor = True
+        '
+        'PushTrans
+        '
+        Me.PushTrans.AutoSize = True
+        Me.PushTrans.Location = New System.Drawing.Point(128, 546)
+        Me.PushTrans.Name = "PushTrans"
+        Me.PushTrans.Size = New System.Drawing.Size(49, 17)
+        Me.PushTrans.TabIndex = 80
+        Me.PushTrans.Text = "Push"
+        Me.PushTrans.UseVisualStyleBackColor = True
+        '
+        'MixTrans
+        '
+        Me.MixTrans.AutoSize = True
+        Me.MixTrans.Checked = True
+        Me.MixTrans.Location = New System.Drawing.Point(9, 546)
+        Me.MixTrans.Name = "MixTrans"
+        Me.MixTrans.Size = New System.Drawing.Size(41, 17)
+        Me.MixTrans.TabIndex = 25
+        Me.MixTrans.TabStop = True
+        Me.MixTrans.Text = "Mix"
+        Me.MixTrans.UseVisualStyleBackColor = True
+        '
+        'Label72
+        '
+        Me.Label72.AutoSize = True
+        Me.Label72.Location = New System.Drawing.Point(6, 526)
+        Me.Label72.Name = "Label72"
+        Me.Label72.Size = New System.Drawing.Size(58, 13)
+        Me.Label72.TabIndex = 25
+        Me.Label72.Text = "Transitions"
         '
         'PL1MoveDown
         '
@@ -3588,6 +3669,47 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Stills Playout"
         '
+        'WipeTransInGame
+        '
+        Me.WipeTransInGame.AutoSize = True
+        Me.WipeTransInGame.Location = New System.Drawing.Point(240, 542)
+        Me.WipeTransInGame.Name = "WipeTransInGame"
+        Me.WipeTransInGame.Size = New System.Drawing.Size(50, 17)
+        Me.WipeTransInGame.TabIndex = 122
+        Me.WipeTransInGame.Text = "Wipe"
+        Me.WipeTransInGame.UseVisualStyleBackColor = True
+        '
+        'PushTransInGame
+        '
+        Me.PushTransInGame.AutoSize = True
+        Me.PushTransInGame.Location = New System.Drawing.Point(128, 542)
+        Me.PushTransInGame.Name = "PushTransInGame"
+        Me.PushTransInGame.Size = New System.Drawing.Size(49, 17)
+        Me.PushTransInGame.TabIndex = 123
+        Me.PushTransInGame.Text = "Push"
+        Me.PushTransInGame.UseVisualStyleBackColor = True
+        '
+        'MixTransInGame
+        '
+        Me.MixTransInGame.AutoSize = True
+        Me.MixTransInGame.Checked = True
+        Me.MixTransInGame.Location = New System.Drawing.Point(9, 542)
+        Me.MixTransInGame.Name = "MixTransInGame"
+        Me.MixTransInGame.Size = New System.Drawing.Size(41, 17)
+        Me.MixTransInGame.TabIndex = 120
+        Me.MixTransInGame.TabStop = True
+        Me.MixTransInGame.Text = "Mix"
+        Me.MixTransInGame.UseVisualStyleBackColor = True
+        '
+        'Label73
+        '
+        Me.Label73.AutoSize = True
+        Me.Label73.Location = New System.Drawing.Point(6, 525)
+        Me.Label73.Name = "Label73"
+        Me.Label73.Size = New System.Drawing.Size(58, 13)
+        Me.Label73.TabIndex = 121
+        Me.Label73.Text = "Transitions"
+        '
         'PLInGameMoveDown
         '
         Me.PLInGameMoveDown.Location = New System.Drawing.Point(176, 288)
@@ -3873,6 +3995,14 @@ Partial Class CasparTest2NoPvw
         'TabPage7
         '
         Me.TabPage7.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage7.Controls.Add(Me.Msg8ColPickBTN)
+        Me.TabPage7.Controls.Add(Me.Msg7ColPickBTN)
+        Me.TabPage7.Controls.Add(Me.Msg6ColPickBTN)
+        Me.TabPage7.Controls.Add(Me.Msg5ColPickBTN)
+        Me.TabPage7.Controls.Add(Me.Msg4ColPickBTN)
+        Me.TabPage7.Controls.Add(Me.Msg3ColPickBTN)
+        Me.TabPage7.Controls.Add(Me.Msg2ColPickBTN)
+        Me.TabPage7.Controls.Add(Me.Msg1ColPickBTN)
         Me.TabPage7.Controls.Add(Me.msg8OffBtn)
         Me.TabPage7.Controls.Add(Me.msg8OnBtn)
         Me.TabPage7.Controls.Add(Me.ReloadBackgroundsComboBx8)
@@ -3999,6 +4129,78 @@ Partial Class CasparTest2NoPvw
         Me.TabPage7.TabIndex = 4
         Me.TabPage7.Text = "Generic Messages"
         '
+        'Msg8ColPickBTN
+        '
+        Me.Msg8ColPickBTN.Location = New System.Drawing.Point(1131, 293)
+        Me.Msg8ColPickBTN.Name = "Msg8ColPickBTN"
+        Me.Msg8ColPickBTN.Size = New System.Drawing.Size(75, 23)
+        Me.Msg8ColPickBTN.TabIndex = 127
+        Me.Msg8ColPickBTN.Text = "Colour"
+        Me.Msg8ColPickBTN.UseVisualStyleBackColor = True
+        '
+        'Msg7ColPickBTN
+        '
+        Me.Msg7ColPickBTN.Location = New System.Drawing.Point(835, 291)
+        Me.Msg7ColPickBTN.Name = "Msg7ColPickBTN"
+        Me.Msg7ColPickBTN.Size = New System.Drawing.Size(75, 23)
+        Me.Msg7ColPickBTN.TabIndex = 126
+        Me.Msg7ColPickBTN.Text = "Colour"
+        Me.Msg7ColPickBTN.UseVisualStyleBackColor = True
+        '
+        'Msg6ColPickBTN
+        '
+        Me.Msg6ColPickBTN.Location = New System.Drawing.Point(536, 293)
+        Me.Msg6ColPickBTN.Name = "Msg6ColPickBTN"
+        Me.Msg6ColPickBTN.Size = New System.Drawing.Size(75, 23)
+        Me.Msg6ColPickBTN.TabIndex = 125
+        Me.Msg6ColPickBTN.Text = "Colour"
+        Me.Msg6ColPickBTN.UseVisualStyleBackColor = True
+        '
+        'Msg5ColPickBTN
+        '
+        Me.Msg5ColPickBTN.Location = New System.Drawing.Point(245, 291)
+        Me.Msg5ColPickBTN.Name = "Msg5ColPickBTN"
+        Me.Msg5ColPickBTN.Size = New System.Drawing.Size(75, 23)
+        Me.Msg5ColPickBTN.TabIndex = 124
+        Me.Msg5ColPickBTN.Text = "Colour"
+        Me.Msg5ColPickBTN.UseVisualStyleBackColor = True
+        '
+        'Msg4ColPickBTN
+        '
+        Me.Msg4ColPickBTN.Location = New System.Drawing.Point(1131, 44)
+        Me.Msg4ColPickBTN.Name = "Msg4ColPickBTN"
+        Me.Msg4ColPickBTN.Size = New System.Drawing.Size(75, 23)
+        Me.Msg4ColPickBTN.TabIndex = 123
+        Me.Msg4ColPickBTN.Text = "Colour"
+        Me.Msg4ColPickBTN.UseVisualStyleBackColor = True
+        '
+        'Msg3ColPickBTN
+        '
+        Me.Msg3ColPickBTN.Location = New System.Drawing.Point(835, 42)
+        Me.Msg3ColPickBTN.Name = "Msg3ColPickBTN"
+        Me.Msg3ColPickBTN.Size = New System.Drawing.Size(75, 23)
+        Me.Msg3ColPickBTN.TabIndex = 122
+        Me.Msg3ColPickBTN.Text = "Colour"
+        Me.Msg3ColPickBTN.UseVisualStyleBackColor = True
+        '
+        'Msg2ColPickBTN
+        '
+        Me.Msg2ColPickBTN.Location = New System.Drawing.Point(536, 44)
+        Me.Msg2ColPickBTN.Name = "Msg2ColPickBTN"
+        Me.Msg2ColPickBTN.Size = New System.Drawing.Size(75, 23)
+        Me.Msg2ColPickBTN.TabIndex = 121
+        Me.Msg2ColPickBTN.Text = "Colour"
+        Me.Msg2ColPickBTN.UseVisualStyleBackColor = True
+        '
+        'Msg1ColPickBTN
+        '
+        Me.Msg1ColPickBTN.Location = New System.Drawing.Point(245, 42)
+        Me.Msg1ColPickBTN.Name = "Msg1ColPickBTN"
+        Me.Msg1ColPickBTN.Size = New System.Drawing.Size(75, 23)
+        Me.Msg1ColPickBTN.TabIndex = 120
+        Me.Msg1ColPickBTN.Text = "Colour"
+        Me.Msg1ColPickBTN.UseVisualStyleBackColor = True
+        '
         'msg8OffBtn
         '
         Me.msg8OffBtn.Location = New System.Drawing.Point(1073, 472)
@@ -4075,7 +4277,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.msg8Title.Location = New System.Drawing.Point(1007, 293)
         Me.msg8Title.Name = "msg8Title"
-        Me.msg8Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg8Title.Size = New System.Drawing.Size(121, 20)
         Me.msg8Title.TabIndex = 110
         '
         'Label49
@@ -4199,7 +4401,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.msg7Title.Location = New System.Drawing.Point(711, 293)
         Me.msg7Title.Name = "msg7Title"
-        Me.msg7Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg7Title.Size = New System.Drawing.Size(121, 20)
         Me.msg7Title.TabIndex = 95
         '
         'Label55
@@ -4323,7 +4525,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.msg6Title.Location = New System.Drawing.Point(412, 293)
         Me.msg6Title.Name = "msg6Title"
-        Me.msg6Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg6Title.Size = New System.Drawing.Size(121, 20)
         Me.msg6Title.TabIndex = 80
         '
         'Label61
@@ -4447,7 +4649,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.msg5Title.Location = New System.Drawing.Point(121, 293)
         Me.msg5Title.Name = "msg5Title"
-        Me.msg5Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg5Title.Size = New System.Drawing.Size(121, 20)
         Me.msg5Title.TabIndex = 65
         '
         'Label67
@@ -4571,7 +4773,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.msg4Title.Location = New System.Drawing.Point(1007, 44)
         Me.msg4Title.Name = "msg4Title"
-        Me.msg4Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg4Title.Size = New System.Drawing.Size(121, 20)
         Me.msg4Title.TabIndex = 50
         '
         'Label43
@@ -4695,7 +4897,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.msg3Title.Location = New System.Drawing.Point(711, 44)
         Me.msg3Title.Name = "msg3Title"
-        Me.msg3Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg3Title.Size = New System.Drawing.Size(121, 20)
         Me.msg3Title.TabIndex = 35
         '
         'Label37
@@ -4819,7 +5021,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.msg2Title.Location = New System.Drawing.Point(412, 44)
         Me.msg2Title.Name = "msg2Title"
-        Me.msg2Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg2Title.Size = New System.Drawing.Size(121, 20)
         Me.msg2Title.TabIndex = 20
         '
         'Label31
@@ -4943,7 +5145,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.msg1Title.Location = New System.Drawing.Point(121, 44)
         Me.msg1Title.Name = "msg1Title"
-        Me.msg1Title.Size = New System.Drawing.Size(199, 20)
+        Me.msg1Title.Size = New System.Drawing.Size(121, 20)
         Me.msg1Title.TabIndex = 5
         '
         'Label28
@@ -5095,88 +5297,6 @@ Partial Class CasparTest2NoPvw
         '
         'scoresFadeOut
         '
-        '
-        'Label72
-        '
-        Me.Label72.AutoSize = True
-        Me.Label72.Location = New System.Drawing.Point(6, 526)
-        Me.Label72.Name = "Label72"
-        Me.Label72.Size = New System.Drawing.Size(58, 13)
-        Me.Label72.TabIndex = 25
-        Me.Label72.Text = "Transitions"
-        '
-        'MixTrans
-        '
-        Me.MixTrans.AutoSize = True
-        Me.MixTrans.Checked = True
-        Me.MixTrans.Location = New System.Drawing.Point(9, 546)
-        Me.MixTrans.Name = "MixTrans"
-        Me.MixTrans.Size = New System.Drawing.Size(41, 17)
-        Me.MixTrans.TabIndex = 25
-        Me.MixTrans.TabStop = True
-        Me.MixTrans.Text = "Mix"
-        Me.MixTrans.UseVisualStyleBackColor = True
-        '
-        'PushTrans
-        '
-        Me.PushTrans.AutoSize = True
-        Me.PushTrans.Location = New System.Drawing.Point(128, 546)
-        Me.PushTrans.Name = "PushTrans"
-        Me.PushTrans.Size = New System.Drawing.Size(49, 17)
-        Me.PushTrans.TabIndex = 80
-        Me.PushTrans.Text = "Push"
-        Me.PushTrans.UseVisualStyleBackColor = True
-        '
-        'WipeTrans
-        '
-        Me.WipeTrans.AutoSize = True
-        Me.WipeTrans.Location = New System.Drawing.Point(240, 546)
-        Me.WipeTrans.Name = "WipeTrans"
-        Me.WipeTrans.Size = New System.Drawing.Size(50, 17)
-        Me.WipeTrans.TabIndex = 26
-        Me.WipeTrans.Text = "Wipe"
-        Me.WipeTrans.UseVisualStyleBackColor = True
-        '
-        'WipeTransInGame
-        '
-        Me.WipeTransInGame.AutoSize = True
-        Me.WipeTransInGame.Location = New System.Drawing.Point(240, 542)
-        Me.WipeTransInGame.Name = "WipeTransInGame"
-        Me.WipeTransInGame.Size = New System.Drawing.Size(50, 17)
-        Me.WipeTransInGame.TabIndex = 122
-        Me.WipeTransInGame.Text = "Wipe"
-        Me.WipeTransInGame.UseVisualStyleBackColor = True
-        '
-        'PushTransInGame
-        '
-        Me.PushTransInGame.AutoSize = True
-        Me.PushTransInGame.Location = New System.Drawing.Point(128, 542)
-        Me.PushTransInGame.Name = "PushTransInGame"
-        Me.PushTransInGame.Size = New System.Drawing.Size(49, 17)
-        Me.PushTransInGame.TabIndex = 123
-        Me.PushTransInGame.Text = "Push"
-        Me.PushTransInGame.UseVisualStyleBackColor = True
-        '
-        'MixTransInGame
-        '
-        Me.MixTransInGame.AutoSize = True
-        Me.MixTransInGame.Checked = True
-        Me.MixTransInGame.Location = New System.Drawing.Point(9, 542)
-        Me.MixTransInGame.Name = "MixTransInGame"
-        Me.MixTransInGame.Size = New System.Drawing.Size(41, 17)
-        Me.MixTransInGame.TabIndex = 120
-        Me.MixTransInGame.TabStop = True
-        Me.MixTransInGame.Text = "Mix"
-        Me.MixTransInGame.UseVisualStyleBackColor = True
-        '
-        'Label73
-        '
-        Me.Label73.AutoSize = True
-        Me.Label73.Location = New System.Drawing.Point(6, 525)
-        Me.Label73.Name = "Label73"
-        Me.Label73.Size = New System.Drawing.Size(58, 13)
-        Me.Label73.TabIndex = 121
-        Me.Label73.Text = "Transitions"
         '
         'CasparTest2NoPvw
         '
@@ -5730,5 +5850,23 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents PushTransInGame As System.Windows.Forms.RadioButton
     Friend WithEvents MixTransInGame As System.Windows.Forms.RadioButton
     Friend WithEvents Label73 As System.Windows.Forms.Label
+    Friend WithEvents Label75 As System.Windows.Forms.Label
+    Friend WithEvents Label74 As System.Windows.Forms.Label
+    Friend WithEvents Msg1ColPickBTN As System.Windows.Forms.Button
+    Friend WithEvents ColorDialog1 As System.Windows.Forms.ColorDialog
+    Friend WithEvents Msg8ColPickBTN As System.Windows.Forms.Button
+    Friend WithEvents Msg7ColPickBTN As System.Windows.Forms.Button
+    Friend WithEvents Msg6ColPickBTN As System.Windows.Forms.Button
+    Friend WithEvents Msg5ColPickBTN As System.Windows.Forms.Button
+    Friend WithEvents Msg4ColPickBTN As System.Windows.Forms.Button
+    Friend WithEvents Msg3ColPickBTN As System.Windows.Forms.Button
+    Friend WithEvents Msg2ColPickBTN As System.Windows.Forms.Button
+    Friend WithEvents ColorDialog2 As System.Windows.Forms.ColorDialog
+    Friend WithEvents ColorDialog3 As System.Windows.Forms.ColorDialog
+    Friend WithEvents ColorDialog4 As System.Windows.Forms.ColorDialog
+    Friend WithEvents ColorDialog5 As System.Windows.Forms.ColorDialog
+    Friend WithEvents ColorDialog6 As System.Windows.Forms.ColorDialog
+    Friend WithEvents ColorDialog7 As System.Windows.Forms.ColorDialog
+    Friend WithEvents ColorDialog8 As System.Windows.Forms.ColorDialog
 
 End Class
