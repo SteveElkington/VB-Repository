@@ -3249,13 +3249,20 @@ Public Class CasparTest2NoPvw
             ' End If
 
             'save to text file
-            Dim FileNumber As Integer = FreeFile()
-            FileOpen(FileNumber, "c:\home_team.txt", OpenMode.Output)
-            PrintLine(FileNumber, HomeTeamName.Text)
-            For Each Item As Object In FullHomeSquad.Items
-                PrintLine(FileNumber, Item.ToString)
-            Next
-            FileClose(FileNumber)
+            '       Dim FileNumber As Integer = FreeFile()
+            '   FileOpen(FileNumber, "c:\home_team.txt", OpenMode.Output)
+            '    PrintLine(FileNumber, HomeTeamName.Text)
+            ' '    For Each Item As Object In FullHomeSquad.Items
+            'PrintLine(FileNumber, Item.ToString)
+            '     Next
+            '     FileClose(FileNumber)
+
+
+            Dim FILE_NAME As String = "c:\home_team.txt"
+            Dim objWriter As New System.IO.StreamWriter(FILE_NAME, True)
+            objWriter.WriteLine(HomePlayerNotListed.Text)
+            objWriter.Close()
+
         Else
             MessageBox.Show("You need to type a name in here", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -3271,13 +3278,19 @@ Public Class CasparTest2NoPvw
             'End If
 
             'save to text file
-            Dim FileNumber As Integer = FreeFile()
-            FileOpen(FileNumber, "c:\away_team.txt", OpenMode.Output)
-            PrintLine(FileNumber, AwayTeamName.Text)
-            For Each Item As Object In FullAwaySquad.Items
-                PrintLine(FileNumber, Item.ToString)
-            Next
-            FileClose(FileNumber)
+            ' Dim FileNumber As Integer = FreeFile()
+            ' FileOpen(FileNumber, "c:\away_team.txt", OpenMode.Output)
+            ' PrintLine(FileNumber, AwayTeamName.Text)
+            ' For Each Item As Object In FullAwaySquad.Items
+            ' PrintLine(FileNumber, Item.ToString)
+            ' Next
+            ' FileClose(FileNumber)
+
+            Dim FILE_NAME As String = "c:\away_team.txt"
+            Dim objWriter As New System.IO.StreamWriter(FILE_NAME, True)
+            objWriter.WriteLine(AwayPlayerNotListed.Text)
+            objWriter.Close()
+
         Else
             MessageBox.Show("You need to type a name in here", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
