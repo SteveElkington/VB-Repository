@@ -4805,8 +4805,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("STOP 1-102")
             CasparDevice.SendString("STOP 1-103")
             CasparDevice.SendString("STOP 1-104")
-            CrawlOn.BackColor = Color.FromKnownColor(KnownColor.Control)
-            TSCrawlOnBTN.UseVisualStyleBackColor = True
+            showScoresScroller.BackColor = Color.FromKnownColor(KnownColor.Control)
+            showScoresScroller.UseVisualStyleBackColor = True
             'crawlToggle = False
             'disable button
             ' showScoresScroller.Enabled = True
