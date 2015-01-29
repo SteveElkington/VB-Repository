@@ -10,6 +10,7 @@ Public Class CasparTest2NoPvw
     Dim count As Integer
     Dim countBPS As Integer
     Dim countScores As Integer
+    Dim countPlaylist As Integer
     Dim aa As Integer
     Dim crawlToggle As Boolean
     Dim playlistPosition As Integer = 0
@@ -42,7 +43,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub countTimer_Tick(sender As Object, e As EventArgs) Handles countTimer.Tick
         count = count + 1
-        If count >= 5 Then
+        If count >= 7 Then
             CasparDevice.SendString("stop 2-100")
             CasparDevice.SendString("MIXER 2-100 OPACITY 1 12 linear")
             countTimer.Enabled = False
@@ -161,7 +162,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub clockAnimation_Tick(sender As Object, e As EventArgs) Handles clockAnimation.Tick
         count = count + 1
-        If count >= 5 Then
+        If count >= 7 Then
             CasparDevice.SendString("stop 1-400")
             CasparDevice.SendString("MIXER 1-400 OPACITY 1 12 linear")
             clockAnimation.Enabled = False
@@ -583,7 +584,29 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             ' CasparDevice.SendString("play 2-102 LATESTSCORES")
-            CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
+
+            ' select which logo to show
+            If tab1Logo1Select.Text = "Premier League" Then
+                CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
+            End If
+            If tab1Logo1Select.Text = "Championship" Then
+                CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
+            End If
+            If tab1Logo1Select.Text = "Capital One Cup" Then
+                CasparDevice.SendString("play 2-100 SCORES_C1C_LOGO")
+            End If
+            If tab1Logo1Select.Text = "Europa League" Then
+                CasparDevice.SendString("play 2-100 SCORES_EUROPALEAGUE_LOGO")
+            End If
+            If tab1Logo1Select.Text = "FA Cup" Then
+                CasparDevice.SendString("play 2-100 SCORES_FACUP_LOGO")
+            End If
+            If tab1Logo1Select.Text = "Champions League" Then
+                CasparDevice.SendString("play 2-100 SCORES_CHAMPLEAGUE_LOGO")
+            End If
+
+
+            'set colours on buttons
             showPremScores.BackColor = Color.Green
             TXPremScores_2BTN.UseVisualStyleBackColor = True
 
@@ -1167,46 +1190,48 @@ Public Class CasparTest2NoPvw
 
     Private Sub playVid_Click(sender As Object, e As EventArgs) Handles playVid.Click
         If Me.CasparDevice.IsConnected = True Then
-            ' If PreMatchPlayNext = False Then
-            ''fading in image
-            'CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            'CasparDevice.SendString("play 2-99 " & playlistFiles.Text)
-            'CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
-            ''fade out other layer
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
-            'PreMatchPlayNext = True
-            'End If
-            'If PreMatchPlayNext = True Then
-            ''fading in image
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            'CasparDevice.SendString("play 2-100 " & playlistFiles.Text)
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
-            ''fade out other layer
-            'CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
-            ''reset for next if
-            'PreMatchPlayNext = False
-            'End If
+            If Me.playlistFiles.SelectedIndex >= 0 Then
+                ' If PreMatchPlayNext = False Then
+                ''fading in image
+                'CasparDevice.SendString("MIXER 2-99 OPACITY 0")
+                'CasparDevice.SendString("play 2-99 " & playlistFiles.Text)
+                'CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+                ''fade out other layer
+                'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
+                'PreMatchPlayNext = True
+                'End If
+                'If PreMatchPlayNext = True Then
+                ''fading in image
+                'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+                'CasparDevice.SendString("play 2-100 " & playlistFiles.Text)
+                'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+                ''fade out other layer
+                'CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
+                ''reset for next if
+                'PreMatchPlayNext = False
+                'End If
 
 
 
-            'select transition and play file
-            If MixTrans.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " MIX 12 LINEAR")
+                'select transition and play file
+                If MixTrans.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " MIX 12 LINEAR")
+                End If
+                If WipeTrans.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " SLIDE 20 LEFT")
+                End If
+                If PushTrans.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " PUSH 20 EASEINSINE")
+                End If
+                ' CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " MIX 12 LINEAR")
+                'CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " PUSH 20 EASEINSINE")
+                'CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " SLIDE 20 LEFT")
+                playVid.BackColor = Color.Green
+                ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+                'LoopVid.UseVisualStyleBackColor = True
+                playNext.BackColor = Color.FromKnownColor(KnownColor.Control)
+                playNext.UseVisualStyleBackColor = True
             End If
-            If WipeTrans.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " SLIDE 20 LEFT")
-            End If
-            If PushTrans.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " PUSH 20 EASEINSINE")
-            End If
-            ' CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " MIX 12 LINEAR")
-            'CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " PUSH 20 EASEINSINE")
-            'CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " SLIDE 20 LEFT")
-            playVid.BackColor = Color.Green
-            ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-            'LoopVid.UseVisualStyleBackColor = True
-            playNext.BackColor = Color.FromKnownColor(KnownColor.Control)
-            playNext.UseVisualStyleBackColor = True
         End If
     End Sub
 
@@ -1223,14 +1248,12 @@ Public Class CasparTest2NoPvw
 
     Private Sub stopVid_Click(sender As Object, e As EventArgs) Handles stopVid.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("stop 2-99")
-            ' CasparDevice.SendString("stop 2-100")
-            CasparDevice.SendString("MIXER 2-99 OPACITY 1 0 linear")
-            ' CasparDevice.SendString("MIXER 2-100 OPACITY 1 0 linear")
+            ' fade out opacity and start timer to fade channel back in 
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0 12 linear")
+            playlistStop.Enabled = True
+            'set button colours back
             playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
             playVid.UseVisualStyleBackColor = True
-            '  LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-            '  LoopVid.UseVisualStyleBackColor = True
             playNext.BackColor = Color.FromKnownColor(KnownColor.Control)
             playNext.UseVisualStyleBackColor = True
         End If
@@ -1394,64 +1417,65 @@ Public Class CasparTest2NoPvw
     End Sub
 
     Private Sub playNext_Click(sender As Object, e As EventArgs) Handles playNext.Click
-        playlistPosition += 1
-        If (playlistFiles.SelectedIndex < (playlistFiles.Items.Count() - 1)) Then
-            playlistFiles.SelectedIndex += 1
-        End If
-        If (playlistPosition > playlistFiles.SelectedIndex) Then
-            playlistFiles.SelectedIndex = 0
-            playlistPosition = 0
-        End If
-        ' something is wrong here, it should loop but i think the previous statement is stopping it getting there.
-        If Me.CasparDevice.IsConnected = True Then
-            ' If PreMatchPlayNext = False Then
-
-            ' 'fading in image
-            ' CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            ' CasparDevice.SendString("play 2-99 " & playlistFiles.Text)
-            'CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
-            ''fade out other layer
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
-
-            ' playNext.BackColor = Color.Green
-            'playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-            'playVid.UseVisualStyleBackColor = True
-            ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-            ' LoopVid.UseVisualStyleBackColor = True
-
-            'reset for next if
-            'PreMatchPlayNext = True
-            'End If
-
-            '           If PreMatchPlayNext = True Then
-            ''fading in image
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            'CasparDevice.SendString("play 2-100 " & playlistFiles.Text)
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
-            'fade out other layer
-            'CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
-
-
-            'select transition and play file
-            If MixTrans.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " MIX 12 LINEAR")
+        If Me.playlistFiles.SelectedIndex >= 0 Then
+            playlistPosition += 1
+            If (playlistFiles.SelectedIndex < (playlistFiles.Items.Count() - 1)) Then
+                playlistFiles.SelectedIndex += 1
             End If
-            If WipeTrans.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " SLIDE 20 LEFT")
+            If (playlistPosition > playlistFiles.SelectedIndex) Then
+                playlistFiles.SelectedIndex = 0
+                playlistPosition = 0
             End If
-            If PushTrans.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " PUSH 20 EASEINSINE")
-            End If
-            playNext.BackColor = Color.Green
-            playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-            playVid.UseVisualStyleBackColor = True
-            ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-            ' LoopVid.UseVisualStyleBackColor = True
+            ' something is wrong here, it should loop but i think the previous statement is stopping it getting there.
+            If Me.CasparDevice.IsConnected = True Then
+                ' If PreMatchPlayNext = False Then
 
-            'reset for next if
-            PreMatchPlayNext = False
+                ' 'fading in image
+                ' CasparDevice.SendString("MIXER 2-99 OPACITY 0")
+                ' CasparDevice.SendString("play 2-99 " & playlistFiles.Text)
+                'CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+                ''fade out other layer
+                'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
+
+                ' playNext.BackColor = Color.Green
+                'playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+                'playVid.UseVisualStyleBackColor = True
+                ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+                ' LoopVid.UseVisualStyleBackColor = True
+
+                'reset for next if
+                'PreMatchPlayNext = True
+                'End If
+
+                '           If PreMatchPlayNext = True Then
+                ''fading in image
+                'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+                'CasparDevice.SendString("play 2-100 " & playlistFiles.Text)
+                'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+                'fade out other layer
+                'CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
+
+
+                'select transition and play file
+                If MixTrans.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " MIX 12 LINEAR")
+                End If
+                If WipeTrans.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " SLIDE 20 LEFT")
+                End If
+                If PushTrans.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " PUSH 20 EASEINSINE")
+                End If
+                playNext.BackColor = Color.Green
+                playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+                playVid.UseVisualStyleBackColor = True
+                ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+                ' LoopVid.UseVisualStyleBackColor = True
+
+                'reset for next if
+                PreMatchPlayNext = False
+            End If
         End If
-        ' End If
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles UpdateTextButton.Click
@@ -1720,8 +1744,28 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
-            ' CasparDevice.SendString("play 2-102 LATESTSCORES")
-            CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
+            ' select which logo to show
+            If tab1Logo2Select.Text = "Premier League" Then
+                CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
+            End If
+            If tab1Logo2Select.Text = "Championship" Then
+                CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
+            End If
+            If tab1Logo2Select.Text = "Capital One Cup" Then
+                CasparDevice.SendString("play 2-100 SCORES_C1C_LOGO")
+            End If
+            If tab1Logo2Select.Text = "Europa League" Then
+                CasparDevice.SendString("play 2-100 SCORES_EUROPALEAGUE_LOGO")
+            End If
+            If tab1Logo2Select.Text = "FA Cup" Then
+                CasparDevice.SendString("play 2-100 SCORES_FACUP_LOGO")
+            End If
+            If tab1Logo2Select.Text = "Champions League" Then
+                CasparDevice.SendString("play 2-100 SCORES_CHAMPLEAGUE_LOGO")
+            End If
+
+
+            'set colours on buttons
 
             TXPremScores_2BTN.BackColor = Color.Green
             showPremScores.UseVisualStyleBackColor = True
@@ -1894,13 +1938,33 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
-            ' CasparDevice.SendString("play 2-110 LATESTSCORES")
-            CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
+            ' select which logo to show
+            If tab2Logo1Select.Text = "Premier League" Then
+                CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
+            End If
+            If tab2Logo1Select.Text = "Championship" Then
+                CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
+            End If
+            If tab2Logo1Select.Text = "Capital One Cup" Then
+                CasparDevice.SendString("play 2-100 SCORES_C1C_LOGO")
+            End If
+            If tab2Logo1Select.Text = "Europa League" Then
+                CasparDevice.SendString("play 2-100 SCORES_EUROPALEAGUE_LOGO")
+            End If
+            If tab2Logo1Select.Text = "FA Cup" Then
+                CasparDevice.SendString("play 2-100 SCORES_FACUP_LOGO")
+            End If
+            If tab2Logo1Select.Text = "Champions League" Then
+                CasparDevice.SendString("play 2-100 SCORES_CHAMPLEAGUE_LOGO")
+            End If
+
+
+            'set colours on buttons
             ChampTX1Btn.BackColor = Color.Green
             ChampTX2Btn.UseVisualStyleBackColor = True
 
             'disable button
-            ChampHide1BTN.Enabled = False
+            ChampTX1Btn.Enabled = False
 
         End If
     End Sub
@@ -1923,7 +1987,7 @@ Public Class CasparTest2NoPvw
             ChampTX2Btn.UseVisualStyleBackColor = True
 
             're-enable button
-            ChampHide1BTN.Enabled = True
+            ChampTX1Btn.Enabled = True
         End If
     End Sub
 
@@ -2024,17 +2088,38 @@ Public Class CasparTest2NoPvw
 
             CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
-            ' CasparDevice.SendString("play 2-110 LATESTSCORES")
-            CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
+
+            ' select which logo to show
+            If tab2Logo2Select.Text = "Premier League" Then
+                CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
+            End If
+            If tab2Logo2Select.Text = "Championship" Then
+                CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
+            End If
+            If tab2Logo2Select.Text = "Capital One Cup" Then
+                CasparDevice.SendString("play 2-100 SCORES_C1C_LOGO")
+            End If
+            If tab2Logo2Select.Text = "Europa League" Then
+                CasparDevice.SendString("play 2-100 SCORES_EUROPALEAGUE_LOGO")
+            End If
+            If tab2Logo2Select.Text = "FA Cup" Then
+                CasparDevice.SendString("play 2-100 SCORES_FACUP_LOGO")
+            End If
+            If tab2Logo2Select.Text = "Champions League" Then
+                CasparDevice.SendString("play 2-100 SCORES_CHAMPLEAGUE_LOGO")
+            End If
+
+
+            'set colours on buttons
 
             ChampTX2Btn.BackColor = Color.Green
             ChampTX1Btn.UseVisualStyleBackColor = True
 
             'disable button
-            ChampHide2BTN.Enabled = False
+            ChampTX2Btn.Enabled = False
 
             'disable button
-            ChampHide1BTN.Enabled = True
+            ChampTX1Btn.Enabled = True
         End If
     End Sub
 
@@ -2056,8 +2141,8 @@ Public Class CasparTest2NoPvw
             ChampTX2Btn.UseVisualStyleBackColor = True
 
             'disable button
-            ChampHide1BTN.Enabled = True
-            ChampHide2BTN.Enabled = True
+            ChampTX1Btn.Enabled = True
+            ChampTX2Btn.Enabled = True
         End If
     End Sub
 
@@ -2680,7 +2765,7 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(0).CG.Stop(101)
             CasparDevice.Channels(0).CG.Stop(102)
             CasparDevice.Channels(0).CG.Stop(400)
-            'CasparDevice.Channels(0).CG.Stop(401)
+            CasparDevice.Channels(0).CG.Stop(401)
             CasparDevice.Channels(0).CG.Stop(390)
             CasparDevice.Channels(0).CG.Stop(391)
             CasparDevice.SendString("stop 1-50")
@@ -2688,8 +2773,8 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("stop 1-100")
             CasparDevice.SendString("stop 1-101")
             CasparDevice.SendString("stop 1-102")
-            'CasparDevice.SendString("stop 1-400")
-            'CasparDevice.SendString("stop 1-401")
+            CasparDevice.SendString("stop 1-400")
+            CasparDevice.SendString("stop 1-401")
             CasparDevice.SendString("stop 1-390")
             CasparDevice.SendString("stop 1-391")
             CasparDevice.SendString("stop 1-104")
@@ -2725,7 +2810,7 @@ Public Class CasparTest2NoPvw
             ShowSubsSheet.UseVisualStyleBackColor = True
             ShowAwayFirstEleven.UseVisualStyleBackColor = True
             ShowAwaySubsSheet.UseVisualStyleBackColor = True
-            'showClock.UseVisualStyleBackColor = True
+            showClock.UseVisualStyleBackColor = True
             playVid.UseVisualStyleBackColor = True
             playNext.UseVisualStyleBackColor = True
             'LoopVid.UseVisualStyleBackColor = True
@@ -2739,10 +2824,13 @@ Public Class CasparTest2NoPvw
             showSub.UseVisualStyleBackColor = True
             AwaySubOn.UseVisualStyleBackColor = True
             showAddedTimeBTN.UseVisualStyleBackColor = True
-            'ShowClockInGameBTN.UseVisualStyleBackColor = True
+            ShowClockInGameBTN.UseVisualStyleBackColor = True
             PlayVidInGame.UseVisualStyleBackColor = True
             PlayNextVidInGame.UseVisualStyleBackColor = True
-            ' LoopVidInGame.UseVisualStyleBackColor = True
+            'LoopVidInGame.UseVisualStyleBackColor = True
+            showClock.UseVisualStyleBackColor = True
+            startAndShowClockBTN.UseVisualStyleBackColor = True
+            backgroundOn.Checked = False
         End If
     End Sub
 
@@ -2778,101 +2866,102 @@ Public Class CasparTest2NoPvw
 
     Private Sub PlayVidInGame_Click(sender As Object, e As EventArgs) Handles PlayVidInGame.Click
         If Me.CasparDevice.IsConnected = True Then
+            If Me.playlistFilesInGame.SelectedIndex >= 0 Then
+                '   If PreMatchPlayNext = False Then
+                ''fading in image
+                ' CasparDevice.SendString("MIXER 2-99 OPACITY 0")
+                ' CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text)
+                ' CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+                ''fade out other layer
+                'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
+                'PreMatchPlayNext = True
+                'End If
+                'If PreMatchPlayNext = True Then
+                ''fading in image
+                ' CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+                ' CasparDevice.SendString("play 2-100 " & playlistFilesInGame.Text)
+                '  CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+                '  'fade out other layer
+                '  CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
+                'reset for next if
+                '   PreMatchPlayNext = False
+                '  End If
 
-            '   If PreMatchPlayNext = False Then
-            ''fading in image
-            ' CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            ' CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text)
-            ' CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
-            ''fade out other layer
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
-            'PreMatchPlayNext = True
-            'End If
-            'If PreMatchPlayNext = True Then
-            ''fading in image
-            ' CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            ' CasparDevice.SendString("play 2-100 " & playlistFilesInGame.Text)
-            '  CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
-            '  'fade out other layer
-            '  CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
-            'reset for next if
-            '   PreMatchPlayNext = False
-            '  End If
+                'select transition and play file
+                If MixTransInGame.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " MIX 12 LINEAR")
+                End If
+                If WipeTransInGame.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " SLIDE 20 LEFT")
+                End If
+                If PushTransInGame.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " PUSH 20 EASEINSINE")
+                End If
 
-            'select transition and play file
-            If MixTransInGame.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " MIX 12 LINEAR")
+                'CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text)
+                PlayVidInGame.BackColor = Color.Green
+                'LoopVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
+                ' LoopVidInGame.UseVisualStyleBackColor = True
+                PlayNextVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
+                PlayNextVidInGame.UseVisualStyleBackColor = True
             End If
-            If WipeTransInGame.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " SLIDE 20 LEFT")
-            End If
-            If PushTransInGame.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " PUSH 20 EASEINSINE")
-            End If
-
-            'CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text)
-            PlayVidInGame.BackColor = Color.Green
-            'LoopVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
-            ' LoopVidInGame.UseVisualStyleBackColor = True
-            PlayNextVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
-            PlayNextVidInGame.UseVisualStyleBackColor = True
         End If
-
     End Sub
 
     Private Sub PlayNextVidInGame_Click(sender As Object, e As EventArgs) Handles PlayNextVidInGame.Click
-        playlistPositionInGame += 1
-        If (playlistFilesInGame.SelectedIndex < (playlistFilesInGame.Items.Count() - 1)) Then
-            playlistFilesInGame.SelectedIndex += 1
+        If Me.playlistFilesInGame.SelectedIndex >= 0 Then
+            playlistPositionInGame += 1
+            If (playlistFilesInGame.SelectedIndex < (playlistFilesInGame.Items.Count() - 1)) Then
+                playlistFilesInGame.SelectedIndex += 1
 
-        End If
-        If (playlistPositionInGame > playlistFilesInGame.SelectedIndex) Then
-            playlistFilesInGame.SelectedIndex = 0
-            playlistPositionInGame = 0
-        End If
-        ' something is wrong here, it should loop but i think the previous statement is stopping it getting there.
-
-
-        If Me.CasparDevice.IsConnected = True Then
-
-            '        If PreMatchPlayNext = False Then
-            ''fading in image
-            'CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-            'CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text)
-            'CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
-            'fade out other layer
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
-            'PreMatchPlayNext = True
-            'End If
-            'If PreMatchPlayNext = True Then
-            ' 'fading in image
-            ' CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            ' CasparDevice.SendString("play 2-100 " & playlistFilesInGame.Text)
-            ' CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
-            'fade out other layer
-            'CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
-            'reset for next if
-            'PreMatchPlayNext = False
-            'End If
-
-            'select transition and play file
-            If MixTransInGame.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " MIX 12 LINEAR")
             End If
-            If WipeTransInGame.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " SLIDE 20 LEFT")
+            If (playlistPositionInGame > playlistFilesInGame.SelectedIndex) Then
+                playlistFilesInGame.SelectedIndex = 0
+                playlistPositionInGame = 0
             End If
-            If PushTransInGame.Checked = True Then
-                CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " PUSH 20 EASEINSINE")
-            End If
+            ' something is wrong here, it should loop but i think the previous statement is stopping it getting there.
 
-            PlayNextVidInGame.BackColor = Color.Green
-            PlayVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
-            PlayVidInGame.UseVisualStyleBackColor = True
-            ' LoopVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
-            ' LoopVidInGame.UseVisualStyleBackColor = True
+
+            If Me.CasparDevice.IsConnected = True Then
+
+                '        If PreMatchPlayNext = False Then
+                ''fading in image
+                'CasparDevice.SendString("MIXER 2-99 OPACITY 0")
+                'CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text)
+                'CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+                'fade out other layer
+                'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
+                'PreMatchPlayNext = True
+                'End If
+                'If PreMatchPlayNext = True Then
+                ' 'fading in image
+                ' CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+                ' CasparDevice.SendString("play 2-100 " & playlistFilesInGame.Text)
+                ' CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+                'fade out other layer
+                'CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
+                'reset for next if
+                'PreMatchPlayNext = False
+                'End If
+
+                'select transition and play file
+                If MixTransInGame.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " MIX 12 LINEAR")
+                End If
+                If WipeTransInGame.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " SLIDE 20 LEFT")
+                End If
+                If PushTransInGame.Checked = True Then
+                    CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " PUSH 20 EASEINSINE")
+                End If
+
+                PlayNextVidInGame.BackColor = Color.Green
+                PlayVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
+                PlayVidInGame.UseVisualStyleBackColor = True
+                ' LoopVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
+                ' LoopVidInGame.UseVisualStyleBackColor = True
+            End If
         End If
-
 
     End Sub
 
@@ -2889,14 +2978,12 @@ Public Class CasparTest2NoPvw
 
     Private Sub stopVidInGame_Click(sender As Object, e As EventArgs) Handles stopVidInGame.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.SendString("stop 2-99")
-            '  CasparDevice.SendString("stop 2-100")
-            CasparDevice.SendString("MIXER 2-99 OPACITY 1 0 linear")
-            '  CasparDevice.SendString("MIXER 2-100 OPACITY 1 0 linear")
+            ' fade out opacity and start timer to fade channel back in 
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0 12 linear")
+            playlistStop.Enabled = True
+            'set button colours back
             PlayVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
             PlayVidInGame.UseVisualStyleBackColor = True
-            ' LoopVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
-            ' LoopVidInGame.UseVisualStyleBackColor = True
             PlayNextVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
             PlayNextVidInGame.UseVisualStyleBackColor = True
         End If
@@ -2955,7 +3042,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub BPlayChanFadeOut_Tick(sender As Object, e As EventArgs) Handles BPlayChanFadeOut.Tick
         countBPS = countBPS + 1
-        If countBPS >= 5 Then
+        If countBPS >= 7 Then
             CasparDevice.SendString("stop 1-100")
             CasparDevice.SendString("MIXER 1-100 OPACITY 1 12 linear")
             BPlayChanFadeOut.Enabled = False
@@ -2973,32 +3060,23 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.Clear() 'cgData.Clear()
 
             If ShowHomeFirstElevenCrawl.Checked = True Then
-
-                'CasparCGDataCollection.SetData("TeamName", ListBox1.Items(0).ToString)
-                'For i As Integer = 1 To ListBox1.Items.Count - 8
-                ' CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox1.Items(i).ToString)
                 CasparCGDataCollection.SetData("f0", HomeTeamName.Text + " TEAMSHEET:       " + ListBox3.Items(0).ToString + "      " + ListBox3.Items(1).ToString + "      " + ListBox3.Items(2).ToString + "      " + ListBox3.Items(3).ToString + "      " + ListBox3.Items(4).ToString + "      " + ListBox3.Items(5).ToString + "      " + ListBox3.Items(6).ToString + "      " + ListBox3.Items(7).ToString + "      " + ListBox3.Items(8).ToString + "      " + ListBox3.Items(9).ToString + "      " + ListBox3.Items(10).ToString + "     SUBSTITUTES:        " + ListBox3.Items(11).ToString + "     " + ListBox3.Items(12).ToString + "     " + ListBox3.Items(13).ToString + "     " + ListBox3.Items(14).ToString + "     " + ListBox3.Items(15).ToString + "     " + ListBox3.Items(16).ToString + "     " + ListBox3.Items(17).ToString)
-                'Next i
             End If
 
             If ShowAwayFirstElevenCrawl.Checked = True Then
-                '  CasparCGDataCollection.SetData("TeamName", ListBox2.Items(0).ToString)
-                '  For i As Integer = 1 To ListBox2.Items.Count - 8
-                '  CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox2.Items(i).ToString)
                 CasparCGDataCollection.SetData("f0", AwayTeamName.Text + " TEAMSHEET:       " + ListBox4.Items(0).ToString + "      " + ListBox4.Items(1).ToString + "      " + ListBox4.Items(2).ToString + "      " + ListBox4.Items(3).ToString + "      " + ListBox4.Items(4).ToString + "      " + ListBox4.Items(5).ToString + "      " + ListBox4.Items(6).ToString + "      " + ListBox4.Items(7).ToString + "      " + ListBox4.Items(8).ToString + "      " + ListBox4.Items(9).ToString + "      " + ListBox4.Items(10).ToString + "     SUBSTITUTES:        " + ListBox4.Items(11).ToString + "     " + ListBox4.Items(12).ToString + "     " + ListBox4.Items(13).ToString + "     " + ListBox4.Items(14).ToString + "     " + ListBox4.Items(15).ToString + "     " + ListBox4.Items(16).ToString + "     " + ListBox4.Items(17).ToString)
-                '   Next i
+            End If
+            If Home1stElevenCrawler.Checked = True Then
+                CasparCGDataCollection.SetData("f0", HomeTeamName.Text + " TEAMSHEET:       " + ListBox3.Items(0).ToString + "      " + ListBox3.Items(1).ToString + "      " + ListBox3.Items(2).ToString + "      " + ListBox3.Items(3).ToString + "      " + ListBox3.Items(4).ToString + "      " + ListBox3.Items(5).ToString + "      " + ListBox3.Items(6).ToString + "      " + ListBox3.Items(7).ToString + "      " + ListBox3.Items(8).ToString + "      " + ListBox3.Items(9).ToString + "      " + ListBox3.Items(10).ToString)
+            End If
+
+            If Away1stElevenCrawler.Checked = True Then
+                CasparCGDataCollection.SetData("f0", AwayTeamName.Text + " TEAMSHEET:       " + ListBox4.Items(0).ToString + "      " + ListBox4.Items(1).ToString + "      " + ListBox4.Items(2).ToString + "      " + ListBox4.Items(3).ToString + "      " + ListBox4.Items(4).ToString + "      " + ListBox4.Items(5).ToString + "      " + ListBox4.Items(6).ToString + "      " + ListBox4.Items(7).ToString + "      " + ListBox4.Items(8).ToString + "      " + ListBox4.Items(9).ToString + "      " + ListBox4.Items(10).ToString)
             End If
 
 
-            If ShowBothTeamCrawl.Checked = True Then
-                '  CasparCGDataCollection.SetData("TeamName", ListBox2.Items(0).ToString)
-                '  For i As Integer = 1 To ListBox2.Items.Count - 8
-                '  CasparCGDataCollection.SetData("f" + (i - 1).ToString, ListBox2.Items(i).ToString)
-                CasparCGDataCollection.SetData("f0", HomeTeamName.Text + " TEAMSHEET:       " + ListBox3.Items(0).ToString + "      " + ListBox3.Items(1).ToString + "      " + ListBox3.Items(2).ToString + "      " + ListBox3.Items(3).ToString + "      " + ListBox3.Items(4).ToString + "      " + ListBox3.Items(5).ToString + "      " + ListBox3.Items(6).ToString + "      " + ListBox3.Items(7).ToString + "      " + ListBox3.Items(8).ToString + "      " + ListBox3.Items(9).ToString + "      " + ListBox3.Items(10).ToString + "     SUBSTITUTES:        " + ListBox3.Items(11).ToString + "     " + ListBox3.Items(12).ToString + "     " + ListBox3.Items(13).ToString + "     " + ListBox3.Items(14).ToString + "     " + ListBox3.Items(15).ToString + "     " + ListBox3.Items(16).ToString + "     " + ListBox3.Items(17).ToString + "             " + AwayTeamName.Text + " TEAMSHEET:       " + ListBox4.Items(0).ToString + "      " + ListBox4.Items(1).ToString + "      " + ListBox4.Items(2).ToString + "      " + ListBox4.Items(3).ToString + "      " + ListBox4.Items(4).ToString + "      " + ListBox4.Items(5).ToString + "      " + ListBox4.Items(6).ToString + "      " + ListBox4.Items(7).ToString + "      " + ListBox4.Items(8).ToString + "      " + ListBox4.Items(9).ToString + "      " + ListBox4.Items(10).ToString + "     SUBSTITUTES:        " + ListBox4.Items(11).ToString + "     " + ListBox4.Items(12).ToString + "     " + ListBox4.Items(13).ToString + "     " + ListBox4.Items(14).ToString + "     " + ListBox4.Items(15).ToString + "     " + ListBox4.Items(16).ToString + "     " + ListBox4.Items(17).ToString)
-                '   Next i
-            End If
 
-        CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Add(101, "efc_TSheet_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(0).CG.Play(101)
 
             'fading in image
@@ -3016,7 +3094,7 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("play 1-103 LTFlare")
             TSCrawlOnBTN.BackColor = Color.Green
             'disable button
-            TSCrawlOnBTN.Enabled = False
+            ' TSCrawlOnBTN.Enabled = False
             crawlToggle = True
         End If
     End Sub
@@ -3034,7 +3112,7 @@ Public Class CasparTest2NoPvw
             TSCrawlOnBTN.UseVisualStyleBackColor = True
             'crawlToggle = False
             'disable button
-            TSCrawlOnBTN.Enabled = True
+            ' TSCrawlOnBTN.Enabled = True
 
         End If
     End Sub
@@ -3212,7 +3290,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub scoresFadeOut_Tick(sender As Object, e As EventArgs) Handles scoresFadeOut.Tick
         countScores = countScores + 1
-        If countScores >= 5 Then
+        If countScores >= 7 Then
             CasparDevice.SendString("stop 2-100")
             CasparDevice.SendString("MIXER 2-100 OPACITY 1 12 linear")
 
@@ -4020,7 +4098,7 @@ Public Class CasparTest2NoPvw
             GoalTime = Convert.ToString(stopClockTime.Text)
         End If
         'awayScorers.Text = awayScorers.Text + GoalTime + "'    " + TrimmedNewAwayScorer + Environment.NewLine
-        awayScorers.Items.Add(GoalTime + "'" + "    A.PLAYER")
+        awayScorers.Items.Add(GoalTime + "'" + "    A. PLAYER")
     End Sub
 
     Private Sub ReloadBackgroundsComboBx_Click(sender As Object, e As EventArgs) Handles ReloadBackgroundsComboBx.Click
@@ -4596,6 +4674,153 @@ Public Class CasparTest2NoPvw
     Private Sub Msg8ColPickBTN_Click(sender As Object, e As EventArgs) Handles Msg8ColPickBTN.Click
         If ColorDialog8.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
             msg8Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog8.Color.R, ColorDialog8.Color.G, ColorDialog8.Color.B)
+        End If
+    End Sub
+
+    Private Sub ClearGFXOnlyBTN_Click(sender As Object, e As EventArgs) Handles ClearGFXOnlyBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.Channels(0).CG.Stop(50)
+            CasparDevice.Channels(0).CG.Stop(99)
+            CasparDevice.Channels(0).CG.Stop(100)
+            CasparDevice.Channels(0).CG.Stop(101)
+            CasparDevice.Channels(0).CG.Stop(102)
+            CasparDevice.Channels(0).CG.Stop(400)
+            'CasparDevice.Channels(0).CG.Stop(401)
+            CasparDevice.Channels(0).CG.Stop(390)
+            CasparDevice.Channels(0).CG.Stop(391)
+            CasparDevice.SendString("stop 1-50")
+            CasparDevice.SendString("stop 1-99")
+            CasparDevice.SendString("stop 1-100")
+            CasparDevice.SendString("stop 1-101")
+            CasparDevice.SendString("stop 1-102")
+            'CasparDevice.SendString("stop 1-400")
+            'CasparDevice.SendString("stop 1-401")
+            CasparDevice.SendString("stop 1-390")
+            CasparDevice.SendString("stop 1-391")
+            CasparDevice.SendString("stop 1-104")
+
+            CasparDevice.Channels(1).CG.Stop(50)
+            CasparDevice.Channels(1).CG.Stop(99)
+            CasparDevice.Channels(1).CG.Stop(100)
+            CasparDevice.Channels(1).CG.Stop(101)
+            CasparDevice.Channels(1).CG.Stop(102)
+            CasparDevice.Channels(1).CG.Stop(400)
+            CasparDevice.Channels(1).CG.Stop(401)
+            CasparDevice.Channels(1).CG.Stop(390)
+            CasparDevice.Channels(1).CG.Stop(391)
+            ' CasparDevice.SendString("stop 2-50")
+            CasparDevice.SendString("stop 2-99")
+            CasparDevice.SendString("stop 2-100")
+            CasparDevice.SendString("stop 2-101")
+            CasparDevice.SendString("stop 2-102")
+            CasparDevice.SendString("stop 2-400")
+            CasparDevice.SendString("stop 2-401")
+            CasparDevice.SendString("stop 2-390")
+            CasparDevice.SendString("stop 2-391")
+            'scores page
+            CasparDevice.SendString("stop 2-104")
+            CasparDevice.SendString("stop 2-105")
+            CasparDevice.SendString("stop 2-106")
+            CasparDevice.SendString("stop 2-107")
+            CasparDevice.SendString("stop 2-108")
+            CasparDevice.SendString("stop 2-109")
+
+            ' this also needs to reset buttons
+            ShowTeamSheet.UseVisualStyleBackColor = True
+            ShowSubsSheet.UseVisualStyleBackColor = True
+            ShowAwayFirstEleven.UseVisualStyleBackColor = True
+            ShowAwaySubsSheet.UseVisualStyleBackColor = True
+            'showClock.UseVisualStyleBackColor = True
+            playVid.UseVisualStyleBackColor = True
+            playNext.UseVisualStyleBackColor = True
+            'LoopVid.UseVisualStyleBackColor = True
+            showBigScore.UseVisualStyleBackColor = True
+            showPremScores.UseVisualStyleBackColor = True
+            TXPremScores_2BTN.UseVisualStyleBackColor = True
+            ChampTX1Btn.UseVisualStyleBackColor = True
+            ChampTX2Btn.UseVisualStyleBackColor = True
+            LTStrapTXBTN.UseVisualStyleBackColor = True
+            CrawlOn.UseVisualStyleBackColor = True
+            showSub.UseVisualStyleBackColor = True
+            AwaySubOn.UseVisualStyleBackColor = True
+            showAddedTimeBTN.UseVisualStyleBackColor = True
+            'ShowClockInGameBTN.UseVisualStyleBackColor = True
+            PlayVidInGame.UseVisualStyleBackColor = True
+            PlayNextVidInGame.UseVisualStyleBackColor = True
+            ' LoopVidInGame.UseVisualStyleBackColor = True
+        End If
+    End Sub
+
+
+
+    Private Sub showScoresScroller_Click(sender As Object, e As EventArgs) Handles showScoresScroller.Click
+        If Me.CasparDevice.IsConnected = True Then
+
+            CasparCGDataCollection.Clear()
+
+            If sscoresT1Left.Checked = True Then
+                CasparCGDataCollection.SetData("f0", tab1Logo1Select.Text + " Latest Scores:       " + Score1.Text + "  " + Score2.Text + "  " + middle13.Text + " " + Score3.Text + "  " + Score4.Text + "  " + Score5.Text + "  " + Score6.Text + "  " + middle14.Text + " " + Score7.Text + "  " + Score8.Text + "  " + Score9.Text + "  " + Score10.Text + "  " + middle15.Text + " " + Score11.Text + "  " + Score12.Text + "  " + Score13.Text + "  " + Score14.Text + "  " + middle16.Text + " " + Score15.Text + "  " + Score16.Text + "  " + Score17.Text + "  " + Score18.Text + "  " + middle17.Text + " " + Score19.Text + "  " + Score20.Text + "  " + Score21.Text + "  " + Score22.Text + "  " + middle18.Text + " " + Score23.Text + "  " + Score24.Text + "  ")
+            End If
+            If sscoresT1Right.Checked = True Then
+                CasparCGDataCollection.SetData("f0", tab1Logo2Select.Text + " Latest Scores:       " + Score25.Text + "  " + Score26.Text + "  " + middle19.Text + " " + Score27.Text + "  " + Score28.Text + "  " + Score29.Text + "  " + Score30.Text + "  " + middle20.Text + " " + Score31.Text + "  " + Score32.Text + "  " + Score33.Text + "  " + Score34.Text + "  " + middle21.Text + " " + Score35.Text + "  " + Score36.Text + "  " + Score37.Text + "  " + Score38.Text + "  " + middle22.Text + " " + Score39.Text + "  " + Score40.Text + "  " + Score41.Text + "  " + Score42.Text + "  " + middle23.Text + " " + Score43.Text + "  " + Score44.Text + "  " + Score45.Text + "  " + Score45.Text + "  " + middle24.Text + " " + Score47.Text + "  " + Score48.Text + "  ")
+            End If
+            If sscoresT2Left.Checked = True Then
+                CasparCGDataCollection.SetData("f0", tab2Logo1Select.Text + " Latest Scores:       " + ChampScore1.Text + "  " + ChampScore2.Text + "  " + middle1.Text + " " + ChampScore3.Text + "  " + ChampScore4.Text + "  " + ChampScore5.Text + "  " + ChampScore6.Text + "  " + middle2.Text + " " + ChampScore7.Text + "  " + ChampScore8.Text + "  " + ChampScore9.Text + "  " + ChampScore10.Text + "  " + middle3.Text + " " + ChampScore11.Text + "  " + ChampScore12.Text + "  " + ChampScore13.Text + "  " + ChampScore14.Text + "  " + middle4.Text + " " + ChampScore15.Text + "  " + ChampScore16.Text + "  " + ChampScore17.Text + "  " + ChampScore18.Text + "  " + middle5.Text + " " + ChampScore19.Text + "  " + ChampScore20.Text + "  " + ChampScore21.Text + "  " + ChampScore22.Text + "  " + middle6.Text + " " + ChampScore23.Text + "  " + ChampScore24.Text + "  ")
+            End If
+            If sscoresT2Right.Checked = True Then
+                CasparCGDataCollection.SetData("f0", tab2Logo2Select.Text + " Latest Scores:       " + ChampScore25.Text + "  " + ChampScore26.Text + "  " + middle7.Text + " " + ChampScore27.Text + "  " + ChampScore28.Text + "  " + ChampScore29.Text + "  " + ChampScore30.Text + "  " + middle8.Text + " " + ChampScore31.Text + "  " + ChampScore32.Text + "  " + ChampScore33.Text + "  " + ChampScore34.Text + "  " + middle9.Text + " " + ChampScore35.Text + "  " + ChampScore36.Text + "  " + ChampScore37.Text + "  " + ChampScore38.Text + "  " + middle10.Text + " " + ChampScore39.Text + "  " + ChampScore40.Text + "  " + ChampScore41.Text + "  " + ChampScore42.Text + "  " + middle11.Text + " " + ChampScore43.Text + "  " + ChampScore44.Text + "  " + ChampScore45.Text + "  " + ChampScore46.Text + "  " + middle12.Text + " " + ChampScore47.Text + "  " + ChampScore48.Text + "  ")
+            End If
+
+
+
+            CasparDevice.Channels(0).CG.Add(101, "efc_TSheet_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
+
+            'fading in image
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            CasparDevice.SendString("play 1-104 LT_crawl_crest")
+            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
+
+            'fading in image
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
+            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
+            'CasparDevice.SendString("play 1-102 LT_crawl_crest")
+            CasparDevice.SendString("play 1-103 LTFlare")
+            showScoresScroller.BackColor = Color.Green
+            'disable button
+            'showScoresScroller.Enabled = False
+            crawlToggle = True
+        End If
+    End Sub
+
+    Private Sub hideScoresScroller_Click(sender As Object, e As EventArgs) Handles hideScoresScroller.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.Channels(0).CG.Stop(101)
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
+            countBPS = 0
+            BPlayChanFadeOut.Enabled = True
+            CasparDevice.SendString("STOP 1-102")
+            CasparDevice.SendString("STOP 1-103")
+            CasparDevice.SendString("STOP 1-104")
+            CrawlOn.BackColor = Color.FromKnownColor(KnownColor.Control)
+            TSCrawlOnBTN.UseVisualStyleBackColor = True
+            'crawlToggle = False
+            'disable button
+            ' showScoresScroller.Enabled = True
+
+        End If
+    End Sub
+
+    Private Sub playlistStop_Tick(sender As Object, e As EventArgs) Handles playlistStop.Tick
+        countplaylist = countplaylist + 1
+        If countPlaylist >= 7 Then
+            CasparDevice.SendString("stop 2-99")
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 0 linear")
+            playlistStop.Enabled = False
+            countPlaylist = 0
         End If
     End Sub
 End Class

@@ -178,6 +178,10 @@ Partial Class CasparTest2NoPvw
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.tab1Logo2Select = New System.Windows.Forms.ComboBox()
+        Me.Label77 = New System.Windows.Forms.Label()
+        Me.tab1Logo1Select = New System.Windows.Forms.ComboBox()
+        Me.Label76 = New System.Windows.Forms.Label()
         Me.FT12 = New System.Windows.Forms.CheckBox()
         Me.FT11 = New System.Windows.Forms.CheckBox()
         Me.FT10 = New System.Windows.Forms.CheckBox()
@@ -220,6 +224,10 @@ Partial Class CasparTest2NoPvw
         Me.middle14 = New System.Windows.Forms.ComboBox()
         Me.middle13 = New System.Windows.Forms.ComboBox()
         Me.TabPage4 = New System.Windows.Forms.TabPage()
+        Me.tab2Logo2Select = New System.Windows.Forms.ComboBox()
+        Me.Label79 = New System.Windows.Forms.Label()
+        Me.tab2Logo1Select = New System.Windows.Forms.ComboBox()
+        Me.Label78 = New System.Windows.Forms.Label()
         Me.FT24 = New System.Windows.Forms.CheckBox()
         Me.FT23 = New System.Windows.Forms.CheckBox()
         Me.FT22 = New System.Windows.Forms.CheckBox()
@@ -340,7 +348,8 @@ Partial Class CasparTest2NoPvw
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.ListBox4 = New System.Windows.Forms.ListBox()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
-        Me.ShowBothTeamCrawl = New System.Windows.Forms.RadioButton()
+        Me.Away1stElevenCrawler = New System.Windows.Forms.RadioButton()
+        Me.Home1stElevenCrawler = New System.Windows.Forms.RadioButton()
         Me.ShowAwayFirstElevenCrawl = New System.Windows.Forms.RadioButton()
         Me.ShowHomeFirstElevenCrawl = New System.Windows.Forms.RadioButton()
         Me.TSCrawlOffBTN = New System.Windows.Forms.Button()
@@ -534,6 +543,16 @@ Partial Class CasparTest2NoPvw
         Me.ColorDialog6 = New System.Windows.Forms.ColorDialog()
         Me.ColorDialog7 = New System.Windows.Forms.ColorDialog()
         Me.ColorDialog8 = New System.Windows.Forms.ColorDialog()
+        Me.ClearGFXOnlyBTN = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.sscoresT1Left = New System.Windows.Forms.RadioButton()
+        Me.sscoresT1Right = New System.Windows.Forms.RadioButton()
+        Me.sscoresT2Left = New System.Windows.Forms.RadioButton()
+        Me.sscoresT2Right = New System.Windows.Forms.RadioButton()
+        Me.showScoresScroller = New System.Windows.Forms.Button()
+        Me.hideScoresScroller = New System.Windows.Forms.Button()
+        Me.playlistStop = New System.Windows.Forms.Timer(Me.components)
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -554,6 +573,8 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox4.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'Connect
@@ -937,7 +958,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.PremScoresTitle.Location = New System.Drawing.Point(21, 19)
         Me.PremScoresTitle.Name = "PremScoresTitle"
-        Me.PremScoresTitle.Size = New System.Drawing.Size(238, 20)
+        Me.PremScoresTitle.Size = New System.Drawing.Size(126, 20)
         Me.PremScoresTitle.TabIndex = 55
         Me.PremScoresTitle.Text = "LATEST SCORES"
         '
@@ -1368,7 +1389,7 @@ Partial Class CasparTest2NoPvw
         Me.TabControl1.Location = New System.Drawing.Point(12, 100)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(1260, 635)
+        Me.TabControl1.Size = New System.Drawing.Size(1260, 662)
         Me.TabControl1.TabIndex = 61
         '
         'TabPage6
@@ -1406,7 +1427,7 @@ Partial Class CasparTest2NoPvw
         Me.TabPage6.Controls.Add(Me.LoadTeams)
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
         Me.TabPage6.Name = "TabPage6"
-        Me.TabPage6.Size = New System.Drawing.Size(1252, 609)
+        Me.TabPage6.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage6.TabIndex = 3
         Me.TabPage6.Text = "Set Up Teams"
         '
@@ -1687,7 +1708,7 @@ Partial Class CasparTest2NoPvw
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(1252, 609)
+        Me.TabPage1.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Pre Match"
         '
@@ -1884,12 +1905,13 @@ Partial Class CasparTest2NoPvw
         'TabPage2
         '
         Me.TabPage2.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage2.Controls.Add(Me.GroupBox9)
         Me.TabPage2.Controls.Add(Me.TabControl2)
         Me.TabPage2.Controls.Add(Me.GroupBox3)
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1252, 609)
+        Me.TabPage2.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Scores"
         '
@@ -1900,12 +1922,16 @@ Partial Class CasparTest2NoPvw
         Me.TabControl2.Location = New System.Drawing.Point(17, 223)
         Me.TabControl2.Name = "TabControl2"
         Me.TabControl2.SelectedIndex = 0
-        Me.TabControl2.Size = New System.Drawing.Size(935, 322)
+        Me.TabControl2.Size = New System.Drawing.Size(935, 273)
         Me.TabControl2.TabIndex = 18
         '
         'TabPage3
         '
         Me.TabPage3.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage3.Controls.Add(Me.tab1Logo2Select)
+        Me.TabPage3.Controls.Add(Me.Label77)
+        Me.TabPage3.Controls.Add(Me.tab1Logo1Select)
+        Me.TabPage3.Controls.Add(Me.Label76)
         Me.TabPage3.Controls.Add(Me.FT12)
         Me.TabPage3.Controls.Add(Me.FT11)
         Me.TabPage3.Controls.Add(Me.FT10)
@@ -2003,9 +2029,45 @@ Partial Class CasparTest2NoPvw
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
         Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(927, 296)
+        Me.TabPage3.Size = New System.Drawing.Size(927, 247)
         Me.TabPage3.TabIndex = 0
-        Me.TabPage3.Text = "Premiership Scores"
+        Me.TabPage3.Text = "Tab 1"
+        '
+        'tab1Logo2Select
+        '
+        Me.tab1Logo2Select.FormattingEnabled = True
+        Me.tab1Logo2Select.Items.AddRange(New Object() {"Premier League", "Championship", "FA Cup", "Capital One Cup", "Europa League", "Champions League"})
+        Me.tab1Logo2Select.Location = New System.Drawing.Point(630, 19)
+        Me.tab1Logo2Select.Name = "tab1Logo2Select"
+        Me.tab1Logo2Select.Size = New System.Drawing.Size(177, 21)
+        Me.tab1Logo2Select.TabIndex = 146
+        '
+        'Label77
+        '
+        Me.Label77.AutoSize = True
+        Me.Label77.Location = New System.Drawing.Point(590, 23)
+        Me.Label77.Name = "Label77"
+        Me.Label77.Size = New System.Drawing.Size(34, 13)
+        Me.Label77.TabIndex = 145
+        Me.Label77.Text = "Logo:"
+        '
+        'tab1Logo1Select
+        '
+        Me.tab1Logo1Select.FormattingEnabled = True
+        Me.tab1Logo1Select.Items.AddRange(New Object() {"Premier League", "Championship", "FA Cup", "Capital One Cup", "Europa League", "Champions League"})
+        Me.tab1Logo1Select.Location = New System.Drawing.Point(193, 19)
+        Me.tab1Logo1Select.Name = "tab1Logo1Select"
+        Me.tab1Logo1Select.Size = New System.Drawing.Size(177, 21)
+        Me.tab1Logo1Select.TabIndex = 144
+        '
+        'Label76
+        '
+        Me.Label76.AutoSize = True
+        Me.Label76.Location = New System.Drawing.Point(153, 23)
+        Me.Label76.Name = "Label76"
+        Me.Label76.Size = New System.Drawing.Size(34, 13)
+        Me.Label76.TabIndex = 143
+        Me.Label76.Text = "Logo:"
         '
         'FT12
         '
@@ -2155,7 +2217,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.PremScoresTitle2.Location = New System.Drawing.Point(460, 19)
         Me.PremScoresTitle2.Name = "PremScoresTitle2"
-        Me.PremScoresTitle2.Size = New System.Drawing.Size(238, 20)
+        Me.PremScoresTitle2.Size = New System.Drawing.Size(126, 20)
         Me.PremScoresTitle2.TabIndex = 126
         Me.PremScoresTitle2.Text = "LATEST SCORES"
         '
@@ -2402,6 +2464,10 @@ Partial Class CasparTest2NoPvw
         'TabPage4
         '
         Me.TabPage4.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage4.Controls.Add(Me.tab2Logo2Select)
+        Me.TabPage4.Controls.Add(Me.Label79)
+        Me.TabPage4.Controls.Add(Me.tab2Logo1Select)
+        Me.TabPage4.Controls.Add(Me.Label78)
         Me.TabPage4.Controls.Add(Me.FT24)
         Me.TabPage4.Controls.Add(Me.FT23)
         Me.TabPage4.Controls.Add(Me.FT22)
@@ -2499,9 +2565,45 @@ Partial Class CasparTest2NoPvw
         Me.TabPage4.Location = New System.Drawing.Point(4, 22)
         Me.TabPage4.Name = "TabPage4"
         Me.TabPage4.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage4.Size = New System.Drawing.Size(927, 296)
+        Me.TabPage4.Size = New System.Drawing.Size(927, 247)
         Me.TabPage4.TabIndex = 1
-        Me.TabPage4.Text = "Championship Scores"
+        Me.TabPage4.Text = "Tab 2"
+        '
+        'tab2Logo2Select
+        '
+        Me.tab2Logo2Select.FormattingEnabled = True
+        Me.tab2Logo2Select.Items.AddRange(New Object() {"Premier League", "Championship", "FA Cup", "Capital One Cup", "Europa League", "Champions League"})
+        Me.tab2Logo2Select.Location = New System.Drawing.Point(630, 18)
+        Me.tab2Logo2Select.Name = "tab2Logo2Select"
+        Me.tab2Logo2Select.Size = New System.Drawing.Size(177, 21)
+        Me.tab2Logo2Select.TabIndex = 156
+        '
+        'Label79
+        '
+        Me.Label79.AutoSize = True
+        Me.Label79.Location = New System.Drawing.Point(590, 22)
+        Me.Label79.Name = "Label79"
+        Me.Label79.Size = New System.Drawing.Size(34, 13)
+        Me.Label79.TabIndex = 155
+        Me.Label79.Text = "Logo:"
+        '
+        'tab2Logo1Select
+        '
+        Me.tab2Logo1Select.FormattingEnabled = True
+        Me.tab2Logo1Select.Items.AddRange(New Object() {"Premier League", "Championship", "FA Cup", "Capital One Cup", "Europa League", "Champions League"})
+        Me.tab2Logo1Select.Location = New System.Drawing.Point(176, 18)
+        Me.tab2Logo1Select.Name = "tab2Logo1Select"
+        Me.tab2Logo1Select.Size = New System.Drawing.Size(177, 21)
+        Me.tab2Logo1Select.TabIndex = 154
+        '
+        'Label78
+        '
+        Me.Label78.AutoSize = True
+        Me.Label78.Location = New System.Drawing.Point(136, 22)
+        Me.Label78.Name = "Label78"
+        Me.Label78.Size = New System.Drawing.Size(34, 13)
+        Me.Label78.TabIndex = 153
+        Me.Label78.Text = "Logo:"
         '
         'FT24
         '
@@ -2651,7 +2753,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.ChampScoresTitle2.Location = New System.Drawing.Point(456, 19)
         Me.ChampScoresTitle2.Name = "ChampScoresTitle2"
-        Me.ChampScoresTitle2.Size = New System.Drawing.Size(240, 20)
+        Me.ChampScoresTitle2.Size = New System.Drawing.Size(126, 20)
         Me.ChampScoresTitle2.TabIndex = 136
         Me.ChampScoresTitle2.Text = "LATEST SCORES"
         '
@@ -2899,7 +3001,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.ChampScoresTitle.Location = New System.Drawing.Point(6, 19)
         Me.ChampScoresTitle.Name = "ChampScoresTitle"
-        Me.ChampScoresTitle.Size = New System.Drawing.Size(240, 20)
+        Me.ChampScoresTitle.Size = New System.Drawing.Size(126, 20)
         Me.ChampScoresTitle.TabIndex = 112
         Me.ChampScoresTitle.Text = "LATEST SCORES"
         '
@@ -3410,7 +3512,7 @@ Partial Class CasparTest2NoPvw
         Me.TabPage5.Controls.Add(Me.Crawl)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
-        Me.TabPage5.Size = New System.Drawing.Size(1252, 609)
+        Me.TabPage5.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage5.TabIndex = 2
         Me.TabPage5.Text = "In Game"
         '
@@ -3523,32 +3625,45 @@ Partial Class CasparTest2NoPvw
         '
         'GroupBox7
         '
-        Me.GroupBox7.Controls.Add(Me.ShowBothTeamCrawl)
+        Me.GroupBox7.Controls.Add(Me.Away1stElevenCrawler)
+        Me.GroupBox7.Controls.Add(Me.Home1stElevenCrawler)
         Me.GroupBox7.Controls.Add(Me.ShowAwayFirstElevenCrawl)
         Me.GroupBox7.Controls.Add(Me.ShowHomeFirstElevenCrawl)
         Me.GroupBox7.Controls.Add(Me.TSCrawlOffBTN)
         Me.GroupBox7.Controls.Add(Me.TSCrawlOnBTN)
         Me.GroupBox7.Location = New System.Drawing.Point(18, 520)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(369, 73)
+        Me.GroupBox7.Size = New System.Drawing.Size(369, 101)
         Me.GroupBox7.TabIndex = 117
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Team Sheet Crawl"
         '
-        'ShowBothTeamCrawl
+        'Away1stElevenCrawler
         '
-        Me.ShowBothTeamCrawl.AutoSize = True
-        Me.ShowBothTeamCrawl.Location = New System.Drawing.Point(230, 21)
-        Me.ShowBothTeamCrawl.Name = "ShowBothTeamCrawl"
-        Me.ShowBothTeamCrawl.Size = New System.Drawing.Size(82, 17)
-        Me.ShowBothTeamCrawl.TabIndex = 120
-        Me.ShowBothTeamCrawl.Text = "Both Teams"
-        Me.ShowBothTeamCrawl.UseVisualStyleBackColor = True
+        Me.Away1stElevenCrawler.AutoSize = True
+        Me.Away1stElevenCrawler.Location = New System.Drawing.Point(173, 17)
+        Me.Away1stElevenCrawler.Name = "Away1stElevenCrawler"
+        Me.Away1stElevenCrawler.Size = New System.Drawing.Size(83, 17)
+        Me.Away1stElevenCrawler.TabIndex = 121
+        Me.Away1stElevenCrawler.Text = "Away 1st 11"
+        Me.Away1stElevenCrawler.UseVisualStyleBackColor = True
+        '
+        'Home1stElevenCrawler
+        '
+        Me.Home1stElevenCrawler.AutoSize = True
+        Me.Home1stElevenCrawler.Checked = True
+        Me.Home1stElevenCrawler.Location = New System.Drawing.Point(55, 19)
+        Me.Home1stElevenCrawler.Name = "Home1stElevenCrawler"
+        Me.Home1stElevenCrawler.Size = New System.Drawing.Size(85, 17)
+        Me.Home1stElevenCrawler.TabIndex = 120
+        Me.Home1stElevenCrawler.TabStop = True
+        Me.Home1stElevenCrawler.Text = "Home 1st 11"
+        Me.Home1stElevenCrawler.UseVisualStyleBackColor = True
         '
         'ShowAwayFirstElevenCrawl
         '
         Me.ShowAwayFirstElevenCrawl.AutoSize = True
-        Me.ShowAwayFirstElevenCrawl.Location = New System.Drawing.Point(127, 21)
+        Me.ShowAwayFirstElevenCrawl.Location = New System.Drawing.Point(173, 40)
         Me.ShowAwayFirstElevenCrawl.Name = "ShowAwayFirstElevenCrawl"
         Me.ShowAwayFirstElevenCrawl.Size = New System.Drawing.Size(81, 17)
         Me.ShowAwayFirstElevenCrawl.TabIndex = 119
@@ -3558,18 +3673,16 @@ Partial Class CasparTest2NoPvw
         'ShowHomeFirstElevenCrawl
         '
         Me.ShowHomeFirstElevenCrawl.AutoSize = True
-        Me.ShowHomeFirstElevenCrawl.Checked = True
-        Me.ShowHomeFirstElevenCrawl.Location = New System.Drawing.Point(26, 21)
+        Me.ShowHomeFirstElevenCrawl.Location = New System.Drawing.Point(55, 40)
         Me.ShowHomeFirstElevenCrawl.Name = "ShowHomeFirstElevenCrawl"
         Me.ShowHomeFirstElevenCrawl.Size = New System.Drawing.Size(83, 17)
         Me.ShowHomeFirstElevenCrawl.TabIndex = 118
-        Me.ShowHomeFirstElevenCrawl.TabStop = True
         Me.ShowHomeFirstElevenCrawl.Text = "Home Team"
         Me.ShowHomeFirstElevenCrawl.UseVisualStyleBackColor = True
         '
         'TSCrawlOffBTN
         '
-        Me.TSCrawlOffBTN.Location = New System.Drawing.Point(275, 44)
+        Me.TSCrawlOffBTN.Location = New System.Drawing.Point(161, 72)
         Me.TSCrawlOffBTN.Name = "TSCrawlOffBTN"
         Me.TSCrawlOffBTN.Size = New System.Drawing.Size(75, 23)
         Me.TSCrawlOffBTN.TabIndex = 12
@@ -3578,7 +3691,7 @@ Partial Class CasparTest2NoPvw
         '
         'TSCrawlOnBTN
         '
-        Me.TSCrawlOnBTN.Location = New System.Drawing.Point(6, 44)
+        Me.TSCrawlOnBTN.Location = New System.Drawing.Point(80, 72)
         Me.TSCrawlOnBTN.Name = "TSCrawlOnBTN"
         Me.TSCrawlOnBTN.Size = New System.Drawing.Size(75, 23)
         Me.TSCrawlOnBTN.TabIndex = 11
@@ -4125,7 +4238,7 @@ Partial Class CasparTest2NoPvw
         Me.TabPage7.Controls.Add(Me.Label24)
         Me.TabPage7.Location = New System.Drawing.Point(4, 22)
         Me.TabPage7.Name = "TabPage7"
-        Me.TabPage7.Size = New System.Drawing.Size(1252, 609)
+        Me.TabPage7.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage7.TabIndex = 4
         Me.TabPage7.Text = "Generic Messages"
         '
@@ -5237,7 +5350,7 @@ Partial Class CasparTest2NoPvw
         '
         'ClearTXBTN
         '
-        Me.ClearTXBTN.Location = New System.Drawing.Point(1140, 14)
+        Me.ClearTXBTN.Location = New System.Drawing.Point(248, 39)
         Me.ClearTXBTN.Name = "ClearTXBTN"
         Me.ClearTXBTN.Size = New System.Drawing.Size(86, 23)
         Me.ClearTXBTN.TabIndex = 67
@@ -5298,11 +5411,110 @@ Partial Class CasparTest2NoPvw
         'scoresFadeOut
         '
         '
+        'ClearGFXOnlyBTN
+        '
+        Me.ClearGFXOnlyBTN.Location = New System.Drawing.Point(114, 39)
+        Me.ClearGFXOnlyBTN.Name = "ClearGFXOnlyBTN"
+        Me.ClearGFXOnlyBTN.Size = New System.Drawing.Size(128, 23)
+        Me.ClearGFXOnlyBTN.TabIndex = 72
+        Me.ClearGFXOnlyBTN.Text = "Clear GFX Only"
+        Me.ClearGFXOnlyBTN.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Caspar_Test_2___No_PVW.My.Resources.Resources.LV
+        Me.PictureBox1.Location = New System.Drawing.Point(1016, 31)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(252, 85)
+        Me.PictureBox1.TabIndex = 73
+        Me.PictureBox1.TabStop = False
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.hideScoresScroller)
+        Me.GroupBox9.Controls.Add(Me.showScoresScroller)
+        Me.GroupBox9.Controls.Add(Me.sscoresT2Right)
+        Me.GroupBox9.Controls.Add(Me.sscoresT2Left)
+        Me.GroupBox9.Controls.Add(Me.sscoresT1Right)
+        Me.GroupBox9.Controls.Add(Me.sscoresT1Left)
+        Me.GroupBox9.Location = New System.Drawing.Point(973, 243)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(273, 253)
+        Me.GroupBox9.TabIndex = 19
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Scrolling Scores"
+        '
+        'sscoresT1Left
+        '
+        Me.sscoresT1Left.AutoSize = True
+        Me.sscoresT1Left.Checked = True
+        Me.sscoresT1Left.Location = New System.Drawing.Point(17, 28)
+        Me.sscoresT1Left.Name = "sscoresT1Left"
+        Me.sscoresT1Left.Size = New System.Drawing.Size(74, 17)
+        Me.sscoresT1Left.TabIndex = 0
+        Me.sscoresT1Left.TabStop = True
+        Me.sscoresT1Left.Text = "Tab 1 Left"
+        Me.sscoresT1Left.UseVisualStyleBackColor = True
+        '
+        'sscoresT1Right
+        '
+        Me.sscoresT1Right.AutoSize = True
+        Me.sscoresT1Right.Location = New System.Drawing.Point(146, 28)
+        Me.sscoresT1Right.Name = "sscoresT1Right"
+        Me.sscoresT1Right.Size = New System.Drawing.Size(81, 17)
+        Me.sscoresT1Right.TabIndex = 1
+        Me.sscoresT1Right.Text = "Tab 1 Right"
+        Me.sscoresT1Right.UseVisualStyleBackColor = True
+        '
+        'sscoresT2Left
+        '
+        Me.sscoresT2Left.AutoSize = True
+        Me.sscoresT2Left.Location = New System.Drawing.Point(17, 77)
+        Me.sscoresT2Left.Name = "sscoresT2Left"
+        Me.sscoresT2Left.Size = New System.Drawing.Size(74, 17)
+        Me.sscoresT2Left.TabIndex = 2
+        Me.sscoresT2Left.Text = "Tab 2 Left"
+        Me.sscoresT2Left.UseVisualStyleBackColor = True
+        '
+        'sscoresT2Right
+        '
+        Me.sscoresT2Right.AutoSize = True
+        Me.sscoresT2Right.Location = New System.Drawing.Point(146, 77)
+        Me.sscoresT2Right.Name = "sscoresT2Right"
+        Me.sscoresT2Right.Size = New System.Drawing.Size(81, 17)
+        Me.sscoresT2Right.TabIndex = 3
+        Me.sscoresT2Right.Text = "Tab 2 Right"
+        Me.sscoresT2Right.UseVisualStyleBackColor = True
+        '
+        'showScoresScroller
+        '
+        Me.showScoresScroller.Location = New System.Drawing.Point(17, 156)
+        Me.showScoresScroller.Name = "showScoresScroller"
+        Me.showScoresScroller.Size = New System.Drawing.Size(250, 36)
+        Me.showScoresScroller.TabIndex = 7
+        Me.showScoresScroller.Text = "Show"
+        Me.showScoresScroller.UseVisualStyleBackColor = True
+        '
+        'hideScoresScroller
+        '
+        Me.hideScoresScroller.Location = New System.Drawing.Point(17, 198)
+        Me.hideScoresScroller.Name = "hideScoresScroller"
+        Me.hideScoresScroller.Size = New System.Drawing.Size(250, 36)
+        Me.hideScoresScroller.TabIndex = 8
+        Me.hideScoresScroller.Text = "Hide"
+        Me.hideScoresScroller.UseVisualStyleBackColor = True
+        '
+        'playlistStop
+        '
+        '
         'CasparTest2NoPvw
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1275, 737)
+        Me.BackColor = System.Drawing.SystemColors.Window
+        Me.ClientSize = New System.Drawing.Size(1276, 769)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.ClearGFXOnlyBTN)
         Me.Controls.Add(Me.timeOfDayText)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -5354,6 +5566,9 @@ Partial Class CasparTest2NoPvw
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -5841,7 +6056,6 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents Label69 As System.Windows.Forms.Label
     Friend WithEvents Label70 As System.Windows.Forms.Label
     Friend WithEvents Label71 As System.Windows.Forms.Label
-    Friend WithEvents ShowBothTeamCrawl As System.Windows.Forms.RadioButton
     Friend WithEvents WipeTrans As System.Windows.Forms.RadioButton
     Friend WithEvents PushTrans As System.Windows.Forms.RadioButton
     Friend WithEvents MixTrans As System.Windows.Forms.RadioButton
@@ -5868,5 +6082,25 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents ColorDialog6 As System.Windows.Forms.ColorDialog
     Friend WithEvents ColorDialog7 As System.Windows.Forms.ColorDialog
     Friend WithEvents ColorDialog8 As System.Windows.Forms.ColorDialog
+    Friend WithEvents ClearGFXOnlyBTN As System.Windows.Forms.Button
+    Friend WithEvents Away1stElevenCrawler As System.Windows.Forms.RadioButton
+    Friend WithEvents Home1stElevenCrawler As System.Windows.Forms.RadioButton
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents tab1Logo1Select As System.Windows.Forms.ComboBox
+    Friend WithEvents Label76 As System.Windows.Forms.Label
+    Friend WithEvents tab1Logo2Select As System.Windows.Forms.ComboBox
+    Friend WithEvents Label77 As System.Windows.Forms.Label
+    Friend WithEvents tab2Logo2Select As System.Windows.Forms.ComboBox
+    Friend WithEvents Label79 As System.Windows.Forms.Label
+    Friend WithEvents tab2Logo1Select As System.Windows.Forms.ComboBox
+    Friend WithEvents Label78 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
+    Friend WithEvents hideScoresScroller As System.Windows.Forms.Button
+    Friend WithEvents showScoresScroller As System.Windows.Forms.Button
+    Friend WithEvents sscoresT2Right As System.Windows.Forms.RadioButton
+    Friend WithEvents sscoresT2Left As System.Windows.Forms.RadioButton
+    Friend WithEvents sscoresT1Right As System.Windows.Forms.RadioButton
+    Friend WithEvents sscoresT1Left As System.Windows.Forms.RadioButton
+    Friend WithEvents playlistStop As System.Windows.Forms.Timer
 
 End Class
