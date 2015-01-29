@@ -43,9 +43,9 @@ Public Class CasparTest2NoPvw
 
     Private Sub countTimer_Tick(sender As Object, e As EventArgs) Handles countTimer.Tick
         count = count + 1
-        If count >= 7 Then
+        If count >= 10 Then
             CasparDevice.SendString("stop 2-100")
-            CasparDevice.SendString("MIXER 2-100 OPACITY 1 12 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 0 linear")
             countTimer.Enabled = False
             count = 0
         End If
@@ -162,9 +162,9 @@ Public Class CasparTest2NoPvw
 
     Private Sub clockAnimation_Tick(sender As Object, e As EventArgs) Handles clockAnimation.Tick
         count = count + 1
-        If count >= 7 Then
+        If count >= 10 Then
             CasparDevice.SendString("stop 1-400")
-            CasparDevice.SendString("MIXER 1-400 OPACITY 1 12 linear")
+            CasparDevice.SendString("MIXER 1-400 OPACITY 1 0 linear")
             clockAnimation.Enabled = False
             count = 0
         End If
@@ -3042,9 +3042,9 @@ Public Class CasparTest2NoPvw
 
     Private Sub BPlayChanFadeOut_Tick(sender As Object, e As EventArgs) Handles BPlayChanFadeOut.Tick
         countBPS = countBPS + 1
-        If countBPS >= 7 Then
+        If countBPS >= 10 Then
             CasparDevice.SendString("stop 1-100")
-            CasparDevice.SendString("MIXER 1-100 OPACITY 1 12 linear")
+            CasparDevice.SendString("MIXER 1-100 OPACITY 1 0 linear")
             BPlayChanFadeOut.Enabled = False
             countBPS = 0
         End If
@@ -3290,27 +3290,27 @@ Public Class CasparTest2NoPvw
 
     Private Sub scoresFadeOut_Tick(sender As Object, e As EventArgs) Handles scoresFadeOut.Tick
         countScores = countScores + 1
-        If countScores >= 7 Then
+        If countScores >= 10 Then
             CasparDevice.SendString("stop 2-100")
-            CasparDevice.SendString("MIXER 2-100 OPACITY 1 12 linear")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 0 linear")
 
             CasparDevice.SendString("stop 2-104")
-            CasparDevice.SendString("MIXER 2-104 OPACITY 1 12 linear")
+            CasparDevice.SendString("MIXER 2-104 OPACITY 1 0 linear")
 
             CasparDevice.SendString("stop 2-105")
-            CasparDevice.SendString("MIXER 2-105 OPACITY 1 12 linear")
+            CasparDevice.SendString("MIXER 2-105 OPACITY 1 0 linear")
 
             CasparDevice.SendString("stop 2-106")
-            CasparDevice.SendString("MIXER 2-106 OPACITY 1 12 linear")
+            CasparDevice.SendString("MIXER 2-106 OPACITY 1 0 linear")
 
             CasparDevice.SendString("stop 2-107")
-            CasparDevice.SendString("MIXER 2-107 OPACITY 1 12 linear")
+            CasparDevice.SendString("MIXER 2-107 OPACITY 1 0 linear")
 
             CasparDevice.SendString("stop 2-108")
-            CasparDevice.SendString("MIXER 2-108 OPACITY 1 12 linear")
+            CasparDevice.SendString("MIXER 2-108 OPACITY 1 0 linear")
 
             CasparDevice.SendString("stop 2-109")
-            CasparDevice.SendString("MIXER 2-109 OPACITY 1 12 linear")
+            CasparDevice.SendString("MIXER 2-109 OPACITY 1 0 linear")
             scoresFadeOut.Enabled = False
             countScores = 0
         End If
@@ -4816,7 +4816,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub playlistStop_Tick(sender As Object, e As EventArgs) Handles playlistStop.Tick
         countplaylist = countplaylist + 1
-        If countPlaylist >= 7 Then
+        If countPlaylist >= 10 Then
             CasparDevice.SendString("stop 2-99")
             CasparDevice.SendString("MIXER 2-99 OPACITY 1 0 linear")
             playlistStop.Enabled = False
