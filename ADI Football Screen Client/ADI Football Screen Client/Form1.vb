@@ -26,6 +26,8 @@ Public Class CasparTest2NoPvw
     Dim msg6Colour As String
     Dim msg7Colour As String
     Dim msg8Colour As String
+    Dim homeTeamCount As Integer
+    Dim awayTeamCount As Integer
 
     Private Sub Connect_Click(sender As Object, e As EventArgs) Handles Connect.Click
         CasparDevice.Settings.Hostname = "localhost"
@@ -3179,9 +3181,18 @@ Public Class CasparTest2NoPvw
         If Me.FullHomeSquad.SelectedIndex >= 0 Then
             HomeTeam.Items.Add(FullHomeSquad.Text)
             FullHomeSquad.Items.Remove(FullHomeSquad.Text)
-            homePlayerCount.Text = Convert.ToInt32(homePlayerCount.Text) + 1
-            If Convert.ToInt32(homePlayerCount.Text) > 18 Then
+
+            homeTeamCount = homeTeamCount + 1
+            If homeTeamCount <= 11 Then
+                homePlayerCount.Text = homeTeamCount
+            End If
+            If homeTeamCount > 11 Then
+                homeSubsCount.Text = homeTeamCount - 11
+            End If
+            'set colours
+            If homeTeamCount > 18 Then
                 homePlayerCount.ForeColor = Color.Red
+                homeSubsCount.ForeColor = Color.Red
             End If
             If FullHomeSquad.Items.Count > 0 Then
                 FullHomeSquad.SetSelected(0, True)
@@ -3193,9 +3204,19 @@ Public Class CasparTest2NoPvw
         If Me.HomeTeam.SelectedIndex >= 0 Then
             FullHomeSquad.Items.Add(HomeTeam.Text)
             HomeTeam.Items.Remove(HomeTeam.Text)
-            homePlayerCount.Text = Convert.ToInt32(homePlayerCount.Text) - 1
-            If Convert.ToInt32(homePlayerCount.Text) >= 18 Then
+            homeTeamCount = homeTeamCount - 1
+            If homeTeamCount <= 11 Then
+                homePlayerCount.Text = homeTeamCount
+                homeSubsCount.Text = 0
+            End If
+            If homeTeamCount > 11 Then
+                homePlayerCount.Text = 11
+                homeSubsCount.Text = homeTeamCount - 11
+            End If
+            'homePlayerCount.Text = Convert.ToInt32(homePlayerCount.Text) - 1
+            If homeTeamCount >= 18 Then
                 homePlayerCount.ForeColor = Color.Green
+                homeSubsCount.ForeColor = Color.RoyalBlue
             End If
 
         Else
@@ -3208,6 +3229,7 @@ Public Class CasparTest2NoPvw
         homePlayerCount.Text = 0
 
         homePlayerCount.ForeColor = Color.Green
+        homeSubsCount.ForeColor = Color.RoyalBlue
 
     End Sub
 
@@ -3215,7 +3237,24 @@ Public Class CasparTest2NoPvw
         If Me.FullAwaySquad.SelectedIndex >= 0 Then
             AwayTeam.Items.Add(FullAwaySquad.Text)
             FullAwaySquad.Items.Remove(FullAwaySquad.Text)
-            AwayPlayerCount.Text = Convert.ToInt32(AwayPlayerCount.Text) + 1
+            'AwayPlayerCount.Text = Convert.ToInt32(AwayPlayerCount.Text) + 1
+            awayTeamCount = awayTeamCount + 1
+            If awayTeamCount <= 11 Then
+                AwayPlayerCount.Text = awayTeamCount
+            End If
+            If awayTeamCount > 11 Then
+                AwaySubsCount.Text = awayTeamCount - 11
+            End If
+            'set colours
+            If awayTeamCount > 18 Then
+                AwayPlayerCount.ForeColor = Color.Red
+                AwaySubsCount.ForeColor = Color.Red
+            End If
+
+            If FullAwaySquad.Items.Count > 0 Then
+                FullAwaySquad.SetSelected(0, True)
+            End If
+            'change colours
             If Convert.ToInt32(AwayPlayerCount.Text) > 18 Then
                 AwayPlayerCount.ForeColor = Color.Red
             End If
@@ -3229,9 +3268,20 @@ Public Class CasparTest2NoPvw
         If Me.AwayTeam.SelectedIndex >= 0 Then
             FullAwaySquad.Items.Add(AwayTeam.Text)
             AwayTeam.Items.Remove(AwayTeam.Text)
-            AwayPlayerCount.Text = Convert.ToInt32(AwayPlayerCount.Text) - 1
-            If Convert.ToInt32(AwayPlayerCount.Text) <= 18 Then
+            'AwayPlayerCount.Text = Convert.ToInt32(AwayPlayerCount.Text) - 1
+            awayTeamCount = awayTeamCount - 1
+            If awayTeamCount <= 11 Then
+                AwayPlayerCount.Text = awayTeamCount
+                AwaySubsCount.Text = 0
+            End If
+            If awayTeamCount > 11 Then
+                AwayPlayerCount.Text = 11
+                AwaySubsCount.Text = awayTeamCount - 11
+            End If
+
+            If awayTeamCount <= 18 Then
                 AwayPlayerCount.ForeColor = Color.Green
+                AwaySubsCount.ForeColor = Color.RoyalBlue
             End If
         Else
             MessageBox.Show("You need to select a player to remove", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -3243,6 +3293,7 @@ Public Class CasparTest2NoPvw
         AwayPlayerCount.Text = 0
 
         AwayPlayerCount.ForeColor = Color.Green
+        AwaySubsCount.ForeColor = Color.RoyalBlue
 
     End Sub
 
@@ -4823,4 +4874,6 @@ Public Class CasparTest2NoPvw
             countPlaylist = 0
         End If
     End Sub
+
+
 End Class

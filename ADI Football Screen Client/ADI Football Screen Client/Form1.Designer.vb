@@ -176,6 +176,13 @@ Partial Class CasparTest2NoPvw
         Me.playlistFiles = New System.Windows.Forms.ListBox()
         Me.SourceFiles = New System.Windows.Forms.ListBox()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.hideScoresScroller = New System.Windows.Forms.Button()
+        Me.showScoresScroller = New System.Windows.Forms.Button()
+        Me.sscoresT2Right = New System.Windows.Forms.RadioButton()
+        Me.sscoresT2Left = New System.Windows.Forms.RadioButton()
+        Me.sscoresT1Right = New System.Windows.Forms.RadioButton()
+        Me.sscoresT1Left = New System.Windows.Forms.RadioButton()
         Me.TabControl2 = New System.Windows.Forms.TabControl()
         Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.tab1Logo2Select = New System.Windows.Forms.ComboBox()
@@ -545,14 +552,11 @@ Partial Class CasparTest2NoPvw
         Me.ColorDialog8 = New System.Windows.Forms.ColorDialog()
         Me.ClearGFXOnlyBTN = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-        Me.sscoresT1Left = New System.Windows.Forms.RadioButton()
-        Me.sscoresT1Right = New System.Windows.Forms.RadioButton()
-        Me.sscoresT2Left = New System.Windows.Forms.RadioButton()
-        Me.sscoresT2Right = New System.Windows.Forms.RadioButton()
-        Me.showScoresScroller = New System.Windows.Forms.Button()
-        Me.hideScoresScroller = New System.Windows.Forms.Button()
         Me.playlistStop = New System.Windows.Forms.Timer(Me.components)
+        Me.AwaySubsCount = New System.Windows.Forms.Label()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.homeSubsCount = New System.Windows.Forms.Label()
+        Me.Label83 = New System.Windows.Forms.Label()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -560,6 +564,7 @@ Partial Class CasparTest2NoPvw
         Me.TabPage1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TabPage2.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
         Me.TabControl2.SuspendLayout()
         Me.TabPage3.SuspendLayout()
         Me.TabPage4.SuspendLayout()
@@ -574,7 +579,6 @@ Partial Class CasparTest2NoPvw
         Me.TabPage7.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'Connect
@@ -1395,6 +1399,10 @@ Partial Class CasparTest2NoPvw
         'TabPage6
         '
         Me.TabPage6.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage6.Controls.Add(Me.AwaySubsCount)
+        Me.TabPage6.Controls.Add(Me.Label81)
+        Me.TabPage6.Controls.Add(Me.homeSubsCount)
+        Me.TabPage6.Controls.Add(Me.Label83)
         Me.TabPage6.Controls.Add(Me.Label75)
         Me.TabPage6.Controls.Add(Me.Label74)
         Me.TabPage6.Controls.Add(Me.AwayTeamName)
@@ -1506,7 +1514,7 @@ Partial Class CasparTest2NoPvw
         Me.AwayPlayerCount.AutoSize = True
         Me.AwayPlayerCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AwayPlayerCount.ForeColor = System.Drawing.Color.Green
-        Me.AwayPlayerCount.Location = New System.Drawing.Point(819, 366)
+        Me.AwayPlayerCount.Location = New System.Drawing.Point(819, 336)
         Me.AwayPlayerCount.Name = "AwayPlayerCount"
         Me.AwayPlayerCount.Size = New System.Drawing.Size(37, 39)
         Me.AwayPlayerCount.TabIndex = 73
@@ -1517,7 +1525,7 @@ Partial Class CasparTest2NoPvw
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Green
-        Me.Label10.Location = New System.Drawing.Point(777, 329)
+        Me.Label10.Location = New System.Drawing.Point(777, 299)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(129, 24)
         Me.Label10.TabIndex = 72
@@ -1528,7 +1536,7 @@ Partial Class CasparTest2NoPvw
         Me.homePlayerCount.AutoSize = True
         Me.homePlayerCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.homePlayerCount.ForeColor = System.Drawing.Color.Green
-        Me.homePlayerCount.Location = New System.Drawing.Point(269, 366)
+        Me.homePlayerCount.Location = New System.Drawing.Point(269, 336)
         Me.homePlayerCount.Name = "homePlayerCount"
         Me.homePlayerCount.Size = New System.Drawing.Size(37, 39)
         Me.homePlayerCount.TabIndex = 71
@@ -1539,7 +1547,7 @@ Partial Class CasparTest2NoPvw
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Green
-        Me.Label8.Location = New System.Drawing.Point(228, 329)
+        Me.Label8.Location = New System.Drawing.Point(226, 299)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(129, 24)
         Me.Label8.TabIndex = 70
@@ -1914,6 +1922,81 @@ Partial Class CasparTest2NoPvw
         Me.TabPage2.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Scores"
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.hideScoresScroller)
+        Me.GroupBox9.Controls.Add(Me.showScoresScroller)
+        Me.GroupBox9.Controls.Add(Me.sscoresT2Right)
+        Me.GroupBox9.Controls.Add(Me.sscoresT2Left)
+        Me.GroupBox9.Controls.Add(Me.sscoresT1Right)
+        Me.GroupBox9.Controls.Add(Me.sscoresT1Left)
+        Me.GroupBox9.Location = New System.Drawing.Point(973, 243)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(273, 253)
+        Me.GroupBox9.TabIndex = 19
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Scrolling Scores"
+        '
+        'hideScoresScroller
+        '
+        Me.hideScoresScroller.Location = New System.Drawing.Point(17, 198)
+        Me.hideScoresScroller.Name = "hideScoresScroller"
+        Me.hideScoresScroller.Size = New System.Drawing.Size(250, 36)
+        Me.hideScoresScroller.TabIndex = 8
+        Me.hideScoresScroller.Text = "Hide"
+        Me.hideScoresScroller.UseVisualStyleBackColor = True
+        '
+        'showScoresScroller
+        '
+        Me.showScoresScroller.Location = New System.Drawing.Point(17, 156)
+        Me.showScoresScroller.Name = "showScoresScroller"
+        Me.showScoresScroller.Size = New System.Drawing.Size(250, 36)
+        Me.showScoresScroller.TabIndex = 7
+        Me.showScoresScroller.Text = "Show"
+        Me.showScoresScroller.UseVisualStyleBackColor = True
+        '
+        'sscoresT2Right
+        '
+        Me.sscoresT2Right.AutoSize = True
+        Me.sscoresT2Right.Location = New System.Drawing.Point(146, 77)
+        Me.sscoresT2Right.Name = "sscoresT2Right"
+        Me.sscoresT2Right.Size = New System.Drawing.Size(81, 17)
+        Me.sscoresT2Right.TabIndex = 3
+        Me.sscoresT2Right.Text = "Tab 2 Right"
+        Me.sscoresT2Right.UseVisualStyleBackColor = True
+        '
+        'sscoresT2Left
+        '
+        Me.sscoresT2Left.AutoSize = True
+        Me.sscoresT2Left.Location = New System.Drawing.Point(17, 77)
+        Me.sscoresT2Left.Name = "sscoresT2Left"
+        Me.sscoresT2Left.Size = New System.Drawing.Size(74, 17)
+        Me.sscoresT2Left.TabIndex = 2
+        Me.sscoresT2Left.Text = "Tab 2 Left"
+        Me.sscoresT2Left.UseVisualStyleBackColor = True
+        '
+        'sscoresT1Right
+        '
+        Me.sscoresT1Right.AutoSize = True
+        Me.sscoresT1Right.Location = New System.Drawing.Point(146, 28)
+        Me.sscoresT1Right.Name = "sscoresT1Right"
+        Me.sscoresT1Right.Size = New System.Drawing.Size(81, 17)
+        Me.sscoresT1Right.TabIndex = 1
+        Me.sscoresT1Right.Text = "Tab 1 Right"
+        Me.sscoresT1Right.UseVisualStyleBackColor = True
+        '
+        'sscoresT1Left
+        '
+        Me.sscoresT1Left.AutoSize = True
+        Me.sscoresT1Left.Checked = True
+        Me.sscoresT1Left.Location = New System.Drawing.Point(17, 28)
+        Me.sscoresT1Left.Name = "sscoresT1Left"
+        Me.sscoresT1Left.Size = New System.Drawing.Size(74, 17)
+        Me.sscoresT1Left.TabIndex = 0
+        Me.sscoresT1Left.TabStop = True
+        Me.sscoresT1Left.Text = "Tab 1 Left"
+        Me.sscoresT1Left.UseVisualStyleBackColor = True
         '
         'TabControl2
         '
@@ -5429,83 +5512,52 @@ Partial Class CasparTest2NoPvw
         Me.PictureBox1.TabIndex = 73
         Me.PictureBox1.TabStop = False
         '
-        'GroupBox9
-        '
-        Me.GroupBox9.Controls.Add(Me.hideScoresScroller)
-        Me.GroupBox9.Controls.Add(Me.showScoresScroller)
-        Me.GroupBox9.Controls.Add(Me.sscoresT2Right)
-        Me.GroupBox9.Controls.Add(Me.sscoresT2Left)
-        Me.GroupBox9.Controls.Add(Me.sscoresT1Right)
-        Me.GroupBox9.Controls.Add(Me.sscoresT1Left)
-        Me.GroupBox9.Location = New System.Drawing.Point(973, 243)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(273, 253)
-        Me.GroupBox9.TabIndex = 19
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Scrolling Scores"
-        '
-        'sscoresT1Left
-        '
-        Me.sscoresT1Left.AutoSize = True
-        Me.sscoresT1Left.Checked = True
-        Me.sscoresT1Left.Location = New System.Drawing.Point(17, 28)
-        Me.sscoresT1Left.Name = "sscoresT1Left"
-        Me.sscoresT1Left.Size = New System.Drawing.Size(74, 17)
-        Me.sscoresT1Left.TabIndex = 0
-        Me.sscoresT1Left.TabStop = True
-        Me.sscoresT1Left.Text = "Tab 1 Left"
-        Me.sscoresT1Left.UseVisualStyleBackColor = True
-        '
-        'sscoresT1Right
-        '
-        Me.sscoresT1Right.AutoSize = True
-        Me.sscoresT1Right.Location = New System.Drawing.Point(146, 28)
-        Me.sscoresT1Right.Name = "sscoresT1Right"
-        Me.sscoresT1Right.Size = New System.Drawing.Size(81, 17)
-        Me.sscoresT1Right.TabIndex = 1
-        Me.sscoresT1Right.Text = "Tab 1 Right"
-        Me.sscoresT1Right.UseVisualStyleBackColor = True
-        '
-        'sscoresT2Left
-        '
-        Me.sscoresT2Left.AutoSize = True
-        Me.sscoresT2Left.Location = New System.Drawing.Point(17, 77)
-        Me.sscoresT2Left.Name = "sscoresT2Left"
-        Me.sscoresT2Left.Size = New System.Drawing.Size(74, 17)
-        Me.sscoresT2Left.TabIndex = 2
-        Me.sscoresT2Left.Text = "Tab 2 Left"
-        Me.sscoresT2Left.UseVisualStyleBackColor = True
-        '
-        'sscoresT2Right
-        '
-        Me.sscoresT2Right.AutoSize = True
-        Me.sscoresT2Right.Location = New System.Drawing.Point(146, 77)
-        Me.sscoresT2Right.Name = "sscoresT2Right"
-        Me.sscoresT2Right.Size = New System.Drawing.Size(81, 17)
-        Me.sscoresT2Right.TabIndex = 3
-        Me.sscoresT2Right.Text = "Tab 2 Right"
-        Me.sscoresT2Right.UseVisualStyleBackColor = True
-        '
-        'showScoresScroller
-        '
-        Me.showScoresScroller.Location = New System.Drawing.Point(17, 156)
-        Me.showScoresScroller.Name = "showScoresScroller"
-        Me.showScoresScroller.Size = New System.Drawing.Size(250, 36)
-        Me.showScoresScroller.TabIndex = 7
-        Me.showScoresScroller.Text = "Show"
-        Me.showScoresScroller.UseVisualStyleBackColor = True
-        '
-        'hideScoresScroller
-        '
-        Me.hideScoresScroller.Location = New System.Drawing.Point(17, 198)
-        Me.hideScoresScroller.Name = "hideScoresScroller"
-        Me.hideScoresScroller.Size = New System.Drawing.Size(250, 36)
-        Me.hideScoresScroller.TabIndex = 8
-        Me.hideScoresScroller.Text = "Hide"
-        Me.hideScoresScroller.UseVisualStyleBackColor = True
-        '
         'playlistStop
         '
+        '
+        'AwaySubsCount
+        '
+        Me.AwaySubsCount.AutoSize = True
+        Me.AwaySubsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AwaySubsCount.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.AwaySubsCount.Location = New System.Drawing.Point(819, 418)
+        Me.AwaySubsCount.Name = "AwaySubsCount"
+        Me.AwaySubsCount.Size = New System.Drawing.Size(37, 39)
+        Me.AwaySubsCount.TabIndex = 85
+        Me.AwaySubsCount.Text = "0"
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label81.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label81.Location = New System.Drawing.Point(777, 381)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(118, 24)
+        Me.Label81.TabIndex = 84
+        Me.Label81.Text = "Subs Count"
+        '
+        'homeSubsCount
+        '
+        Me.homeSubsCount.AutoSize = True
+        Me.homeSubsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.homeSubsCount.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.homeSubsCount.Location = New System.Drawing.Point(269, 418)
+        Me.homeSubsCount.Name = "homeSubsCount"
+        Me.homeSubsCount.Size = New System.Drawing.Size(37, 39)
+        Me.homeSubsCount.TabIndex = 83
+        Me.homeSubsCount.Text = "0"
+        '
+        'Label83
+        '
+        Me.Label83.AutoSize = True
+        Me.Label83.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label83.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label83.Location = New System.Drawing.Point(226, 381)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(118, 24)
+        Me.Label83.TabIndex = 82
+        Me.Label83.Text = "Subs Count"
         '
         'CasparTest2NoPvw
         '
@@ -5544,6 +5596,8 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
         Me.TabControl2.ResumeLayout(False)
         Me.TabPage3.ResumeLayout(False)
         Me.TabPage3.PerformLayout()
@@ -5567,8 +5621,6 @@ Partial Class CasparTest2NoPvw
         Me.TabPage7.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -6102,5 +6154,9 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents sscoresT1Right As System.Windows.Forms.RadioButton
     Friend WithEvents sscoresT1Left As System.Windows.Forms.RadioButton
     Friend WithEvents playlistStop As System.Windows.Forms.Timer
+    Friend WithEvents AwaySubsCount As System.Windows.Forms.Label
+    Friend WithEvents Label81 As System.Windows.Forms.Label
+    Friend WithEvents homeSubsCount As System.Windows.Forms.Label
+    Friend WithEvents Label83 As System.Windows.Forms.Label
 
 End Class
