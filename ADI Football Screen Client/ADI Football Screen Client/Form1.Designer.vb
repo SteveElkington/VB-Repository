@@ -126,6 +126,10 @@ Partial Class CasparTest2NoPvw
         Me.AwaySubOn = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.AwaySubsCount = New System.Windows.Forms.Label()
+        Me.Label81 = New System.Windows.Forms.Label()
+        Me.homeSubsCount = New System.Windows.Forms.Label()
+        Me.Label83 = New System.Windows.Forms.Label()
         Me.Label75 = New System.Windows.Forms.Label()
         Me.Label74 = New System.Windows.Forms.Label()
         Me.AwayTeamName = New System.Windows.Forms.TextBox()
@@ -553,10 +557,6 @@ Partial Class CasparTest2NoPvw
         Me.ClearGFXOnlyBTN = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.playlistStop = New System.Windows.Forms.Timer(Me.components)
-        Me.AwaySubsCount = New System.Windows.Forms.Label()
-        Me.Label81 = New System.Windows.Forms.Label()
-        Me.homeSubsCount = New System.Windows.Forms.Label()
-        Me.Label83 = New System.Windows.Forms.Label()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -595,6 +595,7 @@ Partial Class CasparTest2NoPvw
         '
         'OnScreenClock
         '
+        Me.OnScreenClock.Interval = 1000
         '
         'Clock
         '
@@ -1438,6 +1439,50 @@ Partial Class CasparTest2NoPvw
         Me.TabPage6.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage6.TabIndex = 3
         Me.TabPage6.Text = "Set Up Teams"
+        '
+        'AwaySubsCount
+        '
+        Me.AwaySubsCount.AutoSize = True
+        Me.AwaySubsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AwaySubsCount.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.AwaySubsCount.Location = New System.Drawing.Point(819, 418)
+        Me.AwaySubsCount.Name = "AwaySubsCount"
+        Me.AwaySubsCount.Size = New System.Drawing.Size(37, 39)
+        Me.AwaySubsCount.TabIndex = 85
+        Me.AwaySubsCount.Text = "0"
+        '
+        'Label81
+        '
+        Me.Label81.AutoSize = True
+        Me.Label81.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label81.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label81.Location = New System.Drawing.Point(777, 381)
+        Me.Label81.Name = "Label81"
+        Me.Label81.Size = New System.Drawing.Size(118, 24)
+        Me.Label81.TabIndex = 84
+        Me.Label81.Text = "Subs Count"
+        '
+        'homeSubsCount
+        '
+        Me.homeSubsCount.AutoSize = True
+        Me.homeSubsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.homeSubsCount.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.homeSubsCount.Location = New System.Drawing.Point(269, 418)
+        Me.homeSubsCount.Name = "homeSubsCount"
+        Me.homeSubsCount.Size = New System.Drawing.Size(37, 39)
+        Me.homeSubsCount.TabIndex = 83
+        Me.homeSubsCount.Text = "0"
+        '
+        'Label83
+        '
+        Me.Label83.AutoSize = True
+        Me.Label83.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label83.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label83.Location = New System.Drawing.Point(226, 381)
+        Me.Label83.Name = "Label83"
+        Me.Label83.Size = New System.Drawing.Size(118, 24)
+        Me.Label83.TabIndex = 82
+        Me.Label83.Text = "Subs Count"
         '
         'Label75
         '
@@ -5514,50 +5559,6 @@ Partial Class CasparTest2NoPvw
         '
         'playlistStop
         '
-        '
-        'AwaySubsCount
-        '
-        Me.AwaySubsCount.AutoSize = True
-        Me.AwaySubsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AwaySubsCount.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.AwaySubsCount.Location = New System.Drawing.Point(819, 418)
-        Me.AwaySubsCount.Name = "AwaySubsCount"
-        Me.AwaySubsCount.Size = New System.Drawing.Size(37, 39)
-        Me.AwaySubsCount.TabIndex = 85
-        Me.AwaySubsCount.Text = "0"
-        '
-        'Label81
-        '
-        Me.Label81.AutoSize = True
-        Me.Label81.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label81.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.Label81.Location = New System.Drawing.Point(777, 381)
-        Me.Label81.Name = "Label81"
-        Me.Label81.Size = New System.Drawing.Size(118, 24)
-        Me.Label81.TabIndex = 84
-        Me.Label81.Text = "Subs Count"
-        '
-        'homeSubsCount
-        '
-        Me.homeSubsCount.AutoSize = True
-        Me.homeSubsCount.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.homeSubsCount.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.homeSubsCount.Location = New System.Drawing.Point(269, 418)
-        Me.homeSubsCount.Name = "homeSubsCount"
-        Me.homeSubsCount.Size = New System.Drawing.Size(37, 39)
-        Me.homeSubsCount.TabIndex = 83
-        Me.homeSubsCount.Text = "0"
-        '
-        'Label83
-        '
-        Me.Label83.AutoSize = True
-        Me.Label83.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label83.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.Label83.Location = New System.Drawing.Point(226, 381)
-        Me.Label83.Name = "Label83"
-        Me.Label83.Size = New System.Drawing.Size(118, 24)
-        Me.Label83.TabIndex = 82
-        Me.Label83.Text = "Subs Count"
         '
         'CasparTest2NoPvw
         '
