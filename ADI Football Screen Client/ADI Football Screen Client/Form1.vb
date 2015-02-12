@@ -88,7 +88,7 @@ Public Class CasparTest2NoPvw
 
     End Sub
     Private Sub StartBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StartBtn.Click
-        OnScreenClock.Enabled = True
+        ' OnScreenClock.Enabled = True
         aa = Val(Now.Second.ToString) 'new code
         'disable button so cant be re-pressed
         StartBtn.Enabled = False
@@ -117,17 +117,19 @@ Public Class CasparTest2NoPvw
     Private Sub showClock_Click(sender As Object, e As EventArgs) Handles showClock.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.Clear()
-
-            CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
-            'note - the following are only for Jamies graphics
-            CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
-            CasparCGDataCollection.SetData("f2", HomeScore.Text)
-            CasparCGDataCollection.SetData("f3", AwayScore.Text)
-            CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
-            ' showing
-            CasparDevice.Channels(0).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Add(401, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(0).CG.Play(401)
-            CasparDevice.SendString("play 1-400 EFC-CLOCK")
+
+            'CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
+            'note - the following are only for Jamies graphics
+            'CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
+            'CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            'CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            'CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
+            ' showing
+            'CasparDevice.Channels(0).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            'CasparDevice.Channels(0).CG.Play(401)
+            'CasparDevice.SendString("play 1-400 EFC-CLOCK")
 
             showClock.BackColor = Color.Green
             ShowClockInGameBTN.BackColor = Color.Green
@@ -1620,20 +1622,22 @@ Public Class CasparTest2NoPvw
 
    
     Private Sub startAndShowClockBTN_Click(sender As Object, e As EventArgs) Handles startAndShowClockBTN.Click
-        OnScreenClock.Enabled = True
+        '  OnScreenClock.Enabled = True
         aa = Val(Now.Second.ToString) 'new code
         CasparCGDataCollection.Clear()
 
-        CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
-        'note - the following are only for Jamies graphics
-        CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
-        CasparCGDataCollection.SetData("f2", HomeScore.Text)
-        CasparCGDataCollection.SetData("f3", AwayScore.Text)
-        CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
-        ' showing
-        CasparDevice.Channels(0).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+        CasparDevice.Channels(0).CG.Add(401, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
         CasparDevice.Channels(0).CG.Play(401)
-        CasparDevice.SendString("play 1-400 EFC-CLOCK")
+        '  CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
+        'note - the following are only for Jamies graphics
+        '  CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
+        '  CasparCGDataCollection.SetData("f2", HomeScore.Text)
+        '  CasparCGDataCollection.SetData("f3", AwayScore.Text)
+        '  CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
+        ' showing
+        '   CasparDevice.Channels(0).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+        '   CasparDevice.Channels(0).CG.Play(401)
+        '    CasparDevice.SendString("play 1-400 EFC-CLOCK")
         ' prewviewin
         'CasparDevice.Channels(1).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
         'CasparDevice.Channels(1).CG.Play(401)
@@ -2993,17 +2997,19 @@ Public Class CasparTest2NoPvw
 
     Private Sub ShowClockInGameBTN_Click(sender As Object, e As EventArgs) Handles ShowClockInGameBTN.Click
         CasparCGDataCollection.Clear()
-
-        CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
-        'note - the following are only for Jamies graphics
-        CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
-        CasparCGDataCollection.SetData("f2", HomeScore.Text)
-        CasparCGDataCollection.SetData("f3", AwayScore.Text)
-        CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
-        ' showing
-        CasparDevice.Channels(0).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+        CasparDevice.Channels(0).CG.Add(401, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
         CasparDevice.Channels(0).CG.Play(401)
-        CasparDevice.SendString("play 1-400 EFC-CLOCK")
+
+        ' CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
+        'note - the following are only for Jamies graphics
+        ' CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
+        ' CasparCGDataCollection.SetData("f2", HomeScore.Text)
+        '  CasparCGDataCollection.SetData("f3", AwayScore.Text)
+        '  CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
+        ' showing
+        '   CasparDevice.Channels(0).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+        '   CasparDevice.Channels(0).CG.Play(401)
+        '    CasparDevice.SendString("play 1-400 EFC-CLOCK")
         'prewview in
         ' CasparDevice.Channels(1).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
         ' CasparDevice.Channels(1).CG.Play(401)
