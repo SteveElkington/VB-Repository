@@ -172,6 +172,10 @@ Public Class CasparTest2NoPvw
             ShowClockInGameBTN.Enabled = True
             'stop on screen clock
             OnScreenClock.Enabled = False
+            'reset clock on interface
+            min.Text = "0"
+            sec.Text = "0"
+
         End If
     End Sub
 
@@ -3071,6 +3075,9 @@ Public Class CasparTest2NoPvw
             ShowClockInGameBTN.UseVisualStyleBackColor = True
             'stop on screen clock
             OnScreenClock.Enabled = False
+            'reset clock on interface
+            min.Text = "0"
+            sec.Text = "0"
         End If
     End Sub
 
