@@ -78,23 +78,17 @@ Public Class CasparTest2NoPvw
             sec.Text = "00"
         End If
 
-        CasparCGDataCollection.Clear()
-        CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
-        CasparCGDataCollection.SetData("f2", HomeScore.Text)
-        CasparCGDataCollection.SetData("f3", AwayScore.Text)
-        Me.CasparDevice.Channels(0).CG.Update(401, CasparCGDataCollection)
-        'preview
-        Me.CasparDevice.Channels(1).CG.Update(401, CasparCGDataCollection)
+
 
     End Sub
-    Private Sub StartBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StartBtn.Click
+    Private Sub StartBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         ' OnScreenClock.Enabled = True
         aa = Val(Now.Second.ToString) 'new code
         'disable button so cant be re-pressed
-        StartBtn.Enabled = False
+        'StartBtn.Enabled = False
     End Sub
 
-    Private Sub ResetBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ResetBtn.Click
+    Private Sub ResetBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
         'To reset the Timer to 0
 
@@ -102,7 +96,7 @@ Public Class CasparTest2NoPvw
         min.Text = startClockTime.Text
 
     End Sub
-    Private Sub StopBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StopBtn.Click
+    Private Sub StopBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         OnScreenClock.Enabled = False
         If Me.CasparDevice.IsConnected = True Then
 
@@ -110,39 +104,54 @@ Public Class CasparTest2NoPvw
 
         End If
         're-enable start button 
-        StartBtn.Enabled = True
+        '  StartBtn.Enabled = True
     End Sub
 
 
     Private Sub showClock_Click(sender As Object, e As EventArgs) Handles showClock.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.Clear()
-            CasparDevice.Channels(0).CG.Add(401, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            'load clock part of template and calculate start time
+            Dim startClockCalculation As Integer
+            startClockCalculation = Convert.ToInt32(startClockTime.Text) * 60000
+            CasparCGDataCollection.SetData("initialvalue", startClockCalculation)
+
+            If Convert.ToInt32(startClockTime.Text) < 45 Then
+                CasparDevice.Channels(0).CG.Add(401, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            End If
+            If Convert.ToInt32(startClockTime.Text) >= 45 Then
+                CasparDevice.Channels(0).CG.Add(401, "count_up_timer_over90", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            End If
             CasparDevice.Channels(0).CG.Play(401)
 
-            'CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
-            'note - the following are only for Jamies graphics
-            'CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
-            'CasparCGDataCollection.SetData("f2", HomeScore.Text)
-            'CasparCGDataCollection.SetData("f3", AwayScore.Text)
-            'CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
+            'Put Data into scores part of clock
+            CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
+            CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
             ' showing
-            'CasparDevice.Channels(0).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            'CasparDevice.Channels(0).CG.Play(401)
-            'CasparDevice.SendString("play 1-400 EFC-CLOCK")
+            CasparDevice.Channels(0).CG.Add(402, "efc_clock_scoresOnly_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(402)
+            CasparDevice.SendString("play 1-400 EFC-CLOCK")
 
             showClock.BackColor = Color.Green
             ShowClockInGameBTN.BackColor = Color.Green
             'disbale button so cant be re-pressed
             showClock.Enabled = False
-            startAndShowClockBTN.Enabled = False
+            '  startAndShowClockBTN.Enabled = False
             ShowClockInGameBTN.Enabled = False
+
+            'start clock on interface
+            aa = Val(Now.Second.ToString)
+            min.Text = startClockTime.Text
+            OnScreenClock.Enabled = True
         End If
     End Sub
 
-    Private Sub HideClock_Click(sender As Object, e As EventArgs) Handles HideClock.Click
+    Private Sub HideClock_Click(sender As Object, e As EventArgs) Handles StopClock.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.Channels(0).CG.Stop(401)
+            CasparDevice.Channels(0).CG.Stop(402)
             CasparDevice.SendString("MIXER 1-400 OPACITY 0 24 linear")
             count = 0
             clockAnimation.Enabled = True
@@ -159,8 +168,10 @@ Public Class CasparTest2NoPvw
             showAddedTimeBTN.UseVisualStyleBackColor = True
             're-enable show button
             showClock.Enabled = True
-            startAndShowClockBTN.Enabled = True
+            ' startAndShowClockBTN.Enabled = True
             ShowClockInGameBTN.Enabled = True
+            'stop on screen clock
+            OnScreenClock.Enabled = False
         End If
     End Sub
 
@@ -1621,11 +1632,11 @@ Public Class CasparTest2NoPvw
     End Sub
 
    
-    Private Sub startAndShowClockBTN_Click(sender As Object, e As EventArgs) Handles startAndShowClockBTN.Click
+    Private Sub startAndShowClockBTN_Click(sender As Object, e As EventArgs)
         '  OnScreenClock.Enabled = True
         aa = Val(Now.Second.ToString) 'new code
         CasparCGDataCollection.Clear()
-
+        CasparCGDataCollection.SetData("initialvalue", "180000")
         CasparDevice.Channels(0).CG.Add(401, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
         CasparDevice.Channels(0).CG.Play(401)
         '  CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
@@ -1648,7 +1659,7 @@ Public Class CasparTest2NoPvw
 
         'disbale button so cant be re-pressed
         showClock.Enabled = False
-        startAndShowClockBTN.Enabled = False
+        ' startAndShowClockBTN.Enabled = False
         ShowClockInGameBTN.Enabled = False
     End Sub
 
@@ -2835,7 +2846,7 @@ Public Class CasparTest2NoPvw
             PlayNextVidInGame.UseVisualStyleBackColor = True
             'LoopVidInGame.UseVisualStyleBackColor = True
             showClock.UseVisualStyleBackColor = True
-            startAndShowClockBTN.UseVisualStyleBackColor = True
+            '  startAndShowClockBTN.UseVisualStyleBackColor = True
             backgroundOn.Checked = False
         End If
     End Sub
@@ -2996,35 +3007,49 @@ Public Class CasparTest2NoPvw
     End Sub
 
     Private Sub ShowClockInGameBTN_Click(sender As Object, e As EventArgs) Handles ShowClockInGameBTN.Click
-        CasparCGDataCollection.Clear()
-        CasparDevice.Channels(0).CG.Add(401, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
-        CasparDevice.Channels(0).CG.Play(401)
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear()
+            'load clock part of template and calculate start time
+            Dim startClockCalculation As Integer
+            startClockCalculation = Convert.ToInt32(startClockTime.Text) * 60000
+            CasparCGDataCollection.SetData("initialvalue", startClockCalculation)
 
-        ' CasparCGDataCollection.SetData("f0", min.Text & ":" & sec.Text)
-        'note - the following are only for Jamies graphics
-        ' CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
-        ' CasparCGDataCollection.SetData("f2", HomeScore.Text)
-        '  CasparCGDataCollection.SetData("f3", AwayScore.Text)
-        '  CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
-        ' showing
-        '   CasparDevice.Channels(0).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
-        '   CasparDevice.Channels(0).CG.Play(401)
-        '    CasparDevice.SendString("play 1-400 EFC-CLOCK")
-        'prewview in
-        ' CasparDevice.Channels(1).CG.Add(401, "efc_clock_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
-        ' CasparDevice.Channels(1).CG.Play(401)
-        ' CasparDevice.SendString("play 2-400 EFC-CLOCK")
-        showClock.BackColor = Color.Green
-        ShowClockInGameBTN.BackColor = Color.Green
-        're-enable show button
-        showClock.Enabled = False
-        startAndShowClockBTN.Enabled = False
-        ShowClockInGameBTN.Enabled = False
+            If Convert.ToInt32(startClockTime.Text) < 45 Then
+                CasparDevice.Channels(0).CG.Add(401, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            End If
+            If Convert.ToInt32(startClockTime.Text) >= 45 Then
+                CasparDevice.Channels(0).CG.Add(401, "count_up_timer_over90", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            End If
+            CasparDevice.Channels(0).CG.Play(401)
+
+            'Put Data into scores part of clock
+            CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
+            CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
+            ' showing
+            CasparDevice.Channels(0).CG.Add(402, "efc_clock_scoresOnly_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(402)
+            CasparDevice.SendString("play 1-400 EFC-CLOCK")
+
+            showClock.BackColor = Color.Green
+            ShowClockInGameBTN.BackColor = Color.Green
+            'disbale button so cant be re-pressed
+            showClock.Enabled = False
+            '  startAndShowClockBTN.Enabled = False
+            ShowClockInGameBTN.Enabled = False
+
+            'start clock on interface
+            aa = Val(Now.Second.ToString)
+            min.Text = startClockTime.Text
+            OnScreenClock.Enabled = True
+        End If
     End Sub
 
     Private Sub HideClockInGameBTN_Click(sender As Object, e As EventArgs) Handles HideClockInGameBTN.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.Channels(0).CG.Stop(401)
+            CasparDevice.Channels(0).CG.Stop(402)
             CasparDevice.SendString("MIXER 1-400 OPACITY 0 24 linear")
             count = 0
             clockAnimation.Enabled = True
@@ -3033,18 +3058,19 @@ Public Class CasparTest2NoPvw
             'CasparDevice.SendString("stop 2-400")
             'showClock.BackColor = Color.FromKnownColor(KnownColor.Control)
             showClock.UseVisualStyleBackColor = True
-            ShowClockInGameBTN.UseVisualStyleBackColor = True
 
             'stopping added time
             CasparDevice.Channels(0).CG.Stop(391)
             CasparDevice.SendString("stop 1-390")
             showAddedTimeBTN.BackColor = Color.FromKnownColor(KnownColor.Control)
             showAddedTimeBTN.UseVisualStyleBackColor = True
-
             're-enable show button
             showClock.Enabled = True
-            startAndShowClockBTN.Enabled = True
+            ' startAndShowClockBTN.Enabled = True
             ShowClockInGameBTN.Enabled = True
+            ShowClockInGameBTN.UseVisualStyleBackColor = True
+            'stop on screen clock
+            OnScreenClock.Enabled = False
         End If
     End Sub
 
@@ -4064,6 +4090,12 @@ Public Class CasparTest2NoPvw
             End If
             'homeScorers.Text = homeScorers.Text + TrimmedNewHomeScorer + "    " + GoalTime + "'" + Environment.NewLine
             HomeScorers.Items.Add(TrimmedNewHomeScorer + "    " + GoalTime + "'")
+
+            'update score bug
+            CasparCGDataCollection.Clear()
+            CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
         Else
             MessageBox.Show("You need to select a player to score", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -4085,6 +4117,11 @@ Public Class CasparTest2NoPvw
             End If
             'awayScorers.Text = awayScorers.Text + GoalTime + "'    " + TrimmedNewAwayScorer + Environment.NewLine
             awayScorers.Items.Add(GoalTime + "'" + "    " + TrimmedNewAwayScorer)
+            'update score bug
+            CasparCGDataCollection.Clear()
+            CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
         Else
             MessageBox.Show("You need to select a player to score", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -4106,6 +4143,11 @@ Public Class CasparTest2NoPvw
             End If
             'homeScorers.Text = homeScorers.Text + TrimmedNewHomeScorer + "    " + GoalTime + "'" + Environment.NewLine
             awayScorers.Items.Add(GoalTime + "'" + "    " + TrimmedNewAwayScorer + " (OG)")
+            'update score bug
+            CasparCGDataCollection.Clear()
+            CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
         Else
             MessageBox.Show("You need to select a player to score", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -4127,6 +4169,11 @@ Public Class CasparTest2NoPvw
             End If
             'homeScorers.Text = homeScorers.Text + TrimmedNewHomeScorer + "    " + GoalTime + "'" + Environment.NewLine
             HomeScorers.Items.Add("(OG) " + TrimmedNewAwayScorer + "    " + GoalTime + "'")
+            'update score bug
+            CasparCGDataCollection.Clear()
+            CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
         Else
             MessageBox.Show("You need to select a player to score", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -4144,6 +4191,11 @@ Public Class CasparTest2NoPvw
         End If
         'homeScorers.Text = homeScorers.Text + TrimmedNewHomeScorer + "    " + GoalTime + "'" + Environment.NewLine
         HomeScorers.Items.Add("A. PLAYER    " + GoalTime + "'")
+        'update score bug
+        CasparCGDataCollection.Clear()
+        CasparCGDataCollection.SetData("f2", HomeScore.Text)
+        CasparCGDataCollection.SetData("f3", AwayScore.Text)
+        Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
     End Sub
 
     Private Sub unknownGoalAway_Click(sender As Object, e As EventArgs) Handles unknownGoalAway.Click
@@ -4156,6 +4208,11 @@ Public Class CasparTest2NoPvw
         End If
         'awayScorers.Text = awayScorers.Text + GoalTime + "'    " + TrimmedNewAwayScorer + Environment.NewLine
         awayScorers.Items.Add(GoalTime + "'" + "    A. PLAYER")
+        'update score bug
+        CasparCGDataCollection.Clear()
+        CasparCGDataCollection.SetData("f2", HomeScore.Text)
+        CasparCGDataCollection.SetData("f3", AwayScore.Text)
+        Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
     End Sub
 
     Private Sub ReloadBackgroundsComboBx_Click(sender As Object, e As EventArgs) Handles ReloadBackgroundsComboBx.Click

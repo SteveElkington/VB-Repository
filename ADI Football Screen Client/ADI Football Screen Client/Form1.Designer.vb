@@ -28,15 +28,9 @@ Partial Class CasparTest2NoPvw
         Me.countTimer = New System.Windows.Forms.Timer(Me.components)
         Me.OnScreenClock = New System.Windows.Forms.Timer(Me.components)
         Me.Clock = New System.Windows.Forms.GroupBox()
-        Me.startAndShowClockBTN = New System.Windows.Forms.Button()
-        Me.StopTime = New System.Windows.Forms.Label()
         Me.StartTimeLabel = New System.Windows.Forms.Label()
-        Me.HideClock = New System.Windows.Forms.Button()
+        Me.StopClock = New System.Windows.Forms.Button()
         Me.showClock = New System.Windows.Forms.Button()
-        Me.ResetBtn = New System.Windows.Forms.Button()
-        Me.StopBtn = New System.Windows.Forms.Button()
-        Me.StartBtn = New System.Windows.Forms.Button()
-        Me.stopClockTime = New System.Windows.Forms.TextBox()
         Me.startClockTime = New System.Windows.Forms.TextBox()
         Me.sec = New System.Windows.Forms.Label()
         Me.min = New System.Windows.Forms.Label()
@@ -557,6 +551,8 @@ Partial Class CasparTest2NoPvw
         Me.ClearGFXOnlyBTN = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.playlistStop = New System.Windows.Forms.Timer(Me.components)
+        Me.StopTime = New System.Windows.Forms.Label()
+        Me.stopClockTime = New System.Windows.Forms.TextBox()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -599,14 +595,10 @@ Partial Class CasparTest2NoPvw
         '
         'Clock
         '
-        Me.Clock.Controls.Add(Me.startAndShowClockBTN)
         Me.Clock.Controls.Add(Me.StopTime)
         Me.Clock.Controls.Add(Me.StartTimeLabel)
-        Me.Clock.Controls.Add(Me.HideClock)
+        Me.Clock.Controls.Add(Me.StopClock)
         Me.Clock.Controls.Add(Me.showClock)
-        Me.Clock.Controls.Add(Me.ResetBtn)
-        Me.Clock.Controls.Add(Me.StopBtn)
-        Me.Clock.Controls.Add(Me.StartBtn)
         Me.Clock.Controls.Add(Me.stopClockTime)
         Me.Clock.Controls.Add(Me.startClockTime)
         Me.Clock.Location = New System.Drawing.Point(472, 64)
@@ -615,24 +607,6 @@ Partial Class CasparTest2NoPvw
         Me.Clock.TabIndex = 3
         Me.Clock.TabStop = False
         Me.Clock.Text = "Clock"
-        '
-        'startAndShowClockBTN
-        '
-        Me.startAndShowClockBTN.Location = New System.Drawing.Point(6, 160)
-        Me.startAndShowClockBTN.Name = "startAndShowClockBTN"
-        Me.startAndShowClockBTN.Size = New System.Drawing.Size(352, 35)
-        Me.startAndShowClockBTN.TabIndex = 6
-        Me.startAndShowClockBTN.Text = "Start and Show Clock"
-        Me.startAndShowClockBTN.UseVisualStyleBackColor = True
-        '
-        'StopTime
-        '
-        Me.StopTime.AutoSize = True
-        Me.StopTime.Location = New System.Drawing.Point(6, 52)
-        Me.StopTime.Name = "StopTime"
-        Me.StopTime.Size = New System.Drawing.Size(55, 13)
-        Me.StopTime.TabIndex = 55
-        Me.StopTime.Text = "Stop Time"
         '
         'StartTimeLabel
         '
@@ -643,58 +617,23 @@ Partial Class CasparTest2NoPvw
         Me.StartTimeLabel.TabIndex = 54
         Me.StartTimeLabel.Text = "Start Time"
         '
-        'HideClock
+        'StopClock
         '
-        Me.HideClock.Location = New System.Drawing.Point(181, 121)
-        Me.HideClock.Name = "HideClock"
-        Me.HideClock.Size = New System.Drawing.Size(177, 33)
-        Me.HideClock.TabIndex = 12
-        Me.HideClock.Text = "Hide Clock"
-        Me.HideClock.UseVisualStyleBackColor = True
+        Me.StopClock.Location = New System.Drawing.Point(181, 76)
+        Me.StopClock.Name = "StopClock"
+        Me.StopClock.Size = New System.Drawing.Size(177, 33)
+        Me.StopClock.TabIndex = 12
+        Me.StopClock.Text = "Stop Clock"
+        Me.StopClock.UseVisualStyleBackColor = True
         '
         'showClock
         '
-        Me.showClock.Location = New System.Drawing.Point(6, 121)
+        Me.showClock.Location = New System.Drawing.Point(6, 75)
         Me.showClock.Name = "showClock"
         Me.showClock.Size = New System.Drawing.Size(169, 34)
         Me.showClock.TabIndex = 11
         Me.showClock.Text = "Show Clock"
         Me.showClock.UseVisualStyleBackColor = True
-        '
-        'ResetBtn
-        '
-        Me.ResetBtn.Location = New System.Drawing.Point(6, 75)
-        Me.ResetBtn.Name = "ResetBtn"
-        Me.ResetBtn.Size = New System.Drawing.Size(109, 40)
-        Me.ResetBtn.TabIndex = 10
-        Me.ResetBtn.Text = "Set Clock"
-        Me.ResetBtn.UseVisualStyleBackColor = True
-        '
-        'StopBtn
-        '
-        Me.StopBtn.Location = New System.Drawing.Point(242, 75)
-        Me.StopBtn.Name = "StopBtn"
-        Me.StopBtn.Size = New System.Drawing.Size(116, 40)
-        Me.StopBtn.TabIndex = 9
-        Me.StopBtn.Text = "Stop Clock"
-        Me.StopBtn.UseVisualStyleBackColor = True
-        '
-        'StartBtn
-        '
-        Me.StartBtn.Location = New System.Drawing.Point(121, 75)
-        Me.StartBtn.Name = "StartBtn"
-        Me.StartBtn.Size = New System.Drawing.Size(115, 40)
-        Me.StartBtn.TabIndex = 8
-        Me.StartBtn.Text = "Start Clock"
-        Me.StartBtn.UseVisualStyleBackColor = True
-        '
-        'stopClockTime
-        '
-        Me.stopClockTime.Location = New System.Drawing.Point(67, 49)
-        Me.stopClockTime.Name = "stopClockTime"
-        Me.stopClockTime.Size = New System.Drawing.Size(100, 20)
-        Me.stopClockTime.TabIndex = 1
-        Me.stopClockTime.Text = "45"
         '
         'startClockTime
         '
@@ -5560,6 +5499,23 @@ Partial Class CasparTest2NoPvw
         'playlistStop
         '
         '
+        'StopTime
+        '
+        Me.StopTime.AutoSize = True
+        Me.StopTime.Location = New System.Drawing.Point(6, 52)
+        Me.StopTime.Name = "StopTime"
+        Me.StopTime.Size = New System.Drawing.Size(55, 13)
+        Me.StopTime.TabIndex = 55
+        Me.StopTime.Text = "Stop Time"
+        '
+        'stopClockTime
+        '
+        Me.stopClockTime.Location = New System.Drawing.Point(67, 49)
+        Me.stopClockTime.Name = "stopClockTime"
+        Me.stopClockTime.Size = New System.Drawing.Size(100, 20)
+        Me.stopClockTime.TabIndex = 1
+        Me.stopClockTime.Text = "45"
+        '
         'CasparTest2NoPvw
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5630,15 +5586,11 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents countTimer As System.Windows.Forms.Timer
     Friend WithEvents OnScreenClock As System.Windows.Forms.Timer
     Friend WithEvents Clock As System.Windows.Forms.GroupBox
-    Friend WithEvents stopClockTime As System.Windows.Forms.TextBox
     Friend WithEvents startClockTime As System.Windows.Forms.TextBox
     Friend WithEvents sec As System.Windows.Forms.Label
     Friend WithEvents min As System.Windows.Forms.Label
-    Friend WithEvents ResetBtn As System.Windows.Forms.Button
-    Friend WithEvents StopBtn As System.Windows.Forms.Button
-    Friend WithEvents StartBtn As System.Windows.Forms.Button
     Friend WithEvents showClock As System.Windows.Forms.Button
-    Friend WithEvents HideClock As System.Windows.Forms.Button
+    Friend WithEvents StopClock As System.Windows.Forms.Button
     Friend WithEvents clockAnimation As System.Windows.Forms.Timer
     Friend WithEvents Crawl As System.Windows.Forms.GroupBox
     Friend WithEvents CrawlOff As System.Windows.Forms.Button
@@ -5710,7 +5662,6 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents CrawlText3 As System.Windows.Forms.TextBox
     Friend WithEvents CrawlText2 As System.Windows.Forms.TextBox
     Friend WithEvents UpdateTextButton As System.Windows.Forms.Button
-    Friend WithEvents StopTime As System.Windows.Forms.Label
     Friend WithEvents StartTimeLabel As System.Windows.Forms.Label
     Friend WithEvents AwayScore As System.Windows.Forms.TextBox
     Friend WithEvents awayThreeLetters As System.Windows.Forms.TextBox
@@ -5867,7 +5818,6 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents removeAwaySquad As System.Windows.Forms.Button
     Friend WithEvents addAwaySquad As System.Windows.Forms.Button
     Friend WithEvents updateAllTeams As System.Windows.Forms.Button
-    Friend WithEvents startAndShowClockBTN As System.Windows.Forms.Button
     Friend WithEvents AwayTeamLabel As System.Windows.Forms.Label
     Friend WithEvents HomeTeamLabel As System.Windows.Forms.Label
     Friend WithEvents scoresFadeOut As System.Windows.Forms.Timer
@@ -6159,5 +6109,7 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents Label81 As System.Windows.Forms.Label
     Friend WithEvents homeSubsCount As System.Windows.Forms.Label
     Friend WithEvents Label83 As System.Windows.Forms.Label
+    Friend WithEvents StopTime As System.Windows.Forms.Label
+    Friend WithEvents stopClockTime As System.Windows.Forms.TextBox
 
 End Class
