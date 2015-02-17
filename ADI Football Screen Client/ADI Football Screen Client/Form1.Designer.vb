@@ -28,9 +28,11 @@ Partial Class CasparTest2NoPvw
         Me.countTimer = New System.Windows.Forms.Timer(Me.components)
         Me.OnScreenClock = New System.Windows.Forms.Timer(Me.components)
         Me.Clock = New System.Windows.Forms.GroupBox()
+        Me.StopTime = New System.Windows.Forms.Label()
         Me.StartTimeLabel = New System.Windows.Forms.Label()
         Me.StopClock = New System.Windows.Forms.Button()
         Me.showClock = New System.Windows.Forms.Button()
+        Me.stopClockTime = New System.Windows.Forms.TextBox()
         Me.startClockTime = New System.Windows.Forms.TextBox()
         Me.sec = New System.Windows.Forms.Label()
         Me.min = New System.Windows.Forms.Label()
@@ -341,17 +343,6 @@ Partial Class CasparTest2NoPvw
         Me.hideBigScore = New System.Windows.Forms.Button()
         Me.showBigScore = New System.Windows.Forms.Button()
         Me.TabPage5 = New System.Windows.Forms.TabPage()
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-        Me.unknownGoalAway = New System.Windows.Forms.Button()
-        Me.unknownGoalHome = New System.Windows.Forms.Button()
-        Me.AwayHomeGoalBTN = New System.Windows.Forms.Button()
-        Me.HomeOwnGoalBTN = New System.Windows.Forms.Button()
-        Me.goalAway = New System.Windows.Forms.Button()
-        Me.goalHome = New System.Windows.Forms.Button()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.ListBox3 = New System.Windows.Forms.ListBox()
-        Me.ListBox4 = New System.Windows.Forms.ListBox()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.Away1stElevenCrawler = New System.Windows.Forms.RadioButton()
         Me.Home1stElevenCrawler = New System.Windows.Forms.RadioButton()
@@ -398,6 +389,18 @@ Partial Class CasparTest2NoPvw
         Me.LTStrapHideBTN = New System.Windows.Forms.Button()
         Me.LTStrapKO = New System.Windows.Forms.TextBox()
         Me.LTStrapTXBTN = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.ListBox3 = New System.Windows.Forms.ListBox()
+        Me.unknownGoalAway = New System.Windows.Forms.Button()
+        Me.unknownGoalHome = New System.Windows.Forms.Button()
+        Me.AwayHomeGoalBTN = New System.Windows.Forms.Button()
+        Me.HomeOwnGoalBTN = New System.Windows.Forms.Button()
+        Me.goalAway = New System.Windows.Forms.Button()
+        Me.goalHome = New System.Windows.Forms.Button()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.ListBox4 = New System.Windows.Forms.ListBox()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.Msg8ColPickBTN = New System.Windows.Forms.Button()
         Me.Msg7ColPickBTN = New System.Windows.Forms.Button()
@@ -551,8 +554,6 @@ Partial Class CasparTest2NoPvw
         Me.ClearGFXOnlyBTN = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.playlistStop = New System.Windows.Forms.Timer(Me.components)
-        Me.StopTime = New System.Windows.Forms.Label()
-        Me.stopClockTime = New System.Windows.Forms.TextBox()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -566,12 +567,12 @@ Partial Class CasparTest2NoPvw
         Me.TabPage4.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.TabPage5.SuspendLayout()
-        Me.GroupBox8.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -608,6 +609,15 @@ Partial Class CasparTest2NoPvw
         Me.Clock.TabStop = False
         Me.Clock.Text = "Clock"
         '
+        'StopTime
+        '
+        Me.StopTime.AutoSize = True
+        Me.StopTime.Location = New System.Drawing.Point(6, 52)
+        Me.StopTime.Name = "StopTime"
+        Me.StopTime.Size = New System.Drawing.Size(55, 13)
+        Me.StopTime.TabIndex = 55
+        Me.StopTime.Text = "Stop Time"
+        '
         'StartTimeLabel
         '
         Me.StartTimeLabel.AutoSize = True
@@ -634,6 +644,14 @@ Partial Class CasparTest2NoPvw
         Me.showClock.TabIndex = 11
         Me.showClock.Text = "Show Clock"
         Me.showClock.UseVisualStyleBackColor = True
+        '
+        'stopClockTime
+        '
+        Me.stopClockTime.Location = New System.Drawing.Point(67, 49)
+        Me.stopClockTime.Name = "stopClockTime"
+        Me.stopClockTime.Size = New System.Drawing.Size(100, 20)
+        Me.stopClockTime.TabIndex = 1
+        Me.stopClockTime.Text = "45"
         '
         'startClockTime
         '
@@ -3570,125 +3588,19 @@ Partial Class CasparTest2NoPvw
         'TabPage5
         '
         Me.TabPage5.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TabPage5.Controls.Add(Me.GroupBox8)
         Me.TabPage5.Controls.Add(Me.GroupBox7)
         Me.TabPage5.Controls.Add(Me.GroupBox1)
         Me.TabPage5.Controls.Add(Me.GroupBox6)
         Me.TabPage5.Controls.Add(Me.GroupBox5)
         Me.TabPage5.Controls.Add(Me.GroupBox4)
         Me.TabPage5.Controls.Add(Me.Crawl)
+        Me.TabPage5.Controls.Add(Me.Panel1)
+        Me.TabPage5.Controls.Add(Me.GroupBox8)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
         Me.TabPage5.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage5.TabIndex = 2
         Me.TabPage5.Text = "In Game"
-        '
-        'GroupBox8
-        '
-        Me.GroupBox8.Controls.Add(Me.unknownGoalAway)
-        Me.GroupBox8.Controls.Add(Me.unknownGoalHome)
-        Me.GroupBox8.Controls.Add(Me.AwayHomeGoalBTN)
-        Me.GroupBox8.Controls.Add(Me.HomeOwnGoalBTN)
-        Me.GroupBox8.Controls.Add(Me.goalAway)
-        Me.GroupBox8.Controls.Add(Me.goalHome)
-        Me.GroupBox8.Controls.Add(Me.Label9)
-        Me.GroupBox8.Controls.Add(Me.Label11)
-        Me.GroupBox8.Controls.Add(Me.ListBox3)
-        Me.GroupBox8.Controls.Add(Me.ListBox4)
-        Me.GroupBox8.Location = New System.Drawing.Point(416, 113)
-        Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(478, 479)
-        Me.GroupBox8.TabIndex = 118
-        Me.GroupBox8.TabStop = False
-        Me.GroupBox8.Text = "Scoring"
-        '
-        'unknownGoalAway
-        '
-        Me.unknownGoalAway.Location = New System.Drawing.Point(246, 389)
-        Me.unknownGoalAway.Name = "unknownGoalAway"
-        Me.unknownGoalAway.Size = New System.Drawing.Size(220, 23)
-        Me.unknownGoalAway.TabIndex = 34
-        Me.unknownGoalAway.Text = "GOAL - Unknown Scorer"
-        Me.unknownGoalAway.UseVisualStyleBackColor = True
-        '
-        'unknownGoalHome
-        '
-        Me.unknownGoalHome.Location = New System.Drawing.Point(4, 389)
-        Me.unknownGoalHome.Name = "unknownGoalHome"
-        Me.unknownGoalHome.Size = New System.Drawing.Size(220, 23)
-        Me.unknownGoalHome.TabIndex = 33
-        Me.unknownGoalHome.Text = "GOAL - Unknown Scorer"
-        Me.unknownGoalHome.UseVisualStyleBackColor = True
-        '
-        'AwayHomeGoalBTN
-        '
-        Me.AwayHomeGoalBTN.Location = New System.Drawing.Point(246, 418)
-        Me.AwayHomeGoalBTN.Name = "AwayHomeGoalBTN"
-        Me.AwayHomeGoalBTN.Size = New System.Drawing.Size(220, 23)
-        Me.AwayHomeGoalBTN.TabIndex = 32
-        Me.AwayHomeGoalBTN.Text = "OWN GOAL"
-        Me.AwayHomeGoalBTN.UseVisualStyleBackColor = True
-        '
-        'HomeOwnGoalBTN
-        '
-        Me.HomeOwnGoalBTN.Location = New System.Drawing.Point(4, 418)
-        Me.HomeOwnGoalBTN.Name = "HomeOwnGoalBTN"
-        Me.HomeOwnGoalBTN.Size = New System.Drawing.Size(220, 23)
-        Me.HomeOwnGoalBTN.TabIndex = 31
-        Me.HomeOwnGoalBTN.Text = "OWN GOAL"
-        Me.HomeOwnGoalBTN.UseVisualStyleBackColor = True
-        '
-        'goalAway
-        '
-        Me.goalAway.Location = New System.Drawing.Point(244, 360)
-        Me.goalAway.Name = "goalAway"
-        Me.goalAway.Size = New System.Drawing.Size(220, 23)
-        Me.goalAway.TabIndex = 30
-        Me.goalAway.Text = "GOAL - Known Scorer"
-        Me.goalAway.UseVisualStyleBackColor = True
-        '
-        'goalHome
-        '
-        Me.goalHome.Location = New System.Drawing.Point(4, 360)
-        Me.goalHome.Name = "goalHome"
-        Me.goalHome.Size = New System.Drawing.Size(220, 23)
-        Me.goalHome.TabIndex = 29
-        Me.goalHome.Text = "GOAL - Known Scorer"
-        Me.goalHome.UseVisualStyleBackColor = True
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(243, 15)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(72, 13)
-        Me.Label9.TabIndex = 28
-        Me.Label9.Text = "AWAY TEAM"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(6, 15)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(72, 13)
-        Me.Label11.TabIndex = 27
-        Me.Label11.Text = "HOME TEAM"
-        '
-        'ListBox3
-        '
-        Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.Location = New System.Drawing.Point(6, 38)
-        Me.ListBox3.Name = "ListBox3"
-        Me.ListBox3.Size = New System.Drawing.Size(220, 316)
-        Me.ListBox3.TabIndex = 25
-        '
-        'ListBox4
-        '
-        Me.ListBox4.FormattingEnabled = True
-        Me.ListBox4.Location = New System.Drawing.Point(246, 38)
-        Me.ListBox4.Name = "ListBox4"
-        Me.ListBox4.Size = New System.Drawing.Size(220, 316)
-        Me.ListBox4.TabIndex = 26
         '
         'GroupBox7
         '
@@ -4171,6 +4083,121 @@ Partial Class CasparTest2NoPvw
         Me.LTStrapTXBTN.TabIndex = 113
         Me.LTStrapTXBTN.Text = "Show"
         Me.LTStrapTXBTN.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.DarkSalmon
+        Me.Panel1.Location = New System.Drawing.Point(639, 297)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(29, 170)
+        Me.Panel1.TabIndex = 119
+        '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.ListBox3)
+        Me.GroupBox8.Controls.Add(Me.unknownGoalAway)
+        Me.GroupBox8.Controls.Add(Me.unknownGoalHome)
+        Me.GroupBox8.Controls.Add(Me.AwayHomeGoalBTN)
+        Me.GroupBox8.Controls.Add(Me.HomeOwnGoalBTN)
+        Me.GroupBox8.Controls.Add(Me.goalAway)
+        Me.GroupBox8.Controls.Add(Me.goalHome)
+        Me.GroupBox8.Controls.Add(Me.Label9)
+        Me.GroupBox8.Controls.Add(Me.Label11)
+        Me.GroupBox8.Controls.Add(Me.ListBox4)
+        Me.GroupBox8.Location = New System.Drawing.Point(416, 113)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(478, 479)
+        Me.GroupBox8.TabIndex = 118
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Scoring"
+        '
+        'ListBox3
+        '
+        Me.ListBox3.FormattingEnabled = True
+        Me.ListBox3.Location = New System.Drawing.Point(3, 38)
+        Me.ListBox3.Name = "ListBox3"
+        Me.ListBox3.Size = New System.Drawing.Size(220, 316)
+        Me.ListBox3.TabIndex = 25
+        '
+        'unknownGoalAway
+        '
+        Me.unknownGoalAway.Location = New System.Drawing.Point(246, 389)
+        Me.unknownGoalAway.Name = "unknownGoalAway"
+        Me.unknownGoalAway.Size = New System.Drawing.Size(220, 23)
+        Me.unknownGoalAway.TabIndex = 34
+        Me.unknownGoalAway.Text = "GOAL - Unknown Scorer"
+        Me.unknownGoalAway.UseVisualStyleBackColor = True
+        '
+        'unknownGoalHome
+        '
+        Me.unknownGoalHome.Location = New System.Drawing.Point(4, 389)
+        Me.unknownGoalHome.Name = "unknownGoalHome"
+        Me.unknownGoalHome.Size = New System.Drawing.Size(220, 23)
+        Me.unknownGoalHome.TabIndex = 33
+        Me.unknownGoalHome.Text = "GOAL - Unknown Scorer"
+        Me.unknownGoalHome.UseVisualStyleBackColor = True
+        '
+        'AwayHomeGoalBTN
+        '
+        Me.AwayHomeGoalBTN.Location = New System.Drawing.Point(246, 418)
+        Me.AwayHomeGoalBTN.Name = "AwayHomeGoalBTN"
+        Me.AwayHomeGoalBTN.Size = New System.Drawing.Size(220, 23)
+        Me.AwayHomeGoalBTN.TabIndex = 32
+        Me.AwayHomeGoalBTN.Text = "OWN GOAL"
+        Me.AwayHomeGoalBTN.UseVisualStyleBackColor = True
+        '
+        'HomeOwnGoalBTN
+        '
+        Me.HomeOwnGoalBTN.Location = New System.Drawing.Point(4, 418)
+        Me.HomeOwnGoalBTN.Name = "HomeOwnGoalBTN"
+        Me.HomeOwnGoalBTN.Size = New System.Drawing.Size(220, 23)
+        Me.HomeOwnGoalBTN.TabIndex = 31
+        Me.HomeOwnGoalBTN.Text = "OWN GOAL"
+        Me.HomeOwnGoalBTN.UseVisualStyleBackColor = True
+        '
+        'goalAway
+        '
+        Me.goalAway.Location = New System.Drawing.Point(244, 360)
+        Me.goalAway.Name = "goalAway"
+        Me.goalAway.Size = New System.Drawing.Size(220, 23)
+        Me.goalAway.TabIndex = 30
+        Me.goalAway.Text = "GOAL - Known Scorer"
+        Me.goalAway.UseVisualStyleBackColor = True
+        '
+        'goalHome
+        '
+        Me.goalHome.Location = New System.Drawing.Point(4, 360)
+        Me.goalHome.Name = "goalHome"
+        Me.goalHome.Size = New System.Drawing.Size(220, 23)
+        Me.goalHome.TabIndex = 29
+        Me.goalHome.Text = "GOAL - Known Scorer"
+        Me.goalHome.UseVisualStyleBackColor = True
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(243, 15)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(72, 13)
+        Me.Label9.TabIndex = 28
+        Me.Label9.Text = "AWAY TEAM"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(6, 15)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(72, 13)
+        Me.Label11.TabIndex = 27
+        Me.Label11.Text = "HOME TEAM"
+        '
+        'ListBox4
+        '
+        Me.ListBox4.FormattingEnabled = True
+        Me.ListBox4.Location = New System.Drawing.Point(252, 38)
+        Me.ListBox4.Name = "ListBox4"
+        Me.ListBox4.Size = New System.Drawing.Size(220, 316)
+        Me.ListBox4.TabIndex = 26
         '
         'TabPage7
         '
@@ -5499,23 +5526,6 @@ Partial Class CasparTest2NoPvw
         'playlistStop
         '
         '
-        'StopTime
-        '
-        Me.StopTime.AutoSize = True
-        Me.StopTime.Location = New System.Drawing.Point(6, 52)
-        Me.StopTime.Name = "StopTime"
-        Me.StopTime.Size = New System.Drawing.Size(55, 13)
-        Me.StopTime.TabIndex = 55
-        Me.StopTime.Text = "Stop Time"
-        '
-        'stopClockTime
-        '
-        Me.stopClockTime.Location = New System.Drawing.Point(67, 49)
-        Me.stopClockTime.Name = "stopClockTime"
-        Me.stopClockTime.Size = New System.Drawing.Size(100, 20)
-        Me.stopClockTime.TabIndex = 1
-        Me.stopClockTime.Text = "45"
-        '
         'CasparTest2NoPvw
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -5563,8 +5573,6 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.TabPage5.ResumeLayout(False)
-        Me.GroupBox8.ResumeLayout(False)
-        Me.GroupBox8.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -5574,6 +5582,8 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox5.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -5892,7 +5902,6 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents goalHome As System.Windows.Forms.Button
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents ListBox3 As System.Windows.Forms.ListBox
     Friend WithEvents ListBox4 As System.Windows.Forms.ListBox
     Friend WithEvents AwayHomeGoalBTN As System.Windows.Forms.Button
     Friend WithEvents HomeOwnGoalBTN As System.Windows.Forms.Button
@@ -6111,5 +6120,7 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents Label83 As System.Windows.Forms.Label
     Friend WithEvents StopTime As System.Windows.Forms.Label
     Friend WithEvents stopClockTime As System.Windows.Forms.TextBox
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents ListBox3 As System.Windows.Forms.ListBox
 
 End Class

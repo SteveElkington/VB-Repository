@@ -3266,9 +3266,38 @@ Public Class CasparTest2NoPvw
     Private Sub HomeClearSquadList_Click(sender As Object, e As EventArgs) Handles HomeClearSquadList.Click
         HomeTeam.Items.Clear()
         homePlayerCount.Text = 0
-
+        homeSubsCount.Text = 0
         homePlayerCount.ForeColor = Color.Green
         homeSubsCount.ForeColor = Color.RoyalBlue
+
+        ' reload teams on home side
+        ' Clear list boxes in case of reload
+        FullHomeSquad.Items.Clear()
+        SubOn.Items.Clear()
+        SubOff.Items.Clear()
+        Try
+            ' Create an instance of StreamReader to read from a file. 
+            Dim sr As StreamReader = New StreamReader("C:\home_team.txt", System.Text.Encoding.Default)
+            Dim line As String
+            'Read and display the lines from the file until the end 
+            ' of the file is reached. 
+            Do
+
+                line = sr.ReadLine()
+                If line <> "" Then
+                    FullHomeSquad.Items.Add(UCase(line))
+                End If
+                ' SubOn.Items.Add(UCase(line))
+                ' SubOff.Items.Add(UCase(line))
+            Loop Until line Is Nothing
+            sr.Close()
+        Catch ex As Exception
+            ' Let the user know what went wrong.
+            Console.WriteLine("The file could not be read:")
+            Console.WriteLine(ex.Message)
+        End Try
+        HomeTeamName.Text = FullHomeSquad.Items(0).ToString
+        FullHomeSquad.Items.Remove(FullHomeSquad.Items(0))
 
     End Sub
 
@@ -3330,9 +3359,39 @@ Public Class CasparTest2NoPvw
     Private Sub clearAwaySquad_Click(sender As Object, e As EventArgs) Handles clearAwaySquad.Click
         AwayTeam.Items.Clear()
         AwayPlayerCount.Text = 0
-
+        AwaySubsCount.Text = 0
         AwayPlayerCount.ForeColor = Color.Green
         AwaySubsCount.ForeColor = Color.RoyalBlue
+
+        'clear boxes
+        FullAwaySquad.Items.Clear()
+        aw_subOn.Items.Clear()
+        aw_subOff.Items.Clear()
+
+        'reload
+        Try
+            ' Create an instance of StreamReader to read from a file. 
+            Dim sr As StreamReader = New StreamReader("C:\away_team.txt", System.Text.Encoding.Default)
+            Dim line As String
+            'Read and display the lines from the file until the end 
+            ' of the file is reached. 
+            Do
+                line = sr.ReadLine()
+                If line <> "" Then
+                    FullAwaySquad.Items.Add(UCase(line))
+                End If
+                'aw_subOn.Items.Add(UCase(line))
+                ' aw_subOff.Items.Add(UCase(line))
+            Loop Until line Is Nothing
+            sr.Close()
+        Catch ex As Exception
+            ' Let the user know what went wrong.
+            Console.WriteLine("The file could not be read:")
+            Console.WriteLine(ex.Message)
+        End Try
+        AwayTeamName.Text = FullAwaySquad.Items(0).ToString
+        FullAwaySquad.Items.Remove(FullAwaySquad.Items(0))
+
 
     End Sub
 
@@ -3410,7 +3469,7 @@ Public Class CasparTest2NoPvw
         If HomePlayerNotListed.Text <> "" Then
 
 
-            FullHomeSquad.Items.Add(HomePlayerNotListed.Text)
+            FullHomeSquad.Items.Add(UCase(HomePlayerNotListed.Text))
             'homePlayerCount.Text = Convert.ToInt32(homePlayerCount.Text) + 1
             'If Convert.ToInt32(homePlayerCount.Text) > 18 Then
             'homePlayerCount.ForeColor = Color.Red
@@ -3439,7 +3498,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub AddtoSqaudNotListedAway_Click(sender As Object, e As EventArgs) Handles AddtoSqaudNotListedAway.Click
         If AwayPlayerNotListed.Text <> "" Then
-            FullAwaySquad.Items.Add(AwayPlayerNotListed.Text)
+            FullAwaySquad.Items.Add(UCase(AwayPlayerNotListed.Text))
             'AwayPlayerCount.Text = Convert.ToInt32(AwayPlayerCount.Text) + 1
             ' If Convert.ToInt32(AwayPlayerCount.Text) > 18 Then
             'AwayPlayerCount.ForeColor = Color.Red
@@ -4944,6 +5003,7 @@ Public Class CasparTest2NoPvw
             countPlaylist = 0
         End If
     End Sub
+
 
 
 End Class
