@@ -1442,65 +1442,72 @@ Public Class CasparTest2NoPvw
     End Sub
 
     Private Sub playNext_Click(sender As Object, e As EventArgs) Handles playNext.Click
-        If Me.playlistFiles.SelectedIndex >= 0 Then
-            playlistPosition += 1
-            If (playlistFiles.SelectedIndex < (playlistFiles.Items.Count() - 1)) Then
-                playlistFiles.SelectedIndex += 1
-            End If
-            If (playlistPosition > playlistFiles.SelectedIndex) Then
-                playlistFiles.SelectedIndex = 0
-                playlistPosition = 0
-            End If
-            ' something is wrong here, it should loop but i think the previous statement is stopping it getting there.
-            If Me.CasparDevice.IsConnected = True Then
-                ' If PreMatchPlayNext = False Then
-
-                ' 'fading in image
-                ' CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-                ' CasparDevice.SendString("play 2-99 " & playlistFiles.Text)
-                'CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
-                ''fade out other layer
-                'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
-
-                ' playNext.BackColor = Color.Green
-                'playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-                'playVid.UseVisualStyleBackColor = True
-                ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-                ' LoopVid.UseVisualStyleBackColor = True
-
-                'reset for next if
-                'PreMatchPlayNext = True
-                'End If
-
-                '           If PreMatchPlayNext = True Then
-                ''fading in image
-                'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-                'CasparDevice.SendString("play 2-100 " & playlistFiles.Text)
-                'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
-                'fade out other layer
-                'CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
-
-
-                'select transition and play file
-                If MixTrans.Checked = True Then
-                    CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " MIX 12 LINEAR")
-                End If
-                If WipeTrans.Checked = True Then
-                    CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " SLIDE 20 LEFT")
-                End If
-                If PushTrans.Checked = True Then
-                    CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " PUSH 20 EASEINSINE")
-                End If
-                playNext.BackColor = Color.Green
-                playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-                playVid.UseVisualStyleBackColor = True
-                ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
-                ' LoopVid.UseVisualStyleBackColor = True
-
-                'reset for next if
-                PreMatchPlayNext = False
-            End If
+        If playlistFiles.SelectedIndex <> Nothing Then
+            playlistPosition = playlistFiles.SelectedIndex + 1
+        ElseIf playlistFiles.SelectedIndex = Nothing Then
+            playlistFiles.SelectedIndex = 0
+            playlistPosition = 0
         End If
+
+
+        If (playlistFiles.SelectedIndex < (playlistFiles.Items.Count() - 1)) Then
+            playlistFiles.SelectedIndex += 1
+
+        End If
+        If (playlistPosition > playlistFiles.SelectedIndex) Then
+            playlistFiles.SelectedIndex = 0
+            playlistPosition = 0
+        End If
+
+        If Me.CasparDevice.IsConnected = True Then
+            ' If PreMatchPlayNext = False Then
+
+            ' 'fading in image
+            ' CasparDevice.SendString("MIXER 2-99 OPACITY 0")
+            ' CasparDevice.SendString("play 2-99 " & playlistFiles.Text)
+            'CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+            ''fade out other layer
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
+
+            ' playNext.BackColor = Color.Green
+            'playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+            'playVid.UseVisualStyleBackColor = True
+            ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+            ' LoopVid.UseVisualStyleBackColor = True
+
+            'reset for next if
+            'PreMatchPlayNext = True
+            'End If
+
+            '           If PreMatchPlayNext = True Then
+            ''fading in image
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            'CasparDevice.SendString("play 2-100 " & playlistFiles.Text)
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+            'fade out other layer
+            'CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
+
+
+            'select transition and play file
+            If MixTrans.Checked = True Then
+                CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " MIX 12 LINEAR")
+            End If
+            If WipeTrans.Checked = True Then
+                CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " SLIDE 20 LEFT")
+            End If
+            If PushTrans.Checked = True Then
+                CasparDevice.SendString("play 2-99 " & playlistFiles.Text & " PUSH 20 EASEINSINE")
+            End If
+            playNext.BackColor = Color.Green
+            playVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+            playVid.UseVisualStyleBackColor = True
+            ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+            ' LoopVid.UseVisualStyleBackColor = True
+
+            'reset for next if
+            PreMatchPlayNext = False
+        End If
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles UpdateTextButton.Click
@@ -2936,59 +2943,66 @@ Public Class CasparTest2NoPvw
     End Sub
 
     Private Sub PlayNextVidInGame_Click(sender As Object, e As EventArgs) Handles PlayNextVidInGame.Click
-        If Me.playlistFilesInGame.SelectedIndex >= 0 Then
-            playlistPositionInGame += 1
-            If (playlistFilesInGame.SelectedIndex < (playlistFilesInGame.Items.Count() - 1)) Then
-                playlistFilesInGame.SelectedIndex += 1
-
-            End If
-            If (playlistPositionInGame > playlistFilesInGame.SelectedIndex) Then
-                playlistFilesInGame.SelectedIndex = 0
-                playlistPositionInGame = 0
-            End If
-            ' something is wrong here, it should loop but i think the previous statement is stopping it getting there.
-
-
-            If Me.CasparDevice.IsConnected = True Then
-
-                '        If PreMatchPlayNext = False Then
-                ''fading in image
-                'CasparDevice.SendString("MIXER 2-99 OPACITY 0")
-                'CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text)
-                'CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
-                'fade out other layer
-                'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
-                'PreMatchPlayNext = True
-                'End If
-                'If PreMatchPlayNext = True Then
-                ' 'fading in image
-                ' CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-                ' CasparDevice.SendString("play 2-100 " & playlistFilesInGame.Text)
-                ' CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
-                'fade out other layer
-                'CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
-                'reset for next if
-                'PreMatchPlayNext = False
-                'End If
-
-                'select transition and play file
-                If MixTransInGame.Checked = True Then
-                    CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " MIX 12 LINEAR")
-                End If
-                If WipeTransInGame.Checked = True Then
-                    CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " SLIDE 20 LEFT")
-                End If
-                If PushTransInGame.Checked = True Then
-                    CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " PUSH 20 EASEINSINE")
-                End If
-
-                PlayNextVidInGame.BackColor = Color.Green
-                PlayVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
-                PlayVidInGame.UseVisualStyleBackColor = True
-                ' LoopVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
-                ' LoopVidInGame.UseVisualStyleBackColor = True
-            End If
+        ' If Me.playlistFilesInGame.SelectedIndex >= 0 Then
+        If playlistFilesInGame.SelectedIndex <> Nothing Then
+            playlistPositionInGame = playlistFilesInGame.SelectedIndex + 1
+        ElseIf playlistFilesInGame.SelectedIndex = Nothing Then
+            playlistFilesInGame.SelectedIndex = 0
+            playlistPositionInGame = 0
         End If
+
+
+        If (playlistFilesInGame.SelectedIndex < (playlistFilesInGame.Items.Count() - 1)) Then
+            playlistFilesInGame.SelectedIndex += 1
+
+        End If
+        If (playlistPositionInGame > playlistFilesInGame.SelectedIndex) Then
+            playlistFilesInGame.SelectedIndex = 0
+            playlistPositionInGame = 0
+        End If
+
+
+
+        If Me.CasparDevice.IsConnected = True Then
+
+            '        If PreMatchPlayNext = False Then
+            ''fading in image
+            'CasparDevice.SendString("MIXER 2-99 OPACITY 0")
+            'CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text)
+            'CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
+            'fade out other layer
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 0 48 linear")
+            'PreMatchPlayNext = True
+            'End If
+            'If PreMatchPlayNext = True Then
+            ' 'fading in image
+            ' CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            ' CasparDevice.SendString("play 2-100 " & playlistFilesInGame.Text)
+            ' CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+            'fade out other layer
+            'CasparDevice.SendString("MIXER 2-99 OPACITY 0 48 linear")
+            'reset for next if
+            'PreMatchPlayNext = False
+            'End If
+
+            'select transition and play file
+            If MixTransInGame.Checked = True Then
+                CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " MIX 12 LINEAR")
+            End If
+            If WipeTransInGame.Checked = True Then
+                CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " SLIDE 20 LEFT")
+            End If
+            If PushTransInGame.Checked = True Then
+                CasparDevice.SendString("play 2-99 " & playlistFilesInGame.Text & " PUSH 20 EASEINSINE")
+            End If
+
+            PlayNextVidInGame.BackColor = Color.Green
+            PlayVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
+            PlayVidInGame.UseVisualStyleBackColor = True
+            ' LoopVidInGame.BackColor = Color.FromKnownColor(KnownColor.Control)
+            ' LoopVidInGame.UseVisualStyleBackColor = True
+        End If
+
 
     End Sub
 
