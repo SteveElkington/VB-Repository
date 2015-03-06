@@ -26,9 +26,16 @@ Partial Class Form1
         Me.PlayVidBTN = New System.Windows.Forms.Button()
         Me.stopVideoBTN = New System.Windows.Forms.Button()
         Me.infoTXT = New System.Windows.Forms.TextBox()
-        Me.getVideoInfoBTN = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.mediaFilesLB = New System.Windows.Forms.ListBox()
+        Me.refreshFolderInfoBTN = New System.Windows.Forms.Button()
+        Me.stopTemplateBTN = New System.Windows.Forms.Button()
+        Me.playTemplateBTN = New System.Windows.Forms.Button()
+        Me.updateTemplateBTN = New System.Windows.Forms.Button()
+        Me.templateFilesLB = New System.Windows.Forms.ListBox()
+        Me.ListTemplatesBTN = New System.Windows.Forms.Button()
+        Me.f0TextTB = New System.Windows.Forms.TextBox()
+        Me.f1textTB = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'connectBTN
@@ -60,43 +67,119 @@ Partial Class Form1
         '
         'infoTXT
         '
-        Me.infoTXT.Location = New System.Drawing.Point(3, 181)
+        Me.infoTXT.Location = New System.Drawing.Point(552, 43)
         Me.infoTXT.Multiline = True
         Me.infoTXT.Name = "infoTXT"
         Me.infoTXT.Size = New System.Drawing.Size(277, 320)
         Me.infoTXT.TabIndex = 3
         '
-        'getVideoInfoBTN
+        'Label1
         '
-        Me.getVideoInfoBTN.Location = New System.Drawing.Point(184, 12)
-        Me.getVideoInfoBTN.Name = "getVideoInfoBTN"
-        Me.getVideoInfoBTN.Size = New System.Drawing.Size(75, 23)
-        Me.getVideoInfoBTN.TabIndex = 4
-        Me.getVideoInfoBTN.Text = "Get info"
-        Me.getVideoInfoBTN.UseVisualStyleBackColor = True
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(549, 27)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(32, 13)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "INFO"
         '
-        'PictureBox1
+        'mediaFilesLB
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(172, 70)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
+        Me.mediaFilesLB.FormattingEnabled = True
+        Me.mediaFilesLB.Location = New System.Drawing.Point(12, 92)
+        Me.mediaFilesLB.Name = "mediaFilesLB"
+        Me.mediaFilesLB.Size = New System.Drawing.Size(247, 264)
+        Me.mediaFilesLB.TabIndex = 7
+        '
+        'refreshFolderInfoBTN
+        '
+        Me.refreshFolderInfoBTN.Location = New System.Drawing.Point(12, 41)
+        Me.refreshFolderInfoBTN.Name = "refreshFolderInfoBTN"
+        Me.refreshFolderInfoBTN.Size = New System.Drawing.Size(75, 23)
+        Me.refreshFolderInfoBTN.TabIndex = 8
+        Me.refreshFolderInfoBTN.Text = "List Clips"
+        Me.refreshFolderInfoBTN.UseVisualStyleBackColor = True
+        '
+        'stopTemplateBTN
+        '
+        Me.stopTemplateBTN.Location = New System.Drawing.Point(280, 41)
+        Me.stopTemplateBTN.Name = "stopTemplateBTN"
+        Me.stopTemplateBTN.Size = New System.Drawing.Size(75, 23)
+        Me.stopTemplateBTN.TabIndex = 10
+        Me.stopTemplateBTN.Text = "Stop Temp"
+        Me.stopTemplateBTN.UseVisualStyleBackColor = True
+        '
+        'playTemplateBTN
+        '
+        Me.playTemplateBTN.Location = New System.Drawing.Point(361, 12)
+        Me.playTemplateBTN.Name = "playTemplateBTN"
+        Me.playTemplateBTN.Size = New System.Drawing.Size(75, 23)
+        Me.playTemplateBTN.TabIndex = 9
+        Me.playTemplateBTN.Text = "Play Temp"
+        Me.playTemplateBTN.UseVisualStyleBackColor = True
+        '
+        'updateTemplateBTN
+        '
+        Me.updateTemplateBTN.Location = New System.Drawing.Point(361, 41)
+        Me.updateTemplateBTN.Name = "updateTemplateBTN"
+        Me.updateTemplateBTN.Size = New System.Drawing.Size(75, 23)
+        Me.updateTemplateBTN.TabIndex = 11
+        Me.updateTemplateBTN.Text = "Update"
+        Me.updateTemplateBTN.UseVisualStyleBackColor = True
+        '
+        'templateFilesLB
+        '
+        Me.templateFilesLB.FormattingEnabled = True
+        Me.templateFilesLB.Location = New System.Drawing.Point(280, 92)
+        Me.templateFilesLB.Name = "templateFilesLB"
+        Me.templateFilesLB.Size = New System.Drawing.Size(247, 264)
+        Me.templateFilesLB.TabIndex = 12
+        '
+        'ListTemplatesBTN
+        '
+        Me.ListTemplatesBTN.Location = New System.Drawing.Point(280, 12)
+        Me.ListTemplatesBTN.Name = "ListTemplatesBTN"
+        Me.ListTemplatesBTN.Size = New System.Drawing.Size(75, 23)
+        Me.ListTemplatesBTN.TabIndex = 13
+        Me.ListTemplatesBTN.Text = "List FT's"
+        Me.ListTemplatesBTN.UseVisualStyleBackColor = True
+        '
+        'f0TextTB
+        '
+        Me.f0TextTB.Location = New System.Drawing.Point(442, 15)
+        Me.f0TextTB.Name = "f0TextTB"
+        Me.f0TextTB.Size = New System.Drawing.Size(100, 20)
+        Me.f0TextTB.TabIndex = 14
+        Me.f0TextTB.Text = "f0 Text"
+        '
+        'f1textTB
+        '
+        Me.f1textTB.Location = New System.Drawing.Point(442, 44)
+        Me.f1textTB.Name = "f1textTB"
+        Me.f1textTB.Size = New System.Drawing.Size(100, 20)
+        Me.f1textTB.TabIndex = 15
+        Me.f1textTB.Text = "f1 Text"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 513)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.getVideoInfoBTN)
+        Me.ClientSize = New System.Drawing.Size(841, 372)
+        Me.Controls.Add(Me.f1textTB)
+        Me.Controls.Add(Me.f0TextTB)
+        Me.Controls.Add(Me.ListTemplatesBTN)
+        Me.Controls.Add(Me.templateFilesLB)
+        Me.Controls.Add(Me.updateTemplateBTN)
+        Me.Controls.Add(Me.stopTemplateBTN)
+        Me.Controls.Add(Me.playTemplateBTN)
+        Me.Controls.Add(Me.refreshFolderInfoBTN)
+        Me.Controls.Add(Me.mediaFilesLB)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.infoTXT)
         Me.Controls.Add(Me.stopVideoBTN)
         Me.Controls.Add(Me.PlayVidBTN)
         Me.Controls.Add(Me.connectBTN)
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -105,7 +188,15 @@ Partial Class Form1
     Friend WithEvents PlayVidBTN As System.Windows.Forms.Button
     Friend WithEvents stopVideoBTN As System.Windows.Forms.Button
     Friend WithEvents infoTXT As System.Windows.Forms.TextBox
-    Friend WithEvents getVideoInfoBTN As System.Windows.Forms.Button
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents mediaFilesLB As System.Windows.Forms.ListBox
+    Friend WithEvents refreshFolderInfoBTN As System.Windows.Forms.Button
+    Friend WithEvents stopTemplateBTN As System.Windows.Forms.Button
+    Friend WithEvents playTemplateBTN As System.Windows.Forms.Button
+    Friend WithEvents updateTemplateBTN As System.Windows.Forms.Button
+    Friend WithEvents templateFilesLB As System.Windows.Forms.ListBox
+    Friend WithEvents ListTemplatesBTN As System.Windows.Forms.Button
+    Friend WithEvents f0TextTB As System.Windows.Forms.TextBox
+    Friend WithEvents f1textTB As System.Windows.Forms.TextBox
 
 End Class

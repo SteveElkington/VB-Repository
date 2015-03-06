@@ -116,23 +116,29 @@ Public Class CasparTest2NoPvw
             startClockCalculation = Convert.ToInt32(startClockTime.Text) * 60000
             CasparCGDataCollection.SetData("initialvalue", startClockCalculation)
 
-            If Convert.ToInt32(startClockTime.Text) < 45 Then
-                CasparDevice.Channels(0).CG.Add(401, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            End If
-            If Convert.ToInt32(startClockTime.Text) >= 45 Then
-                CasparDevice.Channels(0).CG.Add(401, "count_up_timer_over90", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            End If
-            CasparDevice.Channels(0).CG.Play(401)
+
+            'play backing
+            CasparDevice.SendString("play 1-400 EFC-CLOCK")
 
             'Put Data into scores part of clock
             CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
             CasparCGDataCollection.SetData("f2", HomeScore.Text)
             CasparCGDataCollection.SetData("f3", AwayScore.Text)
             CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
-            ' showing
-            CasparDevice.Channels(0).CG.Add(402, "efc_clock_scoresOnly_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            'choose which clock to play
+            If Convert.ToInt32(startClockTime.Text) < 45 Then
+                CasparDevice.Channels(0).CG.Add(402, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            End If
+            If Convert.ToInt32(startClockTime.Text) >= 45 Then
+                CasparDevice.Channels(0).CG.Add(402, "count_up_timer_over90", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            End If
             CasparDevice.Channels(0).CG.Play(402)
-            CasparDevice.SendString("play 1-400 EFC-CLOCK")
+
+
+            ' showing
+            ' CasparDevice.Channels(0).CG.Add(402, "efc_clock_scoresOnly_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            ' CasparDevice.Channels(0).CG.Play(402)
+
 
             showClock.BackColor = Color.Green
             ShowClockInGameBTN.BackColor = Color.Green
@@ -150,7 +156,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub HideClock_Click(sender As Object, e As EventArgs) Handles StopClock.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.Channels(0).CG.Stop(401)
+            'CasparDevice.Channels(0).CG.Stop(401)
             CasparDevice.Channels(0).CG.Stop(402)
             CasparDevice.SendString("MIXER 1-400 OPACITY 0 24 linear")
             count = 0
@@ -3018,23 +3024,27 @@ Public Class CasparTest2NoPvw
             startClockCalculation = Convert.ToInt32(startClockTime.Text) * 60000
             CasparCGDataCollection.SetData("initialvalue", startClockCalculation)
 
-            If Convert.ToInt32(startClockTime.Text) < 45 Then
-                CasparDevice.Channels(0).CG.Add(401, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            End If
-            If Convert.ToInt32(startClockTime.Text) >= 45 Then
-                CasparDevice.Channels(0).CG.Add(401, "count_up_timer_over90", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            End If
-            CasparDevice.Channels(0).CG.Play(401)
+            'play backing
+            CasparDevice.SendString("play 1-400 EFC-CLOCK")
 
             'Put Data into scores part of clock
             CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
             CasparCGDataCollection.SetData("f2", HomeScore.Text)
             CasparCGDataCollection.SetData("f3", AwayScore.Text)
             CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
-            ' showing
-            CasparDevice.Channels(0).CG.Add(402, "efc_clock_scoresOnly_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            'choose which clock to play
+            If Convert.ToInt32(startClockTime.Text) < 45 Then
+                CasparDevice.Channels(0).CG.Add(402, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            End If
+            If Convert.ToInt32(startClockTime.Text) >= 45 Then
+                CasparDevice.Channels(0).CG.Add(402, "count_up_timer_over90", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            End If
             CasparDevice.Channels(0).CG.Play(402)
-            CasparDevice.SendString("play 1-400 EFC-CLOCK")
+
+
+            ' showing
+            ' CasparDevice.Channels(0).CG.Add(402, "efc_clock_scoresOnly_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            ' CasparDevice.Channels(0).CG.Play(402)
 
             showClock.BackColor = Color.Green
             ShowClockInGameBTN.BackColor = Color.Green
@@ -3052,7 +3062,7 @@ Public Class CasparTest2NoPvw
 
     Private Sub HideClockInGameBTN_Click(sender As Object, e As EventArgs) Handles HideClockInGameBTN.Click
         If Me.CasparDevice.IsConnected = True Then
-            CasparDevice.Channels(0).CG.Stop(401)
+            '  CasparDevice.Channels(0).CG.Stop(401)
             CasparDevice.Channels(0).CG.Stop(402)
             CasparDevice.SendString("MIXER 1-400 OPACITY 0 24 linear")
             count = 0
@@ -3269,6 +3279,7 @@ Public Class CasparTest2NoPvw
         homeSubsCount.Text = 0
         homePlayerCount.ForeColor = Color.Green
         homeSubsCount.ForeColor = Color.RoyalBlue
+        homeTeamCount = 0
 
         ' reload teams on home side
         ' Clear list boxes in case of reload
@@ -3362,6 +3373,7 @@ Public Class CasparTest2NoPvw
         AwaySubsCount.Text = 0
         AwayPlayerCount.ForeColor = Color.Green
         AwaySubsCount.ForeColor = Color.RoyalBlue
+        awayTeamCount = 0
 
         'clear boxes
         FullAwaySquad.Items.Clear()
@@ -4939,16 +4951,16 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.Clear()
 
             If sscoresT1Left.Checked = True Then
-                CasparCGDataCollection.SetData("f0", tab1Logo1Select.Text + " Latest Scores:       " + Score1.Text + "  " + Score2.Text + "  " + middle13.Text + " " + Score3.Text + "  " + Score4.Text + "  " + Score5.Text + "  " + Score6.Text + "  " + middle14.Text + " " + Score7.Text + "  " + Score8.Text + "  " + Score9.Text + "  " + Score10.Text + "  " + middle15.Text + " " + Score11.Text + "  " + Score12.Text + "  " + Score13.Text + "  " + Score14.Text + "  " + middle16.Text + " " + Score15.Text + "  " + Score16.Text + "  " + Score17.Text + "  " + Score18.Text + "  " + middle17.Text + " " + Score19.Text + "  " + Score20.Text + "  " + Score21.Text + "  " + Score22.Text + "  " + middle18.Text + " " + Score23.Text + "  " + Score24.Text + "  ")
+                CasparCGDataCollection.SetData("f0", tab1Logo1Select.Text + " Latest Scores:       " + Score1.Text + "  " + Score2.Text + "  " + middle13.Text + "  " + Score3.Text + "  " + Score4.Text + "       " + Score5.Text + "  " + Score6.Text + "  " + middle14.Text + "  " + Score7.Text + "  " + Score8.Text + "       " + Score9.Text + "  " + Score10.Text + "  " + middle15.Text + "  " + Score11.Text + "  " + Score12.Text + "       " + Score13.Text + "  " + Score14.Text + "  " + middle16.Text + "  " + Score15.Text + "  " + Score16.Text + "       " + Score17.Text + "  " + Score18.Text + "  " + middle17.Text + "  " + Score19.Text + "  " + Score20.Text + "       " + Score21.Text + "  " + Score22.Text + "  " + middle18.Text + "  " + Score23.Text + "  " + Score24.Text + "  ")
             End If
             If sscoresT1Right.Checked = True Then
-                CasparCGDataCollection.SetData("f0", tab1Logo2Select.Text + " Latest Scores:       " + Score25.Text + "  " + Score26.Text + "  " + middle19.Text + " " + Score27.Text + "  " + Score28.Text + "  " + Score29.Text + "  " + Score30.Text + "  " + middle20.Text + " " + Score31.Text + "  " + Score32.Text + "  " + Score33.Text + "  " + Score34.Text + "  " + middle21.Text + " " + Score35.Text + "  " + Score36.Text + "  " + Score37.Text + "  " + Score38.Text + "  " + middle22.Text + " " + Score39.Text + "  " + Score40.Text + "  " + Score41.Text + "  " + Score42.Text + "  " + middle23.Text + " " + Score43.Text + "  " + Score44.Text + "  " + Score45.Text + "  " + Score45.Text + "  " + middle24.Text + " " + Score47.Text + "  " + Score48.Text + "  ")
+                CasparCGDataCollection.SetData("f0", tab1Logo2Select.Text + " Latest Scores:       " + Score25.Text + "  " + Score26.Text + "  " + middle19.Text + "  " + Score27.Text + "  " + Score28.Text + "       " + Score29.Text + "  " + Score30.Text + "  " + middle20.Text + "  " + Score31.Text + "  " + Score32.Text + "       " + Score33.Text + "  " + Score34.Text + "  " + middle21.Text + "  " + Score35.Text + "  " + Score36.Text + "       " + Score37.Text + "  " + Score38.Text + "  " + middle22.Text + "  " + Score39.Text + "  " + Score40.Text + "       " + Score41.Text + "  " + Score42.Text + "  " + middle23.Text + "  " + Score43.Text + "  " + Score44.Text + "       " + Score45.Text + "  " + Score45.Text + "  " + middle24.Text + "  " + Score47.Text + "  " + Score48.Text + "  ")
             End If
             If sscoresT2Left.Checked = True Then
-                CasparCGDataCollection.SetData("f0", tab2Logo1Select.Text + " Latest Scores:       " + ChampScore1.Text + "  " + ChampScore2.Text + "  " + middle1.Text + " " + ChampScore3.Text + "  " + ChampScore4.Text + "  " + ChampScore5.Text + "  " + ChampScore6.Text + "  " + middle2.Text + " " + ChampScore7.Text + "  " + ChampScore8.Text + "  " + ChampScore9.Text + "  " + ChampScore10.Text + "  " + middle3.Text + " " + ChampScore11.Text + "  " + ChampScore12.Text + "  " + ChampScore13.Text + "  " + ChampScore14.Text + "  " + middle4.Text + " " + ChampScore15.Text + "  " + ChampScore16.Text + "  " + ChampScore17.Text + "  " + ChampScore18.Text + "  " + middle5.Text + " " + ChampScore19.Text + "  " + ChampScore20.Text + "  " + ChampScore21.Text + "  " + ChampScore22.Text + "  " + middle6.Text + " " + ChampScore23.Text + "  " + ChampScore24.Text + "  ")
+                CasparCGDataCollection.SetData("f0", tab2Logo1Select.Text + " Latest Scores:       " + ChampScore1.Text + "  " + ChampScore2.Text + "  " + middle1.Text + "  " + ChampScore3.Text + "  " + ChampScore4.Text + "       " + ChampScore5.Text + "  " + ChampScore6.Text + "  " + middle2.Text + "  " + ChampScore7.Text + "  " + ChampScore8.Text + "       " + ChampScore9.Text + "  " + ChampScore10.Text + "  " + middle3.Text + "  " + ChampScore11.Text + "  " + ChampScore12.Text + "       " + ChampScore13.Text + "  " + ChampScore14.Text + "  " + middle4.Text + "  " + ChampScore15.Text + "  " + ChampScore16.Text + "       " + ChampScore17.Text + "  " + ChampScore18.Text + "  " + middle5.Text + " " + ChampScore19.Text + "  " + ChampScore20.Text + "      " + ChampScore21.Text + "  " + ChampScore22.Text + "  " + middle6.Text + "  " + ChampScore23.Text + "  " + ChampScore24.Text + "  ")
             End If
             If sscoresT2Right.Checked = True Then
-                CasparCGDataCollection.SetData("f0", tab2Logo2Select.Text + " Latest Scores:       " + ChampScore25.Text + "  " + ChampScore26.Text + "  " + middle7.Text + " " + ChampScore27.Text + "  " + ChampScore28.Text + "  " + ChampScore29.Text + "  " + ChampScore30.Text + "  " + middle8.Text + " " + ChampScore31.Text + "  " + ChampScore32.Text + "  " + ChampScore33.Text + "  " + ChampScore34.Text + "  " + middle9.Text + " " + ChampScore35.Text + "  " + ChampScore36.Text + "  " + ChampScore37.Text + "  " + ChampScore38.Text + "  " + middle10.Text + " " + ChampScore39.Text + "  " + ChampScore40.Text + "  " + ChampScore41.Text + "  " + ChampScore42.Text + "  " + middle11.Text + " " + ChampScore43.Text + "  " + ChampScore44.Text + "  " + ChampScore45.Text + "  " + ChampScore46.Text + "  " + middle12.Text + " " + ChampScore47.Text + "  " + ChampScore48.Text + "  ")
+                CasparCGDataCollection.SetData("f0", tab2Logo2Select.Text + " Latest Scores:       " + ChampScore25.Text + "  " + ChampScore26.Text + "  " + middle7.Text + "  " + ChampScore27.Text + "  " + ChampScore28.Text + "       " + ChampScore29.Text + "  " + ChampScore30.Text + "  " + middle8.Text + "  " + ChampScore31.Text + "  " + ChampScore32.Text + "       " + ChampScore33.Text + "  " + ChampScore34.Text + "  " + middle9.Text + "  " + ChampScore35.Text + "  " + ChampScore36.Text + "       " + ChampScore37.Text + "  " + ChampScore38.Text + "  " + middle10.Text + "  " + ChampScore39.Text + "  " + ChampScore40.Text + "       " + ChampScore41.Text + "  " + ChampScore42.Text + "  " + middle11.Text + "  " + ChampScore43.Text + "  " + ChampScore44.Text + "       " + ChampScore45.Text + "  " + ChampScore46.Text + "  " + middle12.Text + " " + ChampScore47.Text + "  " + ChampScore48.Text + "  ")
             End If
 
 
@@ -5004,6 +5016,17 @@ Public Class CasparTest2NoPvw
         End If
     End Sub
 
+    Private Sub firstHalfRadBTN_CheckedChanged(sender As Object, e As EventArgs) Handles firstHalfRadBTN.CheckedChanged
+        If firstHalfRadBTN.Checked = True Then
+            startClockTime.Text = "0"
+            stopClockTime.Text = "45"
+        End If
+    End Sub
 
-
+    Private Sub secondHalfRadBTN_CheckedChanged(sender As Object, e As EventArgs) Handles secondHalfRadBTN.CheckedChanged
+        If secondHalfRadBTN.Checked = True Then
+            startClockTime.Text = "45"
+            stopClockTime.Text = "90"
+        End If
+    End Sub
 End Class

@@ -28,6 +28,8 @@ Partial Class CasparTest2NoPvw
         Me.countTimer = New System.Windows.Forms.Timer(Me.components)
         Me.OnScreenClock = New System.Windows.Forms.Timer(Me.components)
         Me.Clock = New System.Windows.Forms.GroupBox()
+        Me.secondHalfRadBTN = New System.Windows.Forms.RadioButton()
+        Me.firstHalfRadBTN = New System.Windows.Forms.RadioButton()
         Me.StopTime = New System.Windows.Forms.Label()
         Me.StartTimeLabel = New System.Windows.Forms.Label()
         Me.StopClock = New System.Windows.Forms.Button()
@@ -122,6 +124,9 @@ Partial Class CasparTest2NoPvw
         Me.AwaySubOn = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.HomeTeam = New System.Windows.Forms.ListBox()
+        Me.AwayTeam = New System.Windows.Forms.ListBox()
+        Me.Panel4 = New System.Windows.Forms.Panel()
         Me.AwaySubsCount = New System.Windows.Forms.Label()
         Me.Label81 = New System.Windows.Forms.Label()
         Me.homeSubsCount = New System.Windows.Forms.Label()
@@ -152,10 +157,9 @@ Partial Class CasparTest2NoPvw
         Me.removeHomeSquad = New System.Windows.Forms.Button()
         Me.addHomeSquad = New System.Windows.Forms.Button()
         Me.FullAwaySquad = New System.Windows.Forms.ListBox()
-        Me.AwayTeam = New System.Windows.Forms.ListBox()
-        Me.HomeTeam = New System.Windows.Forms.ListBox()
         Me.FullHomeSquad = New System.Windows.Forms.ListBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.AwayTeamLabel = New System.Windows.Forms.Label()
         Me.HomeTeamLabel = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -391,6 +395,7 @@ Partial Class CasparTest2NoPvw
         Me.LTStrapTXBTN = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.unknownGoalAway = New System.Windows.Forms.Button()
         Me.unknownGoalHome = New System.Windows.Forms.Button()
@@ -596,6 +601,8 @@ Partial Class CasparTest2NoPvw
         '
         'Clock
         '
+        Me.Clock.Controls.Add(Me.secondHalfRadBTN)
+        Me.Clock.Controls.Add(Me.firstHalfRadBTN)
         Me.Clock.Controls.Add(Me.StopTime)
         Me.Clock.Controls.Add(Me.StartTimeLabel)
         Me.Clock.Controls.Add(Me.StopClock)
@@ -609,10 +616,32 @@ Partial Class CasparTest2NoPvw
         Me.Clock.TabStop = False
         Me.Clock.Text = "Clock"
         '
+        'secondHalfRadBTN
+        '
+        Me.secondHalfRadBTN.AutoSize = True
+        Me.secondHalfRadBTN.Location = New System.Drawing.Point(200, 30)
+        Me.secondHalfRadBTN.Name = "secondHalfRadBTN"
+        Me.secondHalfRadBTN.Size = New System.Drawing.Size(65, 17)
+        Me.secondHalfRadBTN.TabIndex = 57
+        Me.secondHalfRadBTN.Text = "2nd Half"
+        Me.secondHalfRadBTN.UseVisualStyleBackColor = True
+        '
+        'firstHalfRadBTN
+        '
+        Me.firstHalfRadBTN.AutoSize = True
+        Me.firstHalfRadBTN.Checked = True
+        Me.firstHalfRadBTN.Location = New System.Drawing.Point(105, 30)
+        Me.firstHalfRadBTN.Name = "firstHalfRadBTN"
+        Me.firstHalfRadBTN.Size = New System.Drawing.Size(61, 17)
+        Me.firstHalfRadBTN.TabIndex = 56
+        Me.firstHalfRadBTN.TabStop = True
+        Me.firstHalfRadBTN.Text = "1st Half"
+        Me.firstHalfRadBTN.UseVisualStyleBackColor = True
+        '
         'StopTime
         '
         Me.StopTime.AutoSize = True
-        Me.StopTime.Location = New System.Drawing.Point(6, 52)
+        Me.StopTime.Location = New System.Drawing.Point(176, 74)
         Me.StopTime.Name = "StopTime"
         Me.StopTime.Size = New System.Drawing.Size(55, 13)
         Me.StopTime.TabIndex = 55
@@ -621,7 +650,7 @@ Partial Class CasparTest2NoPvw
         'StartTimeLabel
         '
         Me.StartTimeLabel.AutoSize = True
-        Me.StartTimeLabel.Location = New System.Drawing.Point(6, 27)
+        Me.StartTimeLabel.Location = New System.Drawing.Point(6, 75)
         Me.StartTimeLabel.Name = "StartTimeLabel"
         Me.StartTimeLabel.Size = New System.Drawing.Size(55, 13)
         Me.StartTimeLabel.TabIndex = 54
@@ -629,7 +658,7 @@ Partial Class CasparTest2NoPvw
         '
         'StopClock
         '
-        Me.StopClock.Location = New System.Drawing.Point(181, 76)
+        Me.StopClock.Location = New System.Drawing.Point(176, 119)
         Me.StopClock.Name = "StopClock"
         Me.StopClock.Size = New System.Drawing.Size(177, 33)
         Me.StopClock.TabIndex = 12
@@ -638,7 +667,7 @@ Partial Class CasparTest2NoPvw
         '
         'showClock
         '
-        Me.showClock.Location = New System.Drawing.Point(6, 75)
+        Me.showClock.Location = New System.Drawing.Point(1, 118)
         Me.showClock.Name = "showClock"
         Me.showClock.Size = New System.Drawing.Size(169, 34)
         Me.showClock.TabIndex = 11
@@ -647,7 +676,7 @@ Partial Class CasparTest2NoPvw
         '
         'stopClockTime
         '
-        Me.stopClockTime.Location = New System.Drawing.Point(67, 49)
+        Me.stopClockTime.Location = New System.Drawing.Point(237, 71)
         Me.stopClockTime.Name = "stopClockTime"
         Me.stopClockTime.Size = New System.Drawing.Size(100, 20)
         Me.stopClockTime.TabIndex = 1
@@ -655,7 +684,7 @@ Partial Class CasparTest2NoPvw
         '
         'startClockTime
         '
-        Me.startClockTime.Location = New System.Drawing.Point(67, 23)
+        Me.startClockTime.Location = New System.Drawing.Point(67, 71)
         Me.startClockTime.Name = "startClockTime"
         Me.startClockTime.Size = New System.Drawing.Size(100, 20)
         Me.startClockTime.TabIndex = 0
@@ -807,7 +836,7 @@ Partial Class CasparTest2NoPvw
         'ListBox1
         '
         Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(6, 71)
+        Me.ListBox1.Location = New System.Drawing.Point(13, 71)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(220, 316)
         Me.ListBox1.TabIndex = 19
@@ -881,7 +910,7 @@ Partial Class CasparTest2NoPvw
         '
         'ShowTeamSheet
         '
-        Me.ShowTeamSheet.Location = New System.Drawing.Point(6, 423)
+        Me.ShowTeamSheet.Location = New System.Drawing.Point(13, 423)
         Me.ShowTeamSheet.Name = "ShowTeamSheet"
         Me.ShowTeamSheet.Size = New System.Drawing.Size(139, 23)
         Me.ShowTeamSheet.TabIndex = 1
@@ -890,7 +919,7 @@ Partial Class CasparTest2NoPvw
         '
         'ShowSubsSheet
         '
-        Me.ShowSubsSheet.Location = New System.Drawing.Point(6, 452)
+        Me.ShowSubsSheet.Location = New System.Drawing.Point(13, 452)
         Me.ShowSubsSheet.Name = "ShowSubsSheet"
         Me.ShowSubsSheet.Size = New System.Drawing.Size(139, 23)
         Me.ShowSubsSheet.TabIndex = 2
@@ -899,7 +928,7 @@ Partial Class CasparTest2NoPvw
         '
         'Ts_Off
         '
-        Me.Ts_Off.Location = New System.Drawing.Point(151, 422)
+        Me.Ts_Off.Location = New System.Drawing.Point(158, 422)
         Me.Ts_Off.Name = "Ts_Off"
         Me.Ts_Off.Size = New System.Drawing.Size(75, 52)
         Me.Ts_Off.TabIndex = 3
@@ -1348,7 +1377,7 @@ Partial Class CasparTest2NoPvw
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage5)
         Me.TabControl1.Controls.Add(Me.TabPage7)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 100)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 95)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(1260, 662)
@@ -1357,6 +1386,9 @@ Partial Class CasparTest2NoPvw
         'TabPage6
         '
         Me.TabPage6.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage6.Controls.Add(Me.HomeTeam)
+        Me.TabPage6.Controls.Add(Me.AwayTeam)
+        Me.TabPage6.Controls.Add(Me.Panel4)
         Me.TabPage6.Controls.Add(Me.AwaySubsCount)
         Me.TabPage6.Controls.Add(Me.Label81)
         Me.TabPage6.Controls.Add(Me.homeSubsCount)
@@ -1387,8 +1419,6 @@ Partial Class CasparTest2NoPvw
         Me.TabPage6.Controls.Add(Me.removeHomeSquad)
         Me.TabPage6.Controls.Add(Me.addHomeSquad)
         Me.TabPage6.Controls.Add(Me.FullAwaySquad)
-        Me.TabPage6.Controls.Add(Me.AwayTeam)
-        Me.TabPage6.Controls.Add(Me.HomeTeam)
         Me.TabPage6.Controls.Add(Me.FullHomeSquad)
         Me.TabPage6.Controls.Add(Me.LoadTeams)
         Me.TabPage6.Location = New System.Drawing.Point(4, 22)
@@ -1396,6 +1426,30 @@ Partial Class CasparTest2NoPvw
         Me.TabPage6.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage6.TabIndex = 3
         Me.TabPage6.Text = "Set Up Teams"
+        '
+        'HomeTeam
+        '
+        Me.HomeTeam.FormattingEnabled = True
+        Me.HomeTeam.Location = New System.Drawing.Point(369, 72)
+        Me.HomeTeam.Name = "HomeTeam"
+        Me.HomeTeam.Size = New System.Drawing.Size(188, 251)
+        Me.HomeTeam.TabIndex = 2
+        '
+        'AwayTeam
+        '
+        Me.AwayTeam.FormattingEnabled = True
+        Me.AwayTeam.Location = New System.Drawing.Point(571, 72)
+        Me.AwayTeam.Name = "AwayTeam"
+        Me.AwayTeam.Size = New System.Drawing.Size(193, 251)
+        Me.AwayTeam.TabIndex = 3
+        '
+        'Panel4
+        '
+        Me.Panel4.BackColor = System.Drawing.Color.DarkSalmon
+        Me.Panel4.Location = New System.Drawing.Point(356, 216)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(420, 107)
+        Me.Panel4.TabIndex = 120
         '
         'AwaySubsCount
         '
@@ -1676,22 +1730,6 @@ Partial Class CasparTest2NoPvw
         Me.FullAwaySquad.Size = New System.Drawing.Size(207, 368)
         Me.FullAwaySquad.TabIndex = 4
         '
-        'AwayTeam
-        '
-        Me.AwayTeam.FormattingEnabled = True
-        Me.AwayTeam.Location = New System.Drawing.Point(569, 72)
-        Me.AwayTeam.Name = "AwayTeam"
-        Me.AwayTeam.Size = New System.Drawing.Size(207, 251)
-        Me.AwayTeam.TabIndex = 3
-        '
-        'HomeTeam
-        '
-        Me.HomeTeam.FormattingEnabled = True
-        Me.HomeTeam.Location = New System.Drawing.Point(356, 72)
-        Me.HomeTeam.Name = "HomeTeam"
-        Me.HomeTeam.Size = New System.Drawing.Size(207, 251)
-        Me.HomeTeam.TabIndex = 2
-        '
         'FullHomeSquad
         '
         Me.FullHomeSquad.FormattingEnabled = True
@@ -1703,13 +1741,14 @@ Partial Class CasparTest2NoPvw
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage1.Controls.Add(Me.ListBox2)
+        Me.TabPage1.Controls.Add(Me.ListBox1)
+        Me.TabPage1.Controls.Add(Me.Panel3)
         Me.TabPage1.Controls.Add(Me.AwayTeamLabel)
         Me.TabPage1.Controls.Add(Me.HomeTeamLabel)
         Me.TabPage1.Controls.Add(Me.Clock)
         Me.TabPage1.Controls.Add(Me.GroupBox2)
         Me.TabPage1.Controls.Add(Me.AwayTeamsOff)
-        Me.TabPage1.Controls.Add(Me.ListBox1)
-        Me.TabPage1.Controls.Add(Me.ListBox2)
         Me.TabPage1.Controls.Add(Me.ShowAwaySubsSheet)
         Me.TabPage1.Controls.Add(Me.Ts_Off)
         Me.TabPage1.Controls.Add(Me.ShowSubsSheet)
@@ -1720,7 +1759,15 @@ Partial Class CasparTest2NoPvw
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Pre Match"
+        Me.TabPage1.Text = "Out of Game"
+        '
+        'Panel3
+        '
+        Me.Panel3.BackColor = System.Drawing.Color.DarkSalmon
+        Me.Panel3.Location = New System.Drawing.Point(0, 217)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(250, 170)
+        Me.Panel3.TabIndex = 120
         '
         'AwayTeamLabel
         '
@@ -1734,7 +1781,7 @@ Partial Class CasparTest2NoPvw
         'HomeTeamLabel
         '
         Me.HomeTeamLabel.AutoSize = True
-        Me.HomeTeamLabel.Location = New System.Drawing.Point(6, 48)
+        Me.HomeTeamLabel.Location = New System.Drawing.Point(13, 48)
         Me.HomeTeamLabel.Name = "HomeTeamLabel"
         Me.HomeTeamLabel.Size = New System.Drawing.Size(72, 13)
         Me.HomeTeamLabel.TabIndex = 23
@@ -4087,13 +4134,14 @@ Partial Class CasparTest2NoPvw
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.DarkSalmon
-        Me.Panel1.Location = New System.Drawing.Point(639, 297)
+        Me.Panel1.Location = New System.Drawing.Point(652, 297)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(29, 170)
+        Me.Panel1.Size = New System.Drawing.Size(18, 170)
         Me.Panel1.TabIndex = 119
         '
         'GroupBox8
         '
+        Me.GroupBox8.Controls.Add(Me.Panel2)
         Me.GroupBox8.Controls.Add(Me.ListBox3)
         Me.GroupBox8.Controls.Add(Me.unknownGoalAway)
         Me.GroupBox8.Controls.Add(Me.unknownGoalHome)
@@ -4111,17 +4159,25 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Scoring"
         '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.DarkSalmon
+        Me.Panel2.Location = New System.Drawing.Point(0, 184)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(18, 170)
+        Me.Panel2.TabIndex = 120
+        '
         'ListBox3
         '
         Me.ListBox3.FormattingEnabled = True
-        Me.ListBox3.Location = New System.Drawing.Point(3, 38)
+        Me.ListBox3.Location = New System.Drawing.Point(17, 38)
         Me.ListBox3.Name = "ListBox3"
         Me.ListBox3.Size = New System.Drawing.Size(220, 316)
         Me.ListBox3.TabIndex = 25
         '
         'unknownGoalAway
         '
-        Me.unknownGoalAway.Location = New System.Drawing.Point(246, 389)
+        Me.unknownGoalAway.Location = New System.Drawing.Point(256, 389)
         Me.unknownGoalAway.Name = "unknownGoalAway"
         Me.unknownGoalAway.Size = New System.Drawing.Size(220, 23)
         Me.unknownGoalAway.TabIndex = 34
@@ -4130,7 +4186,7 @@ Partial Class CasparTest2NoPvw
         '
         'unknownGoalHome
         '
-        Me.unknownGoalHome.Location = New System.Drawing.Point(4, 389)
+        Me.unknownGoalHome.Location = New System.Drawing.Point(14, 389)
         Me.unknownGoalHome.Name = "unknownGoalHome"
         Me.unknownGoalHome.Size = New System.Drawing.Size(220, 23)
         Me.unknownGoalHome.TabIndex = 33
@@ -4139,7 +4195,7 @@ Partial Class CasparTest2NoPvw
         '
         'AwayHomeGoalBTN
         '
-        Me.AwayHomeGoalBTN.Location = New System.Drawing.Point(246, 418)
+        Me.AwayHomeGoalBTN.Location = New System.Drawing.Point(256, 418)
         Me.AwayHomeGoalBTN.Name = "AwayHomeGoalBTN"
         Me.AwayHomeGoalBTN.Size = New System.Drawing.Size(220, 23)
         Me.AwayHomeGoalBTN.TabIndex = 32
@@ -4148,7 +4204,7 @@ Partial Class CasparTest2NoPvw
         '
         'HomeOwnGoalBTN
         '
-        Me.HomeOwnGoalBTN.Location = New System.Drawing.Point(4, 418)
+        Me.HomeOwnGoalBTN.Location = New System.Drawing.Point(14, 418)
         Me.HomeOwnGoalBTN.Name = "HomeOwnGoalBTN"
         Me.HomeOwnGoalBTN.Size = New System.Drawing.Size(220, 23)
         Me.HomeOwnGoalBTN.TabIndex = 31
@@ -4157,7 +4213,7 @@ Partial Class CasparTest2NoPvw
         '
         'goalAway
         '
-        Me.goalAway.Location = New System.Drawing.Point(244, 360)
+        Me.goalAway.Location = New System.Drawing.Point(254, 360)
         Me.goalAway.Name = "goalAway"
         Me.goalAway.Size = New System.Drawing.Size(220, 23)
         Me.goalAway.TabIndex = 30
@@ -4166,7 +4222,7 @@ Partial Class CasparTest2NoPvw
         '
         'goalHome
         '
-        Me.goalHome.Location = New System.Drawing.Point(4, 360)
+        Me.goalHome.Location = New System.Drawing.Point(14, 360)
         Me.goalHome.Name = "goalHome"
         Me.goalHome.Size = New System.Drawing.Size(220, 23)
         Me.goalHome.TabIndex = 29
@@ -4194,7 +4250,7 @@ Partial Class CasparTest2NoPvw
         'ListBox4
         '
         Me.ListBox4.FormattingEnabled = True
-        Me.ListBox4.Location = New System.Drawing.Point(252, 38)
+        Me.ListBox4.Location = New System.Drawing.Point(254, 38)
         Me.ListBox4.Name = "ListBox4"
         Me.ListBox4.Size = New System.Drawing.Size(220, 316)
         Me.ListBox4.TabIndex = 26
@@ -6122,5 +6178,10 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents stopClockTime As System.Windows.Forms.TextBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents ListBox3 As System.Windows.Forms.ListBox
+    Friend WithEvents Panel4 As System.Windows.Forms.Panel
+    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents secondHalfRadBTN As System.Windows.Forms.RadioButton
+    Friend WithEvents firstHalfRadBTN As System.Windows.Forms.RadioButton
 
 End Class
