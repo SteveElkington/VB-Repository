@@ -355,8 +355,6 @@ Partial Class CasparTest2NoPvw
         Me.TSCrawlOffBTN = New System.Windows.Forms.Button()
         Me.TSCrawlOnBTN = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.HideClockInGameBTN = New System.Windows.Forms.Button()
-        Me.ShowClockInGameBTN = New System.Windows.Forms.Button()
         Me.hideAddedTimeButton = New System.Windows.Forms.Button()
         Me.addedTimeVals = New System.Windows.Forms.ComboBox()
         Me.showAddedTimeBTN = New System.Windows.Forms.Button()
@@ -609,9 +607,9 @@ Partial Class CasparTest2NoPvw
         Me.Clock.Controls.Add(Me.showClock)
         Me.Clock.Controls.Add(Me.stopClockTime)
         Me.Clock.Controls.Add(Me.startClockTime)
-        Me.Clock.Location = New System.Drawing.Point(472, 64)
+        Me.Clock.Location = New System.Drawing.Point(416, 18)
         Me.Clock.Name = "Clock"
-        Me.Clock.Size = New System.Drawing.Size(369, 212)
+        Me.Clock.Size = New System.Drawing.Size(369, 120)
         Me.Clock.TabIndex = 3
         Me.Clock.TabStop = False
         Me.Clock.Text = "Clock"
@@ -619,7 +617,7 @@ Partial Class CasparTest2NoPvw
         'secondHalfRadBTN
         '
         Me.secondHalfRadBTN.AutoSize = True
-        Me.secondHalfRadBTN.Location = New System.Drawing.Point(200, 30)
+        Me.secondHalfRadBTN.Location = New System.Drawing.Point(200, 16)
         Me.secondHalfRadBTN.Name = "secondHalfRadBTN"
         Me.secondHalfRadBTN.Size = New System.Drawing.Size(65, 17)
         Me.secondHalfRadBTN.TabIndex = 57
@@ -630,7 +628,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.firstHalfRadBTN.AutoSize = True
         Me.firstHalfRadBTN.Checked = True
-        Me.firstHalfRadBTN.Location = New System.Drawing.Point(105, 30)
+        Me.firstHalfRadBTN.Location = New System.Drawing.Point(105, 16)
         Me.firstHalfRadBTN.Name = "firstHalfRadBTN"
         Me.firstHalfRadBTN.Size = New System.Drawing.Size(61, 17)
         Me.firstHalfRadBTN.TabIndex = 56
@@ -641,7 +639,7 @@ Partial Class CasparTest2NoPvw
         'StopTime
         '
         Me.StopTime.AutoSize = True
-        Me.StopTime.Location = New System.Drawing.Point(176, 74)
+        Me.StopTime.Location = New System.Drawing.Point(176, 43)
         Me.StopTime.Name = "StopTime"
         Me.StopTime.Size = New System.Drawing.Size(55, 13)
         Me.StopTime.TabIndex = 55
@@ -650,7 +648,7 @@ Partial Class CasparTest2NoPvw
         'StartTimeLabel
         '
         Me.StartTimeLabel.AutoSize = True
-        Me.StartTimeLabel.Location = New System.Drawing.Point(6, 75)
+        Me.StartTimeLabel.Location = New System.Drawing.Point(6, 44)
         Me.StartTimeLabel.Name = "StartTimeLabel"
         Me.StartTimeLabel.Size = New System.Drawing.Size(55, 13)
         Me.StartTimeLabel.TabIndex = 54
@@ -658,7 +656,7 @@ Partial Class CasparTest2NoPvw
         '
         'StopClock
         '
-        Me.StopClock.Location = New System.Drawing.Point(176, 119)
+        Me.StopClock.Location = New System.Drawing.Point(183, 72)
         Me.StopClock.Name = "StopClock"
         Me.StopClock.Size = New System.Drawing.Size(177, 33)
         Me.StopClock.TabIndex = 12
@@ -667,7 +665,7 @@ Partial Class CasparTest2NoPvw
         '
         'showClock
         '
-        Me.showClock.Location = New System.Drawing.Point(1, 118)
+        Me.showClock.Location = New System.Drawing.Point(8, 71)
         Me.showClock.Name = "showClock"
         Me.showClock.Size = New System.Drawing.Size(169, 34)
         Me.showClock.TabIndex = 11
@@ -676,7 +674,7 @@ Partial Class CasparTest2NoPvw
         '
         'stopClockTime
         '
-        Me.stopClockTime.Location = New System.Drawing.Point(237, 71)
+        Me.stopClockTime.Location = New System.Drawing.Point(237, 40)
         Me.stopClockTime.Name = "stopClockTime"
         Me.stopClockTime.Size = New System.Drawing.Size(100, 20)
         Me.stopClockTime.TabIndex = 1
@@ -684,7 +682,7 @@ Partial Class CasparTest2NoPvw
         '
         'startClockTime
         '
-        Me.startClockTime.Location = New System.Drawing.Point(67, 71)
+        Me.startClockTime.Location = New System.Drawing.Point(67, 40)
         Me.startClockTime.Name = "startClockTime"
         Me.startClockTime.Size = New System.Drawing.Size(100, 20)
         Me.startClockTime.TabIndex = 0
@@ -1746,7 +1744,6 @@ Partial Class CasparTest2NoPvw
         Me.TabPage1.Controls.Add(Me.Panel3)
         Me.TabPage1.Controls.Add(Me.AwayTeamLabel)
         Me.TabPage1.Controls.Add(Me.HomeTeamLabel)
-        Me.TabPage1.Controls.Add(Me.Clock)
         Me.TabPage1.Controls.Add(Me.GroupBox2)
         Me.TabPage1.Controls.Add(Me.AwayTeamsOff)
         Me.TabPage1.Controls.Add(Me.ShowAwaySubsSheet)
@@ -3640,6 +3637,7 @@ Partial Class CasparTest2NoPvw
         Me.TabPage5.Controls.Add(Me.GroupBox6)
         Me.TabPage5.Controls.Add(Me.GroupBox5)
         Me.TabPage5.Controls.Add(Me.GroupBox4)
+        Me.TabPage5.Controls.Add(Me.Clock)
         Me.TabPage5.Controls.Add(Me.Crawl)
         Me.TabPage5.Controls.Add(Me.Panel1)
         Me.TabPage5.Controls.Add(Me.GroupBox8)
@@ -3726,39 +3724,19 @@ Partial Class CasparTest2NoPvw
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.HideClockInGameBTN)
-        Me.GroupBox1.Controls.Add(Me.ShowClockInGameBTN)
         Me.GroupBox1.Controls.Add(Me.hideAddedTimeButton)
         Me.GroupBox1.Controls.Add(Me.addedTimeVals)
         Me.GroupBox1.Controls.Add(Me.showAddedTimeBTN)
-        Me.GroupBox1.Location = New System.Drawing.Point(414, 18)
+        Me.GroupBox1.Location = New System.Drawing.Point(791, 18)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(395, 83)
+        Me.GroupBox1.Size = New System.Drawing.Size(94, 120)
         Me.GroupBox1.TabIndex = 19
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Added Time"
         '
-        'HideClockInGameBTN
-        '
-        Me.HideClockInGameBTN.Location = New System.Drawing.Point(268, 18)
-        Me.HideClockInGameBTN.Name = "HideClockInGameBTN"
-        Me.HideClockInGameBTN.Size = New System.Drawing.Size(101, 53)
-        Me.HideClockInGameBTN.TabIndex = 60
-        Me.HideClockInGameBTN.Text = "Hide Clock"
-        Me.HideClockInGameBTN.UseVisualStyleBackColor = True
-        '
-        'ShowClockInGameBTN
-        '
-        Me.ShowClockInGameBTN.Location = New System.Drawing.Point(161, 18)
-        Me.ShowClockInGameBTN.Name = "ShowClockInGameBTN"
-        Me.ShowClockInGameBTN.Size = New System.Drawing.Size(101, 53)
-        Me.ShowClockInGameBTN.TabIndex = 59
-        Me.ShowClockInGameBTN.Text = "Show Clock"
-        Me.ShowClockInGameBTN.UseVisualStyleBackColor = True
-        '
         'hideAddedTimeButton
         '
-        Me.hideAddedTimeButton.Location = New System.Drawing.Point(80, 48)
+        Me.hideAddedTimeButton.Location = New System.Drawing.Point(6, 77)
         Me.hideAddedTimeButton.Name = "hideAddedTimeButton"
         Me.hideAddedTimeButton.Size = New System.Drawing.Size(75, 23)
         Me.hideAddedTimeButton.TabIndex = 58
@@ -3771,14 +3749,14 @@ Partial Class CasparTest2NoPvw
         Me.addedTimeVals.Items.AddRange(New Object() {"+1", "+2", "+3", "+4", "+5", "+6", "+7", "+8", "+9", "+10", "+11", "+12", "+13", "+14", "+15"})
         Me.addedTimeVals.Location = New System.Drawing.Point(6, 20)
         Me.addedTimeVals.Name = "addedTimeVals"
-        Me.addedTimeVals.Size = New System.Drawing.Size(149, 21)
+        Me.addedTimeVals.Size = New System.Drawing.Size(75, 21)
         Me.addedTimeVals.TabIndex = 56
         '
         'showAddedTimeBTN
         '
         Me.showAddedTimeBTN.Location = New System.Drawing.Point(6, 48)
         Me.showAddedTimeBTN.Name = "showAddedTimeBTN"
-        Me.showAddedTimeBTN.Size = New System.Drawing.Size(68, 23)
+        Me.showAddedTimeBTN.Size = New System.Drawing.Size(75, 23)
         Me.showAddedTimeBTN.TabIndex = 29
         Me.showAddedTimeBTN.Text = "Show"
         Me.showAddedTimeBTN.UseVisualStyleBackColor = True
@@ -4152,7 +4130,7 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox8.Controls.Add(Me.Label9)
         Me.GroupBox8.Controls.Add(Me.Label11)
         Me.GroupBox8.Controls.Add(Me.ListBox4)
-        Me.GroupBox8.Location = New System.Drawing.Point(416, 113)
+        Me.GroupBox8.Location = New System.Drawing.Point(416, 144)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(478, 479)
         Me.GroupBox8.TabIndex = 118
@@ -5851,8 +5829,6 @@ Partial Class CasparTest2NoPvw
     Friend WithEvents ScoreMatchIDRadioBut As System.Windows.Forms.RadioButton
     Friend WithEvents LTMatchIDRadioBut As System.Windows.Forms.RadioButton
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents HideClockInGameBTN As System.Windows.Forms.Button
-    Friend WithEvents ShowClockInGameBTN As System.Windows.Forms.Button
     Friend WithEvents hideAddedTimeButton As System.Windows.Forms.Button
     Friend WithEvents addedTimeVals As System.Windows.Forms.ComboBox
     Friend WithEvents showAddedTimeBTN As System.Windows.Forms.Button

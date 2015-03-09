@@ -141,11 +141,11 @@ Public Class CasparTest2NoPvw
 
 
             showClock.BackColor = Color.Green
-            ShowClockInGameBTN.BackColor = Color.Green
+            'ShowClockInGameBTN.BackColor = Color.Green
             'disbale button so cant be re-pressed
             showClock.Enabled = False
             '  startAndShowClockBTN.Enabled = False
-            ShowClockInGameBTN.Enabled = False
+            ' ShowClockInGameBTN.Enabled = False
 
             'start clock on interface
             aa = Val(Now.Second.ToString)
@@ -175,7 +175,7 @@ Public Class CasparTest2NoPvw
             're-enable show button
             showClock.Enabled = True
             ' startAndShowClockBTN.Enabled = True
-            ShowClockInGameBTN.Enabled = True
+            ' ShowClockInGameBTN.Enabled = True
             'stop on screen clock
             OnScreenClock.Enabled = False
             'reset clock on interface
@@ -1677,7 +1677,7 @@ Public Class CasparTest2NoPvw
         'disbale button so cant be re-pressed
         showClock.Enabled = False
         ' startAndShowClockBTN.Enabled = False
-        ShowClockInGameBTN.Enabled = False
+        '  ShowClockInGameBTN.Enabled = False
     End Sub
 
     Private Sub TXPremScores_2BTN_Click(sender As Object, e As EventArgs) Handles TXPremScores_2BTN.Click
@@ -2858,7 +2858,7 @@ Public Class CasparTest2NoPvw
             showSub.UseVisualStyleBackColor = True
             AwaySubOn.UseVisualStyleBackColor = True
             showAddedTimeBTN.UseVisualStyleBackColor = True
-            ShowClockInGameBTN.UseVisualStyleBackColor = True
+            ' ShowClockInGameBTN.UseVisualStyleBackColor = True
             PlayVidInGame.UseVisualStyleBackColor = True
             PlayNextVidInGame.UseVisualStyleBackColor = True
             'LoopVidInGame.UseVisualStyleBackColor = True
@@ -3030,7 +3030,7 @@ Public Class CasparTest2NoPvw
         End If
     End Sub
 
-    Private Sub ShowClockInGameBTN_Click(sender As Object, e As EventArgs) Handles ShowClockInGameBTN.Click
+    Private Sub ShowClockInGameBTN_Click(sender As Object, e As EventArgs)
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.Clear()
             'load clock part of template and calculate start time
@@ -3061,11 +3061,11 @@ Public Class CasparTest2NoPvw
             ' CasparDevice.Channels(0).CG.Play(402)
 
             showClock.BackColor = Color.Green
-            ShowClockInGameBTN.BackColor = Color.Green
+            ' ShowClockInGameBTN.BackColor = Color.Green
             'disbale button so cant be re-pressed
             showClock.Enabled = False
             '  startAndShowClockBTN.Enabled = False
-            ShowClockInGameBTN.Enabled = False
+            '   ShowClockInGameBTN.Enabled = False
 
             'start clock on interface
             aa = Val(Now.Second.ToString)
@@ -3074,7 +3074,7 @@ Public Class CasparTest2NoPvw
         End If
     End Sub
 
-    Private Sub HideClockInGameBTN_Click(sender As Object, e As EventArgs) Handles HideClockInGameBTN.Click
+    Private Sub HideClockInGameBTN_Click(sender As Object, e As EventArgs)
         If Me.CasparDevice.IsConnected = True Then
             '  CasparDevice.Channels(0).CG.Stop(401)
             CasparDevice.Channels(0).CG.Stop(402)
@@ -3095,8 +3095,8 @@ Public Class CasparTest2NoPvw
             're-enable show button
             showClock.Enabled = True
             ' startAndShowClockBTN.Enabled = True
-            ShowClockInGameBTN.Enabled = True
-            ShowClockInGameBTN.UseVisualStyleBackColor = True
+            ' ShowClockInGameBTN.Enabled = True
+            '  ShowClockInGameBTN.UseVisualStyleBackColor = True
             'stop on screen clock
             OnScreenClock.Enabled = False
             'reset clock on interface
