@@ -4,7 +4,7 @@ Imports System.Xml
 
 'with preview
 ' NB to make this work with Broadcast Play, copy Caspar v2.0.7 over the Caspar contents that are already in BP directory
-Public Class CasparTest2NoPvw
+Public Class ADIFootball
     Dim CasparDevice As New Svt.Caspar.CasparDevice
     Dim CasparCGDataCollection As New Svt.Caspar.CasparCGDataCollection
     Dim count As Integer
@@ -1648,7 +1648,7 @@ Public Class CasparTest2NoPvw
         End If
     End Sub
 
-   
+
     Private Sub startAndShowClockBTN_Click(sender As Object, e As EventArgs)
         '  OnScreenClock.Enabled = True
         aa = Val(Now.Second.ToString) 'new code
@@ -2800,6 +2800,7 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(0).CG.Stop(102)
             CasparDevice.Channels(0).CG.Stop(400)
             CasparDevice.Channels(0).CG.Stop(401)
+            CasparDevice.Channels(0).CG.Stop(402)
             CasparDevice.Channels(0).CG.Stop(390)
             CasparDevice.Channels(0).CG.Stop(391)
             CasparDevice.SendString("stop 1-50")
@@ -2809,6 +2810,7 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("stop 1-102")
             CasparDevice.SendString("stop 1-400")
             CasparDevice.SendString("stop 1-401")
+            CasparDevice.SendString("stop 1-402")
             CasparDevice.SendString("stop 1-390")
             CasparDevice.SendString("stop 1-391")
             CasparDevice.SendString("stop 1-104")
@@ -2820,6 +2822,7 @@ Public Class CasparTest2NoPvw
             CasparDevice.Channels(1).CG.Stop(102)
             CasparDevice.Channels(1).CG.Stop(400)
             CasparDevice.Channels(1).CG.Stop(401)
+            CasparDevice.Channels(1).CG.Stop(402)
             CasparDevice.Channels(1).CG.Stop(390)
             CasparDevice.Channels(1).CG.Stop(391)
             CasparDevice.SendString("stop 2-50")
@@ -2829,6 +2832,7 @@ Public Class CasparTest2NoPvw
             CasparDevice.SendString("stop 2-102")
             CasparDevice.SendString("stop 2-400")
             CasparDevice.SendString("stop 2-401")
+            CasparDevice.SendString("stop 2-402")
             CasparDevice.SendString("stop 2-390")
             CasparDevice.SendString("stop 2-391")
             'scores page
@@ -2865,6 +2869,7 @@ Public Class CasparTest2NoPvw
             showClock.UseVisualStyleBackColor = True
             '  startAndShowClockBTN.UseVisualStyleBackColor = True
             backgroundOn.Checked = False
+            showClock.Enabled = True
         End If
     End Sub
 
@@ -4271,7 +4276,7 @@ Public Class CasparTest2NoPvw
         End If
     End Sub
 
-  
+
     Private Sub unknownGoalHome_Click(sender As Object, e As EventArgs) Handles unknownGoalHome.Click
         HomeScore.Text = Convert.ToInt32(HomeScore.Text) + 1
 
@@ -4835,11 +4840,11 @@ Public Class CasparTest2NoPvw
             '  msg1Colour = System.Drawing.ColorTranslator.ToHtml(ColorDialog1.Color)
 
             msg1Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog1.Color.R, ColorDialog1.Color.G, ColorDialog1.Color.B)
-           
+
         End If
     End Sub
 
- 
+
     Private Sub Msg2ColPickBTN_Click(sender As Object, e As EventArgs) Handles Msg2ColPickBTN.Click
         If ColorDialog2.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
             msg2Colour = String.Format("{0:X2}{1:X2}{2:X2}", ColorDialog2.Color.R, ColorDialog2.Color.G, ColorDialog2.Color.B)
@@ -4965,16 +4970,113 @@ Public Class CasparTest2NoPvw
             CasparCGDataCollection.Clear()
 
             If sscoresT1Left.Checked = True Then
-                CasparCGDataCollection.SetData("f0", tab1Logo1Select.Text + " Latest Scores:       " + Score1.Text + "  " + Score2.Text + "  " + middle13.Text + "  " + Score3.Text + "  " + Score4.Text + "       " + Score5.Text + "  " + Score6.Text + "  " + middle14.Text + "  " + Score7.Text + "  " + Score8.Text + "       " + Score9.Text + "  " + Score10.Text + "  " + middle15.Text + "  " + Score11.Text + "  " + Score12.Text + "       " + Score13.Text + "  " + Score14.Text + "  " + middle16.Text + "  " + Score15.Text + "  " + Score16.Text + "       " + Score17.Text + "  " + Score18.Text + "  " + middle17.Text + "  " + Score19.Text + "  " + Score20.Text + "       " + Score21.Text + "  " + Score22.Text + "  " + middle18.Text + "  " + Score23.Text + "  " + Score24.Text + "  ")
+                Dim showmeText As String = "LATEST SCORES:        "
+
+                If CheckBox13.Checked = True Then
+                    showmeText = showmeText + (Score1.Text + "  " + Score2.Text + "  " + middle13.Text + "  " + Score3.Text + "  " + Score4.Text + "       ")
+                End If
+                If CheckBox14.Checked = True Then
+                    showmeText = showmeText + (Score5.Text + "  " + Score6.Text + "  " + middle14.Text + "  " + Score7.Text + "  " + Score8.Text + "       ")
+                End If
+                If CheckBox15.Checked = True Then
+                    showmeText = showmeText + (Score9.Text + "  " + Score10.Text + "  " + middle15.Text + "  " + Score11.Text + "  " + Score12.Text + "       ")
+                End If
+                If CheckBox16.Checked = True Then
+                    showmeText = showmeText + (Score13.Text + "  " + Score14.Text + "  " + middle16.Text + "  " + Score15.Text + "  " + Score16.Text + "       ")
+                End If
+                If CheckBox17.Checked = True Then
+                    showmeText = showmeText + (Score17.Text + "  " + Score18.Text + "  " + middle17.Text + "  " + Score19.Text + "  " + Score20.Text + "       ")
+                End If
+                If CheckBox18.Checked = True Then
+                    showmeText = showmeText + (Score21.Text + "  " + Score22.Text + "  " + middle18.Text + "  " + Score23.Text + "  " + Score24.Text + "       ")
+                End If
+
+                CasparCGDataCollection.SetData("f0", showmeText)
             End If
+
+
+
+
             If sscoresT1Right.Checked = True Then
-                CasparCGDataCollection.SetData("f0", tab1Logo2Select.Text + " Latest Scores:       " + Score25.Text + "  " + Score26.Text + "  " + middle19.Text + "  " + Score27.Text + "  " + Score28.Text + "       " + Score29.Text + "  " + Score30.Text + "  " + middle20.Text + "  " + Score31.Text + "  " + Score32.Text + "       " + Score33.Text + "  " + Score34.Text + "  " + middle21.Text + "  " + Score35.Text + "  " + Score36.Text + "       " + Score37.Text + "  " + Score38.Text + "  " + middle22.Text + "  " + Score39.Text + "  " + Score40.Text + "       " + Score41.Text + "  " + Score42.Text + "  " + middle23.Text + "  " + Score43.Text + "  " + Score44.Text + "       " + Score45.Text + "  " + Score45.Text + "  " + middle24.Text + "  " + Score47.Text + "  " + Score48.Text + "  ")
+                Dim showmeText As String = "LATEST SCORES:        "
+
+                If CheckBox19.Checked = True Then
+                    showmeText = showmeText + (Score25.Text + "  " + Score26.Text + "  " + middle19.Text + "  " + Score27.Text + "  " + Score28.Text + "       ")
+                End If
+                If CheckBox20.Checked = True Then
+                    showmeText = showmeText + (Score29.Text + "  " + Score30.Text + "  " + middle20.Text + "  " + Score31.Text + "  " + Score32.Text + "       ")
+                End If
+                If CheckBox21.Checked = True Then
+                    showmeText = showmeText + (Score33.Text + "  " + Score34.Text + "  " + middle21.Text + "  " + Score35.Text + "  " + Score36.Text + "       ")
+                End If
+                If CheckBox22.Checked = True Then
+                    showmeText = showmeText + (Score37.Text + "  " + Score38.Text + "  " + middle22.Text + "  " + Score39.Text + "  " + Score40.Text + "       ")
+                End If
+                If CheckBox23.Checked = True Then
+                    showmeText = showmeText + (Score41.Text + "  " + Score42.Text + "  " + middle23.Text + "  " + Score43.Text + "  " + Score44.Text + "       ")
+                End If
+                If CheckBox24.Checked = True Then
+                    showmeText = showmeText + (Score45.Text + "  " + Score46.Text + "  " + middle24.Text + "  " + Score47.Text + "  " + Score48.Text + "       ")
+                End If
+
+                CasparCGDataCollection.SetData("f0", showmeText)
             End If
+
+
+
+
+
             If sscoresT2Left.Checked = True Then
-                CasparCGDataCollection.SetData("f0", tab2Logo1Select.Text + " Latest Scores:       " + ChampScore1.Text + "  " + ChampScore2.Text + "  " + middle1.Text + "  " + ChampScore3.Text + "  " + ChampScore4.Text + "       " + ChampScore5.Text + "  " + ChampScore6.Text + "  " + middle2.Text + "  " + ChampScore7.Text + "  " + ChampScore8.Text + "       " + ChampScore9.Text + "  " + ChampScore10.Text + "  " + middle3.Text + "  " + ChampScore11.Text + "  " + ChampScore12.Text + "       " + ChampScore13.Text + "  " + ChampScore14.Text + "  " + middle4.Text + "  " + ChampScore15.Text + "  " + ChampScore16.Text + "       " + ChampScore17.Text + "  " + ChampScore18.Text + "  " + middle5.Text + " " + ChampScore19.Text + "  " + ChampScore20.Text + "      " + ChampScore21.Text + "  " + ChampScore22.Text + "  " + middle6.Text + "  " + ChampScore23.Text + "  " + ChampScore24.Text + "  ")
+                Dim showmeText As String = "LATEST SCORES:        "
+
+                If CheckBox1.Checked = True Then
+                    showmeText = showmeText + (ChampScore1.Text + "  " + ChampScore2.Text + "  " + middle1.Text + "  " + ChampScore3.Text + "  " + ChampScore4.Text + "       ")
+                End If
+                If CheckBox2.Checked = True Then
+                    showmeText = showmeText + (ChampScore5.Text + "  " + ChampScore6.Text + "  " + middle2.Text + "  " + ChampScore7.Text + "  " + ChampScore8.Text + "       ")
+                End If
+                If CheckBox3.Checked = True Then
+                    showmeText = showmeText + (ChampScore9.Text + "  " + ChampScore10.Text + "  " + middle3.Text + "  " + ChampScore11.Text + "  " + ChampScore12.Text + "       ")
+                End If
+                If CheckBox4.Checked = True Then
+                    showmeText = showmeText + (ChampScore13.Text + "  " + ChampScore14.Text + "  " + middle4.Text + "  " + ChampScore15.Text + "  " + ChampScore16.Text + "       ")
+                End If
+                If CheckBox5.Checked = True Then
+                    showmeText = showmeText + (ChampScore17.Text + "  " + ChampScore18.Text + "  " + middle5.Text + "  " + ChampScore19.Text + "  " + ChampScore20.Text + "       ")
+                End If
+                If CheckBox6.Checked = True Then
+                    showmeText = showmeText + (ChampScore21.Text + "  " + ChampScore22.Text + "  " + middle6.Text + "  " + ChampScore23.Text + "  " + ChampScore24.Text + "       ")
+                End If
+
+                CasparCGDataCollection.SetData("f0", showmeText)
             End If
+
+
+
+
             If sscoresT2Right.Checked = True Then
-                CasparCGDataCollection.SetData("f0", tab2Logo2Select.Text + " Latest Scores:       " + ChampScore25.Text + "  " + ChampScore26.Text + "  " + middle7.Text + "  " + ChampScore27.Text + "  " + ChampScore28.Text + "       " + ChampScore29.Text + "  " + ChampScore30.Text + "  " + middle8.Text + "  " + ChampScore31.Text + "  " + ChampScore32.Text + "       " + ChampScore33.Text + "  " + ChampScore34.Text + "  " + middle9.Text + "  " + ChampScore35.Text + "  " + ChampScore36.Text + "       " + ChampScore37.Text + "  " + ChampScore38.Text + "  " + middle10.Text + "  " + ChampScore39.Text + "  " + ChampScore40.Text + "       " + ChampScore41.Text + "  " + ChampScore42.Text + "  " + middle11.Text + "  " + ChampScore43.Text + "  " + ChampScore44.Text + "       " + ChampScore45.Text + "  " + ChampScore46.Text + "  " + middle12.Text + " " + ChampScore47.Text + "  " + ChampScore48.Text + "  ")
+                Dim showmeText As String = "LATEST SCORES:        "
+
+                If CheckBox12.Checked = True Then
+                    showmeText = showmeText + (ChampScore25.Text + "  " + ChampScore26.Text + "  " + middle7.Text + "  " + ChampScore27.Text + "  " + ChampScore28.Text + "       ")
+                End If
+                If CheckBox11.Checked = True Then
+                    showmeText = showmeText + (ChampScore29.Text + "  " + ChampScore30.Text + "  " + middle8.Text + "  " + ChampScore31.Text + "  " + ChampScore32.Text + "       ")
+                End If
+                If CheckBox10.Checked = True Then
+                    showmeText = showmeText + (ChampScore33.Text + "  " + ChampScore34.Text + "  " + middle9.Text + "  " + ChampScore35.Text + "  " + ChampScore36.Text + "       ")
+                End If
+                If CheckBox9.Checked = True Then
+                    showmeText = showmeText + (ChampScore37.Text + "  " + ChampScore38.Text + "  " + middle10.Text + "  " + ChampScore39.Text + "  " + ChampScore40.Text + "       ")
+                End If
+                If CheckBox8.Checked = True Then
+                    showmeText = showmeText + (ChampScore41.Text + "  " + ChampScore42.Text + "  " + middle11.Text + "  " + ChampScore43.Text + "  " + ChampScore44.Text + "       ")
+                End If
+                If CheckBox7.Checked = True Then
+                    showmeText = showmeText + (ChampScore45.Text + "  " + ChampScore46.Text + "  " + middle12.Text + "  " + ChampScore47.Text + "  " + ChampScore48.Text + "       ")
+                End If
+
+                CasparCGDataCollection.SetData("f0", showmeText)
             End If
 
 
@@ -5043,4 +5145,6 @@ Public Class CasparTest2NoPvw
             stopClockTime.Text = "90"
         End If
     End Sub
+
+
 End Class

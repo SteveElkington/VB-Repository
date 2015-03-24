@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class CasparTest2NoPvw
+Partial Class ADIFootball
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,7 +23,7 @@ Partial Class CasparTest2NoPvw
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CasparTest2NoPvw))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ADIFootball))
         Me.Connect = New System.Windows.Forms.Button()
         Me.countTimer = New System.Windows.Forms.Timer(Me.components)
         Me.OnScreenClock = New System.Windows.Forms.Timer(Me.components)
@@ -391,7 +391,6 @@ Partial Class CasparTest2NoPvw
         Me.LTStrapHideBTN = New System.Windows.Forms.Button()
         Me.LTStrapKO = New System.Windows.Forms.TextBox()
         Me.LTStrapTXBTN = New System.Windows.Forms.Button()
-        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ListBox3 = New System.Windows.Forms.ListBox()
@@ -400,6 +399,7 @@ Partial Class CasparTest2NoPvw
         Me.AwayHomeGoalBTN = New System.Windows.Forms.Button()
         Me.HomeOwnGoalBTN = New System.Windows.Forms.Button()
         Me.goalAway = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         Me.goalHome = New System.Windows.Forms.Button()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -656,9 +656,9 @@ Partial Class CasparTest2NoPvw
         '
         'StopClock
         '
-        Me.StopClock.Location = New System.Drawing.Point(183, 72)
+        Me.StopClock.Location = New System.Drawing.Point(200, 72)
         Me.StopClock.Name = "StopClock"
-        Me.StopClock.Size = New System.Drawing.Size(177, 33)
+        Me.StopClock.Size = New System.Drawing.Size(160, 33)
         Me.StopClock.TabIndex = 12
         Me.StopClock.Text = "Stop Clock"
         Me.StopClock.UseVisualStyleBackColor = True
@@ -667,7 +667,7 @@ Partial Class CasparTest2NoPvw
         '
         Me.showClock.Location = New System.Drawing.Point(8, 71)
         Me.showClock.Name = "showClock"
-        Me.showClock.Size = New System.Drawing.Size(169, 34)
+        Me.showClock.Size = New System.Drawing.Size(186, 34)
         Me.showClock.TabIndex = 11
         Me.showClock.Text = "Show Clock"
         Me.showClock.UseVisualStyleBackColor = True
@@ -3639,7 +3639,6 @@ Partial Class CasparTest2NoPvw
         Me.TabPage5.Controls.Add(Me.GroupBox4)
         Me.TabPage5.Controls.Add(Me.Clock)
         Me.TabPage5.Controls.Add(Me.Crawl)
-        Me.TabPage5.Controls.Add(Me.Panel1)
         Me.TabPage5.Controls.Add(Me.GroupBox8)
         Me.TabPage5.Location = New System.Drawing.Point(4, 22)
         Me.TabPage5.Name = "TabPage5"
@@ -4109,14 +4108,6 @@ Partial Class CasparTest2NoPvw
         Me.LTStrapTXBTN.Text = "Show"
         Me.LTStrapTXBTN.UseVisualStyleBackColor = True
         '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.Color.DarkSalmon
-        Me.Panel1.Location = New System.Drawing.Point(652, 297)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(18, 170)
-        Me.Panel1.TabIndex = 119
-        '
         'GroupBox8
         '
         Me.GroupBox8.Controls.Add(Me.Panel2)
@@ -4126,6 +4117,7 @@ Partial Class CasparTest2NoPvw
         Me.GroupBox8.Controls.Add(Me.AwayHomeGoalBTN)
         Me.GroupBox8.Controls.Add(Me.HomeOwnGoalBTN)
         Me.GroupBox8.Controls.Add(Me.goalAway)
+        Me.GroupBox8.Controls.Add(Me.Panel1)
         Me.GroupBox8.Controls.Add(Me.goalHome)
         Me.GroupBox8.Controls.Add(Me.Label9)
         Me.GroupBox8.Controls.Add(Me.Label11)
@@ -4197,6 +4189,14 @@ Partial Class CasparTest2NoPvw
         Me.goalAway.TabIndex = 30
         Me.goalAway.Text = "GOAL - Known Scorer"
         Me.goalAway.UseVisualStyleBackColor = True
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.DarkSalmon
+        Me.Panel1.Location = New System.Drawing.Point(237, 184)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(18, 170)
+        Me.Panel1.TabIndex = 119
         '
         'goalHome
         '
@@ -5551,7 +5551,7 @@ Partial Class CasparTest2NoPvw
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Caspar_Test_2___No_PVW.My.Resources.Resources.LV
-        Me.PictureBox1.Location = New System.Drawing.Point(1016, 31)
+        Me.PictureBox1.Location = New System.Drawing.Point(1016, 26)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(252, 85)
         Me.PictureBox1.TabIndex = 73
@@ -5560,7 +5560,7 @@ Partial Class CasparTest2NoPvw
         'playlistStop
         '
         '
-        'CasparTest2NoPvw
+        'ADIFootball
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -5583,7 +5583,7 @@ Partial Class CasparTest2NoPvw
         Me.Controls.Add(Me.homeThreeLetters)
         Me.Controls.Add(Me.min)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "CasparTest2NoPvw"
+        Me.Name = "ADIFootball"
         Me.Text = "Football Interface v1"
         Me.Clock.ResumeLayout(False)
         Me.Clock.PerformLayout()
