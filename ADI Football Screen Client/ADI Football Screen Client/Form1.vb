@@ -28,6 +28,11 @@ Public Class ADIFootball
     Dim msg8Colour As String
     Dim homeTeamCount As Integer
     Dim awayTeamCount As Integer
+    Dim latestScoresTitle1 As String
+    Dim latestScoresTitle2 As String
+    Dim latestScoresTitle3 As String
+    Dim latestScoresTitle4 As String
+
 
     Private Sub Connect_Click(sender As Object, e As EventArgs) Handles Connect.Click
         CasparDevice.Settings.Hostname = "localhost"
@@ -317,8 +322,8 @@ Public Class ADIFootball
         FullAwaySquad.Items.Remove(FullAwaySquad.Items(0))
 
         'set team scores
-        HomeScore.Text = "0"
-        AwayScore.Text = "0"
+        '  HomeScore.Text = "0"
+        '  AwayScore.Text = "0"
 
         'set date in Lower Third Strap
         LTStrapDate.Text = Now.ToShortDateString
@@ -444,6 +449,8 @@ Public Class ADIFootball
 
             ShowTeamSheet.BackColor = Color.Green
             ShowSubsSheet.UseVisualStyleBackColor = True
+            homeCrestsBTN.UseVisualStyleBackColor = True
+            homeCrestsBTN.Enabled = True
 
 
             'disable button so cant be pressed again
@@ -491,6 +498,9 @@ Public Class ADIFootball
             ShowTeamSheet.UseVisualStyleBackColor = True
             'disable button so cant be pressed again
             ShowSubsSheet.Enabled = False
+            'enable previous button
+            identTeamsBTN.Enabled = True
+            identTeamsBTN.UseVisualStyleBackColor = True
         End If
     End Sub
 
@@ -612,22 +622,34 @@ Public Class ADIFootball
 
             ' select which logo to show
             If tab1Logo1Select.Text = "Premier League" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
             If tab1Logo1Select.Text = "Championship" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
             If tab1Logo1Select.Text = "Capital One Cup" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_C1C_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
             If tab1Logo1Select.Text = "Europa League" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_EUROPALEAGUE_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
             If tab1Logo1Select.Text = "FA Cup" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_FACUP_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
             If tab1Logo1Select.Text = "Champions League" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_CHAMPLEAGUE_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
 
 
@@ -1305,6 +1327,8 @@ Public Class ADIFootball
             ShowSubsSheet.UseVisualStyleBackColor = True
             ' disable button so cant be pressed again
             ShowAwayFirstEleven.Enabled = False
+            awayCrestBTN.UseVisualStyleBackColor = True
+            awayCrestBTN.Enabled = True
         End If
     End Sub
 
@@ -1328,6 +1352,8 @@ Public Class ADIFootball
             ShowAwayFirstEleven.UseVisualStyleBackColor = True
             ' disable button so cant be pressed again
             ShowAwaySubsSheet.Enabled = False
+            awayCrestBTN.UseVisualStyleBackColor = True
+            awayCrestBTN.Enabled = True
         End If
     End Sub
 
@@ -1780,22 +1806,34 @@ Public Class ADIFootball
             CasparDevice.Channels(1).CG.Play(101)
             ' select which logo to show
             If tab1Logo2Select.Text = "Premier League" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
             If tab1Logo2Select.Text = "Championship" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_CHAMPIONSHIP_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
             If tab1Logo2Select.Text = "Capital One Cup" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_C1C_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
             If tab1Logo2Select.Text = "Europa League" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_EUROPALEAGUE_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
             If tab1Logo2Select.Text = "FA Cup" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_FACUP_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
             If tab1Logo2Select.Text = "Champions League" Then
+                CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 SCORES_CHAMPLEAGUE_LOGO")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             End If
 
 
@@ -1973,6 +2011,9 @@ Public Class ADIFootball
             CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             ' select which logo to show
+            'blank page
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            'send logo
             If tab2Logo1Select.Text = "Premier League" Then
                 CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
             End If
@@ -1991,6 +2032,8 @@ Public Class ADIFootball
             If tab2Logo1Select.Text = "Champions League" Then
                 CasparDevice.SendString("play 2-100 SCORES_CHAMPLEAGUE_LOGO")
             End If
+            'fade in
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
 
             'set colours on buttons
@@ -2124,6 +2167,8 @@ Public Class ADIFootball
             CasparDevice.Channels(1).CG.Play(101)
 
             ' select which logo to show
+            'blank channel
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
             If tab2Logo2Select.Text = "Premier League" Then
                 CasparDevice.SendString("play 2-100 SCORES_BPL_LOGO")
             End If
@@ -2142,7 +2187,8 @@ Public Class ADIFootball
             If tab2Logo2Select.Text = "Champions League" Then
                 CasparDevice.SendString("play 2-100 SCORES_CHAMPLEAGUE_LOGO")
             End If
-
+            'show page
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
             'set colours on buttons
 
@@ -3191,6 +3237,14 @@ Public Class ADIFootball
         If Me.HomeScorers.SelectedIndex >= 0 Then
             HomeScorers.Items.Remove(HomeScorers.SelectedItem)
             HomeScore.Text = Convert.ToInt32(HomeScore.Text) - 1
+
+            'update CG
+            If Me.CasparDevice.IsConnected = True Then
+                CasparCGDataCollection.Clear()
+                CasparCGDataCollection.SetData("f2", HomeScore.Text)
+                CasparCGDataCollection.SetData("f3", AwayScore.Text)
+                Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
+            End If
         Else
             MessageBox.Show("You need to select a player to remove", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -3200,6 +3254,15 @@ Public Class ADIFootball
         If Me.awayScorers.SelectedIndex >= 0 Then
             awayScorers.Items.Remove(awayScorers.SelectedItem)
             AwayScore.Text = Convert.ToInt32(AwayScore.Text) - 1
+
+            'update CG
+            If Me.CasparDevice.IsConnected = True Then
+                CasparCGDataCollection.Clear()
+                CasparCGDataCollection.SetData("f2", HomeScore.Text)
+                CasparCGDataCollection.SetData("f3", AwayScore.Text)
+                Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
+            End If
+
         Else
             MessageBox.Show("You need to select a player to remove", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -4970,7 +5033,29 @@ Public Class ADIFootball
             CasparCGDataCollection.Clear()
 
             If sscoresT1Left.Checked = True Then
-                Dim showmeText As String = "LATEST SCORES:        "
+                ' set latest scores text
+                If tab1Logo1Select.Text = "Premier League" Then
+                    latestScoresTitle1 = "PREMIERSHIP"
+                End If
+                If tab1Logo1Select.Text = "Championship" Then
+                    latestScoresTitle1 = "CHAMPIONSHIP"
+                End If
+                If tab1Logo1Select.Text = "Capital One Cup" Then
+                    latestScoresTitle1 = "CAPITAL ONE CUP"
+                End If
+                If tab1Logo1Select.Text = "Europa League" Then
+                    latestScoresTitle1 = "EUROPA LEAGUE"
+                End If
+                If tab1Logo1Select.Text = "FA Cup" Then
+                    latestScoresTitle1 = "FA CUP"
+                End If
+                If tab1Logo1Select.Text = "Champions League" Then
+                    latestScoresTitle1 = "CHAMPIONS LEAGUE"
+                End If
+
+
+
+                Dim showmeText As String = "LATEST " + latestScoresTitle1 + " SCORES:        "
 
                 If CheckBox13.Checked = True Then
                     showmeText = showmeText + (Score1.Text + "  " + Score2.Text + "  " + middle13.Text + "  " + Score3.Text + "  " + Score4.Text + "       ")
@@ -4998,7 +5083,27 @@ Public Class ADIFootball
 
 
             If sscoresT1Right.Checked = True Then
-                Dim showmeText As String = "LATEST SCORES:        "
+                ' set latest scores text
+                If tab1Logo2Select.Text = "Premier League" Then
+                    latestScoresTitle2 = "PREMIERSHIP"
+                End If
+                If tab1Logo2Select.Text = "Championship" Then
+                    latestScoresTitle2 = "CHAMPIONSHIP"
+                End If
+                If tab1Logo2Select.Text = "Capital One Cup" Then
+                    latestScoresTitle2 = "CAPITAL ONE CUP"
+                End If
+                If tab1Logo2Select.Text = "Europa League" Then
+                    latestScoresTitle2 = "EUROPA LEAGUE"
+                End If
+                If tab1Logo2Select.Text = "FA Cup" Then
+                    latestScoresTitle2 = "FA CUP"
+                End If
+                If tab1Logo2Select.Text = "Champions League" Then
+                    latestScoresTitle2 = "CHAMPIONS LEAGUE"
+                End If
+
+                Dim showmeText As String = "LATEST " + latestScoresTitle2 + " SCORES:      "
 
                 If CheckBox19.Checked = True Then
                     showmeText = showmeText + (Score25.Text + "  " + Score26.Text + "  " + middle19.Text + "  " + Score27.Text + "  " + Score28.Text + "       ")
@@ -5027,7 +5132,29 @@ Public Class ADIFootball
 
 
             If sscoresT2Left.Checked = True Then
-                Dim showmeText As String = "LATEST SCORES:        "
+                ' set latest scores text
+                If tab2Logo1Select.Text = "Premier League" Then
+                    latestScoresTitle3 = "PREMIERSHIP"
+                End If
+                If tab2Logo1Select.Text = "Championship" Then
+                    latestScoresTitle3 = "CHAMPIONSHIP"
+                End If
+                If tab2Logo1Select.Text = "Capital One Cup" Then
+                    latestScoresTitle3 = "CAPITAL ONE CUP"
+                End If
+                If tab2Logo1Select.Text = "Europa League" Then
+                    latestScoresTitle3 = "EUROPA LEAGUE"
+                End If
+                If tab2Logo1Select.Text = "FA Cup" Then
+                    latestScoresTitle3 = "FA CUP"
+                End If
+                If tab2Logo1Select.Text = "Champions League" Then
+                    latestScoresTitle3 = "CHAMPIONS LEAGUE"
+                End If
+
+
+
+                Dim showmeText As String = "LATEST " + latestScoresTitle3 + " SCORES:      "
 
                 If CheckBox1.Checked = True Then
                     showmeText = showmeText + (ChampScore1.Text + "  " + ChampScore2.Text + "  " + middle1.Text + "  " + ChampScore3.Text + "  " + ChampScore4.Text + "       ")
@@ -5055,7 +5182,29 @@ Public Class ADIFootball
 
 
             If sscoresT2Right.Checked = True Then
-                Dim showmeText As String = "LATEST SCORES:        "
+                ' set latest scores text
+                If tab2Logo2Select.Text = "Premier League" Then
+                    latestScoresTitle4 = "PREMIERSHIP"
+                End If
+                If tab2Logo2Select.Text = "Championship" Then
+                    latestScoresTitle4 = "CHAMPIONSHIP"
+                End If
+                If tab2Logo2Select.Text = "Capital One Cup" Then
+                    latestScoresTitle4 = "CAPITAL ONE CUP"
+                End If
+                If tab2Logo2Select.Text = "Europa League" Then
+                    latestScoresTitle4 = "EUROPA LEAGUE"
+                End If
+                If tab2Logo2Select.Text = "FA Cup" Then
+                    latestScoresTitle4 = "FA CUP"
+                End If
+                If tab2Logo2Select.Text = "Champions League" Then
+                    latestScoresTitle4 = "CHAMPIONS LEAGUE"
+                End If
+
+
+
+                Dim showmeText As String = "LATEST " + latestScoresTitle4 + " SCORES:      "
 
                 If CheckBox12.Checked = True Then
                     showmeText = showmeText + (ChampScore25.Text + "  " + ChampScore26.Text + "  " + middle7.Text + "  " + ChampScore27.Text + "  " + ChampScore28.Text + "       ")
@@ -5147,4 +5296,162 @@ Public Class ADIFootball
     End Sub
 
 
+    Private Sub identTeamsBTN_Click(sender As Object, e As EventArgs) Handles identTeamsBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear()
+
+            'fading in image
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 TeamIdent")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+
+            identTeamsBTN.BackColor = Color.Green
+            'disable button so cant be pressed again
+            identTeamsBTN.Enabled = False
+        End If
+    End Sub
+
+    Private Sub homeCrestsBTN_Click(sender As Object, e As EventArgs) Handles homeCrestsBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear()
+
+            'fading in image
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 HomeCrest")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+
+            homeCrestsBTN.BackColor = Color.Green
+            'disable button so cant be pressed again
+            homeCrestsBTN.Enabled = False
+            'enable previous button
+            identTeamsBTN.Enabled = True
+            identTeamsBTN.UseVisualStyleBackColor = True
+        End If
+    End Sub
+
+    Private Sub awayCrestBTN_Click(sender As Object, e As EventArgs) Handles awayCrestBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear()
+
+            'fading in image
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            CasparDevice.SendString("play 2-100 AwayCrest")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+
+            awayCrestBTN.BackColor = Color.Green
+            'disable button so cant be pressed again
+            awayCrestBTN.Enabled = False
+            'enable previous button
+            identTeamsBTN.Enabled = True
+            identTeamsBTN.UseVisualStyleBackColor = True
+            ShowSubsSheet.Enabled = True
+            ShowSubsSheet.UseVisualStyleBackColor = True
+        End If
+    End Sub
+
+    Private Sub updateScore_Click(sender As Object, e As EventArgs) Handles updateScore.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear()
+            CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
+        End If
+    End Sub
+
+    Private Sub OutGameCrawlOnBTN_Click(sender As Object, e As EventArgs) Handles OutGameCrawlOnBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear()
+
+            If outGameCrawlRadBTN1.Checked = True Then
+                CasparCGDataCollection.SetData("f0", outGameCrawl1.Text)
+            End If
+
+            If outGameCrawlRadBTN2.Checked = True Then
+                CasparCGDataCollection.SetData("f0", outGameCrawl2.Text)
+            End If
+
+            If outGameCrawlRadBTN3.Checked = True Then
+                CasparCGDataCollection.SetData("f0", outGameCrawl3.Text)
+            End If
+
+            If outGameCrawlRadBTN4.Checked = True Then
+                CasparCGDataCollection.SetData("f0", outGameCrawl4.Text)
+            End If
+
+
+
+            CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
+
+            'fading in image
+            CasparDevice.SendString("MIXER 1-104 OPACITY 0")
+            CasparDevice.SendString("play 1-104 LT_crawl_crest")
+            CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
+
+            'fading in image
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
+            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
+
+
+            'CasparDevice.SendString("play 1-102 LT_crawl_crest")
+            CasparDevice.SendString("play 1-103 LTFlare")
+            OutGameCrawlOnBTN.BackColor = Color.Green
+            'disable button
+            OutGameCrawlOnBTN.Enabled = False
+
+            crawlToggle = True
+        End If
+    End Sub
+
+    Private Sub OutGameCrawlUpdateBTN_Click(sender As Object, e As EventArgs) Handles OutGameCrawlUpdateBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            If crawlToggle = True Then
+                CasparCGDataCollection.Clear()
+
+                If outGameCrawlRadBTN1.Checked = True Then
+                    CasparCGDataCollection.SetData("f0", outGameCrawl1.Text)
+                End If
+
+                If outGameCrawlRadBTN2.Checked = True Then
+                    CasparCGDataCollection.SetData("f0", outGameCrawl2.Text)
+                End If
+
+                If outGameCrawlRadBTN3.Checked = True Then
+                    CasparCGDataCollection.SetData("f0", outGameCrawl3.Text)
+                End If
+
+                If outGameCrawlRadBTN4.Checked = True Then
+                    CasparCGDataCollection.SetData("f0", outGameCrawl4.Text)
+                End If
+
+
+
+                CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+                CasparDevice.Channels(0).CG.Play(101)
+                ' CasparDevice.SendString("play 1-100 efcAddedTime")
+                ' CrawlOn.BackColor = Color.Green
+            End If
+        End If
+    End Sub
+
+    Private Sub OutGameCrawlOffBTN_Click(sender As Object, e As EventArgs) Handles OutGameCrawlOffBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.Channels(0).CG.Stop(101)
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
+            countBPS = 0
+            BPlayChanFadeOut.Enabled = True
+            CasparDevice.SendString("STOP 1-102")
+            CasparDevice.SendString("STOP 1-103")
+            CasparDevice.SendString("STOP 1-104")
+            CrawlOn.BackColor = Color.FromKnownColor(KnownColor.Control)
+            CrawlOn.UseVisualStyleBackColor = True
+            crawlToggle = False
+
+            're-enable button
+            OutGameCrawlOnBTN.Enabled = True
+            OutGameCrawlOnBTN.UseVisualStyleBackColor = True
+        End If
+    End Sub
 End Class
