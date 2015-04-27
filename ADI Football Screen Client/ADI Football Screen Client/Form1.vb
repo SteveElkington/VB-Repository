@@ -339,8 +339,8 @@ Public Class ADIFootball
             If Me.SubOff.SelectedIndex >= 0 Then
                 'CasparDevice.Channels(0).CG.Stop(2)
                 CasparCGDataCollection.Clear() 'cgData.Clear()
-                CasparCGDataCollection.SetData("f0", SubOn.Text)
-                CasparCGDataCollection.SetData("f1", SubOff.Text)
+                CasparCGDataCollection.SetData("f0", SubOff.Text)
+                CasparCGDataCollection.SetData("f1", SubOn.Text)
 
                 If FullScreenSubsCheck.Checked = True Then
                     CasparDevice.Channels(1).CG.Add(101, "efc_sub_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
@@ -438,14 +438,14 @@ Public Class ADIFootball
             Next i
 
             'fading in image
-            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            CasparDevice.SendString("play 2-100 efcTeamSheet")
-            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            'CasparDevice.SendString("play 2-100 first11")
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
 
             CasparDevice.Channels(1).CG.Add(101, "efc_teamsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
-            CasparDevice.SendString("play 2-102 FIRST_11")
+            CasparDevice.SendString("play 2-102 first11")
 
             ShowTeamSheet.BackColor = Color.Green
             ShowSubsSheet.UseVisualStyleBackColor = True
@@ -475,6 +475,10 @@ Public Class ADIFootball
             're-enable buttons
             ShowTeamSheet.Enabled = True
             ShowSubsSheet.Enabled = True
+            identTeamsBTN.Enabled = True
+            identTeamsBTN.UseVisualStyleBackColor = True
+            homeCrestsBTN.Enabled = True
+            homeCrestsBTN.UseVisualStyleBackColor = True
         End If
     End Sub
 
@@ -491,9 +495,9 @@ Public Class ADIFootball
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-102 SUBS")
             'fade in
-            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            CasparDevice.SendString("play 2-100 efcTeamSubs")
-            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            'CasparDevice.SendString("play 2-100 efcTeamSubs")
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
             ShowSubsSheet.BackColor = Color.Green
             ShowTeamSheet.UseVisualStyleBackColor = True
             'disable button so cant be pressed again
@@ -1316,11 +1320,11 @@ Public Class ADIFootball
             Next i
             CasparDevice.Channels(1).CG.Add(101, "efc_teamsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
-            CasparDevice.SendString("play 2-102 FIRST_11")
+            CasparDevice.SendString("play 2-102 first11")
             'fading in image
-            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            CasparDevice.SendString("play 2-100 awayEFCTeamSheet")
-            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            'CasparDevice.SendString("play 2-100 first11")
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
             ShowAwayFirstEleven.BackColor = Color.Green
             ShowAwaySubsSheet.UseVisualStyleBackColor = True
@@ -1344,9 +1348,9 @@ Public Class ADIFootball
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-102 SUBS")
             'fading in image
-            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            CasparDevice.SendString("play 2-100 awayTeamSubs")
-            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
+            'CasparDevice.SendString("play 2-100 awayTeamSubs")
+            'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
             ShowAwaySubsSheet.BackColor = Color.Green
             ShowAwayFirstEleven.UseVisualStyleBackColor = True
@@ -1373,6 +1377,10 @@ Public Class ADIFootball
             ShowAwaySubsSheet.Enabled = True
             ShowTeamSheet.Enabled = True
             ShowSubsSheet.Enabled = True
+            identTeamsBTN.Enabled = True
+            identTeamsBTN.UseVisualStyleBackColor = True
+            awayCrestBTN.Enabled = True
+            awayCrestBTN.UseVisualStyleBackColor = True
         End If
     End Sub
 
@@ -1381,8 +1389,8 @@ Public Class ADIFootball
             If Me.aw_subOff.SelectedIndex >= 0 Then
                 'CasparDevice.Channels(0).CG.Stop(2)
                 CasparCGDataCollection.Clear() 'cgData.Clear()
-                CasparCGDataCollection.SetData("f0", aw_subOn.Text)
-                CasparCGDataCollection.SetData("f1", aw_subOff.Text)
+                CasparCGDataCollection.SetData("f0", aw_subOff.Text)
+                CasparCGDataCollection.SetData("f1", aw_subOn.Text)
                 If FullScreenSubsCheck.Checked = True Then
                     CasparDevice.Channels(1).CG.Add(101, "efc_sub_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(1).CG.Play(101)
@@ -5452,6 +5460,16 @@ Public Class ADIFootball
             're-enable button
             OutGameCrawlOnBTN.Enabled = True
             OutGameCrawlOnBTN.UseVisualStyleBackColor = True
+        End If
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
+        If Me.CasparDevice.IsConnected = True Then
+
+            CasparCGDataCollection.Clear()
+            CasparDevice.Channels(1).CG.Add(101, "http://www.amazon.co.uk/", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+
         End If
     End Sub
 End Class

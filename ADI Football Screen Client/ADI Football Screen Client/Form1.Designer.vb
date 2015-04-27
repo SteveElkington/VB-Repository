@@ -40,6 +40,10 @@ Partial Class ADIFootball
         Me.min = New System.Windows.Forms.Label()
         Me.clockAnimation = New System.Windows.Forms.Timer(Me.components)
         Me.Crawl = New System.Windows.Forms.GroupBox()
+        Me.Label85 = New System.Windows.Forms.Label()
+        Me.Label84 = New System.Windows.Forms.Label()
+        Me.Label82 = New System.Windows.Forms.Label()
+        Me.Label80 = New System.Windows.Forms.Label()
         Me.UpdateTextButton = New System.Windows.Forms.Button()
         Me.RadioButton4 = New System.Windows.Forms.RadioButton()
         Me.RadioButton3 = New System.Windows.Forms.RadioButton()
@@ -159,6 +163,25 @@ Partial Class ADIFootball
         Me.FullAwaySquad = New System.Windows.Forms.ListBox()
         Me.FullHomeSquad = New System.Windows.Forms.ListBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.Label86 = New System.Windows.Forms.Label()
+        Me.Label87 = New System.Windows.Forms.Label()
+        Me.Label88 = New System.Windows.Forms.Label()
+        Me.Label89 = New System.Windows.Forms.Label()
+        Me.OutGameCrawlUpdateBTN = New System.Windows.Forms.Button()
+        Me.outGameCrawlRadBTN4 = New System.Windows.Forms.RadioButton()
+        Me.outGameCrawlRadBTN3 = New System.Windows.Forms.RadioButton()
+        Me.outGameCrawlRadBTN2 = New System.Windows.Forms.RadioButton()
+        Me.outGameCrawlRadBTN1 = New System.Windows.Forms.RadioButton()
+        Me.outGameCrawl4 = New System.Windows.Forms.TextBox()
+        Me.outGameCrawl3 = New System.Windows.Forms.TextBox()
+        Me.outGameCrawl2 = New System.Windows.Forms.TextBox()
+        Me.OutGameCrawlOffBTN = New System.Windows.Forms.Button()
+        Me.OutGameCrawlOnBTN = New System.Windows.Forms.Button()
+        Me.outGameCrawl1 = New System.Windows.Forms.TextBox()
+        Me.awayCrestBTN = New System.Windows.Forms.Button()
+        Me.homeCrestsBTN = New System.Windows.Forms.Button()
+        Me.identTeamsBTN = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.AwayTeamLabel = New System.Windows.Forms.Label()
         Me.HomeTeamLabel = New System.Windows.Forms.Label()
@@ -557,35 +580,13 @@ Partial Class ADIFootball
         Me.ClearGFXOnlyBTN = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.playlistStop = New System.Windows.Forms.Timer(Me.components)
-        Me.identTeamsBTN = New System.Windows.Forms.Button()
-        Me.homeCrestsBTN = New System.Windows.Forms.Button()
-        Me.awayCrestBTN = New System.Windows.Forms.Button()
         Me.updateScore = New System.Windows.Forms.Button()
-        Me.Label80 = New System.Windows.Forms.Label()
-        Me.Label82 = New System.Windows.Forms.Label()
-        Me.Label84 = New System.Windows.Forms.Label()
-        Me.Label85 = New System.Windows.Forms.Label()
-        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
-        Me.Label86 = New System.Windows.Forms.Label()
-        Me.Label87 = New System.Windows.Forms.Label()
-        Me.Label88 = New System.Windows.Forms.Label()
-        Me.Label89 = New System.Windows.Forms.Label()
-        Me.OutGameCrawlUpdateBTN = New System.Windows.Forms.Button()
-        Me.outGameCrawlRadBTN4 = New System.Windows.Forms.RadioButton()
-        Me.outGameCrawlRadBTN3 = New System.Windows.Forms.RadioButton()
-        Me.outGameCrawlRadBTN2 = New System.Windows.Forms.RadioButton()
-        Me.outGameCrawlRadBTN1 = New System.Windows.Forms.RadioButton()
-        Me.outGameCrawl4 = New System.Windows.Forms.TextBox()
-        Me.outGameCrawl3 = New System.Windows.Forms.TextBox()
-        Me.outGameCrawl2 = New System.Windows.Forms.TextBox()
-        Me.OutGameCrawlOffBTN = New System.Windows.Forms.Button()
-        Me.OutGameCrawlOnBTN = New System.Windows.Forms.Button()
-        Me.outGameCrawl1 = New System.Windows.Forms.TextBox()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage6.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -603,7 +604,6 @@ Partial Class ADIFootball
         Me.TabPage7.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox10.SuspendLayout()
         Me.SuspendLayout()
         '
         'Connect
@@ -762,6 +762,42 @@ Partial Class ADIFootball
         Me.Crawl.TabIndex = 16
         Me.Crawl.TabStop = False
         Me.Crawl.Text = "Crawl"
+        '
+        'Label85
+        '
+        Me.Label85.AutoSize = True
+        Me.Label85.Location = New System.Drawing.Point(3, 100)
+        Me.Label85.Name = "Label85"
+        Me.Label85.Size = New System.Drawing.Size(13, 13)
+        Me.Label85.TabIndex = 122
+        Me.Label85.Text = "4"
+        '
+        'Label84
+        '
+        Me.Label84.AutoSize = True
+        Me.Label84.Location = New System.Drawing.Point(3, 74)
+        Me.Label84.Name = "Label84"
+        Me.Label84.Size = New System.Drawing.Size(13, 13)
+        Me.Label84.TabIndex = 121
+        Me.Label84.Text = "3"
+        '
+        'Label82
+        '
+        Me.Label82.AutoSize = True
+        Me.Label82.Location = New System.Drawing.Point(3, 48)
+        Me.Label82.Name = "Label82"
+        Me.Label82.Size = New System.Drawing.Size(13, 13)
+        Me.Label82.TabIndex = 120
+        Me.Label82.Text = "2"
+        '
+        'Label80
+        '
+        Me.Label80.AutoSize = True
+        Me.Label80.Location = New System.Drawing.Point(3, 22)
+        Me.Label80.Name = "Label80"
+        Me.Label80.Size = New System.Drawing.Size(13, 13)
+        Me.Label80.TabIndex = 119
+        Me.Label80.Text = "1"
         '
         'UpdateTextButton
         '
@@ -1790,6 +1826,190 @@ Partial Class ADIFootball
         Me.TabPage1.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Out of Game"
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.Label86)
+        Me.GroupBox10.Controls.Add(Me.Label87)
+        Me.GroupBox10.Controls.Add(Me.Label88)
+        Me.GroupBox10.Controls.Add(Me.Label89)
+        Me.GroupBox10.Controls.Add(Me.OutGameCrawlUpdateBTN)
+        Me.GroupBox10.Controls.Add(Me.outGameCrawlRadBTN4)
+        Me.GroupBox10.Controls.Add(Me.outGameCrawlRadBTN3)
+        Me.GroupBox10.Controls.Add(Me.outGameCrawlRadBTN2)
+        Me.GroupBox10.Controls.Add(Me.outGameCrawlRadBTN1)
+        Me.GroupBox10.Controls.Add(Me.outGameCrawl4)
+        Me.GroupBox10.Controls.Add(Me.outGameCrawl3)
+        Me.GroupBox10.Controls.Add(Me.outGameCrawl2)
+        Me.GroupBox10.Controls.Add(Me.OutGameCrawlOffBTN)
+        Me.GroupBox10.Controls.Add(Me.OutGameCrawlOnBTN)
+        Me.GroupBox10.Controls.Add(Me.outGameCrawl1)
+        Me.GroupBox10.Location = New System.Drawing.Point(472, 71)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(369, 171)
+        Me.GroupBox10.TabIndex = 124
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Crawl"
+        '
+        'Label86
+        '
+        Me.Label86.AutoSize = True
+        Me.Label86.Location = New System.Drawing.Point(3, 100)
+        Me.Label86.Name = "Label86"
+        Me.Label86.Size = New System.Drawing.Size(13, 13)
+        Me.Label86.TabIndex = 122
+        Me.Label86.Text = "4"
+        '
+        'Label87
+        '
+        Me.Label87.AutoSize = True
+        Me.Label87.Location = New System.Drawing.Point(3, 74)
+        Me.Label87.Name = "Label87"
+        Me.Label87.Size = New System.Drawing.Size(13, 13)
+        Me.Label87.TabIndex = 121
+        Me.Label87.Text = "3"
+        '
+        'Label88
+        '
+        Me.Label88.AutoSize = True
+        Me.Label88.Location = New System.Drawing.Point(3, 48)
+        Me.Label88.Name = "Label88"
+        Me.Label88.Size = New System.Drawing.Size(13, 13)
+        Me.Label88.TabIndex = 120
+        Me.Label88.Text = "2"
+        '
+        'Label89
+        '
+        Me.Label89.AutoSize = True
+        Me.Label89.Location = New System.Drawing.Point(3, 22)
+        Me.Label89.Name = "Label89"
+        Me.Label89.Size = New System.Drawing.Size(13, 13)
+        Me.Label89.TabIndex = 119
+        Me.Label89.Text = "1"
+        '
+        'OutGameCrawlUpdateBTN
+        '
+        Me.OutGameCrawlUpdateBTN.Location = New System.Drawing.Point(87, 140)
+        Me.OutGameCrawlUpdateBTN.Name = "OutGameCrawlUpdateBTN"
+        Me.OutGameCrawlUpdateBTN.Size = New System.Drawing.Size(100, 23)
+        Me.OutGameCrawlUpdateBTN.TabIndex = 9
+        Me.OutGameCrawlUpdateBTN.Text = "Update Text (TX)"
+        Me.OutGameCrawlUpdateBTN.UseVisualStyleBackColor = True
+        '
+        'outGameCrawlRadBTN4
+        '
+        Me.outGameCrawlRadBTN4.AutoSize = True
+        Me.outGameCrawlRadBTN4.Location = New System.Drawing.Point(342, 100)
+        Me.outGameCrawlRadBTN4.Name = "outGameCrawlRadBTN4"
+        Me.outGameCrawlRadBTN4.Size = New System.Drawing.Size(14, 13)
+        Me.outGameCrawlRadBTN4.TabIndex = 7
+        Me.outGameCrawlRadBTN4.UseVisualStyleBackColor = True
+        '
+        'outGameCrawlRadBTN3
+        '
+        Me.outGameCrawlRadBTN3.AutoSize = True
+        Me.outGameCrawlRadBTN3.Location = New System.Drawing.Point(342, 74)
+        Me.outGameCrawlRadBTN3.Name = "outGameCrawlRadBTN3"
+        Me.outGameCrawlRadBTN3.Size = New System.Drawing.Size(14, 13)
+        Me.outGameCrawlRadBTN3.TabIndex = 5
+        Me.outGameCrawlRadBTN3.UseVisualStyleBackColor = True
+        '
+        'outGameCrawlRadBTN2
+        '
+        Me.outGameCrawlRadBTN2.AutoSize = True
+        Me.outGameCrawlRadBTN2.Location = New System.Drawing.Point(342, 48)
+        Me.outGameCrawlRadBTN2.Name = "outGameCrawlRadBTN2"
+        Me.outGameCrawlRadBTN2.Size = New System.Drawing.Size(14, 13)
+        Me.outGameCrawlRadBTN2.TabIndex = 3
+        Me.outGameCrawlRadBTN2.UseVisualStyleBackColor = True
+        '
+        'outGameCrawlRadBTN1
+        '
+        Me.outGameCrawlRadBTN1.AutoSize = True
+        Me.outGameCrawlRadBTN1.Checked = True
+        Me.outGameCrawlRadBTN1.Location = New System.Drawing.Point(342, 22)
+        Me.outGameCrawlRadBTN1.Name = "outGameCrawlRadBTN1"
+        Me.outGameCrawlRadBTN1.Size = New System.Drawing.Size(14, 13)
+        Me.outGameCrawlRadBTN1.TabIndex = 1
+        Me.outGameCrawlRadBTN1.TabStop = True
+        Me.outGameCrawlRadBTN1.UseVisualStyleBackColor = True
+        '
+        'outGameCrawl4
+        '
+        Me.outGameCrawl4.Location = New System.Drawing.Point(22, 97)
+        Me.outGameCrawl4.Name = "outGameCrawl4"
+        Me.outGameCrawl4.Size = New System.Drawing.Size(314, 20)
+        Me.outGameCrawl4.TabIndex = 6
+        Me.outGameCrawl4.Text = "Crawl Text Goes Here"
+        '
+        'outGameCrawl3
+        '
+        Me.outGameCrawl3.Location = New System.Drawing.Point(22, 71)
+        Me.outGameCrawl3.Name = "outGameCrawl3"
+        Me.outGameCrawl3.Size = New System.Drawing.Size(314, 20)
+        Me.outGameCrawl3.TabIndex = 4
+        Me.outGameCrawl3.Text = "Crawl Text Goes Here"
+        '
+        'outGameCrawl2
+        '
+        Me.outGameCrawl2.Location = New System.Drawing.Point(22, 45)
+        Me.outGameCrawl2.Name = "outGameCrawl2"
+        Me.outGameCrawl2.Size = New System.Drawing.Size(314, 20)
+        Me.outGameCrawl2.TabIndex = 2
+        Me.outGameCrawl2.Text = "Crawl Text Goes Here"
+        '
+        'OutGameCrawlOffBTN
+        '
+        Me.OutGameCrawlOffBTN.Location = New System.Drawing.Point(274, 140)
+        Me.OutGameCrawlOffBTN.Name = "OutGameCrawlOffBTN"
+        Me.OutGameCrawlOffBTN.Size = New System.Drawing.Size(75, 23)
+        Me.OutGameCrawlOffBTN.TabIndex = 10
+        Me.OutGameCrawlOffBTN.Text = "Crawl Off"
+        Me.OutGameCrawlOffBTN.UseVisualStyleBackColor = True
+        '
+        'OutGameCrawlOnBTN
+        '
+        Me.OutGameCrawlOnBTN.Location = New System.Drawing.Point(6, 140)
+        Me.OutGameCrawlOnBTN.Name = "OutGameCrawlOnBTN"
+        Me.OutGameCrawlOnBTN.Size = New System.Drawing.Size(75, 23)
+        Me.OutGameCrawlOnBTN.TabIndex = 8
+        Me.OutGameCrawlOnBTN.Text = "Crawl On"
+        Me.OutGameCrawlOnBTN.UseVisualStyleBackColor = True
+        '
+        'outGameCrawl1
+        '
+        Me.outGameCrawl1.Location = New System.Drawing.Point(22, 19)
+        Me.outGameCrawl1.Name = "outGameCrawl1"
+        Me.outGameCrawl1.Size = New System.Drawing.Size(314, 20)
+        Me.outGameCrawl1.TabIndex = 0
+        Me.outGameCrawl1.Text = "Crawl Text Goes Here"
+        '
+        'awayCrestBTN
+        '
+        Me.awayCrestBTN.Location = New System.Drawing.Point(246, 427)
+        Me.awayCrestBTN.Name = "awayCrestBTN"
+        Me.awayCrestBTN.Size = New System.Drawing.Size(220, 23)
+        Me.awayCrestBTN.TabIndex = 123
+        Me.awayCrestBTN.Text = "Away Crest"
+        Me.awayCrestBTN.UseVisualStyleBackColor = True
+        '
+        'homeCrestsBTN
+        '
+        Me.homeCrestsBTN.Location = New System.Drawing.Point(16, 427)
+        Me.homeCrestsBTN.Name = "homeCrestsBTN"
+        Me.homeCrestsBTN.Size = New System.Drawing.Size(210, 23)
+        Me.homeCrestsBTN.TabIndex = 122
+        Me.homeCrestsBTN.Text = "Home Crest"
+        Me.homeCrestsBTN.UseVisualStyleBackColor = True
+        '
+        'identTeamsBTN
+        '
+        Me.identTeamsBTN.Location = New System.Drawing.Point(16, 393)
+        Me.identTeamsBTN.Name = "identTeamsBTN"
+        Me.identTeamsBTN.Size = New System.Drawing.Size(450, 28)
+        Me.identTeamsBTN.TabIndex = 121
+        Me.identTeamsBTN.Text = "Ident Teams"
+        Me.identTeamsBTN.UseVisualStyleBackColor = True
         '
         'Panel3
         '
@@ -5593,33 +5813,6 @@ Partial Class ADIFootball
         'playlistStop
         '
         '
-        'identTeamsBTN
-        '
-        Me.identTeamsBTN.Location = New System.Drawing.Point(16, 393)
-        Me.identTeamsBTN.Name = "identTeamsBTN"
-        Me.identTeamsBTN.Size = New System.Drawing.Size(450, 28)
-        Me.identTeamsBTN.TabIndex = 121
-        Me.identTeamsBTN.Text = "Ident Teams"
-        Me.identTeamsBTN.UseVisualStyleBackColor = True
-        '
-        'homeCrestsBTN
-        '
-        Me.homeCrestsBTN.Location = New System.Drawing.Point(16, 427)
-        Me.homeCrestsBTN.Name = "homeCrestsBTN"
-        Me.homeCrestsBTN.Size = New System.Drawing.Size(210, 23)
-        Me.homeCrestsBTN.TabIndex = 122
-        Me.homeCrestsBTN.Text = "Home Crest"
-        Me.homeCrestsBTN.UseVisualStyleBackColor = True
-        '
-        'awayCrestBTN
-        '
-        Me.awayCrestBTN.Location = New System.Drawing.Point(246, 427)
-        Me.awayCrestBTN.Name = "awayCrestBTN"
-        Me.awayCrestBTN.Size = New System.Drawing.Size(220, 23)
-        Me.awayCrestBTN.TabIndex = 123
-        Me.awayCrestBTN.Text = "Away Crest"
-        Me.awayCrestBTN.UseVisualStyleBackColor = True
-        '
         'updateScore
         '
         Me.updateScore.Location = New System.Drawing.Point(649, 65)
@@ -5628,199 +5821,6 @@ Partial Class ADIFootball
         Me.updateScore.TabIndex = 9
         Me.updateScore.Text = "UPDATE"
         Me.updateScore.UseVisualStyleBackColor = True
-        '
-        'Label80
-        '
-        Me.Label80.AutoSize = True
-        Me.Label80.Location = New System.Drawing.Point(3, 22)
-        Me.Label80.Name = "Label80"
-        Me.Label80.Size = New System.Drawing.Size(13, 13)
-        Me.Label80.TabIndex = 119
-        Me.Label80.Text = "1"
-        '
-        'Label82
-        '
-        Me.Label82.AutoSize = True
-        Me.Label82.Location = New System.Drawing.Point(3, 48)
-        Me.Label82.Name = "Label82"
-        Me.Label82.Size = New System.Drawing.Size(13, 13)
-        Me.Label82.TabIndex = 120
-        Me.Label82.Text = "2"
-        '
-        'Label84
-        '
-        Me.Label84.AutoSize = True
-        Me.Label84.Location = New System.Drawing.Point(3, 74)
-        Me.Label84.Name = "Label84"
-        Me.Label84.Size = New System.Drawing.Size(13, 13)
-        Me.Label84.TabIndex = 121
-        Me.Label84.Text = "3"
-        '
-        'Label85
-        '
-        Me.Label85.AutoSize = True
-        Me.Label85.Location = New System.Drawing.Point(3, 100)
-        Me.Label85.Name = "Label85"
-        Me.Label85.Size = New System.Drawing.Size(13, 13)
-        Me.Label85.TabIndex = 122
-        Me.Label85.Text = "4"
-        '
-        'GroupBox10
-        '
-        Me.GroupBox10.Controls.Add(Me.Label86)
-        Me.GroupBox10.Controls.Add(Me.Label87)
-        Me.GroupBox10.Controls.Add(Me.Label88)
-        Me.GroupBox10.Controls.Add(Me.Label89)
-        Me.GroupBox10.Controls.Add(Me.OutGameCrawlUpdateBTN)
-        Me.GroupBox10.Controls.Add(Me.outGameCrawlRadBTN4)
-        Me.GroupBox10.Controls.Add(Me.outGameCrawlRadBTN3)
-        Me.GroupBox10.Controls.Add(Me.outGameCrawlRadBTN2)
-        Me.GroupBox10.Controls.Add(Me.outGameCrawlRadBTN1)
-        Me.GroupBox10.Controls.Add(Me.outGameCrawl4)
-        Me.GroupBox10.Controls.Add(Me.outGameCrawl3)
-        Me.GroupBox10.Controls.Add(Me.outGameCrawl2)
-        Me.GroupBox10.Controls.Add(Me.OutGameCrawlOffBTN)
-        Me.GroupBox10.Controls.Add(Me.OutGameCrawlOnBTN)
-        Me.GroupBox10.Controls.Add(Me.outGameCrawl1)
-        Me.GroupBox10.Location = New System.Drawing.Point(472, 71)
-        Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(369, 171)
-        Me.GroupBox10.TabIndex = 124
-        Me.GroupBox10.TabStop = False
-        Me.GroupBox10.Text = "Crawl"
-        '
-        'Label86
-        '
-        Me.Label86.AutoSize = True
-        Me.Label86.Location = New System.Drawing.Point(3, 100)
-        Me.Label86.Name = "Label86"
-        Me.Label86.Size = New System.Drawing.Size(13, 13)
-        Me.Label86.TabIndex = 122
-        Me.Label86.Text = "4"
-        '
-        'Label87
-        '
-        Me.Label87.AutoSize = True
-        Me.Label87.Location = New System.Drawing.Point(3, 74)
-        Me.Label87.Name = "Label87"
-        Me.Label87.Size = New System.Drawing.Size(13, 13)
-        Me.Label87.TabIndex = 121
-        Me.Label87.Text = "3"
-        '
-        'Label88
-        '
-        Me.Label88.AutoSize = True
-        Me.Label88.Location = New System.Drawing.Point(3, 48)
-        Me.Label88.Name = "Label88"
-        Me.Label88.Size = New System.Drawing.Size(13, 13)
-        Me.Label88.TabIndex = 120
-        Me.Label88.Text = "2"
-        '
-        'Label89
-        '
-        Me.Label89.AutoSize = True
-        Me.Label89.Location = New System.Drawing.Point(3, 22)
-        Me.Label89.Name = "Label89"
-        Me.Label89.Size = New System.Drawing.Size(13, 13)
-        Me.Label89.TabIndex = 119
-        Me.Label89.Text = "1"
-        '
-        'OutGameCrawlUpdateBTN
-        '
-        Me.OutGameCrawlUpdateBTN.Location = New System.Drawing.Point(87, 140)
-        Me.OutGameCrawlUpdateBTN.Name = "OutGameCrawlUpdateBTN"
-        Me.OutGameCrawlUpdateBTN.Size = New System.Drawing.Size(100, 23)
-        Me.OutGameCrawlUpdateBTN.TabIndex = 9
-        Me.OutGameCrawlUpdateBTN.Text = "Update Text (TX)"
-        Me.OutGameCrawlUpdateBTN.UseVisualStyleBackColor = True
-        '
-        'outGameCrawlRadBTN4
-        '
-        Me.outGameCrawlRadBTN4.AutoSize = True
-        Me.outGameCrawlRadBTN4.Location = New System.Drawing.Point(342, 100)
-        Me.outGameCrawlRadBTN4.Name = "outGameCrawlRadBTN4"
-        Me.outGameCrawlRadBTN4.Size = New System.Drawing.Size(14, 13)
-        Me.outGameCrawlRadBTN4.TabIndex = 7
-        Me.outGameCrawlRadBTN4.UseVisualStyleBackColor = True
-        '
-        'outGameCrawlRadBTN3
-        '
-        Me.outGameCrawlRadBTN3.AutoSize = True
-        Me.outGameCrawlRadBTN3.Location = New System.Drawing.Point(342, 74)
-        Me.outGameCrawlRadBTN3.Name = "outGameCrawlRadBTN3"
-        Me.outGameCrawlRadBTN3.Size = New System.Drawing.Size(14, 13)
-        Me.outGameCrawlRadBTN3.TabIndex = 5
-        Me.outGameCrawlRadBTN3.UseVisualStyleBackColor = True
-        '
-        'outGameCrawlRadBTN2
-        '
-        Me.outGameCrawlRadBTN2.AutoSize = True
-        Me.outGameCrawlRadBTN2.Location = New System.Drawing.Point(342, 48)
-        Me.outGameCrawlRadBTN2.Name = "outGameCrawlRadBTN2"
-        Me.outGameCrawlRadBTN2.Size = New System.Drawing.Size(14, 13)
-        Me.outGameCrawlRadBTN2.TabIndex = 3
-        Me.outGameCrawlRadBTN2.UseVisualStyleBackColor = True
-        '
-        'outGameCrawlRadBTN1
-        '
-        Me.outGameCrawlRadBTN1.AutoSize = True
-        Me.outGameCrawlRadBTN1.Checked = True
-        Me.outGameCrawlRadBTN1.Location = New System.Drawing.Point(342, 22)
-        Me.outGameCrawlRadBTN1.Name = "outGameCrawlRadBTN1"
-        Me.outGameCrawlRadBTN1.Size = New System.Drawing.Size(14, 13)
-        Me.outGameCrawlRadBTN1.TabIndex = 1
-        Me.outGameCrawlRadBTN1.TabStop = True
-        Me.outGameCrawlRadBTN1.UseVisualStyleBackColor = True
-        '
-        'outGameCrawl4
-        '
-        Me.outGameCrawl4.Location = New System.Drawing.Point(22, 97)
-        Me.outGameCrawl4.Name = "outGameCrawl4"
-        Me.outGameCrawl4.Size = New System.Drawing.Size(314, 20)
-        Me.outGameCrawl4.TabIndex = 6
-        Me.outGameCrawl4.Text = "Crawl Text Goes Here"
-        '
-        'outGameCrawl3
-        '
-        Me.outGameCrawl3.Location = New System.Drawing.Point(22, 71)
-        Me.outGameCrawl3.Name = "outGameCrawl3"
-        Me.outGameCrawl3.Size = New System.Drawing.Size(314, 20)
-        Me.outGameCrawl3.TabIndex = 4
-        Me.outGameCrawl3.Text = "Crawl Text Goes Here"
-        '
-        'outGameCrawl2
-        '
-        Me.outGameCrawl2.Location = New System.Drawing.Point(22, 45)
-        Me.outGameCrawl2.Name = "outGameCrawl2"
-        Me.outGameCrawl2.Size = New System.Drawing.Size(314, 20)
-        Me.outGameCrawl2.TabIndex = 2
-        Me.outGameCrawl2.Text = "Crawl Text Goes Here"
-        '
-        'OutGameCrawlOffBTN
-        '
-        Me.OutGameCrawlOffBTN.Location = New System.Drawing.Point(274, 140)
-        Me.OutGameCrawlOffBTN.Name = "OutGameCrawlOffBTN"
-        Me.OutGameCrawlOffBTN.Size = New System.Drawing.Size(75, 23)
-        Me.OutGameCrawlOffBTN.TabIndex = 10
-        Me.OutGameCrawlOffBTN.Text = "Crawl Off"
-        Me.OutGameCrawlOffBTN.UseVisualStyleBackColor = True
-        '
-        'OutGameCrawlOnBTN
-        '
-        Me.OutGameCrawlOnBTN.Location = New System.Drawing.Point(6, 140)
-        Me.OutGameCrawlOnBTN.Name = "OutGameCrawlOnBTN"
-        Me.OutGameCrawlOnBTN.Size = New System.Drawing.Size(75, 23)
-        Me.OutGameCrawlOnBTN.TabIndex = 8
-        Me.OutGameCrawlOnBTN.Text = "Crawl On"
-        Me.OutGameCrawlOnBTN.UseVisualStyleBackColor = True
-        '
-        'outGameCrawl1
-        '
-        Me.outGameCrawl1.Location = New System.Drawing.Point(22, 19)
-        Me.outGameCrawl1.Name = "outGameCrawl1"
-        Me.outGameCrawl1.Size = New System.Drawing.Size(314, 20)
-        Me.outGameCrawl1.TabIndex = 0
-        Me.outGameCrawl1.Text = "Crawl Text Goes Here"
         '
         'ADIFootball
         '
@@ -5857,6 +5857,8 @@ Partial Class ADIFootball
         Me.TabPage6.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.TabPage2.ResumeLayout(False)
@@ -5885,8 +5887,6 @@ Partial Class ADIFootball
         Me.TabPage7.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox10.ResumeLayout(False)
-        Me.GroupBox10.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
