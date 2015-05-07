@@ -52,7 +52,9 @@ Public Class ADIFootball
         count = count + 1
         If count >= 10 Then
             CasparDevice.SendString("stop 2-100")
+            CasparDevice.SendString("stop 2-102")
             CasparDevice.SendString("MIXER 2-100 OPACITY 1 0 linear")
+            CasparDevice.SendString("MIXER 2-102 OPACITY 1 0 linear")
             countTimer.Enabled = False
             count = 0
         End If
@@ -470,7 +472,7 @@ Public Class ADIFootball
             ShowSubsSheet.UseVisualStyleBackColor = True
 
             CasparDevice.Channels(1).CG.Stop(101)
-            CasparDevice.SendString("stop 2-102")
+            CasparDevice.SendString("MIXER 2-102 OPACITY 0 24 linear")
             'CasparDevice.SendString("stop 2-100")
             're-enable buttons
             ShowTeamSheet.Enabled = True
@@ -2819,16 +2821,18 @@ Public Class ADIFootball
     End Sub
 
     Private Sub showAddedTimeBTN_Click(sender As Object, e As EventArgs) Handles showAddedTimeBTN.Click
-        CasparCGDataCollection.SetData("f0", addedTimeVals.Text)
-        ' showing
-        CasparDevice.Channels(0).CG.Add(391, "efc_addedTime_temp_BUG", True, CasparCGDataCollection.ToAMCPEscapedXml)
-        CasparDevice.Channels(0).CG.Play(391)
-        CasparDevice.SendString("play 1-390 EFC_CLOCK_ADDEDTIME_PLINTH")
-        ' prewviewin
-        'CasparDevice.Channels(1).CG.Add(391, "efc_addedTime_temp_BUG", True, CasparCGDataCollection.ToAMCPEscapedXml)
-        'CasparDevice.Channels(1).CG.Play(391)
-        ' CasparDevice.SendString("play 2-390 EFC_CLOCK_ADDEDTIME_PLINTH")
-        showAddedTimeBTN.BackColor = Color.Green
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.SetData("f0", addedTimeVals.Text)
+            ' showing
+            CasparDevice.Channels(0).CG.Add(391, "efc_addedTime_temp_BUG", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(391)
+            CasparDevice.SendString("play 1-390 EFC_CLOCK_ADDEDTIME_PLINTH")
+            ' prewviewin
+            'CasparDevice.Channels(1).CG.Add(391, "efc_addedTime_temp_BUG", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            'CasparDevice.Channels(1).CG.Play(391)
+            ' CasparDevice.SendString("play 2-390 EFC_CLOCK_ADDEDTIME_PLINTH")
+            showAddedTimeBTN.BackColor = Color.Green
+        End If
     End Sub
 
     Private Sub hideAddedTimeButton_Click(sender As Object, e As EventArgs) Handles hideAddedTimeButton.Click
