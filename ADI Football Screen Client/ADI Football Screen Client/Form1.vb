@@ -5047,7 +5047,7 @@ Public Class ADIFootball
             If sscoresT1Left.Checked = True Then
                 ' set latest scores text
                 If tab1Logo1Select.Text = "Premier League" Then
-                    latestScoresTitle1 = "PREMIERSHIP"
+                    latestScoresTitle1 = "PREMIER LEAGUE"
                 End If
                 If tab1Logo1Select.Text = "Championship" Then
                     latestScoresTitle1 = "CHAMPIONSHIP"
@@ -5097,7 +5097,7 @@ Public Class ADIFootball
             If sscoresT1Right.Checked = True Then
                 ' set latest scores text
                 If tab1Logo2Select.Text = "Premier League" Then
-                    latestScoresTitle2 = "PREMIERSHIP"
+                    latestScoresTitle2 = "PREMIER LEAGUE"
                 End If
                 If tab1Logo2Select.Text = "Championship" Then
                     latestScoresTitle2 = "CHAMPIONSHIP"
@@ -5146,7 +5146,7 @@ Public Class ADIFootball
             If sscoresT2Left.Checked = True Then
                 ' set latest scores text
                 If tab2Logo1Select.Text = "Premier League" Then
-                    latestScoresTitle3 = "PREMIERSHIP"
+                    latestScoresTitle3 = "PREMIER LEAGUE"
                 End If
                 If tab2Logo1Select.Text = "Championship" Then
                     latestScoresTitle3 = "CHAMPIONSHIP"
@@ -5196,7 +5196,7 @@ Public Class ADIFootball
             If sscoresT2Right.Checked = True Then
                 ' set latest scores text
                 If tab2Logo2Select.Text = "Premier League" Then
-                    latestScoresTitle4 = "PREMIERSHIP"
+                    latestScoresTitle4 = "PREMIER LEAGUE"
                 End If
                 If tab2Logo2Select.Text = "Championship" Then
                     latestScoresTitle4 = "CHAMPIONSHIP"
@@ -5474,6 +5474,468 @@ Public Class ADIFootball
             CasparDevice.Channels(1).CG.Add(101, "http://www.amazon.co.uk/", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
 
+        End If
+    End Sub
+
+    Private Sub saveBTN_Click(sender As Object, e As EventArgs) Handles saveBTN.Click
+        Dim myStream As Stream
+        Dim saveFileDialog1 As New SaveFileDialog()
+
+        saveFileDialog1.Filter = "E.L.K. files (*.elk)|*.elk"
+        saveFileDialog1.FilterIndex = 2
+        saveFileDialog1.RestoreDirectory = True
+
+        If saveFileDialog1.ShowDialog() = DialogResult.OK Then
+            myStream = saveFileDialog1.OpenFile()
+            If (myStream IsNot Nothing) Then
+                ' insert code to write to file here, could be anythingbut this is seperate lines to a text file
+                Using sw As StreamWriter = New StreamWriter(myStream)
+                    ' top of scree
+                    sw.WriteLine(homeThreeLetters.Text)
+                    sw.WriteLine(HomeScore.Text)
+                    sw.WriteLine(AwayScore.Text)
+                    sw.WriteLine(awayThreeLetters.Text)
+                    'stuff onout of game page
+                    sw.WriteLine(outGameCrawl1.Text)
+                    sw.WriteLine(outGameCrawl2.Text)
+                    sw.WriteLine(outGameCrawl3.Text)
+                    sw.WriteLine(outGameCrawl4.Text)
+                    'stuff on scores page
+                    'titles
+                    sw.WriteLine(PremScoresTitle.Text)
+                    sw.WriteLine(tab1Logo1Select.Text)
+                    sw.WriteLine(PremScoresTitle2.Text)
+                    sw.WriteLine(tab1Logo2Select.Text)
+                    'tab 1 team scores and names
+                    sw.WriteLine(Score1.Text)
+                    sw.WriteLine(Score2.Text)
+                    sw.WriteLine(Score3.Text)
+                    sw.WriteLine(Score4.Text)
+                    sw.WriteLine(Score5.Text)
+                    sw.WriteLine(Score6.Text)
+                    sw.WriteLine(Score7.Text)
+                    sw.WriteLine(Score8.Text)
+                    sw.WriteLine(Score9.Text)
+                    sw.WriteLine(Score10.Text)
+                    sw.WriteLine(Score11.Text)
+                    sw.WriteLine(Score12.Text)
+                    sw.WriteLine(Score13.Text)
+                    sw.WriteLine(Score14.Text)
+                    sw.WriteLine(Score15.Text)
+                    sw.WriteLine(Score16.Text)
+                    sw.WriteLine(Score17.Text)
+                    sw.WriteLine(Score18.Text)
+                    sw.WriteLine(Score19.Text)
+                    sw.WriteLine(Score20.Text)
+                    sw.WriteLine(Score21.Text)
+                    sw.WriteLine(Score22.Text)
+                    sw.WriteLine(Score23.Text)
+                    sw.WriteLine(Score24.Text)
+                    sw.WriteLine(Score25.Text)
+                    sw.WriteLine(Score26.Text)
+                    sw.WriteLine(Score27.Text)
+                    sw.WriteLine(Score28.Text)
+                    sw.WriteLine(Score29.Text)
+                    sw.WriteLine(Score30.Text)
+                    sw.WriteLine(Score31.Text)
+                    sw.WriteLine(Score32.Text)
+                    sw.WriteLine(Score33.Text)
+                    sw.WriteLine(Score34.Text)
+                    sw.WriteLine(Score35.Text)
+                    sw.WriteLine(Score36.Text)
+                    sw.WriteLine(Score37.Text)
+                    sw.WriteLine(Score38.Text)
+                    sw.WriteLine(Score39.Text)
+                    sw.WriteLine(Score40.Text)
+                    sw.WriteLine(Score41.Text)
+                    sw.WriteLine(Score42.Text)
+                    sw.WriteLine(Score43.Text)
+                    sw.WriteLine(Score44.Text)
+                    sw.WriteLine(Score45.Text)
+                    sw.WriteLine(Score46.Text)
+                    sw.WriteLine(Score47.Text)
+                    sw.WriteLine(Score48.Text)
+                    'tab1 hyphens or colons
+                    sw.WriteLine(middle13.Text)
+                    sw.WriteLine(middle14.Text)
+                    sw.WriteLine(middle15.Text)
+                    sw.WriteLine(middle16.Text)
+                    sw.WriteLine(middle17.Text)
+                    sw.WriteLine(middle18.Text)
+                    sw.WriteLine(middle19.Text)
+                    sw.WriteLine(middle20.Text)
+                    sw.WriteLine(middle21.Text)
+                    sw.WriteLine(middle22.Text)
+                    sw.WriteLine(middle23.Text)
+                    sw.WriteLine(middle24.Text)
+                    'tab 2 titles
+                    sw.WriteLine(ChampScoresTitle.Text)
+                    sw.WriteLine(tab2Logo1Select.Text)
+                    sw.WriteLine(ChampScoresTitle2.Text)
+                    sw.WriteLine(tab2Logo2Select.Text)
+                    'tab 2 team scores and names
+                    sw.WriteLine(ChampScore1.Text)
+                    sw.WriteLine(ChampScore2.Text)
+                    sw.WriteLine(ChampScore3.Text)
+                    sw.WriteLine(ChampScore4.Text)
+                    sw.WriteLine(ChampScore5.Text)
+                    sw.WriteLine(ChampScore6.Text)
+                    sw.WriteLine(ChampScore7.Text)
+                    sw.WriteLine(ChampScore8.Text)
+                    sw.WriteLine(ChampScore9.Text)
+                    sw.WriteLine(ChampScore10.Text)
+                    sw.WriteLine(ChampScore11.Text)
+                    sw.WriteLine(ChampScore12.Text)
+                    sw.WriteLine(ChampScore13.Text)
+                    sw.WriteLine(ChampScore14.Text)
+                    sw.WriteLine(ChampScore15.Text)
+                    sw.WriteLine(ChampScore16.Text)
+                    sw.WriteLine(ChampScore17.Text)
+                    sw.WriteLine(ChampScore18.Text)
+                    sw.WriteLine(ChampScore19.Text)
+                    sw.WriteLine(ChampScore20.Text)
+                    sw.WriteLine(ChampScore21.Text)
+                    sw.WriteLine(ChampScore22.Text)
+                    sw.WriteLine(ChampScore23.Text)
+                    sw.WriteLine(ChampScore24.Text)
+                    sw.WriteLine(ChampScore25.Text)
+                    sw.WriteLine(ChampScore26.Text)
+                    sw.WriteLine(ChampScore27.Text)
+                    sw.WriteLine(ChampScore28.Text)
+                    sw.WriteLine(ChampScore29.Text)
+                    sw.WriteLine(ChampScore30.Text)
+                    sw.WriteLine(ChampScore31.Text)
+                    sw.WriteLine(ChampScore32.Text)
+                    sw.WriteLine(ChampScore33.Text)
+                    sw.WriteLine(ChampScore34.Text)
+                    sw.WriteLine(ChampScore35.Text)
+                    sw.WriteLine(ChampScore36.Text)
+                    sw.WriteLine(ChampScore37.Text)
+                    sw.WriteLine(ChampScore38.Text)
+                    sw.WriteLine(ChampScore39.Text)
+                    sw.WriteLine(ChampScore40.Text)
+                    sw.WriteLine(ChampScore41.Text)
+                    sw.WriteLine(ChampScore42.Text)
+                    sw.WriteLine(ChampScore43.Text)
+                    sw.WriteLine(ChampScore44.Text)
+                    sw.WriteLine(ChampScore45.Text)
+                    sw.WriteLine(ChampScore46.Text)
+                    sw.WriteLine(ChampScore47.Text)
+                    sw.WriteLine(ChampScore48.Text)
+                    'tab1 hyphens or colons
+                    sw.WriteLine(middle1.Text)
+                    sw.WriteLine(middle2.Text)
+                    sw.WriteLine(middle3.Text)
+                    sw.WriteLine(middle4.Text)
+                    sw.WriteLine(middle5.Text)
+                    sw.WriteLine(middle6.Text)
+                    sw.WriteLine(middle7.Text)
+                    sw.WriteLine(middle8.Text)
+                    sw.WriteLine(middle9.Text)
+                    sw.WriteLine(middle10.Text)
+                    sw.WriteLine(middle11.Text)
+                    sw.WriteLine(middle12.Text)
+                    'in game tab
+                    sw.WriteLine(LTStrapDate.Text)
+                    sw.WriteLine(LTStrapKO.Text)
+                    sw.WriteLine(CrawlText1.Text)
+                    sw.WriteLine(CrawlText2.Text)
+                    sw.WriteLine(CrawlText3.Text)
+                    sw.WriteLine(CrawlText4.Text)
+                    sw.WriteLine(startClockTime.Text)
+                    sw.WriteLine(stopClockTime.Text)
+                    'generic messages tab
+                    sw.WriteLine(msg1Title.Text)
+                    sw.WriteLine(msg1Line1.Text)
+                    sw.WriteLine(msg1Line2.Text)
+                    sw.WriteLine(msg1Line3.Text)
+                    sw.WriteLine(msg1Line4.Text)
+                    sw.WriteLine(backgrounds1.Text)
+
+                    sw.WriteLine(msg2Title.Text)
+                    sw.WriteLine(msg2Line1.Text)
+                    sw.WriteLine(msg2Line2.Text)
+                    sw.WriteLine(msg2Line3.Text)
+                    sw.WriteLine(msg2Line4.Text)
+                    sw.WriteLine(backgrounds2.Text)
+
+                    sw.WriteLine(msg3Title.Text)
+                    sw.WriteLine(msg3Line1.Text)
+                    sw.WriteLine(msg3Line2.Text)
+                    sw.WriteLine(msg3Line3.Text)
+                    sw.WriteLine(msg3Line4.Text)
+                    sw.WriteLine(backgrounds3.Text)
+
+                    sw.WriteLine(msg4Title.Text)
+                    sw.WriteLine(msg4Line1.Text)
+                    sw.WriteLine(msg4Line2.Text)
+                    sw.WriteLine(msg4Line3.Text)
+                    sw.WriteLine(msg4Line4.Text)
+                    sw.WriteLine(backgrounds4.Text)
+
+                    sw.WriteLine(msg5Title.Text)
+                    sw.WriteLine(msg5Line1.Text)
+                    sw.WriteLine(msg5Line2.Text)
+                    sw.WriteLine(msg5Line3.Text)
+                    sw.WriteLine(msg5Line4.Text)
+                    sw.WriteLine(backgrounds5.Text)
+
+                    sw.WriteLine(msg6Title.Text)
+                    sw.WriteLine(msg6Line1.Text)
+                    sw.WriteLine(msg6Line2.Text)
+                    sw.WriteLine(msg6Line3.Text)
+                    sw.WriteLine(msg6Line4.Text)
+                    sw.WriteLine(backgrounds6.Text)
+
+                    sw.WriteLine(msg7Title.Text)
+                    sw.WriteLine(msg7Line1.Text)
+                    sw.WriteLine(msg7Line2.Text)
+                    sw.WriteLine(msg7Line3.Text)
+                    sw.WriteLine(msg7Line4.Text)
+                    sw.WriteLine(backgrounds7.Text)
+
+                    sw.WriteLine(msg8Title.Text)
+                    sw.WriteLine(msg8Line1.Text)
+                    sw.WriteLine(msg8Line2.Text)
+                    sw.WriteLine(msg8Line3.Text)
+                    sw.WriteLine(msg8Line4.Text)
+                    sw.WriteLine(backgrounds8.Text)
+
+                End Using
+                myStream.Close()
+            End If
+        End If
+        'now need to put functions to export all of list boxes to seperate txt files in same folder
+    End Sub
+
+    Private Sub loadBTN_Click(sender As Object, e As EventArgs) Handles loadBTN.Click
+        Dim myStream As Stream = Nothing
+        Dim openFileDialog1 As New OpenFileDialog()
+
+        openFileDialog1.InitialDirectory = "c:\"
+        openFileDialog1.Filter = "E.L.K. files (*.elk)|*.elk"
+        openFileDialog1.FilterIndex = 2
+        openFileDialog1.RestoreDirectory = True
+
+        If openFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+            Try
+                myStream = openFileDialog1.OpenFile()
+                If (myStream IsNot Nothing) Then
+                    'insert code to read from file here, again this could be anything but this reads the five lines written above
+                    Using tr As TextReader = New StreamReader(myStream)
+                        homeThreeLetters.Text = tr.ReadLine()
+                        HomeScore.Text = tr.ReadLine()
+                        AwayScore.Text = tr.ReadLine()
+                        awayThreeLetters.Text = tr.ReadLine()
+                        outGameCrawl1.Text = tr.ReadLine()
+                        outGameCrawl2.Text = tr.ReadLine()
+                        outGameCrawl3.Text = tr.ReadLine()
+                        outGameCrawl4.Text = tr.ReadLine()
+                        PremScoresTitle.Text = tr.ReadLine()
+                        tab1Logo1Select.Text = tr.ReadLine()
+                        PremScoresTitle2.Text = tr.ReadLine()
+                        tab1Logo2Select.Text = tr.ReadLine()
+                        Score1.Text = tr.ReadLine()
+                        Score2.Text = tr.ReadLine()
+                        Score3.Text = tr.ReadLine()
+                        Score4.Text = tr.ReadLine()
+                        Score5.Text = tr.ReadLine()
+                        Score6.Text = tr.ReadLine()
+                        Score7.Text = tr.ReadLine()
+                        Score8.Text = tr.ReadLine()
+                        Score9.Text = tr.ReadLine()
+                        Score10.Text = tr.ReadLine()
+                        Score11.Text = tr.ReadLine()
+                        Score12.Text = tr.ReadLine()
+                        Score13.Text = tr.ReadLine()
+                        Score14.Text = tr.ReadLine()
+                        Score15.Text = tr.ReadLine()
+                        Score16.Text = tr.ReadLine()
+                        Score17.Text = tr.ReadLine()
+                        Score18.Text = tr.ReadLine()
+                        Score19.Text = tr.ReadLine()
+                        Score20.Text = tr.ReadLine()
+                        Score21.Text = tr.ReadLine()
+                        Score22.Text = tr.ReadLine()
+                        Score23.Text = tr.ReadLine()
+                        Score24.Text = tr.ReadLine()
+                        Score25.Text = tr.ReadLine()
+                        Score26.Text = tr.ReadLine()
+                        Score27.Text = tr.ReadLine()
+                        Score28.Text = tr.ReadLine()
+                        Score29.Text = tr.ReadLine()
+                        Score30.Text = tr.ReadLine()
+                        Score31.Text = tr.ReadLine()
+                        Score32.Text = tr.ReadLine()
+                        Score33.Text = tr.ReadLine()
+                        Score34.Text = tr.ReadLine()
+                        Score35.Text = tr.ReadLine()
+                        Score36.Text = tr.ReadLine()
+                        Score37.Text = tr.ReadLine()
+                        Score38.Text = tr.ReadLine()
+                        Score39.Text = tr.ReadLine()
+                        Score40.Text = tr.ReadLine()
+                        Score41.Text = tr.ReadLine()
+                        Score42.Text = tr.ReadLine()
+                        Score43.Text = tr.ReadLine()
+                        Score44.Text = tr.ReadLine()
+                        Score45.Text = tr.ReadLine()
+                        Score46.Text = tr.ReadLine()
+                        Score47.Text = tr.ReadLine()
+                        Score48.Text = tr.ReadLine()
+                        middle13.Text = tr.ReadLine()
+                        middle14.Text = tr.ReadLine()
+                        middle15.Text = tr.ReadLine()
+                        middle16.Text = tr.ReadLine()
+                        middle17.Text = tr.ReadLine()
+                        middle18.Text = tr.ReadLine()
+                        middle19.Text = tr.ReadLine()
+                        middle20.Text = tr.ReadLine()
+                        middle21.Text = tr.ReadLine()
+                        middle22.Text = tr.ReadLine()
+                        middle23.Text = tr.ReadLine()
+                        middle24.Text = tr.ReadLine()
+                        ChampScoresTitle.Text = tr.ReadLine()
+                        tab2Logo1Select.Text = tr.ReadLine()
+                        ChampScoresTitle2.Text = tr.ReadLine()
+                        tab2Logo2Select.Text = tr.ReadLine()
+                        ChampScore1.Text = tr.ReadLine()
+                        ChampScore2.Text = tr.ReadLine()
+                        ChampScore3.Text = tr.ReadLine()
+                        ChampScore4.Text = tr.ReadLine()
+                        ChampScore5.Text = tr.ReadLine()
+                        ChampScore6.Text = tr.ReadLine()
+                        ChampScore7.Text = tr.ReadLine()
+                        ChampScore8.Text = tr.ReadLine()
+                        ChampScore9.Text = tr.ReadLine()
+                        ChampScore10.Text = tr.ReadLine()
+                        ChampScore11.Text = tr.ReadLine()
+                        ChampScore12.Text = tr.ReadLine()
+                        ChampScore13.Text = tr.ReadLine()
+                        ChampScore14.Text = tr.ReadLine()
+                        ChampScore15.Text = tr.ReadLine()
+                        ChampScore16.Text = tr.ReadLine()
+                        ChampScore17.Text = tr.ReadLine()
+                        ChampScore18.Text = tr.ReadLine()
+                        ChampScore19.Text = tr.ReadLine()
+                        ChampScore20.Text = tr.ReadLine()
+                        ChampScore21.Text = tr.ReadLine()
+                        ChampScore22.Text = tr.ReadLine()
+                        ChampScore23.Text = tr.ReadLine()
+                        ChampScore24.Text = tr.ReadLine()
+                        ChampScore25.Text = tr.ReadLine()
+                        ChampScore26.Text = tr.ReadLine()
+                        ChampScore27.Text = tr.ReadLine()
+                        ChampScore28.Text = tr.ReadLine()
+                        ChampScore29.Text = tr.ReadLine()
+                        ChampScore30.Text = tr.ReadLine()
+                        ChampScore31.Text = tr.ReadLine()
+                        ChampScore32.Text = tr.ReadLine()
+                        ChampScore33.Text = tr.ReadLine()
+                        ChampScore34.Text = tr.ReadLine()
+                        ChampScore35.Text = tr.ReadLine()
+                        ChampScore36.Text = tr.ReadLine()
+                        ChampScore37.Text = tr.ReadLine()
+                        ChampScore38.Text = tr.ReadLine()
+                        ChampScore39.Text = tr.ReadLine()
+                        ChampScore40.Text = tr.ReadLine()
+                        ChampScore41.Text = tr.ReadLine()
+                        ChampScore42.Text = tr.ReadLine()
+                        ChampScore43.Text = tr.ReadLine()
+                        ChampScore44.Text = tr.ReadLine()
+                        ChampScore45.Text = tr.ReadLine()
+                        ChampScore46.Text = tr.ReadLine()
+                        ChampScore47.Text = tr.ReadLine()
+                        ChampScore48.Text = tr.ReadLine()
+                        middle1.Text = tr.ReadLine()
+                        middle2.Text = tr.ReadLine()
+                        middle3.Text = tr.ReadLine()
+                        middle4.Text = tr.ReadLine()
+                        middle5.Text = tr.ReadLine()
+                        middle6.Text = tr.ReadLine()
+                        middle7.Text = tr.ReadLine()
+                        middle8.Text = tr.ReadLine()
+                        middle9.Text = tr.ReadLine()
+                        middle10.Text = tr.ReadLine()
+                        middle11.Text = tr.ReadLine()
+                        middle12.Text = tr.ReadLine()
+                        'from in game tab
+                        LTStrapDate.Text = tr.ReadLine()
+                        LTStrapKO.Text = tr.ReadLine()
+                        CrawlText1.Text = tr.ReadLine()
+                        CrawlText2.Text = tr.ReadLine()
+                        CrawlText3.Text = tr.ReadLine()
+                        CrawlText4.Text = tr.ReadLine()
+                        startClockTime.Text = tr.ReadLine()
+                        stopClockTime.Text = tr.ReadLine()
+                        'general messages
+                        msg1Title.Text = tr.ReadLine()
+                        msg1Line1.Text = tr.ReadLine()
+                        msg1Line2.Text = tr.ReadLine()
+                        msg1Line3.Text = tr.ReadLine()
+                        msg1Line4.Text = tr.ReadLine()
+                        backgrounds1.Text = tr.ReadLine()
+
+                        msg2Title.Text = tr.ReadLine()
+                        msg2Line1.Text = tr.ReadLine()
+                        msg2Line2.Text = tr.ReadLine()
+                        msg2Line3.Text = tr.ReadLine()
+                        msg2Line4.Text = tr.ReadLine()
+                        backgrounds2.Text = tr.ReadLine()
+
+                        msg3Title.Text = tr.ReadLine()
+                        msg3Line1.Text = tr.ReadLine()
+                        msg3Line2.Text = tr.ReadLine()
+                        msg3Line3.Text = tr.ReadLine()
+                        msg3Line4.Text = tr.ReadLine()
+                        backgrounds3.Text = tr.ReadLine()
+
+                        msg4Title.Text = tr.ReadLine()
+                        msg4Line1.Text = tr.ReadLine()
+                        msg4Line2.Text = tr.ReadLine()
+                        msg4Line3.Text = tr.ReadLine()
+                        msg4Line4.Text = tr.ReadLine()
+                        backgrounds4.Text = tr.ReadLine()
+
+                        msg5Title.Text = tr.ReadLine()
+                        msg5Line1.Text = tr.ReadLine()
+                        msg5Line2.Text = tr.ReadLine()
+                        msg5Line3.Text = tr.ReadLine()
+                        msg5Line4.Text = tr.ReadLine()
+                        backgrounds5.Text = tr.ReadLine()
+
+                        msg6Title.Text = tr.ReadLine()
+                        msg6Line1.Text = tr.ReadLine()
+                        msg6Line2.Text = tr.ReadLine()
+                        msg6Line3.Text = tr.ReadLine()
+                        msg6Line4.Text = tr.ReadLine()
+                        backgrounds6.Text = tr.ReadLine()
+
+                        msg7Title.Text = tr.ReadLine()
+                        msg7Line1.Text = tr.ReadLine()
+                        msg7Line2.Text = tr.ReadLine()
+                        msg7Line3.Text = tr.ReadLine()
+                        msg7Line4.Text = tr.ReadLine()
+                        backgrounds7.Text = tr.ReadLine()
+
+                        msg8Title.Text = tr.ReadLine()
+                        msg8Line1.Text = tr.ReadLine()
+                        msg8Line2.Text = tr.ReadLine()
+                        msg8Line3.Text = tr.ReadLine()
+                        msg8Line4.Text = tr.ReadLine()
+                        backgrounds8.Text = tr.ReadLine()
+
+
+                    End Using
+                End If
+            Catch Ex As Exception
+                MessageBox.Show("Cannot read file from disk. Original error: " & Ex.Message)
+            Finally
+                ' Check this again, since we need to make sure we didn't throw an exception on open. 
+                If (myStream IsNot Nothing) Then
+                    myStream.Close()
+                End If
+            End Try
         End If
     End Sub
 End Class

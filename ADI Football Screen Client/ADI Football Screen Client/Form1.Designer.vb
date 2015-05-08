@@ -581,6 +581,8 @@ Partial Class ADIFootball
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.playlistStop = New System.Windows.Forms.Timer(Me.components)
         Me.updateScore = New System.Windows.Forms.Button()
+        Me.saveBTN = New System.Windows.Forms.Button()
+        Me.loadBTN = New System.Windows.Forms.Button()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -5733,7 +5735,7 @@ Partial Class ADIFootball
         '
         Me.ClearTXBTN.Location = New System.Drawing.Point(248, 39)
         Me.ClearTXBTN.Name = "ClearTXBTN"
-        Me.ClearTXBTN.Size = New System.Drawing.Size(86, 23)
+        Me.ClearTXBTN.Size = New System.Drawing.Size(128, 23)
         Me.ClearTXBTN.TabIndex = 67
         Me.ClearTXBTN.Text = "CLEAR ALL"
         Me.ClearTXBTN.UseVisualStyleBackColor = True
@@ -5822,12 +5824,32 @@ Partial Class ADIFootball
         Me.updateScore.Text = "UPDATE"
         Me.updateScore.UseVisualStyleBackColor = True
         '
+        'saveBTN
+        '
+        Me.saveBTN.Location = New System.Drawing.Point(882, 32)
+        Me.saveBTN.Name = "saveBTN"
+        Me.saveBTN.Size = New System.Drawing.Size(128, 23)
+        Me.saveBTN.TabIndex = 74
+        Me.saveBTN.Text = "Save"
+        Me.saveBTN.UseVisualStyleBackColor = True
+        '
+        'loadBTN
+        '
+        Me.loadBTN.Location = New System.Drawing.Point(882, 56)
+        Me.loadBTN.Name = "loadBTN"
+        Me.loadBTN.Size = New System.Drawing.Size(128, 23)
+        Me.loadBTN.TabIndex = 75
+        Me.loadBTN.Text = "Load"
+        Me.loadBTN.UseVisualStyleBackColor = True
+        '
         'ADIFootball
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Window
         Me.ClientSize = New System.Drawing.Size(1276, 769)
+        Me.Controls.Add(Me.loadBTN)
+        Me.Controls.Add(Me.saveBTN)
         Me.Controls.Add(Me.updateScore)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.ClearGFXOnlyBTN)
@@ -6448,5 +6470,7 @@ Partial Class ADIFootball
     Friend WithEvents OutGameCrawlOffBTN As System.Windows.Forms.Button
     Friend WithEvents OutGameCrawlOnBTN As System.Windows.Forms.Button
     Friend WithEvents outGameCrawl1 As System.Windows.Forms.TextBox
+    Friend WithEvents loadBTN As System.Windows.Forms.Button
+    Friend WithEvents saveBTN As System.Windows.Forms.Button
 
 End Class
