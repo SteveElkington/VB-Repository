@@ -5938,4 +5938,82 @@ Public Class ADIFootball
             End Try
         End If
     End Sub
+
+    Private Sub miscTempOnBTN_Click(sender As Object, e As EventArgs) Handles miscTempOnBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear() 'cgData.Clear()
+            CasparCGDataCollection.SetData("f0", miscTempText1TXT.Text)
+            CasparCGDataCollection.SetData("f1", miscTempText2TXT.Text)
+            CasparCGDataCollection.SetData("f2", miscTempText3TXT.Text)
+            CasparDevice.Channels(0).CG.Add(101, miscTempNameTXT.Text, True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
+            miscTempOnBTN.BackColor = Color.Green
+            'disable button
+            miscTempOnBTN.Enabled = False
+        End If
+    End Sub
+
+    Private Sub miscTempOffBTN_Click(sender As Object, e As EventArgs) Handles miscTempOffBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            'then fade out the rest and set buttons
+            CasparDevice.Channels(0).CG.Stop(101)
+            miscTempOnBTN.UseVisualStyleBackColor = True
+            miscTempOnBTN.Enabled = True
+        End If
+    End Sub
+
+    Private Sub miscTempOnBTN2_Click(sender As Object, e As EventArgs) Handles miscTempOnBTN2.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear() 'cgData.Clear()
+            CasparCGDataCollection.SetData("f0", miscTempText1TXT2.Text)
+            CasparCGDataCollection.SetData("f1", miscTempText2TXT2.Text)
+            CasparCGDataCollection.SetData("f2", miscTempText3TXT2.Text)
+            CasparDevice.Channels(0).CG.Add(101, miscTempName2TXT.Text, True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
+            miscTempOnBTN2.BackColor = Color.Green
+            'disable button
+            miscTempOnBTN2.Enabled = False
+        End If
+    End Sub
+
+    Private Sub miscTempOffBTN2_Click(sender As Object, e As EventArgs) Handles miscTempOffBTN2.Click
+        If Me.CasparDevice.IsConnected = True Then
+            'then fade out the rest and set buttons
+            CasparDevice.Channels(1).CG.Stop(101)
+            miscTempOnBTN2.UseVisualStyleBackColor = True
+            miscTempOnBTN2.Enabled = True
+        End If
+    End Sub
+
+    Private Sub Button2_Click_1(sender As Object, e As EventArgs) Handles webPageOn1BTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.SendString("play 1-600 [HTML] " + urlText1TXT.Text)
+            webPageOn1BTN.BackColor = Color.Green
+            webPageOn1BTN.Enabled = False
+        End If
+    End Sub
+
+    Private Sub webPageOff1BTN_Click(sender As Object, e As EventArgs) Handles webPageOff1BTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.SendString("stop 1-600")
+            webPageOn1BTN.UseVisualStyleBackColor = True
+            webPageOn1BTN.Enabled = True
+        End If
+    End Sub
+
+    Private Sub webPageOn2BTN_Click(sender As Object, e As EventArgs) Handles webPageOn2BTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.SendString("play 1-600 [HTML] " + urlText2TXT.Text)
+            webPageOn2BTN.BackColor = Color.Green
+            webPageOn2BTN.Enabled = False
+        End If
+    End Sub
+
+    Private Sub webPageOff2BTN_Click(sender As Object, e As EventArgs) Handles webPageOff2BTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.SendString("stop 1-600")
+            webPageOn2BTN.UseVisualStyleBackColor = True
+            webPageOn2BTN.Enabled = True
+        End If
+    End Sub
 End Class
