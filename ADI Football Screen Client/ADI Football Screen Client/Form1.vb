@@ -6016,4 +6016,74 @@ Public Class ADIFootball
             webPageOn2BTN.Enabled = True
         End If
     End Sub
+
+    Private Sub showNameIDBTN_Click(sender As Object, e As EventArgs) Handles showNameIDBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear()
+
+            If nameIDCHK1.Checked = True Then
+                CasparCGDataCollection.SetData("f0", nameIdentText1.Text)
+                CasparCGDataCollection.SetData("f1", nameRoleIdentText1.Text)
+            End If
+
+            If nameIDCHK2.Checked = True Then
+                CasparCGDataCollection.SetData("f0", nameIdentText2.Text)
+                CasparCGDataCollection.SetData("f1", nameRoleIdentText2.Text)
+            End If
+
+            If nameIDCHK3.Checked = True Then
+                CasparCGDataCollection.SetData("f0", nameIdentText3.Text)
+                CasparCGDataCollection.SetData("f1", nameRoleIdentText3.Text)
+            End If
+
+            If nameIDCHK4.Checked = True Then
+                CasparCGDataCollection.SetData("f0", nameIdentText4.Text)
+                CasparCGDataCollection.SetData("f1", nameRoleIdentText4.Text)
+            End If
+
+
+
+            CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
+
+            'fading in image
+            CasparDevice.SendString("MIXER 1-104 OPACITY 0")
+            CasparDevice.SendString("play 1-104 LT_crawl_crest")
+            CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
+
+            'fading in image
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
+            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
+
+
+            'CasparDevice.SendString("play 1-102 LT_crawl_crest")
+            CasparDevice.SendString("play 1-103 LTFlare")
+            showNameIDBTN.BackColor = Color.Green
+            'disable button
+            showNameIDBTN.Enabled = False
+
+            crawlToggle = True
+        End If
+    End Sub
+
+    Private Sub hideNameIDBTN_Click(sender As Object, e As EventArgs) Handles hideNameIDBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.Channels(0).CG.Stop(101)
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
+            countBPS = 0
+            BPlayChanFadeOut.Enabled = True
+            CasparDevice.SendString("STOP 1-102")
+            CasparDevice.SendString("STOP 1-103")
+            CasparDevice.SendString("STOP 1-104")
+            CrawlOn.BackColor = Color.FromKnownColor(KnownColor.Control)
+            CrawlOn.UseVisualStyleBackColor = True
+            crawlToggle = False
+
+            're-enable button
+            showNameIDBTN.Enabled = True
+            showNameIDBTN.UseVisualStyleBackColor = True
+        End If
+    End Sub
 End Class

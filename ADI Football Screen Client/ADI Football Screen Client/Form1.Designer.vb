@@ -556,6 +556,39 @@ Partial Class ADIFootball
         Me.Label26 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
+        Me.TabPage8 = New System.Windows.Forms.TabPage()
+        Me.Label102 = New System.Windows.Forms.Label()
+        Me.webPageOff2BTN = New System.Windows.Forms.Button()
+        Me.webPageOn2BTN = New System.Windows.Forms.Button()
+        Me.urlText2TXT = New System.Windows.Forms.TextBox()
+        Me.Label103 = New System.Windows.Forms.Label()
+        Me.Label101 = New System.Windows.Forms.Label()
+        Me.webPageOff1BTN = New System.Windows.Forms.Button()
+        Me.webPageOn1BTN = New System.Windows.Forms.Button()
+        Me.urlText1TXT = New System.Windows.Forms.TextBox()
+        Me.Label100 = New System.Windows.Forms.Label()
+        Me.Label95 = New System.Windows.Forms.Label()
+        Me.Label96 = New System.Windows.Forms.Label()
+        Me.Label97 = New System.Windows.Forms.Label()
+        Me.Label98 = New System.Windows.Forms.Label()
+        Me.Label99 = New System.Windows.Forms.Label()
+        Me.miscTempOffBTN2 = New System.Windows.Forms.Button()
+        Me.miscTempOnBTN2 = New System.Windows.Forms.Button()
+        Me.miscTempText3TXT2 = New System.Windows.Forms.TextBox()
+        Me.miscTempText2TXT2 = New System.Windows.Forms.TextBox()
+        Me.miscTempText1TXT2 = New System.Windows.Forms.TextBox()
+        Me.miscTempName2TXT = New System.Windows.Forms.TextBox()
+        Me.Label94 = New System.Windows.Forms.Label()
+        Me.Label93 = New System.Windows.Forms.Label()
+        Me.Label92 = New System.Windows.Forms.Label()
+        Me.Label91 = New System.Windows.Forms.Label()
+        Me.Label90 = New System.Windows.Forms.Label()
+        Me.miscTempOffBTN = New System.Windows.Forms.Button()
+        Me.miscTempOnBTN = New System.Windows.Forms.Button()
+        Me.miscTempText3TXT = New System.Windows.Forms.TextBox()
+        Me.miscTempText2TXT = New System.Windows.Forms.TextBox()
+        Me.miscTempText1TXT = New System.Windows.Forms.TextBox()
+        Me.miscTempNameTXT = New System.Windows.Forms.TextBox()
         Me.AwayScore = New System.Windows.Forms.TextBox()
         Me.awayThreeLetters = New System.Windows.Forms.TextBox()
         Me.HomeScore = New System.Windows.Forms.TextBox()
@@ -583,39 +616,25 @@ Partial Class ADIFootball
         Me.updateScore = New System.Windows.Forms.Button()
         Me.saveBTN = New System.Windows.Forms.Button()
         Me.loadBTN = New System.Windows.Forms.Button()
-        Me.TabPage8 = New System.Windows.Forms.TabPage()
-        Me.miscTempNameTXT = New System.Windows.Forms.TextBox()
-        Me.miscTempText1TXT = New System.Windows.Forms.TextBox()
-        Me.miscTempText2TXT = New System.Windows.Forms.TextBox()
-        Me.miscTempText3TXT = New System.Windows.Forms.TextBox()
-        Me.miscTempOnBTN = New System.Windows.Forms.Button()
-        Me.miscTempOffBTN = New System.Windows.Forms.Button()
-        Me.Label90 = New System.Windows.Forms.Label()
-        Me.Label91 = New System.Windows.Forms.Label()
-        Me.Label92 = New System.Windows.Forms.Label()
-        Me.Label93 = New System.Windows.Forms.Label()
-        Me.Label94 = New System.Windows.Forms.Label()
-        Me.Label95 = New System.Windows.Forms.Label()
-        Me.Label96 = New System.Windows.Forms.Label()
-        Me.Label97 = New System.Windows.Forms.Label()
-        Me.Label98 = New System.Windows.Forms.Label()
-        Me.Label99 = New System.Windows.Forms.Label()
-        Me.miscTempOffBTN2 = New System.Windows.Forms.Button()
-        Me.miscTempOnBTN2 = New System.Windows.Forms.Button()
-        Me.miscTempText3TXT2 = New System.Windows.Forms.TextBox()
-        Me.miscTempText2TXT2 = New System.Windows.Forms.TextBox()
-        Me.miscTempText1TXT2 = New System.Windows.Forms.TextBox()
-        Me.miscTempName2TXT = New System.Windows.Forms.TextBox()
-        Me.Label100 = New System.Windows.Forms.Label()
-        Me.Label101 = New System.Windows.Forms.Label()
-        Me.webPageOff1BTN = New System.Windows.Forms.Button()
-        Me.webPageOn1BTN = New System.Windows.Forms.Button()
-        Me.urlText1TXT = New System.Windows.Forms.TextBox()
-        Me.Label102 = New System.Windows.Forms.Label()
-        Me.webPageOff2BTN = New System.Windows.Forms.Button()
-        Me.webPageOn2BTN = New System.Windows.Forms.Button()
-        Me.urlText2TXT = New System.Windows.Forms.TextBox()
-        Me.Label103 = New System.Windows.Forms.Label()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.nameIdentText1 = New System.Windows.Forms.TextBox()
+        Me.nameIDCHK4 = New System.Windows.Forms.RadioButton()
+        Me.nameIDCHK3 = New System.Windows.Forms.RadioButton()
+        Me.nameIDCHK2 = New System.Windows.Forms.RadioButton()
+        Me.nameIDCHK1 = New System.Windows.Forms.RadioButton()
+        Me.Label104 = New System.Windows.Forms.Label()
+        Me.Label105 = New System.Windows.Forms.Label()
+        Me.Label106 = New System.Windows.Forms.Label()
+        Me.Label107 = New System.Windows.Forms.Label()
+        Me.nameRoleIdentText1 = New System.Windows.Forms.TextBox()
+        Me.nameRoleIdentText2 = New System.Windows.Forms.TextBox()
+        Me.nameIdentText2 = New System.Windows.Forms.TextBox()
+        Me.nameRoleIdentText3 = New System.Windows.Forms.TextBox()
+        Me.nameIdentText3 = New System.Windows.Forms.TextBox()
+        Me.nameRoleIdentText4 = New System.Windows.Forms.TextBox()
+        Me.nameIdentText4 = New System.Windows.Forms.TextBox()
+        Me.showNameIDBTN = New System.Windows.Forms.Button()
+        Me.hideNameIDBTN = New System.Windows.Forms.Button()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -637,9 +656,10 @@ Partial Class ADIFootball
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.TabPage7.SuspendLayout()
+        Me.TabPage8.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TabPage8.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
         Me.SuspendLayout()
         '
         'Connect
@@ -1841,6 +1861,7 @@ Partial Class ADIFootball
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage1.Controls.Add(Me.GroupBox11)
         Me.TabPage1.Controls.Add(Me.GroupBox10)
         Me.TabPage1.Controls.Add(Me.awayCrestBTN)
         Me.TabPage1.Controls.Add(Me.homeCrestsBTN)
@@ -5724,6 +5745,319 @@ Partial Class ADIFootball
         Me.Label24.TabIndex = 0
         Me.Label24.Text = "Title:"
         '
+        'TabPage8
+        '
+        Me.TabPage8.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage8.Controls.Add(Me.Label102)
+        Me.TabPage8.Controls.Add(Me.webPageOff2BTN)
+        Me.TabPage8.Controls.Add(Me.webPageOn2BTN)
+        Me.TabPage8.Controls.Add(Me.urlText2TXT)
+        Me.TabPage8.Controls.Add(Me.Label103)
+        Me.TabPage8.Controls.Add(Me.Label101)
+        Me.TabPage8.Controls.Add(Me.webPageOff1BTN)
+        Me.TabPage8.Controls.Add(Me.webPageOn1BTN)
+        Me.TabPage8.Controls.Add(Me.urlText1TXT)
+        Me.TabPage8.Controls.Add(Me.Label100)
+        Me.TabPage8.Controls.Add(Me.Label95)
+        Me.TabPage8.Controls.Add(Me.Label96)
+        Me.TabPage8.Controls.Add(Me.Label97)
+        Me.TabPage8.Controls.Add(Me.Label98)
+        Me.TabPage8.Controls.Add(Me.Label99)
+        Me.TabPage8.Controls.Add(Me.miscTempOffBTN2)
+        Me.TabPage8.Controls.Add(Me.miscTempOnBTN2)
+        Me.TabPage8.Controls.Add(Me.miscTempText3TXT2)
+        Me.TabPage8.Controls.Add(Me.miscTempText2TXT2)
+        Me.TabPage8.Controls.Add(Me.miscTempText1TXT2)
+        Me.TabPage8.Controls.Add(Me.miscTempName2TXT)
+        Me.TabPage8.Controls.Add(Me.Label94)
+        Me.TabPage8.Controls.Add(Me.Label93)
+        Me.TabPage8.Controls.Add(Me.Label92)
+        Me.TabPage8.Controls.Add(Me.Label91)
+        Me.TabPage8.Controls.Add(Me.Label90)
+        Me.TabPage8.Controls.Add(Me.miscTempOffBTN)
+        Me.TabPage8.Controls.Add(Me.miscTempOnBTN)
+        Me.TabPage8.Controls.Add(Me.miscTempText3TXT)
+        Me.TabPage8.Controls.Add(Me.miscTempText2TXT)
+        Me.TabPage8.Controls.Add(Me.miscTempText1TXT)
+        Me.TabPage8.Controls.Add(Me.miscTempNameTXT)
+        Me.TabPage8.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage8.Name = "TabPage8"
+        Me.TabPage8.Size = New System.Drawing.Size(1252, 636)
+        Me.TabPage8.TabIndex = 5
+        Me.TabPage8.Text = "Misc"
+        '
+        'Label102
+        '
+        Me.Label102.AutoSize = True
+        Me.Label102.Location = New System.Drawing.Point(598, 374)
+        Me.Label102.Name = "Label102"
+        Me.Label102.Size = New System.Drawing.Size(29, 13)
+        Me.Label102.TabIndex = 31
+        Me.Label102.Text = "URL"
+        '
+        'webPageOff2BTN
+        '
+        Me.webPageOff2BTN.Location = New System.Drawing.Point(811, 404)
+        Me.webPageOff2BTN.Name = "webPageOff2BTN"
+        Me.webPageOff2BTN.Size = New System.Drawing.Size(160, 23)
+        Me.webPageOff2BTN.TabIndex = 30
+        Me.webPageOff2BTN.Text = "HIDE"
+        Me.webPageOff2BTN.UseVisualStyleBackColor = True
+        '
+        'webPageOn2BTN
+        '
+        Me.webPageOn2BTN.Location = New System.Drawing.Point(633, 404)
+        Me.webPageOn2BTN.Name = "webPageOn2BTN"
+        Me.webPageOn2BTN.Size = New System.Drawing.Size(156, 23)
+        Me.webPageOn2BTN.TabIndex = 29
+        Me.webPageOn2BTN.Text = "SHOW"
+        Me.webPageOn2BTN.UseVisualStyleBackColor = True
+        '
+        'urlText2TXT
+        '
+        Me.urlText2TXT.Location = New System.Drawing.Point(633, 371)
+        Me.urlText2TXT.Name = "urlText2TXT"
+        Me.urlText2TXT.Size = New System.Drawing.Size(338, 20)
+        Me.urlText2TXT.TabIndex = 28
+        '
+        'Label103
+        '
+        Me.Label103.AutoSize = True
+        Me.Label103.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label103.Location = New System.Drawing.Point(630, 335)
+        Me.Label103.Name = "Label103"
+        Me.Label103.Size = New System.Drawing.Size(170, 16)
+        Me.Label103.TabIndex = 27
+        Me.Label103.Text = "Show Misc Web Page 2"
+        '
+        'Label101
+        '
+        Me.Label101.AutoSize = True
+        Me.Label101.Location = New System.Drawing.Point(598, 112)
+        Me.Label101.Name = "Label101"
+        Me.Label101.Size = New System.Drawing.Size(29, 13)
+        Me.Label101.TabIndex = 26
+        Me.Label101.Text = "URL"
+        '
+        'webPageOff1BTN
+        '
+        Me.webPageOff1BTN.Location = New System.Drawing.Point(811, 142)
+        Me.webPageOff1BTN.Name = "webPageOff1BTN"
+        Me.webPageOff1BTN.Size = New System.Drawing.Size(160, 23)
+        Me.webPageOff1BTN.TabIndex = 25
+        Me.webPageOff1BTN.Text = "HIDE"
+        Me.webPageOff1BTN.UseVisualStyleBackColor = True
+        '
+        'webPageOn1BTN
+        '
+        Me.webPageOn1BTN.Location = New System.Drawing.Point(633, 142)
+        Me.webPageOn1BTN.Name = "webPageOn1BTN"
+        Me.webPageOn1BTN.Size = New System.Drawing.Size(156, 23)
+        Me.webPageOn1BTN.TabIndex = 24
+        Me.webPageOn1BTN.Text = "SHOW"
+        Me.webPageOn1BTN.UseVisualStyleBackColor = True
+        '
+        'urlText1TXT
+        '
+        Me.urlText1TXT.Location = New System.Drawing.Point(633, 109)
+        Me.urlText1TXT.Name = "urlText1TXT"
+        Me.urlText1TXT.Size = New System.Drawing.Size(338, 20)
+        Me.urlText1TXT.TabIndex = 23
+        '
+        'Label100
+        '
+        Me.Label100.AutoSize = True
+        Me.Label100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label100.Location = New System.Drawing.Point(630, 73)
+        Me.Label100.Name = "Label100"
+        Me.Label100.Size = New System.Drawing.Size(170, 16)
+        Me.Label100.TabIndex = 22
+        Me.Label100.Text = "Show Misc Web Page 1"
+        '
+        'Label95
+        '
+        Me.Label95.AutoSize = True
+        Me.Label95.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label95.Location = New System.Drawing.Point(133, 335)
+        Me.Label95.Name = "Label95"
+        Me.Label95.Size = New System.Drawing.Size(163, 16)
+        Me.Label95.TabIndex = 21
+        Me.Label95.Text = "Show Misc Template 2"
+        '
+        'Label96
+        '
+        Me.Label96.AutoSize = True
+        Me.Label96.Location = New System.Drawing.Point(94, 456)
+        Me.Label96.Name = "Label96"
+        Me.Label96.Size = New System.Drawing.Size(36, 13)
+        Me.Label96.TabIndex = 20
+        Me.Label96.Text = "Line 3"
+        '
+        'Label97
+        '
+        Me.Label97.AutoSize = True
+        Me.Label97.Location = New System.Drawing.Point(94, 430)
+        Me.Label97.Name = "Label97"
+        Me.Label97.Size = New System.Drawing.Size(36, 13)
+        Me.Label97.TabIndex = 19
+        Me.Label97.Text = "Line 2"
+        '
+        'Label98
+        '
+        Me.Label98.AutoSize = True
+        Me.Label98.Location = New System.Drawing.Point(94, 404)
+        Me.Label98.Name = "Label98"
+        Me.Label98.Size = New System.Drawing.Size(36, 13)
+        Me.Label98.TabIndex = 18
+        Me.Label98.Text = "Line 1"
+        '
+        'Label99
+        '
+        Me.Label99.AutoSize = True
+        Me.Label99.Location = New System.Drawing.Point(79, 378)
+        Me.Label99.Name = "Label99"
+        Me.Label99.Size = New System.Drawing.Size(51, 13)
+        Me.Label99.TabIndex = 17
+        Me.Label99.Text = "Template"
+        '
+        'miscTempOffBTN2
+        '
+        Me.miscTempOffBTN2.Location = New System.Drawing.Point(314, 488)
+        Me.miscTempOffBTN2.Name = "miscTempOffBTN2"
+        Me.miscTempOffBTN2.Size = New System.Drawing.Size(160, 23)
+        Me.miscTempOffBTN2.TabIndex = 16
+        Me.miscTempOffBTN2.Text = "HIDE"
+        Me.miscTempOffBTN2.UseVisualStyleBackColor = True
+        '
+        'miscTempOnBTN2
+        '
+        Me.miscTempOnBTN2.Location = New System.Drawing.Point(136, 488)
+        Me.miscTempOnBTN2.Name = "miscTempOnBTN2"
+        Me.miscTempOnBTN2.Size = New System.Drawing.Size(156, 23)
+        Me.miscTempOnBTN2.TabIndex = 15
+        Me.miscTempOnBTN2.Text = "SHOW"
+        Me.miscTempOnBTN2.UseVisualStyleBackColor = True
+        '
+        'miscTempText3TXT2
+        '
+        Me.miscTempText3TXT2.Location = New System.Drawing.Point(136, 453)
+        Me.miscTempText3TXT2.Name = "miscTempText3TXT2"
+        Me.miscTempText3TXT2.Size = New System.Drawing.Size(338, 20)
+        Me.miscTempText3TXT2.TabIndex = 14
+        '
+        'miscTempText2TXT2
+        '
+        Me.miscTempText2TXT2.Location = New System.Drawing.Point(136, 427)
+        Me.miscTempText2TXT2.Name = "miscTempText2TXT2"
+        Me.miscTempText2TXT2.Size = New System.Drawing.Size(338, 20)
+        Me.miscTempText2TXT2.TabIndex = 13
+        '
+        'miscTempText1TXT2
+        '
+        Me.miscTempText1TXT2.Location = New System.Drawing.Point(136, 401)
+        Me.miscTempText1TXT2.Name = "miscTempText1TXT2"
+        Me.miscTempText1TXT2.Size = New System.Drawing.Size(338, 20)
+        Me.miscTempText1TXT2.TabIndex = 12
+        '
+        'miscTempName2TXT
+        '
+        Me.miscTempName2TXT.Location = New System.Drawing.Point(136, 375)
+        Me.miscTempName2TXT.Name = "miscTempName2TXT"
+        Me.miscTempName2TXT.Size = New System.Drawing.Size(338, 20)
+        Me.miscTempName2TXT.TabIndex = 11
+        '
+        'Label94
+        '
+        Me.Label94.AutoSize = True
+        Me.Label94.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label94.Location = New System.Drawing.Point(133, 73)
+        Me.Label94.Name = "Label94"
+        Me.Label94.Size = New System.Drawing.Size(163, 16)
+        Me.Label94.TabIndex = 10
+        Me.Label94.Text = "Show Misc Template 1"
+        '
+        'Label93
+        '
+        Me.Label93.AutoSize = True
+        Me.Label93.Location = New System.Drawing.Point(94, 194)
+        Me.Label93.Name = "Label93"
+        Me.Label93.Size = New System.Drawing.Size(36, 13)
+        Me.Label93.TabIndex = 9
+        Me.Label93.Text = "Line 3"
+        '
+        'Label92
+        '
+        Me.Label92.AutoSize = True
+        Me.Label92.Location = New System.Drawing.Point(94, 168)
+        Me.Label92.Name = "Label92"
+        Me.Label92.Size = New System.Drawing.Size(36, 13)
+        Me.Label92.TabIndex = 8
+        Me.Label92.Text = "Line 2"
+        '
+        'Label91
+        '
+        Me.Label91.AutoSize = True
+        Me.Label91.Location = New System.Drawing.Point(94, 142)
+        Me.Label91.Name = "Label91"
+        Me.Label91.Size = New System.Drawing.Size(36, 13)
+        Me.Label91.TabIndex = 7
+        Me.Label91.Text = "Line 1"
+        '
+        'Label90
+        '
+        Me.Label90.AutoSize = True
+        Me.Label90.Location = New System.Drawing.Point(79, 116)
+        Me.Label90.Name = "Label90"
+        Me.Label90.Size = New System.Drawing.Size(51, 13)
+        Me.Label90.TabIndex = 6
+        Me.Label90.Text = "Template"
+        '
+        'miscTempOffBTN
+        '
+        Me.miscTempOffBTN.Location = New System.Drawing.Point(314, 226)
+        Me.miscTempOffBTN.Name = "miscTempOffBTN"
+        Me.miscTempOffBTN.Size = New System.Drawing.Size(160, 23)
+        Me.miscTempOffBTN.TabIndex = 5
+        Me.miscTempOffBTN.Text = "HIDE"
+        Me.miscTempOffBTN.UseVisualStyleBackColor = True
+        '
+        'miscTempOnBTN
+        '
+        Me.miscTempOnBTN.Location = New System.Drawing.Point(136, 226)
+        Me.miscTempOnBTN.Name = "miscTempOnBTN"
+        Me.miscTempOnBTN.Size = New System.Drawing.Size(156, 23)
+        Me.miscTempOnBTN.TabIndex = 4
+        Me.miscTempOnBTN.Text = "SHOW"
+        Me.miscTempOnBTN.UseVisualStyleBackColor = True
+        '
+        'miscTempText3TXT
+        '
+        Me.miscTempText3TXT.Location = New System.Drawing.Point(136, 191)
+        Me.miscTempText3TXT.Name = "miscTempText3TXT"
+        Me.miscTempText3TXT.Size = New System.Drawing.Size(338, 20)
+        Me.miscTempText3TXT.TabIndex = 3
+        '
+        'miscTempText2TXT
+        '
+        Me.miscTempText2TXT.Location = New System.Drawing.Point(136, 165)
+        Me.miscTempText2TXT.Name = "miscTempText2TXT"
+        Me.miscTempText2TXT.Size = New System.Drawing.Size(338, 20)
+        Me.miscTempText2TXT.TabIndex = 2
+        '
+        'miscTempText1TXT
+        '
+        Me.miscTempText1TXT.Location = New System.Drawing.Point(136, 139)
+        Me.miscTempText1TXT.Name = "miscTempText1TXT"
+        Me.miscTempText1TXT.Size = New System.Drawing.Size(338, 20)
+        Me.miscTempText1TXT.TabIndex = 1
+        '
+        'miscTempNameTXT
+        '
+        Me.miscTempNameTXT.Location = New System.Drawing.Point(136, 113)
+        Me.miscTempNameTXT.Name = "miscTempNameTXT"
+        Me.miscTempNameTXT.Size = New System.Drawing.Size(338, 20)
+        Me.miscTempNameTXT.TabIndex = 0
+        '
         'AwayScore
         '
         Me.AwayScore.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -5877,318 +6211,188 @@ Partial Class ADIFootball
         Me.loadBTN.Text = "Load"
         Me.loadBTN.UseVisualStyleBackColor = True
         '
-        'TabPage8
-        '
-        Me.TabPage8.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.TabPage8.Controls.Add(Me.Label102)
-        Me.TabPage8.Controls.Add(Me.webPageOff2BTN)
-        Me.TabPage8.Controls.Add(Me.webPageOn2BTN)
-        Me.TabPage8.Controls.Add(Me.urlText2TXT)
-        Me.TabPage8.Controls.Add(Me.Label103)
-        Me.TabPage8.Controls.Add(Me.Label101)
-        Me.TabPage8.Controls.Add(Me.webPageOff1BTN)
-        Me.TabPage8.Controls.Add(Me.webPageOn1BTN)
-        Me.TabPage8.Controls.Add(Me.urlText1TXT)
-        Me.TabPage8.Controls.Add(Me.Label100)
-        Me.TabPage8.Controls.Add(Me.Label95)
-        Me.TabPage8.Controls.Add(Me.Label96)
-        Me.TabPage8.Controls.Add(Me.Label97)
-        Me.TabPage8.Controls.Add(Me.Label98)
-        Me.TabPage8.Controls.Add(Me.Label99)
-        Me.TabPage8.Controls.Add(Me.miscTempOffBTN2)
-        Me.TabPage8.Controls.Add(Me.miscTempOnBTN2)
-        Me.TabPage8.Controls.Add(Me.miscTempText3TXT2)
-        Me.TabPage8.Controls.Add(Me.miscTempText2TXT2)
-        Me.TabPage8.Controls.Add(Me.miscTempText1TXT2)
-        Me.TabPage8.Controls.Add(Me.miscTempName2TXT)
-        Me.TabPage8.Controls.Add(Me.Label94)
-        Me.TabPage8.Controls.Add(Me.Label93)
-        Me.TabPage8.Controls.Add(Me.Label92)
-        Me.TabPage8.Controls.Add(Me.Label91)
-        Me.TabPage8.Controls.Add(Me.Label90)
-        Me.TabPage8.Controls.Add(Me.miscTempOffBTN)
-        Me.TabPage8.Controls.Add(Me.miscTempOnBTN)
-        Me.TabPage8.Controls.Add(Me.miscTempText3TXT)
-        Me.TabPage8.Controls.Add(Me.miscTempText2TXT)
-        Me.TabPage8.Controls.Add(Me.miscTempText1TXT)
-        Me.TabPage8.Controls.Add(Me.miscTempNameTXT)
-        Me.TabPage8.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage8.Name = "TabPage8"
-        Me.TabPage8.Size = New System.Drawing.Size(1252, 636)
-        Me.TabPage8.TabIndex = 5
-        Me.TabPage8.Text = "Misc"
-        '
-        'miscTempNameTXT
-        '
-        Me.miscTempNameTXT.Location = New System.Drawing.Point(136, 113)
-        Me.miscTempNameTXT.Name = "miscTempNameTXT"
-        Me.miscTempNameTXT.Size = New System.Drawing.Size(338, 20)
-        Me.miscTempNameTXT.TabIndex = 0
-        '
-        'miscTempText1TXT
-        '
-        Me.miscTempText1TXT.Location = New System.Drawing.Point(136, 139)
-        Me.miscTempText1TXT.Name = "miscTempText1TXT"
-        Me.miscTempText1TXT.Size = New System.Drawing.Size(338, 20)
-        Me.miscTempText1TXT.TabIndex = 1
-        '
-        'miscTempText2TXT
-        '
-        Me.miscTempText2TXT.Location = New System.Drawing.Point(136, 165)
-        Me.miscTempText2TXT.Name = "miscTempText2TXT"
-        Me.miscTempText2TXT.Size = New System.Drawing.Size(338, 20)
-        Me.miscTempText2TXT.TabIndex = 2
-        '
-        'miscTempText3TXT
-        '
-        Me.miscTempText3TXT.Location = New System.Drawing.Point(136, 191)
-        Me.miscTempText3TXT.Name = "miscTempText3TXT"
-        Me.miscTempText3TXT.Size = New System.Drawing.Size(338, 20)
-        Me.miscTempText3TXT.TabIndex = 3
-        '
-        'miscTempOnBTN
-        '
-        Me.miscTempOnBTN.Location = New System.Drawing.Point(136, 226)
-        Me.miscTempOnBTN.Name = "miscTempOnBTN"
-        Me.miscTempOnBTN.Size = New System.Drawing.Size(156, 23)
-        Me.miscTempOnBTN.TabIndex = 4
-        Me.miscTempOnBTN.Text = "SHOW"
-        Me.miscTempOnBTN.UseVisualStyleBackColor = True
-        '
-        'miscTempOffBTN
-        '
-        Me.miscTempOffBTN.Location = New System.Drawing.Point(314, 226)
-        Me.miscTempOffBTN.Name = "miscTempOffBTN"
-        Me.miscTempOffBTN.Size = New System.Drawing.Size(160, 23)
-        Me.miscTempOffBTN.TabIndex = 5
-        Me.miscTempOffBTN.Text = "HIDE"
-        Me.miscTempOffBTN.UseVisualStyleBackColor = True
-        '
-        'Label90
-        '
-        Me.Label90.AutoSize = True
-        Me.Label90.Location = New System.Drawing.Point(79, 116)
-        Me.Label90.Name = "Label90"
-        Me.Label90.Size = New System.Drawing.Size(51, 13)
-        Me.Label90.TabIndex = 6
-        Me.Label90.Text = "Template"
-        '
-        'Label91
-        '
-        Me.Label91.AutoSize = True
-        Me.Label91.Location = New System.Drawing.Point(94, 142)
-        Me.Label91.Name = "Label91"
-        Me.Label91.Size = New System.Drawing.Size(36, 13)
-        Me.Label91.TabIndex = 7
-        Me.Label91.Text = "Line 1"
-        '
-        'Label92
-        '
-        Me.Label92.AutoSize = True
-        Me.Label92.Location = New System.Drawing.Point(94, 168)
-        Me.Label92.Name = "Label92"
-        Me.Label92.Size = New System.Drawing.Size(36, 13)
-        Me.Label92.TabIndex = 8
-        Me.Label92.Text = "Line 2"
-        '
-        'Label93
-        '
-        Me.Label93.AutoSize = True
-        Me.Label93.Location = New System.Drawing.Point(94, 194)
-        Me.Label93.Name = "Label93"
-        Me.Label93.Size = New System.Drawing.Size(36, 13)
-        Me.Label93.TabIndex = 9
-        Me.Label93.Text = "Line 3"
-        '
-        'Label94
-        '
-        Me.Label94.AutoSize = True
-        Me.Label94.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label94.Location = New System.Drawing.Point(133, 73)
-        Me.Label94.Name = "Label94"
-        Me.Label94.Size = New System.Drawing.Size(163, 16)
-        Me.Label94.TabIndex = 10
-        Me.Label94.Text = "Show Misc Template 1"
-        '
-        'Label95
-        '
-        Me.Label95.AutoSize = True
-        Me.Label95.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label95.Location = New System.Drawing.Point(133, 335)
-        Me.Label95.Name = "Label95"
-        Me.Label95.Size = New System.Drawing.Size(163, 16)
-        Me.Label95.TabIndex = 21
-        Me.Label95.Text = "Show Misc Template 2"
-        '
-        'Label96
-        '
-        Me.Label96.AutoSize = True
-        Me.Label96.Location = New System.Drawing.Point(94, 456)
-        Me.Label96.Name = "Label96"
-        Me.Label96.Size = New System.Drawing.Size(36, 13)
-        Me.Label96.TabIndex = 20
-        Me.Label96.Text = "Line 3"
-        '
-        'Label97
-        '
-        Me.Label97.AutoSize = True
-        Me.Label97.Location = New System.Drawing.Point(94, 430)
-        Me.Label97.Name = "Label97"
-        Me.Label97.Size = New System.Drawing.Size(36, 13)
-        Me.Label97.TabIndex = 19
-        Me.Label97.Text = "Line 2"
-        '
-        'Label98
-        '
-        Me.Label98.AutoSize = True
-        Me.Label98.Location = New System.Drawing.Point(94, 404)
-        Me.Label98.Name = "Label98"
-        Me.Label98.Size = New System.Drawing.Size(36, 13)
-        Me.Label98.TabIndex = 18
-        Me.Label98.Text = "Line 1"
-        '
-        'Label99
-        '
-        Me.Label99.AutoSize = True
-        Me.Label99.Location = New System.Drawing.Point(79, 378)
-        Me.Label99.Name = "Label99"
-        Me.Label99.Size = New System.Drawing.Size(51, 13)
-        Me.Label99.TabIndex = 17
-        Me.Label99.Text = "Template"
-        '
-        'miscTempOffBTN2
-        '
-        Me.miscTempOffBTN2.Location = New System.Drawing.Point(314, 488)
-        Me.miscTempOffBTN2.Name = "miscTempOffBTN2"
-        Me.miscTempOffBTN2.Size = New System.Drawing.Size(160, 23)
-        Me.miscTempOffBTN2.TabIndex = 16
-        Me.miscTempOffBTN2.Text = "HIDE"
-        Me.miscTempOffBTN2.UseVisualStyleBackColor = True
-        '
-        'miscTempOnBTN2
-        '
-        Me.miscTempOnBTN2.Location = New System.Drawing.Point(136, 488)
-        Me.miscTempOnBTN2.Name = "miscTempOnBTN2"
-        Me.miscTempOnBTN2.Size = New System.Drawing.Size(156, 23)
-        Me.miscTempOnBTN2.TabIndex = 15
-        Me.miscTempOnBTN2.Text = "SHOW"
-        Me.miscTempOnBTN2.UseVisualStyleBackColor = True
-        '
-        'miscTempText3TXT2
-        '
-        Me.miscTempText3TXT2.Location = New System.Drawing.Point(136, 453)
-        Me.miscTempText3TXT2.Name = "miscTempText3TXT2"
-        Me.miscTempText3TXT2.Size = New System.Drawing.Size(338, 20)
-        Me.miscTempText3TXT2.TabIndex = 14
-        '
-        'miscTempText2TXT2
-        '
-        Me.miscTempText2TXT2.Location = New System.Drawing.Point(136, 427)
-        Me.miscTempText2TXT2.Name = "miscTempText2TXT2"
-        Me.miscTempText2TXT2.Size = New System.Drawing.Size(338, 20)
-        Me.miscTempText2TXT2.TabIndex = 13
-        '
-        'miscTempText1TXT2
-        '
-        Me.miscTempText1TXT2.Location = New System.Drawing.Point(136, 401)
-        Me.miscTempText1TXT2.Name = "miscTempText1TXT2"
-        Me.miscTempText1TXT2.Size = New System.Drawing.Size(338, 20)
-        Me.miscTempText1TXT2.TabIndex = 12
-        '
-        'miscTempName2TXT
-        '
-        Me.miscTempName2TXT.Location = New System.Drawing.Point(136, 375)
-        Me.miscTempName2TXT.Name = "miscTempName2TXT"
-        Me.miscTempName2TXT.Size = New System.Drawing.Size(338, 20)
-        Me.miscTempName2TXT.TabIndex = 11
-        '
-        'Label100
-        '
-        Me.Label100.AutoSize = True
-        Me.Label100.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label100.Location = New System.Drawing.Point(630, 73)
-        Me.Label100.Name = "Label100"
-        Me.Label100.Size = New System.Drawing.Size(170, 16)
-        Me.Label100.TabIndex = 22
-        Me.Label100.Text = "Show Misc Web Page 1"
-        '
-        'Label101
-        '
-        Me.Label101.AutoSize = True
-        Me.Label101.Location = New System.Drawing.Point(598, 112)
-        Me.Label101.Name = "Label101"
-        Me.Label101.Size = New System.Drawing.Size(29, 13)
-        Me.Label101.TabIndex = 26
-        Me.Label101.Text = "URL"
-        '
-        'webPageOff1BTN
-        '
-        Me.webPageOff1BTN.Location = New System.Drawing.Point(811, 142)
-        Me.webPageOff1BTN.Name = "webPageOff1BTN"
-        Me.webPageOff1BTN.Size = New System.Drawing.Size(160, 23)
-        Me.webPageOff1BTN.TabIndex = 25
-        Me.webPageOff1BTN.Text = "HIDE"
-        Me.webPageOff1BTN.UseVisualStyleBackColor = True
-        '
-        'webPageOn1BTN
-        '
-        Me.webPageOn1BTN.Location = New System.Drawing.Point(633, 142)
-        Me.webPageOn1BTN.Name = "webPageOn1BTN"
-        Me.webPageOn1BTN.Size = New System.Drawing.Size(156, 23)
-        Me.webPageOn1BTN.TabIndex = 24
-        Me.webPageOn1BTN.Text = "SHOW"
-        Me.webPageOn1BTN.UseVisualStyleBackColor = True
-        '
-        'urlText1TXT
-        '
-        Me.urlText1TXT.Location = New System.Drawing.Point(633, 109)
-        Me.urlText1TXT.Name = "urlText1TXT"
-        Me.urlText1TXT.Size = New System.Drawing.Size(338, 20)
-        Me.urlText1TXT.TabIndex = 23
-        '
-        'Label102
-        '
-        Me.Label102.AutoSize = True
-        Me.Label102.Location = New System.Drawing.Point(598, 374)
-        Me.Label102.Name = "Label102"
-        Me.Label102.Size = New System.Drawing.Size(29, 13)
-        Me.Label102.TabIndex = 31
-        Me.Label102.Text = "URL"
-        '
-        'webPageOff2BTN
-        '
-        Me.webPageOff2BTN.Location = New System.Drawing.Point(811, 404)
-        Me.webPageOff2BTN.Name = "webPageOff2BTN"
-        Me.webPageOff2BTN.Size = New System.Drawing.Size(160, 23)
-        Me.webPageOff2BTN.TabIndex = 30
-        Me.webPageOff2BTN.Text = "HIDE"
-        Me.webPageOff2BTN.UseVisualStyleBackColor = True
-        '
-        'webPageOn2BTN
-        '
-        Me.webPageOn2BTN.Location = New System.Drawing.Point(633, 404)
-        Me.webPageOn2BTN.Name = "webPageOn2BTN"
-        Me.webPageOn2BTN.Size = New System.Drawing.Size(156, 23)
-        Me.webPageOn2BTN.TabIndex = 29
-        Me.webPageOn2BTN.Text = "SHOW"
-        Me.webPageOn2BTN.UseVisualStyleBackColor = True
-        '
-        'urlText2TXT
-        '
-        Me.urlText2TXT.Location = New System.Drawing.Point(633, 371)
-        Me.urlText2TXT.Name = "urlText2TXT"
-        Me.urlText2TXT.Size = New System.Drawing.Size(338, 20)
-        Me.urlText2TXT.TabIndex = 28
-        '
-        'Label103
-        '
-        Me.Label103.AutoSize = True
-        Me.Label103.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label103.Location = New System.Drawing.Point(630, 335)
-        Me.Label103.Name = "Label103"
-        Me.Label103.Size = New System.Drawing.Size(170, 16)
-        Me.Label103.TabIndex = 27
-        Me.Label103.Text = "Show Misc Web Page 2"
+        'GroupBox11
+        '
+        Me.GroupBox11.Controls.Add(Me.hideNameIDBTN)
+        Me.GroupBox11.Controls.Add(Me.showNameIDBTN)
+        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText4)
+        Me.GroupBox11.Controls.Add(Me.nameIdentText4)
+        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText3)
+        Me.GroupBox11.Controls.Add(Me.nameIdentText3)
+        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText2)
+        Me.GroupBox11.Controls.Add(Me.nameIdentText2)
+        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText1)
+        Me.GroupBox11.Controls.Add(Me.Label104)
+        Me.GroupBox11.Controls.Add(Me.Label105)
+        Me.GroupBox11.Controls.Add(Me.Label106)
+        Me.GroupBox11.Controls.Add(Me.Label107)
+        Me.GroupBox11.Controls.Add(Me.nameIDCHK4)
+        Me.GroupBox11.Controls.Add(Me.nameIDCHK3)
+        Me.GroupBox11.Controls.Add(Me.nameIDCHK2)
+        Me.GroupBox11.Controls.Add(Me.nameIDCHK1)
+        Me.GroupBox11.Controls.Add(Me.nameIdentText1)
+        Me.GroupBox11.Location = New System.Drawing.Point(476, 268)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(364, 322)
+        Me.GroupBox11.TabIndex = 125
+        Me.GroupBox11.TabStop = False
+        Me.GroupBox11.Text = "Name Ident"
+        '
+        'nameIdentText1
+        '
+        Me.nameIdentText1.Location = New System.Drawing.Point(18, 21)
+        Me.nameIdentText1.Name = "nameIdentText1"
+        Me.nameIdentText1.Size = New System.Drawing.Size(314, 20)
+        Me.nameIdentText1.TabIndex = 7
+        Me.nameIdentText1.Text = "Name Goes Here"
+        '
+        'nameIDCHK4
+        '
+        Me.nameIDCHK4.AutoSize = True
+        Me.nameIDCHK4.Location = New System.Drawing.Point(338, 250)
+        Me.nameIDCHK4.Name = "nameIDCHK4"
+        Me.nameIDCHK4.Size = New System.Drawing.Size(14, 13)
+        Me.nameIDCHK4.TabIndex = 14
+        Me.nameIDCHK4.UseVisualStyleBackColor = True
+        '
+        'nameIDCHK3
+        '
+        Me.nameIDCHK3.AutoSize = True
+        Me.nameIDCHK3.Location = New System.Drawing.Point(338, 178)
+        Me.nameIDCHK3.Name = "nameIDCHK3"
+        Me.nameIDCHK3.Size = New System.Drawing.Size(14, 13)
+        Me.nameIDCHK3.TabIndex = 13
+        Me.nameIDCHK3.UseVisualStyleBackColor = True
+        '
+        'nameIDCHK2
+        '
+        Me.nameIDCHK2.AutoSize = True
+        Me.nameIDCHK2.Location = New System.Drawing.Point(338, 109)
+        Me.nameIDCHK2.Name = "nameIDCHK2"
+        Me.nameIDCHK2.Size = New System.Drawing.Size(14, 13)
+        Me.nameIDCHK2.TabIndex = 12
+        Me.nameIDCHK2.UseVisualStyleBackColor = True
+        '
+        'nameIDCHK1
+        '
+        Me.nameIDCHK1.AutoSize = True
+        Me.nameIDCHK1.Checked = True
+        Me.nameIDCHK1.Location = New System.Drawing.Point(338, 36)
+        Me.nameIDCHK1.Name = "nameIDCHK1"
+        Me.nameIDCHK1.Size = New System.Drawing.Size(14, 13)
+        Me.nameIDCHK1.TabIndex = 11
+        Me.nameIDCHK1.TabStop = True
+        Me.nameIDCHK1.UseVisualStyleBackColor = True
+        '
+        'Label104
+        '
+        Me.Label104.AutoSize = True
+        Me.Label104.Location = New System.Drawing.Point(2, 245)
+        Me.Label104.Name = "Label104"
+        Me.Label104.Size = New System.Drawing.Size(13, 13)
+        Me.Label104.TabIndex = 126
+        Me.Label104.Text = "4"
+        '
+        'Label105
+        '
+        Me.Label105.AutoSize = True
+        Me.Label105.Location = New System.Drawing.Point(2, 178)
+        Me.Label105.Name = "Label105"
+        Me.Label105.Size = New System.Drawing.Size(13, 13)
+        Me.Label105.TabIndex = 125
+        Me.Label105.Text = "3"
+        '
+        'Label106
+        '
+        Me.Label106.AutoSize = True
+        Me.Label106.Location = New System.Drawing.Point(6, 109)
+        Me.Label106.Name = "Label106"
+        Me.Label106.Size = New System.Drawing.Size(13, 13)
+        Me.Label106.TabIndex = 124
+        Me.Label106.Text = "2"
+        '
+        'Label107
+        '
+        Me.Label107.AutoSize = True
+        Me.Label107.Location = New System.Drawing.Point(6, 31)
+        Me.Label107.Name = "Label107"
+        Me.Label107.Size = New System.Drawing.Size(13, 13)
+        Me.Label107.TabIndex = 123
+        Me.Label107.Text = "1"
+        '
+        'nameRoleIdentText1
+        '
+        Me.nameRoleIdentText1.Location = New System.Drawing.Point(18, 47)
+        Me.nameRoleIdentText1.Name = "nameRoleIdentText1"
+        Me.nameRoleIdentText1.Size = New System.Drawing.Size(314, 20)
+        Me.nameRoleIdentText1.TabIndex = 127
+        Me.nameRoleIdentText1.Text = "Role/Info Goes Here"
+        '
+        'nameRoleIdentText2
+        '
+        Me.nameRoleIdentText2.Location = New System.Drawing.Point(18, 121)
+        Me.nameRoleIdentText2.Name = "nameRoleIdentText2"
+        Me.nameRoleIdentText2.Size = New System.Drawing.Size(314, 20)
+        Me.nameRoleIdentText2.TabIndex = 129
+        Me.nameRoleIdentText2.Text = "Role/Info Goes Here"
+        '
+        'nameIdentText2
+        '
+        Me.nameIdentText2.Location = New System.Drawing.Point(18, 95)
+        Me.nameIdentText2.Name = "nameIdentText2"
+        Me.nameIdentText2.Size = New System.Drawing.Size(314, 20)
+        Me.nameIdentText2.TabIndex = 128
+        Me.nameIdentText2.Text = "Name Goes Here"
+        '
+        'nameRoleIdentText3
+        '
+        Me.nameRoleIdentText3.Location = New System.Drawing.Point(18, 188)
+        Me.nameRoleIdentText3.Name = "nameRoleIdentText3"
+        Me.nameRoleIdentText3.Size = New System.Drawing.Size(314, 20)
+        Me.nameRoleIdentText3.TabIndex = 131
+        Me.nameRoleIdentText3.Text = "Role/Info Goes Here"
+        '
+        'nameIdentText3
+        '
+        Me.nameIdentText3.Location = New System.Drawing.Point(18, 162)
+        Me.nameIdentText3.Name = "nameIdentText3"
+        Me.nameIdentText3.Size = New System.Drawing.Size(314, 20)
+        Me.nameIdentText3.TabIndex = 130
+        Me.nameIdentText3.Text = "Name Goes Here"
+        '
+        'nameRoleIdentText4
+        '
+        Me.nameRoleIdentText4.Location = New System.Drawing.Point(18, 258)
+        Me.nameRoleIdentText4.Name = "nameRoleIdentText4"
+        Me.nameRoleIdentText4.Size = New System.Drawing.Size(314, 20)
+        Me.nameRoleIdentText4.TabIndex = 133
+        Me.nameRoleIdentText4.Text = "Role/Info Goes Here"
+        '
+        'nameIdentText4
+        '
+        Me.nameIdentText4.Location = New System.Drawing.Point(18, 232)
+        Me.nameIdentText4.Name = "nameIdentText4"
+        Me.nameIdentText4.Size = New System.Drawing.Size(314, 20)
+        Me.nameIdentText4.TabIndex = 132
+        Me.nameIdentText4.Text = "Name Goes Here"
+        '
+        'showNameIDBTN
+        '
+        Me.showNameIDBTN.Location = New System.Drawing.Point(18, 284)
+        Me.showNameIDBTN.Name = "showNameIDBTN"
+        Me.showNameIDBTN.Size = New System.Drawing.Size(144, 23)
+        Me.showNameIDBTN.TabIndex = 134
+        Me.showNameIDBTN.Text = "Show"
+        Me.showNameIDBTN.UseVisualStyleBackColor = True
+        '
+        'hideNameIDBTN
+        '
+        Me.hideNameIDBTN.Location = New System.Drawing.Point(188, 284)
+        Me.hideNameIDBTN.Name = "hideNameIDBTN"
+        Me.hideNameIDBTN.Size = New System.Drawing.Size(144, 23)
+        Me.hideNameIDBTN.TabIndex = 135
+        Me.hideNameIDBTN.Text = "Hide"
+        Me.hideNameIDBTN.UseVisualStyleBackColor = True
         '
         'ADIFootball
         '
@@ -6255,10 +6459,12 @@ Partial Class ADIFootball
         Me.GroupBox8.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
-        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage8.ResumeLayout(False)
         Me.TabPage8.PerformLayout()
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox11.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -6855,5 +7061,24 @@ Partial Class ADIFootball
     Friend WithEvents webPageOn2BTN As System.Windows.Forms.Button
     Friend WithEvents urlText2TXT As System.Windows.Forms.TextBox
     Friend WithEvents Label103 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox11 As System.Windows.Forms.GroupBox
+    Friend WithEvents hideNameIDBTN As System.Windows.Forms.Button
+    Friend WithEvents showNameIDBTN As System.Windows.Forms.Button
+    Friend WithEvents nameRoleIdentText4 As System.Windows.Forms.TextBox
+    Friend WithEvents nameIdentText4 As System.Windows.Forms.TextBox
+    Friend WithEvents nameRoleIdentText3 As System.Windows.Forms.TextBox
+    Friend WithEvents nameIdentText3 As System.Windows.Forms.TextBox
+    Friend WithEvents nameRoleIdentText2 As System.Windows.Forms.TextBox
+    Friend WithEvents nameIdentText2 As System.Windows.Forms.TextBox
+    Friend WithEvents nameRoleIdentText1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label104 As System.Windows.Forms.Label
+    Friend WithEvents Label105 As System.Windows.Forms.Label
+    Friend WithEvents Label106 As System.Windows.Forms.Label
+    Friend WithEvents Label107 As System.Windows.Forms.Label
+    Friend WithEvents nameIDCHK4 As System.Windows.Forms.RadioButton
+    Friend WithEvents nameIDCHK3 As System.Windows.Forms.RadioButton
+    Friend WithEvents nameIDCHK2 As System.Windows.Forms.RadioButton
+    Friend WithEvents nameIDCHK1 As System.Windows.Forms.RadioButton
+    Friend WithEvents nameIdentText1 As System.Windows.Forms.TextBox
 
 End Class
