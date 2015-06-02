@@ -5500,6 +5500,14 @@ Public Class ADIFootball
                     sw.WriteLine(outGameCrawl2.Text)
                     sw.WriteLine(outGameCrawl3.Text)
                     sw.WriteLine(outGameCrawl4.Text)
+                    sw.WriteLine(nameIdentText1.Text)
+                    sw.WriteLine(nameIdentText2.Text)
+                    sw.WriteLine(nameIdentText3.Text)
+                    sw.WriteLine(nameIdentText4.Text)
+                    sw.WriteLine(nameRoleIdentText1.Text)
+                    sw.WriteLine(nameRoleIdentText2.Text)
+                    sw.WriteLine(nameRoleIdentText3.Text)
+                    sw.WriteLine(nameRoleIdentText4.Text)
                     'stuff on scores page
                     'titles
                     sw.WriteLine(PremScoresTitle.Text)
@@ -5701,6 +5709,20 @@ Public Class ADIFootball
                     sw.WriteLine(msg8Line4.Text)
                     sw.WriteLine(backgrounds8.Text)
 
+                    ' misc tab
+                    sw.WriteLine(miscTempNameTXT.Text)
+                    sw.WriteLine(miscTempText1TXT.Text)
+                    sw.WriteLine(miscTempText2TXT.Text)
+                    sw.WriteLine(miscTempText3TXT.Text)
+
+                    sw.WriteLine(miscTempName2TXT.Text)
+                    sw.WriteLine(miscTempText1TXT2.Text)
+                    sw.WriteLine(miscTempText2TXT2.Text)
+                    sw.WriteLine(miscTempText3TXT2.Text)
+
+                    sw.WriteLine(urlText1TXT.Text)
+                    sw.WriteLine(urlText2TXT.Text)
+
                 End Using
                 myStream.Close()
             End If
@@ -5731,6 +5753,14 @@ Public Class ADIFootball
                         outGameCrawl2.Text = tr.ReadLine()
                         outGameCrawl3.Text = tr.ReadLine()
                         outGameCrawl4.Text = tr.ReadLine()
+                        nameIdentText1.Text = tr.ReadLine()
+                        nameIdentText2.Text = tr.ReadLine()
+                        nameIdentText3.Text = tr.ReadLine()
+                        nameIdentText4.Text = tr.ReadLine()
+                        nameRoleIdentText1.Text = tr.ReadLine()
+                        nameRoleIdentText2.Text = tr.ReadLine()
+                        nameRoleIdentText3.Text = tr.ReadLine()
+                        nameRoleIdentText4.Text = tr.ReadLine()
                         PremScoresTitle.Text = tr.ReadLine()
                         tab1Logo1Select.Text = tr.ReadLine()
                         PremScoresTitle2.Text = tr.ReadLine()
@@ -5925,6 +5955,19 @@ Public Class ADIFootball
                         msg8Line4.Text = tr.ReadLine()
                         backgrounds8.Text = tr.ReadLine()
 
+                        ' misc tab
+                        miscTempNameTXT.Text = tr.ReadLine()
+                        miscTempText1TXT.Text = tr.ReadLine()
+                        miscTempText2TXT.Text = tr.ReadLine()
+                        miscTempText3TXT.Text = tr.ReadLine()
+
+                        miscTempName2TXT.Text = tr.ReadLine()
+                        miscTempText1TXT2.Text = tr.ReadLine()
+                        miscTempText2TXT2.Text = tr.ReadLine()
+                        miscTempText3TXT2.Text = tr.ReadLine()
+
+                        urlText1TXT.Text = tr.ReadLine()
+                        urlText2TXT.Text = tr.ReadLine()
 
                     End Using
                 End If
