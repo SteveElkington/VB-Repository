@@ -3517,6 +3517,14 @@ Public Class ADIFootball
                 SubOn.Items.Add(HomeTeam.Items(i))
                 SubOff.Items.Add(HomeTeam.Items(i))
             Next
+
+            'save as text file
+            Dim FILE_NAME2 As String = "c:\home_first11.txt"
+            Dim objWriter As New System.IO.StreamWriter(FILE_NAME2, False)
+            For Each o As Object In HomeTeam.Items
+                objWriter.WriteLine(o)
+            Next
+            objWriter.Close()
         Else
             MessageBox.Show("You need to have 11 players and 7 subs in each team. Currently you don't have enough players in your home team.", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -3535,6 +3543,13 @@ Public Class ADIFootball
                 aw_subOn.Items.Add(AwayTeam.Items(j))
                 aw_subOff.Items.Add(AwayTeam.Items(j))
             Next
+            'save as text file
+            Dim FILE_NAME3 As String = "c:\away_first11.txt"
+            Dim objWriter2 As New System.IO.StreamWriter(FILE_NAME3, False)
+            For Each o As Object In AwayTeam.Items
+                objWriter2.WriteLine(o)
+            Next
+            objWriter2.Close()
         Else
             MessageBox.Show("You need to have 11 players and 7 subs in each team. Currently you don't have enough players in your away team.", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
@@ -6240,5 +6255,57 @@ Public Class ADIFootball
                 End If
             End Try
         End If
+    End Sub
+
+    Private Sub Button1_Click_2(sender As Object, e As EventArgs) Handles loadLastHomeSquadBTN.Click
+        HomeTeam.Items.Clear()
+
+        Try
+            ' Create an instance of StreamReader to read from a file. 
+            Dim sr As StreamReader = New StreamReader("C:\home_first11.txt", System.Text.Encoding.Default)
+            Dim line As String
+            'Read and display the lines from the file until the end 
+            ' of the file is reached. 
+            Do
+
+                line = sr.ReadLine()
+                If line <> "" Then
+                    HomeTeam.Items.Add(UCase(line))
+                End If
+                ' SubOn.Items.Add(UCase(line))
+                ' SubOff.Items.Add(UCase(line))
+            Loop Until line Is Nothing
+            sr.Close()
+        Catch ex As Exception
+            ' Let the user know what went wrong.
+            Console.WriteLine("The file could not be read:")
+            Console.WriteLine(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub loadLastAwaySquadBTN_Click(sender As Object, e As EventArgs) Handles loadLastAwaySquadBTN.Click
+        AwayTeam.Items.Clear()
+
+        Try
+            ' Create an instance of StreamReader to read from a file. 
+            Dim sr As StreamReader = New StreamReader("C:\away_first11.txt", System.Text.Encoding.Default)
+            Dim line As String
+            'Read and display the lines from the file until the end 
+            ' of the file is reached. 
+            Do
+
+                line = sr.ReadLine()
+                If line <> "" Then
+                    AwayTeam.Items.Add(UCase(line))
+                End If
+                ' SubOn.Items.Add(UCase(line))
+                ' SubOff.Items.Add(UCase(line))
+            Loop Until line Is Nothing
+            sr.Close()
+        Catch ex As Exception
+            ' Let the user know what went wrong.
+            Console.WriteLine("The file could not be read:")
+            Console.WriteLine(ex.Message)
+        End Try
     End Sub
 End Class

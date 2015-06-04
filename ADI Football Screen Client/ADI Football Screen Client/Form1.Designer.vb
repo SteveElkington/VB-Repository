@@ -205,6 +205,8 @@ Partial Class ADIFootball
         Me.AwayTeamLabel = New System.Windows.Forms.Label()
         Me.HomeTeamLabel = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.stillsPlayLoadBTN = New System.Windows.Forms.Button()
+        Me.stillsPlaySaveBTN = New System.Windows.Forms.Button()
         Me.WipeTrans = New System.Windows.Forms.RadioButton()
         Me.PushTrans = New System.Windows.Forms.RadioButton()
         Me.MixTrans = New System.Windows.Forms.RadioButton()
@@ -401,6 +403,8 @@ Partial Class ADIFootball
         Me.addedTimeVals = New System.Windows.Forms.ComboBox()
         Me.showAddedTimeBTN = New System.Windows.Forms.Button()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.igPlaylistLoadBTN = New System.Windows.Forms.Button()
+        Me.igPlaylistSaveBTN = New System.Windows.Forms.Button()
         Me.WipeTransInGame = New System.Windows.Forms.RadioButton()
         Me.PushTransInGame = New System.Windows.Forms.RadioButton()
         Me.MixTransInGame = New System.Windows.Forms.RadioButton()
@@ -635,10 +639,8 @@ Partial Class ADIFootball
         Me.updateScore = New System.Windows.Forms.Button()
         Me.saveBTN = New System.Windows.Forms.Button()
         Me.loadBTN = New System.Windows.Forms.Button()
-        Me.stillsPlaySaveBTN = New System.Windows.Forms.Button()
-        Me.stillsPlayLoadBTN = New System.Windows.Forms.Button()
-        Me.igPlaylistLoadBTN = New System.Windows.Forms.Button()
-        Me.igPlaylistSaveBTN = New System.Windows.Forms.Button()
+        Me.loadLastHomeSquadBTN = New System.Windows.Forms.Button()
+        Me.loadLastAwaySquadBTN = New System.Windows.Forms.Button()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -1510,6 +1512,8 @@ Partial Class ADIFootball
         'TabPage6
         '
         Me.TabPage6.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage6.Controls.Add(Me.loadLastAwaySquadBTN)
+        Me.TabPage6.Controls.Add(Me.loadLastHomeSquadBTN)
         Me.TabPage6.Controls.Add(Me.HomeTeam)
         Me.TabPage6.Controls.Add(Me.AwayTeam)
         Me.TabPage6.Controls.Add(Me.Panel4)
@@ -1785,7 +1789,7 @@ Partial Class ADIFootball
         '
         'updateAllTeams
         '
-        Me.updateAllTeams.Location = New System.Drawing.Point(356, 329)
+        Me.updateAllTeams.Location = New System.Drawing.Point(356, 357)
         Me.updateAllTeams.Name = "updateAllTeams"
         Me.updateAllTeams.Size = New System.Drawing.Size(420, 76)
         Me.updateAllTeams.TabIndex = 11
@@ -2308,6 +2312,24 @@ Partial Class ADIFootball
         Me.GroupBox2.TabIndex = 18
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Stills Playout"
+        '
+        'stillsPlayLoadBTN
+        '
+        Me.stillsPlayLoadBTN.Location = New System.Drawing.Point(101, 579)
+        Me.stillsPlayLoadBTN.Name = "stillsPlayLoadBTN"
+        Me.stillsPlayLoadBTN.Size = New System.Drawing.Size(86, 23)
+        Me.stillsPlayLoadBTN.TabIndex = 82
+        Me.stillsPlayLoadBTN.Text = "Load"
+        Me.stillsPlayLoadBTN.UseVisualStyleBackColor = True
+        '
+        'stillsPlaySaveBTN
+        '
+        Me.stillsPlaySaveBTN.Location = New System.Drawing.Point(9, 579)
+        Me.stillsPlaySaveBTN.Name = "stillsPlaySaveBTN"
+        Me.stillsPlaySaveBTN.Size = New System.Drawing.Size(86, 23)
+        Me.stillsPlaySaveBTN.TabIndex = 81
+        Me.stillsPlaySaveBTN.Text = "Save"
+        Me.stillsPlaySaveBTN.UseVisualStyleBackColor = True
         '
         'WipeTrans
         '
@@ -4286,6 +4308,24 @@ Partial Class ADIFootball
         Me.GroupBox6.TabIndex = 116
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Stills Playout"
+        '
+        'igPlaylistLoadBTN
+        '
+        Me.igPlaylistLoadBTN.Location = New System.Drawing.Point(101, 574)
+        Me.igPlaylistLoadBTN.Name = "igPlaylistLoadBTN"
+        Me.igPlaylistLoadBTN.Size = New System.Drawing.Size(86, 23)
+        Me.igPlaylistLoadBTN.TabIndex = 125
+        Me.igPlaylistLoadBTN.Text = "Load"
+        Me.igPlaylistLoadBTN.UseVisualStyleBackColor = True
+        '
+        'igPlaylistSaveBTN
+        '
+        Me.igPlaylistSaveBTN.Location = New System.Drawing.Point(9, 574)
+        Me.igPlaylistSaveBTN.Name = "igPlaylistSaveBTN"
+        Me.igPlaylistSaveBTN.Size = New System.Drawing.Size(86, 23)
+        Me.igPlaylistSaveBTN.TabIndex = 124
+        Me.igPlaylistSaveBTN.Text = "Save"
+        Me.igPlaylistSaveBTN.UseVisualStyleBackColor = True
         '
         'WipeTransInGame
         '
@@ -6402,41 +6442,23 @@ Partial Class ADIFootball
         Me.loadBTN.Text = "Load"
         Me.loadBTN.UseVisualStyleBackColor = True
         '
-        'stillsPlaySaveBTN
+        'loadLastHomeSquadBTN
         '
-        Me.stillsPlaySaveBTN.Location = New System.Drawing.Point(9, 579)
-        Me.stillsPlaySaveBTN.Name = "stillsPlaySaveBTN"
-        Me.stillsPlaySaveBTN.Size = New System.Drawing.Size(86, 23)
-        Me.stillsPlaySaveBTN.TabIndex = 81
-        Me.stillsPlaySaveBTN.Text = "Save"
-        Me.stillsPlaySaveBTN.UseVisualStyleBackColor = True
+        Me.loadLastHomeSquadBTN.Location = New System.Drawing.Point(369, 328)
+        Me.loadLastHomeSquadBTN.Name = "loadLastHomeSquadBTN"
+        Me.loadLastHomeSquadBTN.Size = New System.Drawing.Size(188, 23)
+        Me.loadLastHomeSquadBTN.TabIndex = 121
+        Me.loadLastHomeSquadBTN.Text = "Load Last Squad"
+        Me.loadLastHomeSquadBTN.UseVisualStyleBackColor = True
         '
-        'stillsPlayLoadBTN
+        'loadLastAwaySquadBTN
         '
-        Me.stillsPlayLoadBTN.Location = New System.Drawing.Point(101, 579)
-        Me.stillsPlayLoadBTN.Name = "stillsPlayLoadBTN"
-        Me.stillsPlayLoadBTN.Size = New System.Drawing.Size(86, 23)
-        Me.stillsPlayLoadBTN.TabIndex = 82
-        Me.stillsPlayLoadBTN.Text = "Load"
-        Me.stillsPlayLoadBTN.UseVisualStyleBackColor = True
-        '
-        'igPlaylistLoadBTN
-        '
-        Me.igPlaylistLoadBTN.Location = New System.Drawing.Point(101, 574)
-        Me.igPlaylistLoadBTN.Name = "igPlaylistLoadBTN"
-        Me.igPlaylistLoadBTN.Size = New System.Drawing.Size(86, 23)
-        Me.igPlaylistLoadBTN.TabIndex = 125
-        Me.igPlaylistLoadBTN.Text = "Load"
-        Me.igPlaylistLoadBTN.UseVisualStyleBackColor = True
-        '
-        'igPlaylistSaveBTN
-        '
-        Me.igPlaylistSaveBTN.Location = New System.Drawing.Point(9, 574)
-        Me.igPlaylistSaveBTN.Name = "igPlaylistSaveBTN"
-        Me.igPlaylistSaveBTN.Size = New System.Drawing.Size(86, 23)
-        Me.igPlaylistSaveBTN.TabIndex = 124
-        Me.igPlaylistSaveBTN.Text = "Save"
-        Me.igPlaylistSaveBTN.UseVisualStyleBackColor = True
+        Me.loadLastAwaySquadBTN.Location = New System.Drawing.Point(571, 328)
+        Me.loadLastAwaySquadBTN.Name = "loadLastAwaySquadBTN"
+        Me.loadLastAwaySquadBTN.Size = New System.Drawing.Size(188, 23)
+        Me.loadLastAwaySquadBTN.TabIndex = 122
+        Me.loadLastAwaySquadBTN.Text = "Load Last Squad"
+        Me.loadLastAwaySquadBTN.UseVisualStyleBackColor = True
         '
         'ADIFootball
         '
@@ -7128,5 +7150,7 @@ Partial Class ADIFootball
     Friend WithEvents stillsPlaySaveBTN As System.Windows.Forms.Button
     Friend WithEvents igPlaylistLoadBTN As System.Windows.Forms.Button
     Friend WithEvents igPlaylistSaveBTN As System.Windows.Forms.Button
+    Friend WithEvents loadLastHomeSquadBTN As System.Windows.Forms.Button
+    Friend WithEvents loadLastAwaySquadBTN As System.Windows.Forms.Button
 
 End Class
