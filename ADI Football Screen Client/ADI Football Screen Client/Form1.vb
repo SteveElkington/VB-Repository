@@ -5490,7 +5490,7 @@ Public Class ADIFootball
             If (myStream IsNot Nothing) Then
                 ' insert code to write to file here, could be anythingbut this is seperate lines to a text file
                 Using sw As StreamWriter = New StreamWriter(myStream)
-                    ' top of scree
+                    ' top of screen
                     sw.WriteLine(homeThreeLetters.Text)
                     sw.WriteLine(HomeScore.Text)
                     sw.WriteLine(AwayScore.Text)
@@ -6127,6 +6127,118 @@ Public Class ADIFootball
             're-enable button
             showNameIDBTN.Enabled = True
             showNameIDBTN.UseVisualStyleBackColor = True
+        End If
+    End Sub
+
+    Private Sub stillsPlaySaveBTN_Click(sender As Object, e As EventArgs) Handles stillsPlaySaveBTN.Click
+        Dim myStream As Stream
+        Dim saveFileDialog2 As New SaveFileDialog()
+
+        saveFileDialog2.Filter = "E.L.K. Playlist files (*.epl)|*.epl"
+        saveFileDialog2.FilterIndex = 2
+        saveFileDialog2.RestoreDirectory = True
+
+        If saveFileDialog2.ShowDialog() = DialogResult.OK Then
+            myStream = saveFileDialog2.OpenFile()
+            If (myStream IsNot Nothing) Then
+                ' insert code to write to file here, could be anythingbut this is seperate lines to a text file
+                Using sw As StreamWriter = New StreamWriter(myStream)
+                    For Each o As Object In playlistFiles.Items
+                        sw.WriteLine(o)
+                    Next
+                End Using
+                myStream.Close()
+            End If
+        End If
+    End Sub
+
+    Private Sub stillsPlayLoadBTN_Click(sender As Object, e As EventArgs) Handles stillsPlayLoadBTN.Click
+        Dim myStream As Stream = Nothing
+        Dim openFileDialog3 As New OpenFileDialog()
+
+        openFileDialog3.InitialDirectory = "c:\"
+        openFileDialog3.Filter = "E.L.K. Play List files (*.epl)|*.epl"
+        openFileDialog3.FilterIndex = 2
+        openFileDialog3.RestoreDirectory = True
+
+        If openFileDialog3.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+            Try
+                myStream = openFileDialog3.OpenFile()
+                If (myStream IsNot Nothing) Then
+                    'insert code to read from file here, again this could be anything but this reads the five lines written above
+                    Using tr As TextReader = New StreamReader(myStream)
+                        '  If openFileDialog3.ShowDialog() = DialogResult.OK Then
+                        Dim lines = File.ReadAllLines(openFileDialog3.FileName)
+                        playlistFiles.Items.Clear()
+                        playlistFiles.Items.AddRange(lines)
+                        '  End If
+
+                    End Using
+                End If
+            Catch Ex As Exception
+                MessageBox.Show("Cannot read file from disk. Original error: " & Ex.Message)
+            Finally
+                ' Check this again, since we need to make sure we didn't throw an exception on open. 
+                If (myStream IsNot Nothing) Then
+                    myStream.Close()
+                End If
+            End Try
+        End If
+    End Sub
+
+    Private Sub igPlaylistSaveBTN_Click(sender As Object, e As EventArgs) Handles igPlaylistSaveBTN.Click
+        Dim myStream As Stream
+        Dim saveFileDialog2 As New SaveFileDialog()
+
+        saveFileDialog2.Filter = "E.L.K. Playlist files (*.epl)|*.epl"
+        saveFileDialog2.FilterIndex = 2
+        saveFileDialog2.RestoreDirectory = True
+
+        If saveFileDialog2.ShowDialog() = DialogResult.OK Then
+            myStream = saveFileDialog2.OpenFile()
+            If (myStream IsNot Nothing) Then
+                ' insert code to write to file here, could be anythingbut this is seperate lines to a text file
+                Using sw As StreamWriter = New StreamWriter(myStream)
+                    For Each o As Object In playlistFilesInGame.Items
+                        sw.WriteLine(o)
+                    Next
+                End Using
+                myStream.Close()
+            End If
+        End If
+    End Sub
+
+    Private Sub igPlaylistLoadBTN_Click(sender As Object, e As EventArgs) Handles igPlaylistLoadBTN.Click
+        Dim myStream As Stream = Nothing
+        Dim openFileDialog3 As New OpenFileDialog()
+
+        openFileDialog3.InitialDirectory = "c:\"
+        openFileDialog3.Filter = "E.L.K. Play List files (*.epl)|*.epl"
+        openFileDialog3.FilterIndex = 2
+        openFileDialog3.RestoreDirectory = True
+
+        If openFileDialog3.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+            Try
+                myStream = openFileDialog3.OpenFile()
+                If (myStream IsNot Nothing) Then
+                    'insert code to read from file here, again this could be anything but this reads the five lines written above
+                    Using tr As TextReader = New StreamReader(myStream)
+                        '  If openFileDialog3.ShowDialog() = DialogResult.OK Then
+                        Dim lines = File.ReadAllLines(openFileDialog3.FileName)
+                        playlistFilesInGame.Items.Clear()
+                        playlistFilesInGame.Items.AddRange(lines)
+                        '  End If
+
+                    End Using
+                End If
+            Catch Ex As Exception
+                MessageBox.Show("Cannot read file from disk. Original error: " & Ex.Message)
+            Finally
+                ' Check this again, since we need to make sure we didn't throw an exception on open. 
+                If (myStream IsNot Nothing) Then
+                    myStream.Close()
+                End If
+            End Try
         End If
     End Sub
 End Class

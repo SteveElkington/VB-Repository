@@ -163,6 +163,25 @@ Partial Class ADIFootball
         Me.FullAwaySquad = New System.Windows.Forms.ListBox()
         Me.FullHomeSquad = New System.Windows.Forms.ListBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.hideNameIDBTN = New System.Windows.Forms.Button()
+        Me.showNameIDBTN = New System.Windows.Forms.Button()
+        Me.nameRoleIdentText4 = New System.Windows.Forms.TextBox()
+        Me.nameIdentText4 = New System.Windows.Forms.TextBox()
+        Me.nameRoleIdentText3 = New System.Windows.Forms.TextBox()
+        Me.nameIdentText3 = New System.Windows.Forms.TextBox()
+        Me.nameRoleIdentText2 = New System.Windows.Forms.TextBox()
+        Me.nameIdentText2 = New System.Windows.Forms.TextBox()
+        Me.nameRoleIdentText1 = New System.Windows.Forms.TextBox()
+        Me.Label104 = New System.Windows.Forms.Label()
+        Me.Label105 = New System.Windows.Forms.Label()
+        Me.Label106 = New System.Windows.Forms.Label()
+        Me.Label107 = New System.Windows.Forms.Label()
+        Me.nameIDCHK4 = New System.Windows.Forms.RadioButton()
+        Me.nameIDCHK3 = New System.Windows.Forms.RadioButton()
+        Me.nameIDCHK2 = New System.Windows.Forms.RadioButton()
+        Me.nameIDCHK1 = New System.Windows.Forms.RadioButton()
+        Me.nameIdentText1 = New System.Windows.Forms.TextBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
         Me.Label86 = New System.Windows.Forms.Label()
         Me.Label87 = New System.Windows.Forms.Label()
@@ -616,30 +635,16 @@ Partial Class ADIFootball
         Me.updateScore = New System.Windows.Forms.Button()
         Me.saveBTN = New System.Windows.Forms.Button()
         Me.loadBTN = New System.Windows.Forms.Button()
-        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
-        Me.nameIdentText1 = New System.Windows.Forms.TextBox()
-        Me.nameIDCHK4 = New System.Windows.Forms.RadioButton()
-        Me.nameIDCHK3 = New System.Windows.Forms.RadioButton()
-        Me.nameIDCHK2 = New System.Windows.Forms.RadioButton()
-        Me.nameIDCHK1 = New System.Windows.Forms.RadioButton()
-        Me.Label104 = New System.Windows.Forms.Label()
-        Me.Label105 = New System.Windows.Forms.Label()
-        Me.Label106 = New System.Windows.Forms.Label()
-        Me.Label107 = New System.Windows.Forms.Label()
-        Me.nameRoleIdentText1 = New System.Windows.Forms.TextBox()
-        Me.nameRoleIdentText2 = New System.Windows.Forms.TextBox()
-        Me.nameIdentText2 = New System.Windows.Forms.TextBox()
-        Me.nameRoleIdentText3 = New System.Windows.Forms.TextBox()
-        Me.nameIdentText3 = New System.Windows.Forms.TextBox()
-        Me.nameRoleIdentText4 = New System.Windows.Forms.TextBox()
-        Me.nameIdentText4 = New System.Windows.Forms.TextBox()
-        Me.showNameIDBTN = New System.Windows.Forms.Button()
-        Me.hideNameIDBTN = New System.Windows.Forms.Button()
+        Me.stillsPlaySaveBTN = New System.Windows.Forms.Button()
+        Me.stillsPlayLoadBTN = New System.Windows.Forms.Button()
+        Me.igPlaylistLoadBTN = New System.Windows.Forms.Button()
+        Me.igPlaylistSaveBTN = New System.Windows.Forms.Button()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage6.SuspendLayout()
         Me.TabPage1.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -659,7 +664,6 @@ Partial Class ADIFootball
         Me.TabPage8.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox11.SuspendLayout()
         Me.SuspendLayout()
         '
         'Connect
@@ -1885,6 +1889,189 @@ Partial Class ADIFootball
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Out of Game"
         '
+        'GroupBox11
+        '
+        Me.GroupBox11.Controls.Add(Me.hideNameIDBTN)
+        Me.GroupBox11.Controls.Add(Me.showNameIDBTN)
+        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText4)
+        Me.GroupBox11.Controls.Add(Me.nameIdentText4)
+        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText3)
+        Me.GroupBox11.Controls.Add(Me.nameIdentText3)
+        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText2)
+        Me.GroupBox11.Controls.Add(Me.nameIdentText2)
+        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText1)
+        Me.GroupBox11.Controls.Add(Me.Label104)
+        Me.GroupBox11.Controls.Add(Me.Label105)
+        Me.GroupBox11.Controls.Add(Me.Label106)
+        Me.GroupBox11.Controls.Add(Me.Label107)
+        Me.GroupBox11.Controls.Add(Me.nameIDCHK4)
+        Me.GroupBox11.Controls.Add(Me.nameIDCHK3)
+        Me.GroupBox11.Controls.Add(Me.nameIDCHK2)
+        Me.GroupBox11.Controls.Add(Me.nameIDCHK1)
+        Me.GroupBox11.Controls.Add(Me.nameIdentText1)
+        Me.GroupBox11.Location = New System.Drawing.Point(476, 268)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(364, 322)
+        Me.GroupBox11.TabIndex = 125
+        Me.GroupBox11.TabStop = False
+        Me.GroupBox11.Text = "Name Ident"
+        '
+        'hideNameIDBTN
+        '
+        Me.hideNameIDBTN.Location = New System.Drawing.Point(188, 284)
+        Me.hideNameIDBTN.Name = "hideNameIDBTN"
+        Me.hideNameIDBTN.Size = New System.Drawing.Size(144, 23)
+        Me.hideNameIDBTN.TabIndex = 135
+        Me.hideNameIDBTN.Text = "Hide"
+        Me.hideNameIDBTN.UseVisualStyleBackColor = True
+        '
+        'showNameIDBTN
+        '
+        Me.showNameIDBTN.Location = New System.Drawing.Point(18, 284)
+        Me.showNameIDBTN.Name = "showNameIDBTN"
+        Me.showNameIDBTN.Size = New System.Drawing.Size(144, 23)
+        Me.showNameIDBTN.TabIndex = 134
+        Me.showNameIDBTN.Text = "Show"
+        Me.showNameIDBTN.UseVisualStyleBackColor = True
+        '
+        'nameRoleIdentText4
+        '
+        Me.nameRoleIdentText4.Location = New System.Drawing.Point(18, 258)
+        Me.nameRoleIdentText4.Name = "nameRoleIdentText4"
+        Me.nameRoleIdentText4.Size = New System.Drawing.Size(314, 20)
+        Me.nameRoleIdentText4.TabIndex = 133
+        Me.nameRoleIdentText4.Text = "Role/Info Goes Here"
+        '
+        'nameIdentText4
+        '
+        Me.nameIdentText4.Location = New System.Drawing.Point(18, 232)
+        Me.nameIdentText4.Name = "nameIdentText4"
+        Me.nameIdentText4.Size = New System.Drawing.Size(314, 20)
+        Me.nameIdentText4.TabIndex = 132
+        Me.nameIdentText4.Text = "Name Goes Here"
+        '
+        'nameRoleIdentText3
+        '
+        Me.nameRoleIdentText3.Location = New System.Drawing.Point(18, 188)
+        Me.nameRoleIdentText3.Name = "nameRoleIdentText3"
+        Me.nameRoleIdentText3.Size = New System.Drawing.Size(314, 20)
+        Me.nameRoleIdentText3.TabIndex = 131
+        Me.nameRoleIdentText3.Text = "Role/Info Goes Here"
+        '
+        'nameIdentText3
+        '
+        Me.nameIdentText3.Location = New System.Drawing.Point(18, 162)
+        Me.nameIdentText3.Name = "nameIdentText3"
+        Me.nameIdentText3.Size = New System.Drawing.Size(314, 20)
+        Me.nameIdentText3.TabIndex = 130
+        Me.nameIdentText3.Text = "Name Goes Here"
+        '
+        'nameRoleIdentText2
+        '
+        Me.nameRoleIdentText2.Location = New System.Drawing.Point(18, 121)
+        Me.nameRoleIdentText2.Name = "nameRoleIdentText2"
+        Me.nameRoleIdentText2.Size = New System.Drawing.Size(314, 20)
+        Me.nameRoleIdentText2.TabIndex = 129
+        Me.nameRoleIdentText2.Text = "Role/Info Goes Here"
+        '
+        'nameIdentText2
+        '
+        Me.nameIdentText2.Location = New System.Drawing.Point(18, 95)
+        Me.nameIdentText2.Name = "nameIdentText2"
+        Me.nameIdentText2.Size = New System.Drawing.Size(314, 20)
+        Me.nameIdentText2.TabIndex = 128
+        Me.nameIdentText2.Text = "Name Goes Here"
+        '
+        'nameRoleIdentText1
+        '
+        Me.nameRoleIdentText1.Location = New System.Drawing.Point(18, 47)
+        Me.nameRoleIdentText1.Name = "nameRoleIdentText1"
+        Me.nameRoleIdentText1.Size = New System.Drawing.Size(314, 20)
+        Me.nameRoleIdentText1.TabIndex = 127
+        Me.nameRoleIdentText1.Text = "Role/Info Goes Here"
+        '
+        'Label104
+        '
+        Me.Label104.AutoSize = True
+        Me.Label104.Location = New System.Drawing.Point(2, 245)
+        Me.Label104.Name = "Label104"
+        Me.Label104.Size = New System.Drawing.Size(13, 13)
+        Me.Label104.TabIndex = 126
+        Me.Label104.Text = "4"
+        '
+        'Label105
+        '
+        Me.Label105.AutoSize = True
+        Me.Label105.Location = New System.Drawing.Point(2, 178)
+        Me.Label105.Name = "Label105"
+        Me.Label105.Size = New System.Drawing.Size(13, 13)
+        Me.Label105.TabIndex = 125
+        Me.Label105.Text = "3"
+        '
+        'Label106
+        '
+        Me.Label106.AutoSize = True
+        Me.Label106.Location = New System.Drawing.Point(6, 109)
+        Me.Label106.Name = "Label106"
+        Me.Label106.Size = New System.Drawing.Size(13, 13)
+        Me.Label106.TabIndex = 124
+        Me.Label106.Text = "2"
+        '
+        'Label107
+        '
+        Me.Label107.AutoSize = True
+        Me.Label107.Location = New System.Drawing.Point(6, 31)
+        Me.Label107.Name = "Label107"
+        Me.Label107.Size = New System.Drawing.Size(13, 13)
+        Me.Label107.TabIndex = 123
+        Me.Label107.Text = "1"
+        '
+        'nameIDCHK4
+        '
+        Me.nameIDCHK4.AutoSize = True
+        Me.nameIDCHK4.Location = New System.Drawing.Point(338, 250)
+        Me.nameIDCHK4.Name = "nameIDCHK4"
+        Me.nameIDCHK4.Size = New System.Drawing.Size(14, 13)
+        Me.nameIDCHK4.TabIndex = 14
+        Me.nameIDCHK4.UseVisualStyleBackColor = True
+        '
+        'nameIDCHK3
+        '
+        Me.nameIDCHK3.AutoSize = True
+        Me.nameIDCHK3.Location = New System.Drawing.Point(338, 178)
+        Me.nameIDCHK3.Name = "nameIDCHK3"
+        Me.nameIDCHK3.Size = New System.Drawing.Size(14, 13)
+        Me.nameIDCHK3.TabIndex = 13
+        Me.nameIDCHK3.UseVisualStyleBackColor = True
+        '
+        'nameIDCHK2
+        '
+        Me.nameIDCHK2.AutoSize = True
+        Me.nameIDCHK2.Location = New System.Drawing.Point(338, 109)
+        Me.nameIDCHK2.Name = "nameIDCHK2"
+        Me.nameIDCHK2.Size = New System.Drawing.Size(14, 13)
+        Me.nameIDCHK2.TabIndex = 12
+        Me.nameIDCHK2.UseVisualStyleBackColor = True
+        '
+        'nameIDCHK1
+        '
+        Me.nameIDCHK1.AutoSize = True
+        Me.nameIDCHK1.Checked = True
+        Me.nameIDCHK1.Location = New System.Drawing.Point(338, 36)
+        Me.nameIDCHK1.Name = "nameIDCHK1"
+        Me.nameIDCHK1.Size = New System.Drawing.Size(14, 13)
+        Me.nameIDCHK1.TabIndex = 11
+        Me.nameIDCHK1.TabStop = True
+        Me.nameIDCHK1.UseVisualStyleBackColor = True
+        '
+        'nameIdentText1
+        '
+        Me.nameIdentText1.Location = New System.Drawing.Point(18, 21)
+        Me.nameIdentText1.Name = "nameIdentText1"
+        Me.nameIdentText1.Size = New System.Drawing.Size(314, 20)
+        Me.nameIdentText1.TabIndex = 7
+        Me.nameIdentText1.Text = "Name Goes Here"
+        '
         'GroupBox10
         '
         Me.GroupBox10.Controls.Add(Me.Label86)
@@ -2097,6 +2284,8 @@ Partial Class ADIFootball
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.stillsPlayLoadBTN)
+        Me.GroupBox2.Controls.Add(Me.stillsPlaySaveBTN)
         Me.GroupBox2.Controls.Add(Me.WipeTrans)
         Me.GroupBox2.Controls.Add(Me.PushTrans)
         Me.GroupBox2.Controls.Add(Me.MixTrans)
@@ -2115,7 +2304,7 @@ Partial Class ADIFootball
         Me.GroupBox2.Controls.Add(Me.SourceFiles)
         Me.GroupBox2.Location = New System.Drawing.Point(847, 22)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(347, 568)
+        Me.GroupBox2.Size = New System.Drawing.Size(347, 608)
         Me.GroupBox2.TabIndex = 18
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Stills Playout"
@@ -4073,6 +4262,8 @@ Partial Class ADIFootball
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.igPlaylistLoadBTN)
+        Me.GroupBox6.Controls.Add(Me.igPlaylistSaveBTN)
         Me.GroupBox6.Controls.Add(Me.WipeTransInGame)
         Me.GroupBox6.Controls.Add(Me.PushTransInGame)
         Me.GroupBox6.Controls.Add(Me.MixTransInGame)
@@ -4091,7 +4282,7 @@ Partial Class ADIFootball
         Me.GroupBox6.Controls.Add(Me.SourceFilesInGame)
         Me.GroupBox6.Location = New System.Drawing.Point(900, 18)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(347, 569)
+        Me.GroupBox6.Size = New System.Drawing.Size(347, 605)
         Me.GroupBox6.TabIndex = 116
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Stills Playout"
@@ -6211,188 +6402,41 @@ Partial Class ADIFootball
         Me.loadBTN.Text = "Load"
         Me.loadBTN.UseVisualStyleBackColor = True
         '
-        'GroupBox11
+        'stillsPlaySaveBTN
         '
-        Me.GroupBox11.Controls.Add(Me.hideNameIDBTN)
-        Me.GroupBox11.Controls.Add(Me.showNameIDBTN)
-        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText4)
-        Me.GroupBox11.Controls.Add(Me.nameIdentText4)
-        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText3)
-        Me.GroupBox11.Controls.Add(Me.nameIdentText3)
-        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText2)
-        Me.GroupBox11.Controls.Add(Me.nameIdentText2)
-        Me.GroupBox11.Controls.Add(Me.nameRoleIdentText1)
-        Me.GroupBox11.Controls.Add(Me.Label104)
-        Me.GroupBox11.Controls.Add(Me.Label105)
-        Me.GroupBox11.Controls.Add(Me.Label106)
-        Me.GroupBox11.Controls.Add(Me.Label107)
-        Me.GroupBox11.Controls.Add(Me.nameIDCHK4)
-        Me.GroupBox11.Controls.Add(Me.nameIDCHK3)
-        Me.GroupBox11.Controls.Add(Me.nameIDCHK2)
-        Me.GroupBox11.Controls.Add(Me.nameIDCHK1)
-        Me.GroupBox11.Controls.Add(Me.nameIdentText1)
-        Me.GroupBox11.Location = New System.Drawing.Point(476, 268)
-        Me.GroupBox11.Name = "GroupBox11"
-        Me.GroupBox11.Size = New System.Drawing.Size(364, 322)
-        Me.GroupBox11.TabIndex = 125
-        Me.GroupBox11.TabStop = False
-        Me.GroupBox11.Text = "Name Ident"
+        Me.stillsPlaySaveBTN.Location = New System.Drawing.Point(9, 579)
+        Me.stillsPlaySaveBTN.Name = "stillsPlaySaveBTN"
+        Me.stillsPlaySaveBTN.Size = New System.Drawing.Size(86, 23)
+        Me.stillsPlaySaveBTN.TabIndex = 81
+        Me.stillsPlaySaveBTN.Text = "Save"
+        Me.stillsPlaySaveBTN.UseVisualStyleBackColor = True
         '
-        'nameIdentText1
+        'stillsPlayLoadBTN
         '
-        Me.nameIdentText1.Location = New System.Drawing.Point(18, 21)
-        Me.nameIdentText1.Name = "nameIdentText1"
-        Me.nameIdentText1.Size = New System.Drawing.Size(314, 20)
-        Me.nameIdentText1.TabIndex = 7
-        Me.nameIdentText1.Text = "Name Goes Here"
+        Me.stillsPlayLoadBTN.Location = New System.Drawing.Point(101, 579)
+        Me.stillsPlayLoadBTN.Name = "stillsPlayLoadBTN"
+        Me.stillsPlayLoadBTN.Size = New System.Drawing.Size(86, 23)
+        Me.stillsPlayLoadBTN.TabIndex = 82
+        Me.stillsPlayLoadBTN.Text = "Load"
+        Me.stillsPlayLoadBTN.UseVisualStyleBackColor = True
         '
-        'nameIDCHK4
+        'igPlaylistLoadBTN
         '
-        Me.nameIDCHK4.AutoSize = True
-        Me.nameIDCHK4.Location = New System.Drawing.Point(338, 250)
-        Me.nameIDCHK4.Name = "nameIDCHK4"
-        Me.nameIDCHK4.Size = New System.Drawing.Size(14, 13)
-        Me.nameIDCHK4.TabIndex = 14
-        Me.nameIDCHK4.UseVisualStyleBackColor = True
+        Me.igPlaylistLoadBTN.Location = New System.Drawing.Point(101, 574)
+        Me.igPlaylistLoadBTN.Name = "igPlaylistLoadBTN"
+        Me.igPlaylistLoadBTN.Size = New System.Drawing.Size(86, 23)
+        Me.igPlaylistLoadBTN.TabIndex = 125
+        Me.igPlaylistLoadBTN.Text = "Load"
+        Me.igPlaylistLoadBTN.UseVisualStyleBackColor = True
         '
-        'nameIDCHK3
+        'igPlaylistSaveBTN
         '
-        Me.nameIDCHK3.AutoSize = True
-        Me.nameIDCHK3.Location = New System.Drawing.Point(338, 178)
-        Me.nameIDCHK3.Name = "nameIDCHK3"
-        Me.nameIDCHK3.Size = New System.Drawing.Size(14, 13)
-        Me.nameIDCHK3.TabIndex = 13
-        Me.nameIDCHK3.UseVisualStyleBackColor = True
-        '
-        'nameIDCHK2
-        '
-        Me.nameIDCHK2.AutoSize = True
-        Me.nameIDCHK2.Location = New System.Drawing.Point(338, 109)
-        Me.nameIDCHK2.Name = "nameIDCHK2"
-        Me.nameIDCHK2.Size = New System.Drawing.Size(14, 13)
-        Me.nameIDCHK2.TabIndex = 12
-        Me.nameIDCHK2.UseVisualStyleBackColor = True
-        '
-        'nameIDCHK1
-        '
-        Me.nameIDCHK1.AutoSize = True
-        Me.nameIDCHK1.Checked = True
-        Me.nameIDCHK1.Location = New System.Drawing.Point(338, 36)
-        Me.nameIDCHK1.Name = "nameIDCHK1"
-        Me.nameIDCHK1.Size = New System.Drawing.Size(14, 13)
-        Me.nameIDCHK1.TabIndex = 11
-        Me.nameIDCHK1.TabStop = True
-        Me.nameIDCHK1.UseVisualStyleBackColor = True
-        '
-        'Label104
-        '
-        Me.Label104.AutoSize = True
-        Me.Label104.Location = New System.Drawing.Point(2, 245)
-        Me.Label104.Name = "Label104"
-        Me.Label104.Size = New System.Drawing.Size(13, 13)
-        Me.Label104.TabIndex = 126
-        Me.Label104.Text = "4"
-        '
-        'Label105
-        '
-        Me.Label105.AutoSize = True
-        Me.Label105.Location = New System.Drawing.Point(2, 178)
-        Me.Label105.Name = "Label105"
-        Me.Label105.Size = New System.Drawing.Size(13, 13)
-        Me.Label105.TabIndex = 125
-        Me.Label105.Text = "3"
-        '
-        'Label106
-        '
-        Me.Label106.AutoSize = True
-        Me.Label106.Location = New System.Drawing.Point(6, 109)
-        Me.Label106.Name = "Label106"
-        Me.Label106.Size = New System.Drawing.Size(13, 13)
-        Me.Label106.TabIndex = 124
-        Me.Label106.Text = "2"
-        '
-        'Label107
-        '
-        Me.Label107.AutoSize = True
-        Me.Label107.Location = New System.Drawing.Point(6, 31)
-        Me.Label107.Name = "Label107"
-        Me.Label107.Size = New System.Drawing.Size(13, 13)
-        Me.Label107.TabIndex = 123
-        Me.Label107.Text = "1"
-        '
-        'nameRoleIdentText1
-        '
-        Me.nameRoleIdentText1.Location = New System.Drawing.Point(18, 47)
-        Me.nameRoleIdentText1.Name = "nameRoleIdentText1"
-        Me.nameRoleIdentText1.Size = New System.Drawing.Size(314, 20)
-        Me.nameRoleIdentText1.TabIndex = 127
-        Me.nameRoleIdentText1.Text = "Role/Info Goes Here"
-        '
-        'nameRoleIdentText2
-        '
-        Me.nameRoleIdentText2.Location = New System.Drawing.Point(18, 121)
-        Me.nameRoleIdentText2.Name = "nameRoleIdentText2"
-        Me.nameRoleIdentText2.Size = New System.Drawing.Size(314, 20)
-        Me.nameRoleIdentText2.TabIndex = 129
-        Me.nameRoleIdentText2.Text = "Role/Info Goes Here"
-        '
-        'nameIdentText2
-        '
-        Me.nameIdentText2.Location = New System.Drawing.Point(18, 95)
-        Me.nameIdentText2.Name = "nameIdentText2"
-        Me.nameIdentText2.Size = New System.Drawing.Size(314, 20)
-        Me.nameIdentText2.TabIndex = 128
-        Me.nameIdentText2.Text = "Name Goes Here"
-        '
-        'nameRoleIdentText3
-        '
-        Me.nameRoleIdentText3.Location = New System.Drawing.Point(18, 188)
-        Me.nameRoleIdentText3.Name = "nameRoleIdentText3"
-        Me.nameRoleIdentText3.Size = New System.Drawing.Size(314, 20)
-        Me.nameRoleIdentText3.TabIndex = 131
-        Me.nameRoleIdentText3.Text = "Role/Info Goes Here"
-        '
-        'nameIdentText3
-        '
-        Me.nameIdentText3.Location = New System.Drawing.Point(18, 162)
-        Me.nameIdentText3.Name = "nameIdentText3"
-        Me.nameIdentText3.Size = New System.Drawing.Size(314, 20)
-        Me.nameIdentText3.TabIndex = 130
-        Me.nameIdentText3.Text = "Name Goes Here"
-        '
-        'nameRoleIdentText4
-        '
-        Me.nameRoleIdentText4.Location = New System.Drawing.Point(18, 258)
-        Me.nameRoleIdentText4.Name = "nameRoleIdentText4"
-        Me.nameRoleIdentText4.Size = New System.Drawing.Size(314, 20)
-        Me.nameRoleIdentText4.TabIndex = 133
-        Me.nameRoleIdentText4.Text = "Role/Info Goes Here"
-        '
-        'nameIdentText4
-        '
-        Me.nameIdentText4.Location = New System.Drawing.Point(18, 232)
-        Me.nameIdentText4.Name = "nameIdentText4"
-        Me.nameIdentText4.Size = New System.Drawing.Size(314, 20)
-        Me.nameIdentText4.TabIndex = 132
-        Me.nameIdentText4.Text = "Name Goes Here"
-        '
-        'showNameIDBTN
-        '
-        Me.showNameIDBTN.Location = New System.Drawing.Point(18, 284)
-        Me.showNameIDBTN.Name = "showNameIDBTN"
-        Me.showNameIDBTN.Size = New System.Drawing.Size(144, 23)
-        Me.showNameIDBTN.TabIndex = 134
-        Me.showNameIDBTN.Text = "Show"
-        Me.showNameIDBTN.UseVisualStyleBackColor = True
-        '
-        'hideNameIDBTN
-        '
-        Me.hideNameIDBTN.Location = New System.Drawing.Point(188, 284)
-        Me.hideNameIDBTN.Name = "hideNameIDBTN"
-        Me.hideNameIDBTN.Size = New System.Drawing.Size(144, 23)
-        Me.hideNameIDBTN.TabIndex = 135
-        Me.hideNameIDBTN.Text = "Hide"
-        Me.hideNameIDBTN.UseVisualStyleBackColor = True
+        Me.igPlaylistSaveBTN.Location = New System.Drawing.Point(9, 574)
+        Me.igPlaylistSaveBTN.Name = "igPlaylistSaveBTN"
+        Me.igPlaylistSaveBTN.Size = New System.Drawing.Size(86, 23)
+        Me.igPlaylistSaveBTN.TabIndex = 124
+        Me.igPlaylistSaveBTN.Text = "Save"
+        Me.igPlaylistSaveBTN.UseVisualStyleBackColor = True
         '
         'ADIFootball
         '
@@ -6431,6 +6475,8 @@ Partial Class ADIFootball
         Me.TabPage6.PerformLayout()
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox11.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox10.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -6463,8 +6509,6 @@ Partial Class ADIFootball
         Me.TabPage8.PerformLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox11.ResumeLayout(False)
-        Me.GroupBox11.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -7080,5 +7124,9 @@ Partial Class ADIFootball
     Friend WithEvents nameIDCHK2 As System.Windows.Forms.RadioButton
     Friend WithEvents nameIDCHK1 As System.Windows.Forms.RadioButton
     Friend WithEvents nameIdentText1 As System.Windows.Forms.TextBox
+    Friend WithEvents stillsPlayLoadBTN As System.Windows.Forms.Button
+    Friend WithEvents stillsPlaySaveBTN As System.Windows.Forms.Button
+    Friend WithEvents igPlaylistLoadBTN As System.Windows.Forms.Button
+    Friend WithEvents igPlaylistSaveBTN As System.Windows.Forms.Button
 
 End Class
