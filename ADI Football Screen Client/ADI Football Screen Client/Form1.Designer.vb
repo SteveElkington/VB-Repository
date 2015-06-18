@@ -128,6 +128,8 @@ Partial Class ADIFootball
         Me.AwaySubOn = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage6 = New System.Windows.Forms.TabPage()
+        Me.loadLastAwaySquadBTN = New System.Windows.Forms.Button()
+        Me.loadLastHomeSquadBTN = New System.Windows.Forms.Button()
         Me.HomeTeam = New System.Windows.Forms.ListBox()
         Me.AwayTeam = New System.Windows.Forms.ListBox()
         Me.Panel4 = New System.Windows.Forms.Panel()
@@ -639,8 +641,10 @@ Partial Class ADIFootball
         Me.updateScore = New System.Windows.Forms.Button()
         Me.saveBTN = New System.Windows.Forms.Button()
         Me.loadBTN = New System.Windows.Forms.Button()
-        Me.loadLastHomeSquadBTN = New System.Windows.Forms.Button()
-        Me.loadLastAwaySquadBTN = New System.Windows.Forms.Button()
+        Me.Label108 = New System.Windows.Forms.Label()
+        Me.Label109 = New System.Windows.Forms.Label()
+        Me.HomeManagerTXT = New System.Windows.Forms.TextBox()
+        Me.AwayManagerTXT = New System.Windows.Forms.TextBox()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -1035,7 +1039,7 @@ Partial Class ADIFootball
         '
         'ShowTeamSheet
         '
-        Me.ShowTeamSheet.Location = New System.Drawing.Point(16, 455)
+        Me.ShowTeamSheet.Location = New System.Drawing.Point(16, 500)
         Me.ShowTeamSheet.Name = "ShowTeamSheet"
         Me.ShowTeamSheet.Size = New System.Drawing.Size(210, 23)
         Me.ShowTeamSheet.TabIndex = 1
@@ -1044,7 +1048,7 @@ Partial Class ADIFootball
         '
         'ShowSubsSheet
         '
-        Me.ShowSubsSheet.Location = New System.Drawing.Point(16, 484)
+        Me.ShowSubsSheet.Location = New System.Drawing.Point(16, 529)
         Me.ShowSubsSheet.Name = "ShowSubsSheet"
         Me.ShowSubsSheet.Size = New System.Drawing.Size(210, 23)
         Me.ShowSubsSheet.TabIndex = 2
@@ -1053,7 +1057,7 @@ Partial Class ADIFootball
         '
         'Ts_Off
         '
-        Me.Ts_Off.Location = New System.Drawing.Point(16, 509)
+        Me.Ts_Off.Location = New System.Drawing.Point(16, 554)
         Me.Ts_Off.Name = "Ts_Off"
         Me.Ts_Off.Size = New System.Drawing.Size(210, 52)
         Me.Ts_Off.TabIndex = 3
@@ -1452,7 +1456,7 @@ Partial Class ADIFootball
         '
         'AwayTeamsOff
         '
-        Me.AwayTeamsOff.Location = New System.Drawing.Point(246, 509)
+        Me.AwayTeamsOff.Location = New System.Drawing.Point(246, 554)
         Me.AwayTeamsOff.Name = "AwayTeamsOff"
         Me.AwayTeamsOff.Size = New System.Drawing.Size(220, 52)
         Me.AwayTeamsOff.TabIndex = 6
@@ -1461,7 +1465,7 @@ Partial Class ADIFootball
         '
         'ShowAwaySubsSheet
         '
-        Me.ShowAwaySubsSheet.Location = New System.Drawing.Point(246, 483)
+        Me.ShowAwaySubsSheet.Location = New System.Drawing.Point(246, 528)
         Me.ShowAwaySubsSheet.Name = "ShowAwaySubsSheet"
         Me.ShowAwaySubsSheet.Size = New System.Drawing.Size(220, 23)
         Me.ShowAwaySubsSheet.TabIndex = 5
@@ -1470,7 +1474,7 @@ Partial Class ADIFootball
         '
         'ShowAwayFirstEleven
         '
-        Me.ShowAwayFirstEleven.Location = New System.Drawing.Point(246, 456)
+        Me.ShowAwayFirstEleven.Location = New System.Drawing.Point(246, 501)
         Me.ShowAwayFirstEleven.Name = "ShowAwayFirstEleven"
         Me.ShowAwayFirstEleven.Size = New System.Drawing.Size(220, 23)
         Me.ShowAwayFirstEleven.TabIndex = 4
@@ -1554,6 +1558,24 @@ Partial Class ADIFootball
         Me.TabPage6.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage6.TabIndex = 3
         Me.TabPage6.Text = "Set Up Teams"
+        '
+        'loadLastAwaySquadBTN
+        '
+        Me.loadLastAwaySquadBTN.Location = New System.Drawing.Point(571, 328)
+        Me.loadLastAwaySquadBTN.Name = "loadLastAwaySquadBTN"
+        Me.loadLastAwaySquadBTN.Size = New System.Drawing.Size(188, 23)
+        Me.loadLastAwaySquadBTN.TabIndex = 122
+        Me.loadLastAwaySquadBTN.Text = "Load Last Squad"
+        Me.loadLastAwaySquadBTN.UseVisualStyleBackColor = True
+        '
+        'loadLastHomeSquadBTN
+        '
+        Me.loadLastHomeSquadBTN.Location = New System.Drawing.Point(369, 328)
+        Me.loadLastHomeSquadBTN.Name = "loadLastHomeSquadBTN"
+        Me.loadLastHomeSquadBTN.Size = New System.Drawing.Size(188, 23)
+        Me.loadLastHomeSquadBTN.TabIndex = 121
+        Me.loadLastHomeSquadBTN.Text = "Load Last Squad"
+        Me.loadLastHomeSquadBTN.UseVisualStyleBackColor = True
         '
         'HomeTeam
         '
@@ -1869,6 +1891,10 @@ Partial Class ADIFootball
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage1.Controls.Add(Me.AwayManagerTXT)
+        Me.TabPage1.Controls.Add(Me.HomeManagerTXT)
+        Me.TabPage1.Controls.Add(Me.Label109)
+        Me.TabPage1.Controls.Add(Me.Label108)
         Me.TabPage1.Controls.Add(Me.GroupBox11)
         Me.TabPage1.Controls.Add(Me.GroupBox10)
         Me.TabPage1.Controls.Add(Me.awayCrestBTN)
@@ -2235,7 +2261,7 @@ Partial Class ADIFootball
         '
         'awayCrestBTN
         '
-        Me.awayCrestBTN.Location = New System.Drawing.Point(246, 427)
+        Me.awayCrestBTN.Location = New System.Drawing.Point(246, 472)
         Me.awayCrestBTN.Name = "awayCrestBTN"
         Me.awayCrestBTN.Size = New System.Drawing.Size(220, 23)
         Me.awayCrestBTN.TabIndex = 123
@@ -2244,7 +2270,7 @@ Partial Class ADIFootball
         '
         'homeCrestsBTN
         '
-        Me.homeCrestsBTN.Location = New System.Drawing.Point(16, 427)
+        Me.homeCrestsBTN.Location = New System.Drawing.Point(16, 472)
         Me.homeCrestsBTN.Name = "homeCrestsBTN"
         Me.homeCrestsBTN.Size = New System.Drawing.Size(210, 23)
         Me.homeCrestsBTN.TabIndex = 122
@@ -2253,7 +2279,7 @@ Partial Class ADIFootball
         '
         'identTeamsBTN
         '
-        Me.identTeamsBTN.Location = New System.Drawing.Point(16, 393)
+        Me.identTeamsBTN.Location = New System.Drawing.Point(16, 438)
         Me.identTeamsBTN.Name = "identTeamsBTN"
         Me.identTeamsBTN.Size = New System.Drawing.Size(450, 28)
         Me.identTeamsBTN.TabIndex = 121
@@ -6442,23 +6468,37 @@ Partial Class ADIFootball
         Me.loadBTN.Text = "Load"
         Me.loadBTN.UseVisualStyleBackColor = True
         '
-        'loadLastHomeSquadBTN
+        'Label108
         '
-        Me.loadLastHomeSquadBTN.Location = New System.Drawing.Point(369, 328)
-        Me.loadLastHomeSquadBTN.Name = "loadLastHomeSquadBTN"
-        Me.loadLastHomeSquadBTN.Size = New System.Drawing.Size(188, 23)
-        Me.loadLastHomeSquadBTN.TabIndex = 121
-        Me.loadLastHomeSquadBTN.Text = "Load Last Squad"
-        Me.loadLastHomeSquadBTN.UseVisualStyleBackColor = True
+        Me.Label108.AutoSize = True
+        Me.Label108.Location = New System.Drawing.Point(13, 390)
+        Me.Label108.Name = "Label108"
+        Me.Label108.Size = New System.Drawing.Size(49, 13)
+        Me.Label108.TabIndex = 126
+        Me.Label108.Text = "Manager"
         '
-        'loadLastAwaySquadBTN
+        'Label109
         '
-        Me.loadLastAwaySquadBTN.Location = New System.Drawing.Point(571, 328)
-        Me.loadLastAwaySquadBTN.Name = "loadLastAwaySquadBTN"
-        Me.loadLastAwaySquadBTN.Size = New System.Drawing.Size(188, 23)
-        Me.loadLastAwaySquadBTN.TabIndex = 122
-        Me.loadLastAwaySquadBTN.Text = "Load Last Squad"
-        Me.loadLastAwaySquadBTN.UseVisualStyleBackColor = True
+        Me.Label109.AutoSize = True
+        Me.Label109.Location = New System.Drawing.Point(243, 390)
+        Me.Label109.Name = "Label109"
+        Me.Label109.Size = New System.Drawing.Size(49, 13)
+        Me.Label109.TabIndex = 127
+        Me.Label109.Text = "Manager"
+        '
+        'HomeManagerTXT
+        '
+        Me.HomeManagerTXT.Location = New System.Drawing.Point(16, 406)
+        Me.HomeManagerTXT.Name = "HomeManagerTXT"
+        Me.HomeManagerTXT.Size = New System.Drawing.Size(210, 20)
+        Me.HomeManagerTXT.TabIndex = 128
+        '
+        'AwayManagerTXT
+        '
+        Me.AwayManagerTXT.Location = New System.Drawing.Point(246, 406)
+        Me.AwayManagerTXT.Name = "AwayManagerTXT"
+        Me.AwayManagerTXT.Size = New System.Drawing.Size(220, 20)
+        Me.AwayManagerTXT.TabIndex = 129
         '
         'ADIFootball
         '
@@ -7152,5 +7192,9 @@ Partial Class ADIFootball
     Friend WithEvents igPlaylistSaveBTN As System.Windows.Forms.Button
     Friend WithEvents loadLastHomeSquadBTN As System.Windows.Forms.Button
     Friend WithEvents loadLastAwaySquadBTN As System.Windows.Forms.Button
+    Friend WithEvents AwayManagerTXT As System.Windows.Forms.TextBox
+    Friend WithEvents HomeManagerTXT As System.Windows.Forms.TextBox
+    Friend WithEvents Label109 As System.Windows.Forms.Label
+    Friend WithEvents Label108 As System.Windows.Forms.Label
 
 End Class

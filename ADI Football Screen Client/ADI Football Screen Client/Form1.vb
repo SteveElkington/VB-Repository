@@ -439,6 +439,8 @@ Public Class ADIFootball
                 CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
             Next i
 
+            CasparCGDataCollection.SetData("manager", HomeManagerTXT.Text)
+
             'fading in image
             'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
             'CasparDevice.SendString("play 2-100 first11")
@@ -1320,6 +1322,10 @@ Public Class ADIFootball
             For i As Integer = 0 To ListBox2.Items.Count - 8
                 CasparCGDataCollection.SetData("f" + (i).ToString, ListBox2.Items(i).ToString)
             Next i
+
+            CasparCGDataCollection.SetData("manager", AwayManagerTXT.Text)
+
+
             CasparDevice.Channels(1).CG.Add(101, "efc_teamsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             CasparDevice.SendString("play 2-102 first11")
@@ -5523,6 +5529,8 @@ Public Class ADIFootball
                     sw.WriteLine(nameRoleIdentText2.Text)
                     sw.WriteLine(nameRoleIdentText3.Text)
                     sw.WriteLine(nameRoleIdentText4.Text)
+                    sw.WriteLine(HomeManagerTXT.Text)
+                    sw.WriteLine(AwayManagerTXT.Text)
                     'stuff on scores page
                     'titles
                     sw.WriteLine(PremScoresTitle.Text)
@@ -5776,6 +5784,8 @@ Public Class ADIFootball
                         nameRoleIdentText2.Text = tr.ReadLine()
                         nameRoleIdentText3.Text = tr.ReadLine()
                         nameRoleIdentText4.Text = tr.ReadLine()
+                        HomeManagerTXT.Text = tr.ReadLine()
+                        AwayManagerTXT.Text = tr.ReadLine()
                         PremScoresTitle.Text = tr.ReadLine()
                         tab1Logo1Select.Text = tr.ReadLine()
                         PremScoresTitle2.Text = tr.ReadLine()
