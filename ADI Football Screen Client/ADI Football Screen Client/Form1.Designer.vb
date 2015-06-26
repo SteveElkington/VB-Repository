@@ -165,6 +165,10 @@ Partial Class ADIFootball
         Me.FullAwaySquad = New System.Windows.Forms.ListBox()
         Me.FullHomeSquad = New System.Windows.Forms.ListBox()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.AwayManagerTXT = New System.Windows.Forms.TextBox()
+        Me.HomeManagerTXT = New System.Windows.Forms.TextBox()
+        Me.Label109 = New System.Windows.Forms.Label()
+        Me.Label108 = New System.Windows.Forms.Label()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.hideNameIDBTN = New System.Windows.Forms.Button()
         Me.showNameIDBTN = New System.Windows.Forms.Button()
@@ -641,10 +645,6 @@ Partial Class ADIFootball
         Me.updateScore = New System.Windows.Forms.Button()
         Me.saveBTN = New System.Windows.Forms.Button()
         Me.loadBTN = New System.Windows.Forms.Button()
-        Me.Label108 = New System.Windows.Forms.Label()
-        Me.Label109 = New System.Windows.Forms.Label()
-        Me.HomeManagerTXT = New System.Windows.Forms.TextBox()
-        Me.AwayManagerTXT = New System.Windows.Forms.TextBox()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -1918,6 +1918,38 @@ Partial Class ADIFootball
         Me.TabPage1.Size = New System.Drawing.Size(1252, 636)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Out of Game"
+        '
+        'AwayManagerTXT
+        '
+        Me.AwayManagerTXT.Location = New System.Drawing.Point(246, 406)
+        Me.AwayManagerTXT.Name = "AwayManagerTXT"
+        Me.AwayManagerTXT.Size = New System.Drawing.Size(220, 20)
+        Me.AwayManagerTXT.TabIndex = 129
+        '
+        'HomeManagerTXT
+        '
+        Me.HomeManagerTXT.Location = New System.Drawing.Point(16, 406)
+        Me.HomeManagerTXT.Name = "HomeManagerTXT"
+        Me.HomeManagerTXT.Size = New System.Drawing.Size(210, 20)
+        Me.HomeManagerTXT.TabIndex = 128
+        '
+        'Label109
+        '
+        Me.Label109.AutoSize = True
+        Me.Label109.Location = New System.Drawing.Point(243, 390)
+        Me.Label109.Name = "Label109"
+        Me.Label109.Size = New System.Drawing.Size(49, 13)
+        Me.Label109.TabIndex = 127
+        Me.Label109.Text = "Manager"
+        '
+        'Label108
+        '
+        Me.Label108.AutoSize = True
+        Me.Label108.Location = New System.Drawing.Point(13, 390)
+        Me.Label108.Name = "Label108"
+        Me.Label108.Size = New System.Drawing.Size(49, 13)
+        Me.Label108.TabIndex = 126
+        Me.Label108.Text = "Manager"
         '
         'GroupBox11
         '
@@ -6468,38 +6500,6 @@ Partial Class ADIFootball
         Me.loadBTN.Text = "Load"
         Me.loadBTN.UseVisualStyleBackColor = True
         '
-        'Label108
-        '
-        Me.Label108.AutoSize = True
-        Me.Label108.Location = New System.Drawing.Point(13, 390)
-        Me.Label108.Name = "Label108"
-        Me.Label108.Size = New System.Drawing.Size(49, 13)
-        Me.Label108.TabIndex = 126
-        Me.Label108.Text = "Manager"
-        '
-        'Label109
-        '
-        Me.Label109.AutoSize = True
-        Me.Label109.Location = New System.Drawing.Point(243, 390)
-        Me.Label109.Name = "Label109"
-        Me.Label109.Size = New System.Drawing.Size(49, 13)
-        Me.Label109.TabIndex = 127
-        Me.Label109.Text = "Manager"
-        '
-        'HomeManagerTXT
-        '
-        Me.HomeManagerTXT.Location = New System.Drawing.Point(16, 406)
-        Me.HomeManagerTXT.Name = "HomeManagerTXT"
-        Me.HomeManagerTXT.Size = New System.Drawing.Size(210, 20)
-        Me.HomeManagerTXT.TabIndex = 128
-        '
-        'AwayManagerTXT
-        '
-        Me.AwayManagerTXT.Location = New System.Drawing.Point(246, 406)
-        Me.AwayManagerTXT.Name = "AwayManagerTXT"
-        Me.AwayManagerTXT.Size = New System.Drawing.Size(220, 20)
-        Me.AwayManagerTXT.TabIndex = 129
-        '
         'ADIFootball
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -6527,7 +6527,7 @@ Partial Class ADIFootball
         Me.Controls.Add(Me.min)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ADIFootball"
-        Me.Text = "Football Interface v1"
+        Me.Text = "liveGFX v1"
         Me.Clock.ResumeLayout(False)
         Me.Clock.PerformLayout()
         Me.Crawl.ResumeLayout(False)

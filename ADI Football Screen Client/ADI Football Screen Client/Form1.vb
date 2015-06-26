@@ -33,6 +33,19 @@ Public Class ADIFootball
     Dim latestScoresTitle3 As String
     Dim latestScoresTitle4 As String
 
+    'empty variables to aid file saving for big scores.
+    Dim homeScorer1 As String = " "
+    Dim homeScorer2 As String = " "
+    Dim homeScorer3 As String = " "
+    Dim homeScorer4 As String = " "
+    Dim homeScorer5 As String = " "
+
+    Dim awayScorer1 As String = " "
+    Dim awayScorer2 As String = " "
+    Dim awayScorer3 As String = " "
+    Dim awayScorer4 As String = " "
+    Dim awayScorer5 As String = " "
+
 
     Private Sub Connect_Click(sender As Object, e As EventArgs) Handles Connect.Click
         CasparDevice.Settings.Hostname = "localhost"
@@ -516,7 +529,7 @@ Public Class ADIFootball
     Private Sub backgroundOn_CheckedChanged(sender As Object, e As EventArgs) Handles backgroundOn.CheckedChanged
         If backgroundOn.CheckState = CheckState.Checked Then
             If Me.CasparDevice.IsConnected = True Then
-                CasparDevice.SendString("play 2-50 Everton_LightsBG loop auto")
+                CasparDevice.SendString("play 2-50 pitch")
             End If
         End If
         If backgroundOn.CheckState = CheckState.Unchecked Then
@@ -2779,12 +2792,13 @@ Public Class ADIFootball
 
                     CasparDevice.Channels(0).CG.Add(101, "LowerThirdMatchScore", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(0).CG.Play(101)
-                    CasparDevice.SendString("play 1-102 LTFlare")
+                    CasparDevice.SendString("play 1-102 Strap_FLARES")
+                    CasparDevice.SendString("play 1-99 Strap")
 
                     'fading in image
                     CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-                    CasparDevice.SendString("play 1-100 LOWER_THIRD2")
-                    CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+                    CasparDevice.SendString("play 1-100 Strap_logos")
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 1 96 easeInExpo")
 
                 End If
                 If LTMatchIDRadioBut.Checked = True Then
@@ -2795,11 +2809,12 @@ Public Class ADIFootball
 
                     CasparDevice.Channels(0).CG.Add(101, "LowerThirdMatchIDst", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(0).CG.Play(101)
-                    CasparDevice.SendString("play 1-102 LTFlare")
+                    CasparDevice.SendString("play 1-102 Strap_FLARES")
+                    CasparDevice.SendString("play 1-99 Strap")
                     'fading in image
                     CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-                    CasparDevice.SendString("play 1-100 LOWER_THIRD2")
-                    CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+                    CasparDevice.SendString("play 1-100 Strap_logos")
+                    CasparDevice.SendString("MIXER 1-100 OPACITY 1 96 easeInExpo")
                 End If
 
                 '"play 1-1 " & ListBox3.Text & " loop auto"
@@ -2816,7 +2831,8 @@ Public Class ADIFootball
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.Channels(0).CG.Stop(101)
             CasparDevice.SendString("stop 1-102")
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
+            CasparDevice.SendString("stop 1-99")
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 easeOutQuint")
             countBPS = 0
             BPlayChanFadeOut.Enabled = True
             LTStrapTXBTN.BackColor = Color.FromKnownColor(KnownColor.Control)
@@ -5746,6 +5762,73 @@ Public Class ADIFootball
                     sw.WriteLine(urlText1TXT.Text)
                     sw.WriteLine(urlText2TXT.Text)
 
+                    'from scores sheet - saving scoreres
+                    'home scorers
+                    If HomeScorers.Items.Count = 1 Then
+                        homeScorer1 = HomeScorers.Items(0).ToString
+                    End If
+                    If HomeScorers.Items.Count = 2 Then
+                        homeScorer1 = HomeScorers.Items(0).ToString
+                        homeScorer2 = HomeScorers.Items(1).ToString
+                    End If
+                    If HomeScorers.Items.Count = 3 Then
+                        homeScorer1 = HomeScorers.Items(0).ToString
+                        homeScorer2 = HomeScorers.Items(1).ToString
+                        homeScorer3 = HomeScorers.Items(2).ToString
+                    End If
+                    If HomeScorers.Items.Count = 4 Then
+                        homeScorer1 = HomeScorers.Items(0).ToString
+                        homeScorer2 = HomeScorers.Items(1).ToString
+                        homeScorer3 = HomeScorers.Items(2).ToString
+                        homeScorer4 = HomeScorers.Items(3).ToString
+                    End If
+                    If HomeScorers.Items.Count = 5 Then
+                        homeScorer1 = HomeScorers.Items(0).ToString
+                        homeScorer2 = HomeScorers.Items(1).ToString
+                        homeScorer3 = HomeScorers.Items(2).ToString
+                        homeScorer4 = HomeScorers.Items(3).ToString
+                        homeScorer5 = HomeScorers.Items(4).ToString
+                    End If
+                    'then writing results to text file
+                    sw.WriteLine(homeScorer1)
+                    sw.WriteLine(homeScorer2)
+                    sw.WriteLine(homeScorer3)
+                    sw.WriteLine(homeScorer4)
+                    sw.WriteLine(homeScorer5)
+
+
+                    'away scorers
+                    If awayScorers.Items.Count = 1 Then
+                        awayScorer1 = awayScorers.Items(0).ToString
+                    End If
+                    If awayScorers.Items.Count = 2 Then
+                        awayScorer1 = awayScorers.Items(0).ToString
+                        awayScorer2 = awayScorers.Items(1).ToString
+                    End If
+                    If awayScorers.Items.Count = 3 Then
+                        awayScorer1 = awayScorers.Items(0).ToString
+                        awayScorer2 = awayScorers.Items(1).ToString
+                        awayScorer3 = awayScorers.Items(2).ToString
+                    End If
+                    If awayScorers.Items.Count = 4 Then
+                        awayScorer1 = awayScorers.Items(0).ToString
+                        awayScorer2 = awayScorers.Items(1).ToString
+                        awayScorer3 = awayScorers.Items(2).ToString
+                        awayScorer4 = awayScorers.Items(3).ToString
+                    End If
+                    If awayScorers.Items.Count = 5 Then
+                        awayScorer1 = awayScorers.Items(0).ToString
+                        awayScorer2 = awayScorers.Items(1).ToString
+                        awayScorer3 = awayScorers.Items(2).ToString
+                        awayScorer4 = awayScorers.Items(3).ToString
+                        awayScorer5 = awayScorers.Items(4).ToString
+                    End If
+                    'then writing results to text file
+                    sw.WriteLine(awayScorer1)
+                    sw.WriteLine(awayScorer2)
+                    sw.WriteLine(awayScorer3)
+                    sw.WriteLine(awayScorer4)
+                    sw.WriteLine(awayScorer5)
                 End Using
                 myStream.Close()
             End If
@@ -5993,6 +6076,31 @@ Public Class ADIFootball
 
                         urlText1TXT.Text = tr.ReadLine()
                         urlText2TXT.Text = tr.ReadLine()
+
+                        'loading scoreres into sore tab boxes
+                        HomeScorers.Items.Add(tr.ReadLine())
+                        HomeScorers.Items.Add(tr.ReadLine())
+                        HomeScorers.Items.Add(tr.ReadLine())
+                        HomeScorers.Items.Add(tr.ReadLine())
+                        HomeScorers.Items.Add(tr.ReadLine())
+                        awayScorers.Items.Add(tr.ReadLine())
+                        awayScorers.Items.Add(tr.ReadLine())
+                        awayScorers.Items.Add(tr.ReadLine())
+                        awayScorers.Items.Add(tr.ReadLine())
+                        awayScorers.Items.Add(tr.ReadLine())
+
+                        'need to now trim empty lines
+                        For r As Integer = HomeScorers.Items.Count - 1 To 0 Step -1
+                            If CStr(HomeScorers.Items(r)) = " " Then
+                                HomeScorers.Items.RemoveAt(r)
+                            End If
+                        Next
+                        For w As Integer = awayScorers.Items.Count - 1 To 0 Step -1
+                            If CStr(awayScorers.Items(w)) = " " Then
+                                awayScorers.Items.RemoveAt(w)
+                            End If
+                        Next
+
 
                     End Using
                 End If
