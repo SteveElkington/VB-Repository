@@ -652,42 +652,31 @@ Public Class ADIFootball
 
             'showing layers of bars
             If CheckBox13.Checked = True Then
-                CasparDevice.SendString("MIXER 2-104 OPACITY 0")
-                CasparDevice.SendString("play 2-104 SCORESBAR_1")
-                CasparDevice.SendString("MIXER 2-104 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-104 LatestScores1")
             End If
+
             If CheckBox14.Checked = True Then
-                CasparDevice.SendString("MIXER 2-105 OPACITY 0")
-                CasparDevice.SendString("play 2-105 SCORESBAR_2")
-                CasparDevice.SendString("MIXER 2-105 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-105 LatestScores2")
             End If
 
             If CheckBox15.Checked = True Then
-                CasparDevice.SendString("MIXER 2-106 OPACITY 0")
-                CasparDevice.SendString("play 2-106 SCORESBAR_3")
-                CasparDevice.SendString("MIXER 2-106 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-106 LatestScores3")
             End If
 
             If CheckBox16.Checked = True Then
-                CasparDevice.SendString("MIXER 2-107 OPACITY 0")
-                CasparDevice.SendString("play 2-107 SCORESBAR_4")
-                CasparDevice.SendString("MIXER 2-107 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-107 LatestScores4")
             End If
 
             If CheckBox17.Checked = True Then
-                CasparDevice.SendString("MIXER 2-108 OPACITY 0")
-                CasparDevice.SendString("play 2-108 SCORESBAR_5")
-                CasparDevice.SendString("MIXER 2-108 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-108 LatestScores5")
             End If
 
             If CheckBox18.Checked = True Then
-                CasparDevice.SendString("MIXER 2-109 OPACITY 0")
-                CasparDevice.SendString("play 2-109 SCORESBAR_6")
-                CasparDevice.SendString("MIXER 2-109 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-109 LatestScores6")
             End If
+            CasparDevice.SendString("play 2-110 LatestScores_FLARES")
 
-
-            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Add(101, "LatestScores", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             ' CasparDevice.SendString("play 2-102 LATESTSCORES")
 
@@ -744,6 +733,7 @@ Public Class ADIFootball
             CasparDevice.SendString("MIXER 2-107 OPACITY 0 24 linear")
             CasparDevice.SendString("MIXER 2-108 OPACITY 0 24 linear")
             CasparDevice.SendString("MIXER 2-109 OPACITY 0 24 linear")
+            CasparDevice.SendString("MIXER 2-110 OPACITY 0 24 linear")
             countScores = 0
             scoresFadeOut.Enabled = True
             CasparDevice.SendString("STOP 2-110")
@@ -1896,42 +1886,32 @@ Public Class ADIFootball
 
             'showing layers of bars
             If CheckBox19.Checked = True Then
-                CasparDevice.SendString("MIXER 2-104 OPACITY 0")
-                CasparDevice.SendString("play 2-104 SCORESBAR_1")
-                CasparDevice.SendString("MIXER 2-104 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-104 LatestScores1")
             End If
             If CheckBox20.Checked = True Then
-                CasparDevice.SendString("MIXER 2-105 OPACITY 0")
-                CasparDevice.SendString("play 2-105 SCORESBAR_2")
-                CasparDevice.SendString("MIXER 2-105 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-105 LatestScores2")
             End If
 
             If CheckBox21.Checked = True Then
-                CasparDevice.SendString("MIXER 2-106 OPACITY 0")
-                CasparDevice.SendString("play 2-106 SCORESBAR_3")
-                CasparDevice.SendString("MIXER 2-106 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-106 LatestScores3")
             End If
 
             If CheckBox22.Checked = True Then
-                CasparDevice.SendString("MIXER 2-107 OPACITY 0")
-                CasparDevice.SendString("play 2-107 SCORESBAR_4")
-                CasparDevice.SendString("MIXER 2-107 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-107 LatestScores4")
             End If
 
             If CheckBox23.Checked = True Then
-                CasparDevice.SendString("MIXER 2-108 OPACITY 0")
-                CasparDevice.SendString("play 2-108 SCORESBAR_5")
-                CasparDevice.SendString("MIXER 2-108 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-108 LatestScores5")
             End If
 
             If CheckBox24.Checked = True Then
-                CasparDevice.SendString("MIXER 2-109 OPACITY 0")
-                CasparDevice.SendString("play 2-109 SCORESBAR_6")
-                CasparDevice.SendString("MIXER 2-109 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-109 LatestScores6")
             End If
 
+            CasparDevice.SendString("play 2-110 LatestScores_FLARES")
 
-            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Add(101, "LatestScores", True, CasparCGDataCollection.ToAMCPEscapedXml)
+
             CasparDevice.Channels(1).CG.Play(101)
             ' select which logo to show
             If tab1Logo2Select.Text = "Premier League" Then
@@ -1992,6 +1972,7 @@ Public Class ADIFootball
             CasparDevice.SendString("MIXER 2-107 OPACITY 0 24 linear")
             CasparDevice.SendString("MIXER 2-108 OPACITY 0 24 linear")
             CasparDevice.SendString("MIXER 2-109 OPACITY 0 24 linear")
+            CasparDevice.SendString("MIXER 2-110 OPACITY 0 24 linear")
             countScores = 0
             scoresFadeOut.Enabled = True
             CasparDevice.SendString("STOP 2-110")
@@ -2100,44 +2081,32 @@ Public Class ADIFootball
 
             'showing layers of bars
             If CheckBox1.Checked = True Then
-                CasparDevice.SendString("MIXER 2-104 OPACITY 0")
-                CasparDevice.SendString("play 2-104 SCORESBAR_1")
-                CasparDevice.SendString("MIXER 2-104 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-104 LatestScores1")
             End If
             If CheckBox2.Checked = True Then
-                CasparDevice.SendString("MIXER 2-105 OPACITY 0")
-                CasparDevice.SendString("play 2-105 SCORESBAR_2")
-                CasparDevice.SendString("MIXER 2-105 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-105 LatestScores2")
             End If
 
             If CheckBox3.Checked = True Then
-                CasparDevice.SendString("MIXER 2-106 OPACITY 0")
-                CasparDevice.SendString("play 2-106 SCORESBAR_3")
-                CasparDevice.SendString("MIXER 2-106 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-106 LatestScores3")
             End If
 
             If CheckBox4.Checked = True Then
-                CasparDevice.SendString("MIXER 2-107 OPACITY 0")
-                CasparDevice.SendString("play 2-107 SCORESBAR_4")
-                CasparDevice.SendString("MIXER 2-107 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-107 LatestScores4")
             End If
 
             If CheckBox5.Checked = True Then
-                CasparDevice.SendString("MIXER 2-108 OPACITY 0")
-                CasparDevice.SendString("play 2-108 SCORESBAR_5")
-                CasparDevice.SendString("MIXER 2-108 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-108 LatestScores5")
             End If
 
             If CheckBox6.Checked = True Then
-                CasparDevice.SendString("MIXER 2-109 OPACITY 0")
-                CasparDevice.SendString("play 2-109 SCORESBAR_6")
-                CasparDevice.SendString("MIXER 2-109 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-109 LatestScores6")
             End If
 
 
+            CasparDevice.SendString("play 2-110 LatestScores_FLARES")
 
-
-            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Add(101, "LatestScores", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
             ' select which logo to show
             'blank page
@@ -2185,6 +2154,8 @@ Public Class ADIFootball
             CasparDevice.SendString("MIXER 2-107 OPACITY 0 24 linear")
             CasparDevice.SendString("MIXER 2-108 OPACITY 0 24 linear")
             CasparDevice.SendString("MIXER 2-109 OPACITY 0 24 linear")
+            CasparDevice.SendString("MIXER 2-110 OPACITY 0 24 linear")
+
             countScores = 0
             scoresFadeOut.Enabled = True
             CasparDevice.SendString("STOP 2-110")
@@ -2257,42 +2228,31 @@ Public Class ADIFootball
 
             'showing layers of bars
             If CheckBox12.Checked = True Then
-                CasparDevice.SendString("MIXER 2-104 OPACITY 0")
-                CasparDevice.SendString("play 2-104 SCORESBAR_1")
-                CasparDevice.SendString("MIXER 2-104 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-104 LatestScores1")
             End If
             If CheckBox11.Checked = True Then
-                CasparDevice.SendString("MIXER 2-105 OPACITY 0")
-                CasparDevice.SendString("play 2-105 SCORESBAR_2")
-                CasparDevice.SendString("MIXER 2-105 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-105 LatestScores2")
             End If
 
             If CheckBox10.Checked = True Then
-                CasparDevice.SendString("MIXER 2-106 OPACITY 0")
-                CasparDevice.SendString("play 2-106 SCORESBAR_3")
-                CasparDevice.SendString("MIXER 2-106 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-106 LatestScores3")
             End If
 
             If CheckBox9.Checked = True Then
-                CasparDevice.SendString("MIXER 2-107 OPACITY 0")
-                CasparDevice.SendString("play 2-107 SCORESBAR_4")
-                CasparDevice.SendString("MIXER 2-107 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-107 LatestScores4")
             End If
 
             If CheckBox8.Checked = True Then
-                CasparDevice.SendString("MIXER 2-108 OPACITY 0")
-                CasparDevice.SendString("play 2-108 SCORESBAR_5")
-                CasparDevice.SendString("MIXER 2-108 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-108 LatestScores5")
             End If
 
             If CheckBox7.Checked = True Then
-                CasparDevice.SendString("MIXER 2-109 OPACITY 0")
-                CasparDevice.SendString("play 2-109 SCORESBAR_6")
-                CasparDevice.SendString("MIXER 2-109 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-109 LatestScores6")
             End If
 
+            CasparDevice.SendString("play 2-110 LatestScores_FLARES")
 
-            CasparDevice.Channels(1).CG.Add(101, "efc_premscores", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Add(101, "LatestScores", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
 
             ' select which logo to show
@@ -2342,6 +2302,7 @@ Public Class ADIFootball
             CasparDevice.SendString("MIXER 2-107 OPACITY 0 24 linear")
             CasparDevice.SendString("MIXER 2-108 OPACITY 0 24 linear")
             CasparDevice.SendString("MIXER 2-109 OPACITY 0 24 linear")
+            CasparDevice.SendString("MIXER 2-110 OPACITY 0 24 linear")
             countScores = 0
             scoresFadeOut.Enabled = True
             CasparDevice.SendString("STOP 2-110")
@@ -3704,6 +3665,10 @@ Public Class ADIFootball
 
             CasparDevice.SendString("stop 2-109")
             CasparDevice.SendString("MIXER 2-109 OPACITY 1 0 linear")
+
+            CasparDevice.SendString("stop 2-110")
+            CasparDevice.SendString("MIXER 2-110 OPACITY 1 0 linear")
+
             scoresFadeOut.Enabled = False
             countScores = 0
         End If
@@ -5379,23 +5344,25 @@ Public Class ADIFootball
             End If
 
 
-
-            CasparDevice.Channels(0).CG.Add(101, "efc_TSheet_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(0).CG.Play(101)
-
             'fading in image
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            CasparDevice.SendString("play 1-104 LT_crawl_crest")
-            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+            '  CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            CasparDevice.SendString("play 1-100 Ticker")
+            ' CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
 
             'fading in image
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
-            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+            ' CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            ' CasparDevice.SendString("play 1-102 LT_crawl_nocrest")
+            ' CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
-            CasparDevice.SendString("play 1-103 LTFlare")
+            CasparDevice.SendString("play 1-102 Ticker_FLARES")
+
+            Threading.Thread.Sleep(2000)
+            CasparDevice.Channels(0).CG.Add(101, "TSheet_crawl", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
+
+
             showScoresScroller.BackColor = Color.Green
             'disable button
             'showScoresScroller.Enabled = False
