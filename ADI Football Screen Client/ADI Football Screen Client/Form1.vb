@@ -1737,7 +1737,8 @@ Public Class ADIFootball
                     CasparCGDataCollection.SetData("f11", awayScorers.Items(4).ToString)
                 End If
 
-
+                CasparCGDataCollection.SetData("f12", HomeTeamName.Text)
+                CasparCGDataCollection.SetData("f14", AwayTeamName.Text)
 
                 ' just need to work on only showing data if its there
 
@@ -1751,13 +1752,15 @@ Public Class ADIFootball
                 'CasparCGDataCollection.SetData("f10", awayScorers.Items(3).ToString)
                 'CasparCGDataCollection.SetData("f11", awayScorers.Items(4).ToString)
 
-                CasparDevice.Channels(1).CG.Add(101, "efc_bigScore", True, CasparCGDataCollection.ToAMCPEscapedXml)
+                CasparDevice.Channels(1).CG.Add(101, "bigScore", True, CasparCGDataCollection.ToAMCPEscapedXml)
                 CasparDevice.Channels(1).CG.Play(101)
                 'fading in image
                 CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-                CasparDevice.SendString("play 2-100 efc_bigScoreBack")
-                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+                CasparDevice.SendString("play 2-100 scores_crests")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 96 easeInExpo")
 
+                CasparDevice.SendString("play 2-99 Scores")
+                CasparDevice.SendString("play 2-102 Scores_FLARES")
                 '"play 1-1 " & ListBox3.Text & " loop auto"
                 showBigScore.BackColor = Color.Green
                 'disabale button
@@ -1772,7 +1775,9 @@ Public Class ADIFootball
     Private Sub hideBigScore_Click(sender As Object, e As EventArgs) Handles hideBigScore.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparDevice.Channels(1).CG.Stop(101)
-            CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
+            CasparDevice.SendString("stop 2-99")
+            CasparDevice.SendString("stop 2-102")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 easeOutQuint")
             count = 0
             countTimer.Enabled = True
             showBigScore.BackColor = Color.FromKnownColor(KnownColor.Control)
@@ -5509,25 +5514,25 @@ Public Class ADIFootball
                 CasparCGDataCollection.SetData("f0", outGameCrawl4.Text)
             End If
 
-
-
-            CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(0).CG.Play(101)
-
             'fading in image
             CasparDevice.SendString("MIXER 1-104 OPACITY 0")
-            CasparDevice.SendString("play 1-104 LT_crawl_crest")
+            CasparDevice.SendString("play 1-104 ticker_crest")
             CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
 
             'fading in image
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
-            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+            'CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            CasparDevice.SendString("play 1-100 Ticker")
+            'CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
 
 
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
-            CasparDevice.SendString("play 1-103 LTFlare")
+            CasparDevice.SendString("play 1-103 Ticker_FLARES")
+
+            Threading.Thread.Sleep(2000)
+            CasparDevice.Channels(0).CG.Add(101, "Ticker", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
+
             OutGameCrawlOnBTN.BackColor = Color.Green
             'disable button
             OutGameCrawlOnBTN.Enabled = False
@@ -6301,23 +6306,23 @@ Public Class ADIFootball
 
 
 
-            CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Add(101, "NameID", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(0).CG.Play(101)
 
             'fading in image
-            CasparDevice.SendString("MIXER 1-104 OPACITY 0")
-            CasparDevice.SendString("play 1-104 LT_crawl_crest")
-            CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
+            'CasparDevice.SendString("MIXER 1-104 OPACITY 0")
+            'CasparDevice.SendString("play 1-104 LT_crawl_crest")
+            'CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
 
             'fading in image
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
-            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+            'CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            CasparDevice.SendString("play 1-100 NameStrap")
+            'CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
 
 
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
-            CasparDevice.SendString("play 1-103 LTFlare")
+            CasparDevice.SendString("play 1-103 NameStrap_FLARES")
             showNameIDBTN.BackColor = Color.Green
             'disable button
             showNameIDBTN.Enabled = False
