@@ -138,7 +138,8 @@ Public Class ADIFootball
 
 
             'play backing
-            CasparDevice.SendString("play 1-400 EFC-CLOCK")
+            CasparDevice.SendString("play 1-400 Clock")
+            CasparDevice.SendString("play 1-403 Clock_FLARES")
 
             'Put Data into scores part of clock
             CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
@@ -179,6 +180,8 @@ Public Class ADIFootball
             'CasparDevice.Channels(0).CG.Stop(401)
             CasparDevice.Channels(0).CG.Stop(402)
             CasparDevice.SendString("MIXER 1-400 OPACITY 0 24 linear")
+            CasparDevice.SendString("stop 1-403")
+
             count = 0
             clockAnimation.Enabled = True
             'stop preview
@@ -2943,9 +2946,9 @@ Public Class ADIFootball
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.SetData("f0", addedTimeVals.Text)
             ' showing
-            CasparDevice.Channels(0).CG.Add(391, "efc_addedTime_temp_BUG", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Add(391, "addedTime_BUG", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(0).CG.Play(391)
-            CasparDevice.SendString("play 1-390 EFC_CLOCK_ADDEDTIME_PLINTH")
+            CasparDevice.SendString("play 1-390 Clock_Added_Time")
             ' prewviewin
             'CasparDevice.Channels(1).CG.Add(391, "efc_addedTime_temp_BUG", True, CasparCGDataCollection.ToAMCPEscapedXml)
             'CasparDevice.Channels(1).CG.Play(391)
@@ -3322,23 +3325,24 @@ Public Class ADIFootball
             End If
 
 
-
-            CasparDevice.Channels(0).CG.Add(101, "efc_TSheet_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(0).CG.Play(101)
-
             'fading in image
             CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            CasparDevice.SendString("play 1-104 LT_crawl_crest")
+            CasparDevice.SendString("play 1-104 ticker_crest")
             CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
 
             'fading in image
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
-            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+            ' CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            CasparDevice.SendString("play 1-100 Ticker")
+            ' CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
-            CasparDevice.SendString("play 1-103 LTFlare")
+            CasparDevice.SendString("play 1-103 Ticker_FLARES")
+
+            Threading.Thread.Sleep(2000)
+            CasparDevice.Channels(0).CG.Add(101, "TSheet_crawl", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
+
             TSCrawlOnBTN.BackColor = Color.Green
             'disable button
             ' TSCrawlOnBTN.Enabled = False
