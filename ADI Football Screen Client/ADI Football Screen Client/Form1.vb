@@ -237,23 +237,27 @@ Public Class ADIFootball
 
 
 
-            CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(0).CG.Play(101)
-
             'fading in image
             CasparDevice.SendString("MIXER 1-104 OPACITY 0")
-            CasparDevice.SendString("play 1-104 LT_crawl_crest")
+            CasparDevice.SendString("play 1-104 ticker_crest")
             CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
 
             'fading in image
-            CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            CasparDevice.SendString("play 1-100 LT_crawl_nocrest")
-            CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+            'CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            CasparDevice.SendString("play 1-100 Ticker")
+            'CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
 
 
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
-            CasparDevice.SendString("play 1-103 LTFlare")
+            CasparDevice.SendString("play 1-103 Ticker_FLARES")
+
+            Threading.Thread.Sleep(2000)
+            CasparDevice.Channels(0).CG.Add(101, "Ticker", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
+
+
+
             CrawlOn.BackColor = Color.Green
             'disable button
             CrawlOn.Enabled = False
@@ -354,29 +358,30 @@ Public Class ADIFootball
             If Me.SubOff.SelectedIndex >= 0 Then
                 'CasparDevice.Channels(0).CG.Stop(2)
                 CasparCGDataCollection.Clear() 'cgData.Clear()
-                CasparCGDataCollection.SetData("f0", SubOff.Text)
-                CasparCGDataCollection.SetData("f1", SubOn.Text)
+                CasparCGDataCollection.SetData("f0", SubOn.Text)
+                CasparCGDataCollection.SetData("f1", SubOff.Text)
 
                 If FullScreenSubsCheck.Checked = True Then
-                    CasparDevice.Channels(1).CG.Add(101, "efc_sub_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+                    CasparDevice.Channels(1).CG.Add(101, "sub_FULLSCREEN", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(1).CG.Play(101)
-                    CasparDevice.SendString("play 2-102 Sub_flare02")
-
+                    CasparDevice.SendString("play 2-102 SubsFullScreen_FLARES")
+                    CasparDevice.SendString("play 2-99 SubsFullScreen")
                     'fading in image
                     CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-                    CasparDevice.SendString("play 2-100 efcSub")
+                    CasparDevice.SendString("play 2-100 subs_FullScreen_HomeCrest")
                     CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
                     showSub.BackColor = Color.Green
                 End If
 
                 If LowerThirdSubsCheck.Checked = True Then
-                    CasparDevice.Channels(0).CG.Add(101, "efc_sub_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+                    CasparDevice.Channels(0).CG.Add(101, "sub_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(0).CG.Play(101)
-                    CasparDevice.SendString("play 1-102 LTFlare")
+                    CasparDevice.SendString("play 1-102 SubsLowerThird_FLARES")
+                    CasparDevice.SendString("play 1-99 SubsLowerThird")
                     'fading in image
                     CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-                    CasparDevice.SendString("play 1-100 LOWER_THIRD_SUB")
+                    CasparDevice.SendString("play 1-100 subs_LT_homeCrest")
                     CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
                     showSub.BackColor = Color.Green
@@ -394,6 +399,7 @@ Public Class ADIFootball
                 If FullScreenSubsCheck.Checked = True Then
                     CasparDevice.Channels(1).CG.Stop(101)
                     CasparDevice.SendString("STOP 2-102")
+                    CasparDevice.SendString("STOP 2-99")
                     CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
                     count = 0
                     countTimer.Enabled = True
@@ -402,6 +408,7 @@ Public Class ADIFootball
                 If LowerThirdSubsCheck.Checked = True Then
                     CasparDevice.Channels(0).CG.Stop(101)
                     CasparDevice.SendString("STOP 1-102")
+                    CasparDevice.SendString("STOP 1-99")
                     CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
                     countBPS = 0
                     BPlayChanFadeOut.Enabled = True
@@ -1489,31 +1496,35 @@ Public Class ADIFootball
             If Me.aw_subOff.SelectedIndex >= 0 Then
                 'CasparDevice.Channels(0).CG.Stop(2)
                 CasparCGDataCollection.Clear() 'cgData.Clear()
-                CasparCGDataCollection.SetData("f0", aw_subOff.Text)
-                CasparCGDataCollection.SetData("f1", aw_subOn.Text)
+                CasparCGDataCollection.SetData("f0", aw_subOn.Text)
+                CasparCGDataCollection.SetData("f1", aw_subOff.Text)
+
                 If FullScreenSubsCheck.Checked = True Then
-                    CasparDevice.Channels(1).CG.Add(101, "efc_sub_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+                    CasparDevice.Channels(1).CG.Add(101, "sub_FULLSCREEN", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(1).CG.Play(101)
-                    CasparDevice.SendString("play 2-102 Sub_flare02")
+                    CasparDevice.SendString("play 2-102 SubsFullScreen_FLARES")
+                    CasparDevice.SendString("play 2-99 SubsFullScreen")
                     'fading in image
                     CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-                    CasparDevice.SendString("play 2-100 awayEFCSub")
+                    CasparDevice.SendString("play 2-100 subs_FullScreen_AwayCrest")
                     CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
-                    'showSub.BackColor = Color.Green
+
                 End If
 
                 If LowerThirdSubsCheck.Checked = True Then
-                    CasparDevice.Channels(0).CG.Add(101, "efc_sub_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+                    CasparDevice.Channels(0).CG.Add(101, "sub_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(0).CG.Play(101)
-                    CasparDevice.SendString("play 1-102 LTFlare")
+                    CasparDevice.SendString("play 1-102 SubsLowerThird_FLARES")
+                    CasparDevice.SendString("play 1-99 SubsLowerThird")
                     'fading in image
                     CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-                    CasparDevice.SendString("play 1-100 LOWER_THIRD_SUB_AWAY")
+                    CasparDevice.SendString("play 1-100 subs_LT_awayCrest")
                     CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
-                    ' showSub.BackColor = Color.Green
+
                 End If
+
                 AwaySubOn.BackColor = Color.Green
                 'disable button
                 AwaySubOn.Enabled = False
@@ -1527,6 +1538,7 @@ Public Class ADIFootball
                 If FullScreenSubsCheck.Checked = True Then
                     CasparDevice.Channels(1).CG.Stop(101)
                     CasparDevice.SendString("STOP 2-102")
+                    CasparDevice.SendString("STOP 2-99")
                     CasparDevice.SendString("MIXER 2-100 OPACITY 0 24 linear")
                     count = 0
                     countTimer.Enabled = True
@@ -1535,6 +1547,7 @@ Public Class ADIFootball
                 If LowerThirdSubsCheck.Checked = True Then
                     CasparDevice.Channels(0).CG.Stop(101)
                     CasparDevice.SendString("STOP 1-102")
+                    CasparDevice.SendString("STOP 1-99")
                     CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
                     countBPS = 0
                     BPlayChanFadeOut.Enabled = True
