@@ -448,11 +448,26 @@ Public Class ADIFootball
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.Clear()
 
-            For i As Integer = 0 To ListBox1.Items.Count - 8
-                CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
-            Next i
+            Dim playerNameOnly As String
+            Dim playerNumberOnly As String
 
-            CasparCGDataCollection.SetData("manager", HomeManagerTXT.Text)
+            'players names
+            For i As Integer = 0 To ListBox1.Items.Count - 8
+                playerNameOnly = ListBox1.Items(i).ToString
+                playerNameOnly = playerNameOnly.Remove(0, 2)
+                playerNameOnly = playerNameOnly.Trim()
+                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
+                CasparCGDataCollection.SetData("f" + (i).ToString, playerNameOnly)
+            Next i
+            'players numbers
+            For w As Integer = 0 To ListBox1.Items.Count - 8
+                playerNumberOnly = ListBox1.Items(w).ToString
+                playerNumberOnly = Microsoft.VisualBasic.Left(playerNumberOnly, 2)
+                playerNumberOnly = playerNumberOnly.Trim()
+                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
+                CasparCGDataCollection.SetData("n" + (w).ToString, playerNumberOnly)
+            Next w
+
 
             'fading in image
             'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
@@ -460,9 +475,13 @@ Public Class ADIFootball
             'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
 
-            CasparDevice.Channels(1).CG.Add(101, "efc_teamsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            'home team name
+            CasparCGDataCollection.SetData("f11", HomeTeamName.Text)
+
+            CasparDevice.Channels(1).CG.Add(101, "TeamSheetfirstEleven", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
-            CasparDevice.SendString("play 2-102 first11")
+            CasparDevice.SendString("play 2-102 TeamsheetStartingEleven_FLARES")
+            CasparDevice.SendString("play 2-100 TeamsheetStartingEleven")
 
             ShowTeamSheet.BackColor = Color.Green
             ShowSubsSheet.UseVisualStyleBackColor = True
@@ -488,7 +507,7 @@ Public Class ADIFootball
 
             CasparDevice.Channels(1).CG.Stop(101)
             CasparDevice.SendString("MIXER 2-102 OPACITY 0 24 linear")
-            'CasparDevice.SendString("stop 2-100")
+            CasparDevice.SendString("stop 2-99")
             're-enable buttons
             ShowTeamSheet.Enabled = True
             ShowSubsSheet.Enabled = True
@@ -505,12 +524,33 @@ Public Class ADIFootball
             'CasparDevice.Channels(0).CG.Stop(2)
             CasparCGDataCollection.Clear() 'cgData.Clear()
 
-            For i As Integer = 11 To ListBox1.Items.Count - 1
-                CasparCGDataCollection.SetData("f" + (i - 11).ToString, ListBox1.Items(i).ToString)
+            Dim playerNameOnly As String
+            Dim playerNumberOnly As String
+
+            'players names
+            For i As Integer = 0 To ListBox1.Items.Count - 1
+                playerNameOnly = ListBox1.Items(i).ToString
+                playerNameOnly = playerNameOnly.Remove(0, 2)
+                playerNameOnly = playerNameOnly.Trim()
+                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
+                CasparCGDataCollection.SetData("f" + (i - 11).ToString, playerNameOnly)
             Next i
-            CasparDevice.Channels(1).CG.Add(101, "efc_subsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            'players numbers
+            For w As Integer = 0 To ListBox1.Items.Count - 1
+                playerNumberOnly = ListBox1.Items(w).ToString
+                playerNumberOnly = Microsoft.VisualBasic.Left(playerNumberOnly, 2)
+                playerNumberOnly = playerNumberOnly.Trim()
+                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
+                CasparCGDataCollection.SetData("n" + (w - 11).ToString, playerNumberOnly)
+            Next w
+
+            CasparCGDataCollection.SetData("f7", HomeManagerTXT.Text)
+            CasparCGDataCollection.SetData("f8", HomeTeamName.Text)
+
+            CasparDevice.Channels(1).CG.Add(101, "TeamSheetSubs", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(1).CG.Play(101)
-            CasparDevice.SendString("play 2-102 SUBS")
+            CasparDevice.SendString("play 2-102 TeamsheetSubs_FLARES")
+            CasparDevice.SendString("play 2-100 TeamsheetSubs")
             'fade in
             'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
             'CasparDevice.SendString("play 2-100 efcTeamSubs")
@@ -1329,31 +1369,51 @@ Public Class ADIFootball
 
     Private Sub ShowAwayFirstEleven_Click(sender As Object, e As EventArgs) Handles ShowAwayFirstEleven.Click
         If Me.CasparDevice.IsConnected = True Then
-            ' If Me.SubOff.SelectedIndex >= 0 Then
-            'CasparDevice.Channels(0).CG.Stop(2)
-            CasparCGDataCollection.Clear() 'cgData.Clear()
+            CasparCGDataCollection.Clear()
+
+            Dim playerNameOnly As String
+            Dim playerNumberOnly As String
+
+            'players names
             For i As Integer = 0 To ListBox2.Items.Count - 8
-                CasparCGDataCollection.SetData("f" + (i).ToString, ListBox2.Items(i).ToString)
+                playerNameOnly = ListBox2.Items(i).ToString
+                playerNameOnly = playerNameOnly.Remove(0, 2)
+                playerNameOnly = playerNameOnly.Trim()
+                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
+                CasparCGDataCollection.SetData("f" + (i).ToString, playerNameOnly)
             Next i
+            'players numbers
+            For w As Integer = 0 To ListBox2.Items.Count - 8
+                playerNumberOnly = ListBox2.Items(w).ToString
+                playerNumberOnly = Microsoft.VisualBasic.Left(playerNumberOnly, 2)
+                playerNumberOnly = playerNumberOnly.Trim()
+                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
+                CasparCGDataCollection.SetData("n" + (w).ToString, playerNumberOnly)
+            Next w
 
-            CasparCGDataCollection.SetData("manager", AwayManagerTXT.Text)
 
-
-            CasparDevice.Channels(1).CG.Add(101, "efc_teamsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(1).CG.Play(101)
-            CasparDevice.SendString("play 2-102 first11")
             'fading in image
             'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
             'CasparDevice.SendString("play 2-100 first11")
             'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
+
+            'home team name
+            CasparCGDataCollection.SetData("f11", AwayTeamName.Text)
+
+            CasparDevice.Channels(1).CG.Add(101, "TeamSheetfirstEleven", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+            CasparDevice.SendString("play 2-102 TeamsheetStartingEleven_FLARES")
+            CasparDevice.SendString("play 2-100 TeamsheetStartingEleven")
+
             ShowAwayFirstEleven.BackColor = Color.Green
             ShowAwaySubsSheet.UseVisualStyleBackColor = True
-            ShowSubsSheet.UseVisualStyleBackColor = True
-            ' disable button so cant be pressed again
-            ShowAwayFirstEleven.Enabled = False
             awayCrestBTN.UseVisualStyleBackColor = True
             awayCrestBTN.Enabled = True
+
+
+            'disable button so cant be pressed again
+            ShowAwayFirstEleven.Enabled = False
         End If
     End Sub
 
@@ -1362,17 +1422,35 @@ Public Class ADIFootball
             ' If Me.SubOff.SelectedIndex >= 0 Then
             'CasparDevice.Channels(0).CG.Stop(2)
             CasparCGDataCollection.Clear() 'cgData.Clear()
-            For i As Integer = 11 To ListBox2.Items.Count - 1
-                CasparCGDataCollection.SetData("f" + (i - 11).ToString, ListBox2.Items(i).ToString)
-            Next i
-            CasparDevice.Channels(1).CG.Add(101, "efc_subsheet_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            CasparDevice.Channels(1).CG.Play(101)
-            CasparDevice.SendString("play 2-102 SUBS")
-            'fading in image
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            'CasparDevice.SendString("play 2-100 awayTeamSubs")
-            'CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
 
+            Dim playerNameOnly As String
+            Dim playerNumberOnly As String
+
+            'players names
+            For i As Integer = 0 To ListBox2.Items.Count - 1
+                playerNameOnly = ListBox2.Items(i).ToString
+                playerNameOnly = playerNameOnly.Remove(0, 2)
+                playerNameOnly = playerNameOnly.Trim()
+                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
+                CasparCGDataCollection.SetData("f" + (i - 11).ToString, playerNameOnly)
+            Next i
+            'players numbers
+            For w As Integer = 0 To ListBox2.Items.Count - 1
+                playerNumberOnly = ListBox2.Items(w).ToString
+                playerNumberOnly = Microsoft.VisualBasic.Left(playerNumberOnly, 2)
+                playerNumberOnly = playerNumberOnly.Trim()
+                ' CasparCGDataCollection.SetData("f" + (i).ToString, ListBox1.Items(i).ToString)
+                CasparCGDataCollection.SetData("n" + (w - 11).ToString, playerNumberOnly)
+            Next w
+
+            CasparCGDataCollection.SetData("f7", AwayManagerTXT.Text)
+            CasparCGDataCollection.SetData("f8", AwayTeamName.Text)
+
+            CasparDevice.Channels(1).CG.Add(101, "TeamSheetSubs", True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(1).CG.Play(101)
+            CasparDevice.SendString("play 2-102 TeamsheetSubs_FLARES")
+            CasparDevice.SendString("play 2-100 TeamsheetSubs")
+            'sort out buttons 
             ShowAwaySubsSheet.BackColor = Color.Green
             ShowAwayFirstEleven.UseVisualStyleBackColor = True
             ' disable button so cant be pressed again
@@ -1389,6 +1467,7 @@ Public Class ADIFootball
             count = 0
             countTimer.Enabled = True
             CasparDevice.SendString("stop 2-102")
+            CasparDevice.SendString("stop 2-99")
             ShowAwayFirstEleven.BackColor = Color.FromKnownColor(KnownColor.Control)
             ShowAwaySubsSheet.BackColor = Color.FromKnownColor(KnownColor.Control)
             ShowAwayFirstEleven.UseVisualStyleBackColor = True
@@ -5351,9 +5430,10 @@ Public Class ADIFootball
 
             'fading in image
             CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            CasparDevice.SendString("play 2-100 TeamIdent")
-            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
-
+            CasparDevice.SendString("play 2-100 TeamNewsLogos")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 easeInExpo")
+            CasparDevice.SendString("play 2-99 TeamNews")
+            CasparDevice.SendString("play 2-101 TeamNews_FLARES")
             identTeamsBTN.BackColor = Color.Green
             'disable button so cant be pressed again
             identTeamsBTN.Enabled = False
@@ -5363,11 +5443,13 @@ Public Class ADIFootball
     Private Sub homeCrestsBTN_Click(sender As Object, e As EventArgs) Handles homeCrestsBTN.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.Clear()
-
+            'stop other images
+            CasparDevice.SendString("stop 2-100")
+            CasparDevice.SendString("stop 2-101")
             'fading in image
-            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            CasparDevice.SendString("play 2-100 HomeCrest")
-            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
+            CasparDevice.SendString("play 2-99 TeamSheet_crest_home")
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
 
             homeCrestsBTN.BackColor = Color.Green
             'disable button so cant be pressed again
@@ -5381,11 +5463,13 @@ Public Class ADIFootball
     Private Sub awayCrestBTN_Click(sender As Object, e As EventArgs) Handles awayCrestBTN.Click
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.Clear()
-
+            'stop other images
+            CasparDevice.SendString("stop 2-100")
+            CasparDevice.SendString("stop 2-101")
             'fading in image
-            CasparDevice.SendString("MIXER 2-100 OPACITY 0")
-            CasparDevice.SendString("play 2-100 AwayCrest")
-            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 2-99 OPACITY 0")
+            CasparDevice.SendString("play 2-99 TeamSheet_crest_away")
+            CasparDevice.SendString("MIXER 2-99 OPACITY 1 48 linear")
 
             awayCrestBTN.BackColor = Color.Green
             'disable button so cant be pressed again
@@ -5393,8 +5477,6 @@ Public Class ADIFootball
             'enable previous button
             identTeamsBTN.Enabled = True
             identTeamsBTN.UseVisualStyleBackColor = True
-            ShowSubsSheet.Enabled = True
-            ShowSubsSheet.UseVisualStyleBackColor = True
         End If
     End Sub
 
