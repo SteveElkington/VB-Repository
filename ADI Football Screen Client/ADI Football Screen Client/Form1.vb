@@ -132,14 +132,10 @@ Public Class ADIFootball
         If Me.CasparDevice.IsConnected = True Then
             CasparCGDataCollection.Clear()
             'load clock part of template and calculate start time
-            Dim startClockCalculation As Integer
+            Dim startClockCalculation As Integer = 0
             startClockCalculation = Convert.ToInt32(startClockTime.Text) * 60000
+            'Threading.Thread.Sleep(2000)
             CasparCGDataCollection.SetData("initialvalue", startClockCalculation)
-
-
-            'play backing
-            CasparDevice.SendString("play 1-400 Clock")
-            CasparDevice.SendString("play 1-403 Clock_FLARES")
 
             'Put Data into scores part of clock
             CasparCGDataCollection.SetData("f1", homeThreeLetters.Text)
@@ -147,6 +143,9 @@ Public Class ADIFootball
             CasparCGDataCollection.SetData("f3", AwayScore.Text)
             CasparCGDataCollection.SetData("f4", awayThreeLetters.Text)
             'choose which clock to play
+
+
+
             If Convert.ToInt32(startClockTime.Text) < 45 Then
                 CasparDevice.Channels(0).CG.Add(402, "count_up_timer", True, CasparCGDataCollection.ToAMCPEscapedXml)
             End If
@@ -155,23 +154,22 @@ Public Class ADIFootball
             End If
             CasparDevice.Channels(0).CG.Play(402)
 
+            ' CasparDevice.SendString("MIXER 1-402 OPACITY 1 12 linear")
 
-            ' showing
-            ' CasparDevice.Channels(0).CG.Add(402, "efc_clock_scoresOnly_temp", True, CasparCGDataCollection.ToAMCPEscapedXml)
-            ' CasparDevice.Channels(0).CG.Play(402)
+            'play backing
+            CasparDevice.SendString("play 1-400 Clock")
+            CasparDevice.SendString("play 1-403 Clock_FLARES")
 
-
+            'setting button to green to show playing, and disabling being clicked again.
             showClock.BackColor = Color.Green
-            'ShowClockInGameBTN.BackColor = Color.Green
-            'disbale button so cant be re-pressed
             showClock.Enabled = False
-            '  startAndShowClockBTN.Enabled = False
-            ' ShowClockInGameBTN.Enabled = False
+
 
             'start clock on interface
             aa = Val(Now.Second.ToString)
             min.Text = startClockTime.Text
             OnScreenClock.Enabled = True
+
         End If
     End Sub
 
@@ -298,7 +296,7 @@ Public Class ADIFootball
 
         Try
             ' Create an instance of StreamReader to read from a file. 
-            Dim sr As StreamReader = New StreamReader("C:\home_team.txt", System.Text.Encoding.Default)
+            Dim sr As StreamReader = New StreamReader("C:\teams\home_team.txt", System.Text.Encoding.Default)
             Dim line As String
             'Read and display the lines from the file until the end 
             ' of the file is reached. 
@@ -322,7 +320,7 @@ Public Class ADIFootball
 
         Try
             ' Create an instance of StreamReader to read from a file. 
-            Dim sr As StreamReader = New StreamReader("C:\away_team.txt", System.Text.Encoding.Default)
+            Dim sr As StreamReader = New StreamReader("C:\teams\away_team.txt", System.Text.Encoding.Default)
             Dim line As String
             'Read and display the lines from the file until the end 
             ' of the file is reached. 
@@ -1673,7 +1671,7 @@ Public Class ADIFootball
 
 
 
-                CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+                CasparDevice.Channels(0).CG.Add(101, "Ticker", True, CasparCGDataCollection.ToAMCPEscapedXml)
                 CasparDevice.Channels(0).CG.Play(101)
                 ' CasparDevice.SendString("play 1-100 efcAddedTime")
                 ' CrawlOn.BackColor = Color.Green
@@ -3603,7 +3601,7 @@ Public Class ADIFootball
             Next
 
             'save as text file
-            Dim FILE_NAME2 As String = "c:\home_first11.txt"
+            Dim FILE_NAME2 As String = "c:\teams\home_first11.txt"
             Dim objWriter As New System.IO.StreamWriter(FILE_NAME2, False)
             For Each o As Object In HomeTeam.Items
                 objWriter.WriteLine(o)
@@ -3628,7 +3626,7 @@ Public Class ADIFootball
                 aw_subOff.Items.Add(AwayTeam.Items(j))
             Next
             'save as text file
-            Dim FILE_NAME3 As String = "c:\away_first11.txt"
+            Dim FILE_NAME3 As String = "c:\teams\away_first11.txt"
             Dim objWriter2 As New System.IO.StreamWriter(FILE_NAME3, False)
             For Each o As Object In AwayTeam.Items
                 objWriter2.WriteLine(o)
@@ -3694,7 +3692,7 @@ Public Class ADIFootball
             '     FileClose(FileNumber)
 
 
-            Dim FILE_NAME As String = "c:\home_team.txt"
+            Dim FILE_NAME As String = "c:\teams\home_team.txt"
             Dim objWriter As New System.IO.StreamWriter(FILE_NAME, True)
             objWriter.WriteLine(HomePlayerNotListed.Text)
             objWriter.Close()
@@ -3722,7 +3720,7 @@ Public Class ADIFootball
             ' Next
             ' FileClose(FileNumber)
 
-            Dim FILE_NAME As String = "c:\away_team.txt"
+            Dim FILE_NAME As String = "c:\teams\away_team.txt"
             Dim objWriter As New System.IO.StreamWriter(FILE_NAME, True)
             objWriter.WriteLine(AwayPlayerNotListed.Text)
             objWriter.Close()
@@ -5548,7 +5546,7 @@ Public Class ADIFootball
 
 
 
-                CasparDevice.Channels(0).CG.Add(101, "efc_crawl_temp_LT", True, CasparCGDataCollection.ToAMCPEscapedXml)
+                CasparDevice.Channels(0).CG.Add(101, "Ticker", True, CasparCGDataCollection.ToAMCPEscapedXml)
                 CasparDevice.Channels(0).CG.Play(101)
                 ' CasparDevice.SendString("play 1-100 efcAddedTime")
                 ' CrawlOn.BackColor = Color.Green
@@ -6451,7 +6449,7 @@ Public Class ADIFootball
 
         Try
             ' Create an instance of StreamReader to read from a file. 
-            Dim sr As StreamReader = New StreamReader("C:\home_first11.txt", System.Text.Encoding.Default)
+            Dim sr As StreamReader = New StreamReader("C:\teams\home_first11.txt", System.Text.Encoding.Default)
             Dim line As String
             'Read and display the lines from the file until the end 
             ' of the file is reached. 
@@ -6477,7 +6475,7 @@ Public Class ADIFootball
 
         Try
             ' Create an instance of StreamReader to read from a file. 
-            Dim sr As StreamReader = New StreamReader("C:\away_first11.txt", System.Text.Encoding.Default)
+            Dim sr As StreamReader = New StreamReader("C:\teams\away_first11.txt", System.Text.Encoding.Default)
             Dim line As String
             'Read and display the lines from the file until the end 
             ' of the file is reached. 
