@@ -1761,7 +1761,7 @@ Public Class ADIFootball
                 'fading in image
                 CasparDevice.SendString("MIXER 2-100 OPACITY 0")
                 CasparDevice.SendString("play 2-100 scores_crests")
-                CasparDevice.SendString("MIXER 2-100 OPACITY 1 96 easeInExpo")
+                CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 easeInExpo")
 
                 CasparDevice.SendString("play 2-99 Scores")
                 CasparDevice.SendString("play 2-102 Scores_FLARES")
@@ -2848,6 +2848,7 @@ Public Class ADIFootball
                     CasparCGDataCollection.SetData("f3", AwayTeamName.Text)
                     CasparCGDataCollection.SetData("f1", HomeScore.Text)
                     CasparCGDataCollection.SetData("f2", AwayScore.Text)
+                    CasparCGDataCollection.SetData("f4", LowerThirdTimePeriodTXT.Text)
 
                     CasparDevice.Channels(0).CG.Add(101, "LowerThirdMatchScore", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(0).CG.Play(101)
@@ -2865,6 +2866,7 @@ Public Class ADIFootball
                     CasparCGDataCollection.SetData("f1", AwayTeamName.Text)
                     CasparCGDataCollection.SetData("f2", LTStrapDate.Text)
                     CasparCGDataCollection.SetData("f3", LTStrapKO.Text)
+
 
                     CasparDevice.Channels(0).CG.Add(101, "LowerThirdMatchIDst", True, CasparCGDataCollection.ToAMCPEscapedXml)
                     CasparDevice.Channels(0).CG.Play(101)
@@ -2907,7 +2909,9 @@ Public Class ADIFootball
             ' showing
             CasparDevice.Channels(0).CG.Add(391, "addedTime_BUG", True, CasparCGDataCollection.ToAMCPEscapedXml)
             CasparDevice.Channels(0).CG.Play(391)
+            CasparDevice.SendString("MIXER 1-390 OPACITY 0")
             CasparDevice.SendString("play 1-390 Clock_Added_Time")
+            CasparDevice.SendString("MIXER 1-390 OPACITY 1 24 easeInExpo")
             ' prewviewin
             'CasparDevice.Channels(1).CG.Add(391, "efc_addedTime_temp_BUG", True, CasparCGDataCollection.ToAMCPEscapedXml)
             'CasparDevice.Channels(1).CG.Play(391)
@@ -3470,7 +3474,7 @@ Public Class ADIFootball
         SubOff.Items.Clear()
         Try
             ' Create an instance of StreamReader to read from a file. 
-            Dim sr As StreamReader = New StreamReader("C:\home_team.txt", System.Text.Encoding.Default)
+            Dim sr As StreamReader = New StreamReader("C:\teams\home_team.txt", System.Text.Encoding.Default)
             Dim line As String
             'Read and display the lines from the file until the end 
             ' of the file is reached. 
@@ -3565,7 +3569,7 @@ Public Class ADIFootball
         'reload
         Try
             ' Create an instance of StreamReader to read from a file. 
-            Dim sr As StreamReader = New StreamReader("C:\away_team.txt", System.Text.Encoding.Default)
+            Dim sr As StreamReader = New StreamReader("C:\teams\away_team.txt", System.Text.Encoding.Default)
             Dim line As String
             'Read and display the lines from the file until the end 
             ' of the file is reached. 
@@ -5355,12 +5359,12 @@ Public Class ADIFootball
 
 
             'fading in image
-            ' CasparDevice.SendString("MIXER 1-100 OPACITY 0")
-            ' CasparDevice.SendString("play 1-102 LT_crawl_nocrest")
-            ' CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+            CasparDevice.SendString("MIXER 1-102 OPACITY 0")
+            CasparDevice.SendString("play 1-102 ticker_crest")
+            CasparDevice.SendString("MIXER 1-102 OPACITY 1 48 linear")
 
             'CasparDevice.SendString("play 1-102 LT_crawl_crest")
-            CasparDevice.SendString("play 1-102 Ticker_FLARES")
+            CasparDevice.SendString("play 1-103 Ticker_FLARES")
 
             Threading.Thread.Sleep(2000)
             CasparDevice.Channels(0).CG.Add(101, "TSheet_crawl", True, CasparCGDataCollection.ToAMCPEscapedXml)
@@ -5424,7 +5428,7 @@ Public Class ADIFootball
             'fading in image
             CasparDevice.SendString("MIXER 2-100 OPACITY 0")
             CasparDevice.SendString("play 2-100 TeamNewsLogos")
-            CasparDevice.SendString("MIXER 2-100 OPACITY 1 48 easeInExpo")
+            CasparDevice.SendString("MIXER 2-100 OPACITY 1 24 easeInExpo")
             CasparDevice.SendString("play 2-99 TeamNews")
             CasparDevice.SendString("play 2-101 TeamNews_FLARES")
             identTeamsBTN.BackColor = Color.Green
@@ -6308,8 +6312,10 @@ Public Class ADIFootball
             'CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
 
 
+            CasparDevice.SendString("MIXER 1-102 OPACITY 0")
+            CasparDevice.SendString("play 1-102 NameID")
+            CasparDevice.SendString("MIXER 1-102 OPACITY 1 48 linear")
 
-            'CasparDevice.SendString("play 1-102 LT_crawl_crest")
             CasparDevice.SendString("play 1-103 NameStrap_FLARES")
             showNameIDBTN.BackColor = Color.Green
             'disable button
@@ -6469,6 +6475,10 @@ Public Class ADIFootball
                 ' SubOff.Items.Add(UCase(line))
             Loop Until line Is Nothing
             sr.Close()
+
+            'update player count
+            homePlayerCount.Text = 11
+            homeSubsCount.Text = 7
         Catch ex As Exception
             ' Let the user know what went wrong.
             Console.WriteLine("The file could not be read:")
@@ -6495,6 +6505,11 @@ Public Class ADIFootball
                 ' SubOff.Items.Add(UCase(line))
             Loop Until line Is Nothing
             sr.Close()
+
+            'update player count
+            AwayPlayerCount.Text = 11
+            AwaySubsCount.Text = 7
+
         Catch ex As Exception
             ' Let the user know what went wrong.
             Console.WriteLine("The file could not be read:")

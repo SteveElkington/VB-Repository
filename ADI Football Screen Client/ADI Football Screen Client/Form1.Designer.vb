@@ -645,6 +645,7 @@ Partial Class ADIFootball
         Me.updateScore = New System.Windows.Forms.Button()
         Me.saveBTN = New System.Windows.Forms.Button()
         Me.loadBTN = New System.Windows.Forms.Button()
+        Me.LowerThirdTimePeriodTXT = New System.Windows.Forms.ComboBox()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -4639,6 +4640,7 @@ Partial Class ADIFootball
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.LowerThirdTimePeriodTXT)
         Me.GroupBox4.Controls.Add(Me.ScoreMatchIDRadioBut)
         Me.GroupBox4.Controls.Add(Me.LTMatchIDRadioBut)
         Me.GroupBox4.Controls.Add(Me.LTStrapDate)
@@ -6500,6 +6502,15 @@ Partial Class ADIFootball
         Me.loadBTN.Text = "Load"
         Me.loadBTN.UseVisualStyleBackColor = True
         '
+        'LowerThirdTimePeriodTXT
+        '
+        Me.LowerThirdTimePeriodTXT.FormattingEnabled = True
+        Me.LowerThirdTimePeriodTXT.Items.AddRange(New Object() {"", "FIRST HALF", "HALF TIME", "SECOND HALF", "FULL TIME"})
+        Me.LowerThirdTimePeriodTXT.Location = New System.Drawing.Point(229, 80)
+        Me.LowerThirdTimePeriodTXT.Name = "LowerThirdTimePeriodTXT"
+        Me.LowerThirdTimePeriodTXT.Size = New System.Drawing.Size(121, 21)
+        Me.LowerThirdTimePeriodTXT.TabIndex = 119
+        '
         'ADIFootball
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -7196,5 +7207,6 @@ Partial Class ADIFootball
     Friend WithEvents HomeManagerTXT As System.Windows.Forms.TextBox
     Friend WithEvents Label109 As System.Windows.Forms.Label
     Friend WithEvents Label108 As System.Windows.Forms.Label
+    Friend WithEvents LowerThirdTimePeriodTXT As System.Windows.Forms.ComboBox
 
 End Class
