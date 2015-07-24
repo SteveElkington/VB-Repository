@@ -437,6 +437,7 @@ Partial Class ADIFootball
         Me.AwayTeamSubsLabel = New System.Windows.Forms.Label()
         Me.HomeTeamSubsLablel = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.LowerThirdTimePeriodTXT = New System.Windows.Forms.ComboBox()
         Me.ScoreMatchIDRadioBut = New System.Windows.Forms.RadioButton()
         Me.LTMatchIDRadioBut = New System.Windows.Forms.RadioButton()
         Me.LTStrapDate = New System.Windows.Forms.TextBox()
@@ -456,6 +457,47 @@ Partial Class ADIFootball
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ListBox4 = New System.Windows.Forms.ListBox()
+        Me.TabPage9 = New System.Windows.Forms.TabPage()
+        Me.GroupBox13 = New System.Windows.Forms.GroupBox()
+        Me.commsLoadBTN = New System.Windows.Forms.Button()
+        Me.commsSaveBTN = New System.Windows.Forms.Button()
+        Me.commsRadWIPE = New System.Windows.Forms.RadioButton()
+        Me.commsRadPUSH = New System.Windows.Forms.RadioButton()
+        Me.commsRadMIX = New System.Windows.Forms.RadioButton()
+        Me.Label114 = New System.Windows.Forms.Label()
+        Me.commsMoveDOWNBTN = New System.Windows.Forms.Button()
+        Me.commsNextBTN = New System.Windows.Forms.Button()
+        Me.commsMoveUpBTN = New System.Windows.Forms.Button()
+        Me.commsStopBTN = New System.Windows.Forms.Button()
+        Me.commsPlayBTN = New System.Windows.Forms.Button()
+        Me.commsClearBTN = New System.Windows.Forms.Button()
+        Me.commsRemoveBTN = New System.Windows.Forms.Button()
+        Me.commsAddBTN = New System.Windows.Forms.Button()
+        Me.Label115 = New System.Windows.Forms.Label()
+        Me.commsRefreshBTN = New System.Windows.Forms.Button()
+        Me.commsPlayListLB = New System.Windows.Forms.ListBox()
+        Me.commsSourceFilesLB = New System.Windows.Forms.ListBox()
+        Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.Label117 = New System.Windows.Forms.Label()
+        Me.Label116 = New System.Windows.Forms.Label()
+        Me.commericalRefreshImagesBTN = New System.Windows.Forms.Button()
+        Me.commercialCHooseImage = New System.Windows.Forms.ComboBox()
+        Me.commercialRefreshTemplateListBTN = New System.Windows.Forms.Button()
+        Me.commercialChooseTemplate = New System.Windows.Forms.ComboBox()
+        Me.Label110 = New System.Windows.Forms.Label()
+        Me.Label111 = New System.Windows.Forms.Label()
+        Me.Label112 = New System.Windows.Forms.Label()
+        Me.Label113 = New System.Windows.Forms.Label()
+        Me.commercialsRadio4 = New System.Windows.Forms.RadioButton()
+        Me.commercialsRadio3 = New System.Windows.Forms.RadioButton()
+        Me.commercialsRadio2 = New System.Windows.Forms.RadioButton()
+        Me.commercialsRadio1 = New System.Windows.Forms.RadioButton()
+        Me.commercialsCrawlText4 = New System.Windows.Forms.TextBox()
+        Me.commercialsCrawlText3 = New System.Windows.Forms.TextBox()
+        Me.commercialsCrawlText2 = New System.Windows.Forms.TextBox()
+        Me.CommercialCrawlOffBTN = New System.Windows.Forms.Button()
+        Me.CommercialCrawlOnBTN = New System.Windows.Forms.Button()
+        Me.commercialsCrawlText1 = New System.Windows.Forms.TextBox()
         Me.TabPage7 = New System.Windows.Forms.TabPage()
         Me.Msg8ColPickBTN = New System.Windows.Forms.Button()
         Me.Msg7ColPickBTN = New System.Windows.Forms.Button()
@@ -645,7 +687,12 @@ Partial Class ADIFootball
         Me.updateScore = New System.Windows.Forms.Button()
         Me.saveBTN = New System.Windows.Forms.Button()
         Me.loadBTN = New System.Windows.Forms.Button()
-        Me.LowerThirdTimePeriodTXT = New System.Windows.Forms.ComboBox()
+        Me.commsPlaylistStop = New System.Windows.Forms.Timer(Me.components)
+        Me.Label118 = New System.Windows.Forms.Label()
+        Me.commsChooseBackingBTN = New System.Windows.Forms.Button()
+        Me.commsChooseBackingCOMBI = New System.Windows.Forms.ComboBox()
+        Me.AwayGoalWithoutScoreChange_BTN = New System.Windows.Forms.Button()
+        Me.HomeGoalWithoutScoreChange_BTN = New System.Windows.Forms.Button()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -667,6 +714,9 @@ Partial Class ADIFootball
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
+        Me.TabPage9.SuspendLayout()
+        Me.GroupBox13.SuspendLayout()
+        Me.GroupBox12.SuspendLayout()
         Me.TabPage7.SuspendLayout()
         Me.TabPage8.SuspendLayout()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1506,6 +1556,7 @@ Partial Class ADIFootball
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage5)
+        Me.TabControl1.Controls.Add(Me.TabPage9)
         Me.TabControl1.Controls.Add(Me.TabPage7)
         Me.TabControl1.Controls.Add(Me.TabPage8)
         Me.TabControl1.Location = New System.Drawing.Point(12, 95)
@@ -4654,6 +4705,15 @@ Partial Class ADIFootball
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Lower Third Match ID"
         '
+        'LowerThirdTimePeriodTXT
+        '
+        Me.LowerThirdTimePeriodTXT.FormattingEnabled = True
+        Me.LowerThirdTimePeriodTXT.Items.AddRange(New Object() {"", "FIRST HALF", "HALF TIME", "SECOND HALF", "FULL TIME"})
+        Me.LowerThirdTimePeriodTXT.Location = New System.Drawing.Point(229, 80)
+        Me.LowerThirdTimePeriodTXT.Name = "LowerThirdTimePeriodTXT"
+        Me.LowerThirdTimePeriodTXT.Size = New System.Drawing.Size(121, 21)
+        Me.LowerThirdTimePeriodTXT.TabIndex = 119
+        '
         'ScoreMatchIDRadioBut
         '
         Me.ScoreMatchIDRadioBut.AutoSize = True
@@ -4712,6 +4772,8 @@ Partial Class ADIFootball
         '
         'GroupBox8
         '
+        Me.GroupBox8.Controls.Add(Me.AwayGoalWithoutScoreChange_BTN)
+        Me.GroupBox8.Controls.Add(Me.HomeGoalWithoutScoreChange_BTN)
         Me.GroupBox8.Controls.Add(Me.Panel2)
         Me.GroupBox8.Controls.Add(Me.ListBox3)
         Me.GroupBox8.Controls.Add(Me.unknownGoalAway)
@@ -4834,6 +4896,417 @@ Partial Class ADIFootball
         Me.ListBox4.Name = "ListBox4"
         Me.ListBox4.Size = New System.Drawing.Size(220, 316)
         Me.ListBox4.TabIndex = 26
+        '
+        'TabPage9
+        '
+        Me.TabPage9.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.TabPage9.Controls.Add(Me.GroupBox13)
+        Me.TabPage9.Controls.Add(Me.GroupBox12)
+        Me.TabPage9.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage9.Name = "TabPage9"
+        Me.TabPage9.Size = New System.Drawing.Size(1252, 636)
+        Me.TabPage9.TabIndex = 6
+        Me.TabPage9.Text = "Commercial"
+        '
+        'GroupBox13
+        '
+        Me.GroupBox13.Controls.Add(Me.commsLoadBTN)
+        Me.GroupBox13.Controls.Add(Me.commsSaveBTN)
+        Me.GroupBox13.Controls.Add(Me.commsRadWIPE)
+        Me.GroupBox13.Controls.Add(Me.commsRadPUSH)
+        Me.GroupBox13.Controls.Add(Me.commsRadMIX)
+        Me.GroupBox13.Controls.Add(Me.Label114)
+        Me.GroupBox13.Controls.Add(Me.commsMoveDOWNBTN)
+        Me.GroupBox13.Controls.Add(Me.commsNextBTN)
+        Me.GroupBox13.Controls.Add(Me.commsMoveUpBTN)
+        Me.GroupBox13.Controls.Add(Me.commsStopBTN)
+        Me.GroupBox13.Controls.Add(Me.commsPlayBTN)
+        Me.GroupBox13.Controls.Add(Me.commsClearBTN)
+        Me.GroupBox13.Controls.Add(Me.commsRemoveBTN)
+        Me.GroupBox13.Controls.Add(Me.commsAddBTN)
+        Me.GroupBox13.Controls.Add(Me.Label115)
+        Me.GroupBox13.Controls.Add(Me.commsRefreshBTN)
+        Me.GroupBox13.Controls.Add(Me.commsPlayListLB)
+        Me.GroupBox13.Controls.Add(Me.commsSourceFilesLB)
+        Me.GroupBox13.Location = New System.Drawing.Point(453, 16)
+        Me.GroupBox13.Name = "GroupBox13"
+        Me.GroupBox13.Size = New System.Drawing.Size(347, 605)
+        Me.GroupBox13.TabIndex = 126
+        Me.GroupBox13.TabStop = False
+        Me.GroupBox13.Text = "Keyed Video Commerial Playout"
+        '
+        'commsLoadBTN
+        '
+        Me.commsLoadBTN.Location = New System.Drawing.Point(101, 574)
+        Me.commsLoadBTN.Name = "commsLoadBTN"
+        Me.commsLoadBTN.Size = New System.Drawing.Size(86, 23)
+        Me.commsLoadBTN.TabIndex = 125
+        Me.commsLoadBTN.Text = "Load"
+        Me.commsLoadBTN.UseVisualStyleBackColor = True
+        '
+        'commsSaveBTN
+        '
+        Me.commsSaveBTN.Location = New System.Drawing.Point(9, 574)
+        Me.commsSaveBTN.Name = "commsSaveBTN"
+        Me.commsSaveBTN.Size = New System.Drawing.Size(86, 23)
+        Me.commsSaveBTN.TabIndex = 124
+        Me.commsSaveBTN.Text = "Save"
+        Me.commsSaveBTN.UseVisualStyleBackColor = True
+        '
+        'commsRadWIPE
+        '
+        Me.commsRadWIPE.AutoSize = True
+        Me.commsRadWIPE.Location = New System.Drawing.Point(240, 542)
+        Me.commsRadWIPE.Name = "commsRadWIPE"
+        Me.commsRadWIPE.Size = New System.Drawing.Size(50, 17)
+        Me.commsRadWIPE.TabIndex = 122
+        Me.commsRadWIPE.Text = "Wipe"
+        Me.commsRadWIPE.UseVisualStyleBackColor = True
+        '
+        'commsRadPUSH
+        '
+        Me.commsRadPUSH.AutoSize = True
+        Me.commsRadPUSH.Location = New System.Drawing.Point(128, 542)
+        Me.commsRadPUSH.Name = "commsRadPUSH"
+        Me.commsRadPUSH.Size = New System.Drawing.Size(49, 17)
+        Me.commsRadPUSH.TabIndex = 123
+        Me.commsRadPUSH.Text = "Push"
+        Me.commsRadPUSH.UseVisualStyleBackColor = True
+        '
+        'commsRadMIX
+        '
+        Me.commsRadMIX.AutoSize = True
+        Me.commsRadMIX.Checked = True
+        Me.commsRadMIX.Location = New System.Drawing.Point(9, 542)
+        Me.commsRadMIX.Name = "commsRadMIX"
+        Me.commsRadMIX.Size = New System.Drawing.Size(41, 17)
+        Me.commsRadMIX.TabIndex = 120
+        Me.commsRadMIX.TabStop = True
+        Me.commsRadMIX.Text = "Mix"
+        Me.commsRadMIX.UseVisualStyleBackColor = True
+        '
+        'Label114
+        '
+        Me.Label114.AutoSize = True
+        Me.Label114.Location = New System.Drawing.Point(6, 525)
+        Me.Label114.Name = "Label114"
+        Me.Label114.Size = New System.Drawing.Size(58, 13)
+        Me.Label114.TabIndex = 121
+        Me.Label114.Text = "Transitions"
+        '
+        'commsMoveDOWNBTN
+        '
+        Me.commsMoveDOWNBTN.Location = New System.Drawing.Point(176, 288)
+        Me.commsMoveDOWNBTN.Name = "commsMoveDOWNBTN"
+        Me.commsMoveDOWNBTN.Size = New System.Drawing.Size(166, 23)
+        Me.commsMoveDOWNBTN.TabIndex = 119
+        Me.commsMoveDOWNBTN.Text = "Move Down"
+        Me.commsMoveDOWNBTN.UseVisualStyleBackColor = True
+        '
+        'commsNextBTN
+        '
+        Me.commsNextBTN.Location = New System.Drawing.Point(122, 496)
+        Me.commsNextBTN.Name = "commsNextBTN"
+        Me.commsNextBTN.Size = New System.Drawing.Size(110, 23)
+        Me.commsNextBTN.TabIndex = 8
+        Me.commsNextBTN.Text = "Play Next"
+        Me.commsNextBTN.UseVisualStyleBackColor = True
+        '
+        'commsMoveUpBTN
+        '
+        Me.commsMoveUpBTN.Location = New System.Drawing.Point(7, 288)
+        Me.commsMoveUpBTN.Name = "commsMoveUpBTN"
+        Me.commsMoveUpBTN.Size = New System.Drawing.Size(163, 23)
+        Me.commsMoveUpBTN.TabIndex = 118
+        Me.commsMoveUpBTN.Text = "Move Up"
+        Me.commsMoveUpBTN.UseVisualStyleBackColor = True
+        '
+        'commsStopBTN
+        '
+        Me.commsStopBTN.Location = New System.Drawing.Point(233, 496)
+        Me.commsStopBTN.Name = "commsStopBTN"
+        Me.commsStopBTN.Size = New System.Drawing.Size(109, 23)
+        Me.commsStopBTN.TabIndex = 10
+        Me.commsStopBTN.Text = "Stop"
+        Me.commsStopBTN.UseVisualStyleBackColor = True
+        '
+        'commsPlayBTN
+        '
+        Me.commsPlayBTN.Location = New System.Drawing.Point(7, 496)
+        Me.commsPlayBTN.Name = "commsPlayBTN"
+        Me.commsPlayBTN.Size = New System.Drawing.Size(115, 23)
+        Me.commsPlayBTN.TabIndex = 7
+        Me.commsPlayBTN.Text = "Play"
+        Me.commsPlayBTN.UseVisualStyleBackColor = True
+        '
+        'commsClearBTN
+        '
+        Me.commsClearBTN.Location = New System.Drawing.Point(6, 263)
+        Me.commsClearBTN.Name = "commsClearBTN"
+        Me.commsClearBTN.Size = New System.Drawing.Size(163, 23)
+        Me.commsClearBTN.TabIndex = 4
+        Me.commsClearBTN.Text = "Clear Playlist"
+        Me.commsClearBTN.UseVisualStyleBackColor = True
+        '
+        'commsRemoveBTN
+        '
+        Me.commsRemoveBTN.Location = New System.Drawing.Point(175, 263)
+        Me.commsRemoveBTN.Name = "commsRemoveBTN"
+        Me.commsRemoveBTN.Size = New System.Drawing.Size(166, 23)
+        Me.commsRemoveBTN.TabIndex = 5
+        Me.commsRemoveBTN.Text = "Remove From Playlist"
+        Me.commsRemoveBTN.UseVisualStyleBackColor = True
+        '
+        'commsAddBTN
+        '
+        Me.commsAddBTN.Location = New System.Drawing.Point(175, 237)
+        Me.commsAddBTN.Name = "commsAddBTN"
+        Me.commsAddBTN.Size = New System.Drawing.Size(166, 23)
+        Me.commsAddBTN.TabIndex = 3
+        Me.commsAddBTN.Text = "Add to Playlist"
+        Me.commsAddBTN.UseVisualStyleBackColor = True
+        '
+        'Label115
+        '
+        Me.Label115.AutoSize = True
+        Me.Label115.Location = New System.Drawing.Point(6, 42)
+        Me.Label115.Name = "Label115"
+        Me.Label115.Size = New System.Drawing.Size(117, 13)
+        Me.Label115.TabIndex = 0
+        Me.Label115.Text = "Files In Media Directory"
+        '
+        'commsRefreshBTN
+        '
+        Me.commsRefreshBTN.Location = New System.Drawing.Point(6, 236)
+        Me.commsRefreshBTN.Name = "commsRefreshBTN"
+        Me.commsRefreshBTN.Size = New System.Drawing.Size(163, 23)
+        Me.commsRefreshBTN.TabIndex = 2
+        Me.commsRefreshBTN.Text = "Refresh Video List"
+        Me.commsRefreshBTN.UseVisualStyleBackColor = True
+        '
+        'commsPlayListLB
+        '
+        Me.commsPlayListLB.FormattingEnabled = True
+        Me.commsPlayListLB.Location = New System.Drawing.Point(7, 317)
+        Me.commsPlayListLB.Name = "commsPlayListLB"
+        Me.commsPlayListLB.Size = New System.Drawing.Size(335, 173)
+        Me.commsPlayListLB.TabIndex = 6
+        '
+        'commsSourceFilesLB
+        '
+        Me.commsSourceFilesLB.FormattingEnabled = True
+        Me.commsSourceFilesLB.Location = New System.Drawing.Point(3, 58)
+        Me.commsSourceFilesLB.Name = "commsSourceFilesLB"
+        Me.commsSourceFilesLB.Size = New System.Drawing.Size(338, 173)
+        Me.commsSourceFilesLB.TabIndex = 1
+        '
+        'GroupBox12
+        '
+        Me.GroupBox12.Controls.Add(Me.Label118)
+        Me.GroupBox12.Controls.Add(Me.commsChooseBackingBTN)
+        Me.GroupBox12.Controls.Add(Me.commsChooseBackingCOMBI)
+        Me.GroupBox12.Controls.Add(Me.Label117)
+        Me.GroupBox12.Controls.Add(Me.Label116)
+        Me.GroupBox12.Controls.Add(Me.commericalRefreshImagesBTN)
+        Me.GroupBox12.Controls.Add(Me.commercialCHooseImage)
+        Me.GroupBox12.Controls.Add(Me.commercialRefreshTemplateListBTN)
+        Me.GroupBox12.Controls.Add(Me.commercialChooseTemplate)
+        Me.GroupBox12.Controls.Add(Me.Label110)
+        Me.GroupBox12.Controls.Add(Me.Label111)
+        Me.GroupBox12.Controls.Add(Me.Label112)
+        Me.GroupBox12.Controls.Add(Me.Label113)
+        Me.GroupBox12.Controls.Add(Me.commercialsRadio4)
+        Me.GroupBox12.Controls.Add(Me.commercialsRadio3)
+        Me.GroupBox12.Controls.Add(Me.commercialsRadio2)
+        Me.GroupBox12.Controls.Add(Me.commercialsRadio1)
+        Me.GroupBox12.Controls.Add(Me.commercialsCrawlText4)
+        Me.GroupBox12.Controls.Add(Me.commercialsCrawlText3)
+        Me.GroupBox12.Controls.Add(Me.commercialsCrawlText2)
+        Me.GroupBox12.Controls.Add(Me.CommercialCrawlOffBTN)
+        Me.GroupBox12.Controls.Add(Me.CommercialCrawlOnBTN)
+        Me.GroupBox12.Controls.Add(Me.commercialsCrawlText1)
+        Me.GroupBox12.Location = New System.Drawing.Point(50, 49)
+        Me.GroupBox12.Name = "GroupBox12"
+        Me.GroupBox12.Size = New System.Drawing.Size(369, 329)
+        Me.GroupBox12.TabIndex = 125
+        Me.GroupBox12.TabStop = False
+        Me.GroupBox12.Text = "Crawl"
+        '
+        'Label117
+        '
+        Me.Label117.AutoSize = True
+        Me.Label117.Location = New System.Drawing.Point(22, 228)
+        Me.Label117.Name = "Label117"
+        Me.Label117.Size = New System.Drawing.Size(104, 13)
+        Me.Label117.TabIndex = 128
+        Me.Label117.Text = "Choose Image/Crest"
+        '
+        'Label116
+        '
+        Me.Label116.AutoSize = True
+        Me.Label116.Location = New System.Drawing.Point(22, 140)
+        Me.Label116.Name = "Label116"
+        Me.Label116.Size = New System.Drawing.Size(90, 13)
+        Me.Label116.TabIndex = 127
+        Me.Label116.Text = "Choose Template"
+        '
+        'commericalRefreshImagesBTN
+        '
+        Me.commericalRefreshImagesBTN.Location = New System.Drawing.Point(22, 244)
+        Me.commericalRefreshImagesBTN.Name = "commericalRefreshImagesBTN"
+        Me.commericalRefreshImagesBTN.Size = New System.Drawing.Size(75, 23)
+        Me.commericalRefreshImagesBTN.TabIndex = 126
+        Me.commericalRefreshImagesBTN.Text = "Refresh"
+        Me.commericalRefreshImagesBTN.UseVisualStyleBackColor = True
+        '
+        'commercialCHooseImage
+        '
+        Me.commercialCHooseImage.FormattingEnabled = True
+        Me.commercialCHooseImage.Location = New System.Drawing.Point(103, 246)
+        Me.commercialCHooseImage.Name = "commercialCHooseImage"
+        Me.commercialCHooseImage.Size = New System.Drawing.Size(249, 21)
+        Me.commercialCHooseImage.TabIndex = 125
+        '
+        'commercialRefreshTemplateListBTN
+        '
+        Me.commercialRefreshTemplateListBTN.Location = New System.Drawing.Point(22, 156)
+        Me.commercialRefreshTemplateListBTN.Name = "commercialRefreshTemplateListBTN"
+        Me.commercialRefreshTemplateListBTN.Size = New System.Drawing.Size(75, 23)
+        Me.commercialRefreshTemplateListBTN.TabIndex = 124
+        Me.commercialRefreshTemplateListBTN.Text = "Refresh"
+        Me.commercialRefreshTemplateListBTN.UseVisualStyleBackColor = True
+        '
+        'commercialChooseTemplate
+        '
+        Me.commercialChooseTemplate.FormattingEnabled = True
+        Me.commercialChooseTemplate.Location = New System.Drawing.Point(103, 158)
+        Me.commercialChooseTemplate.Name = "commercialChooseTemplate"
+        Me.commercialChooseTemplate.Size = New System.Drawing.Size(249, 21)
+        Me.commercialChooseTemplate.TabIndex = 123
+        '
+        'Label110
+        '
+        Me.Label110.AutoSize = True
+        Me.Label110.Location = New System.Drawing.Point(3, 100)
+        Me.Label110.Name = "Label110"
+        Me.Label110.Size = New System.Drawing.Size(13, 13)
+        Me.Label110.TabIndex = 122
+        Me.Label110.Text = "4"
+        '
+        'Label111
+        '
+        Me.Label111.AutoSize = True
+        Me.Label111.Location = New System.Drawing.Point(3, 74)
+        Me.Label111.Name = "Label111"
+        Me.Label111.Size = New System.Drawing.Size(13, 13)
+        Me.Label111.TabIndex = 121
+        Me.Label111.Text = "3"
+        '
+        'Label112
+        '
+        Me.Label112.AutoSize = True
+        Me.Label112.Location = New System.Drawing.Point(3, 48)
+        Me.Label112.Name = "Label112"
+        Me.Label112.Size = New System.Drawing.Size(13, 13)
+        Me.Label112.TabIndex = 120
+        Me.Label112.Text = "2"
+        '
+        'Label113
+        '
+        Me.Label113.AutoSize = True
+        Me.Label113.Location = New System.Drawing.Point(3, 22)
+        Me.Label113.Name = "Label113"
+        Me.Label113.Size = New System.Drawing.Size(13, 13)
+        Me.Label113.TabIndex = 119
+        Me.Label113.Text = "1"
+        '
+        'commercialsRadio4
+        '
+        Me.commercialsRadio4.AutoSize = True
+        Me.commercialsRadio4.Location = New System.Drawing.Point(342, 100)
+        Me.commercialsRadio4.Name = "commercialsRadio4"
+        Me.commercialsRadio4.Size = New System.Drawing.Size(14, 13)
+        Me.commercialsRadio4.TabIndex = 7
+        Me.commercialsRadio4.UseVisualStyleBackColor = True
+        '
+        'commercialsRadio3
+        '
+        Me.commercialsRadio3.AutoSize = True
+        Me.commercialsRadio3.Location = New System.Drawing.Point(342, 74)
+        Me.commercialsRadio3.Name = "commercialsRadio3"
+        Me.commercialsRadio3.Size = New System.Drawing.Size(14, 13)
+        Me.commercialsRadio3.TabIndex = 5
+        Me.commercialsRadio3.UseVisualStyleBackColor = True
+        '
+        'commercialsRadio2
+        '
+        Me.commercialsRadio2.AutoSize = True
+        Me.commercialsRadio2.Location = New System.Drawing.Point(342, 48)
+        Me.commercialsRadio2.Name = "commercialsRadio2"
+        Me.commercialsRadio2.Size = New System.Drawing.Size(14, 13)
+        Me.commercialsRadio2.TabIndex = 3
+        Me.commercialsRadio2.UseVisualStyleBackColor = True
+        '
+        'commercialsRadio1
+        '
+        Me.commercialsRadio1.AutoSize = True
+        Me.commercialsRadio1.Checked = True
+        Me.commercialsRadio1.Location = New System.Drawing.Point(342, 22)
+        Me.commercialsRadio1.Name = "commercialsRadio1"
+        Me.commercialsRadio1.Size = New System.Drawing.Size(14, 13)
+        Me.commercialsRadio1.TabIndex = 1
+        Me.commercialsRadio1.TabStop = True
+        Me.commercialsRadio1.UseVisualStyleBackColor = True
+        '
+        'commercialsCrawlText4
+        '
+        Me.commercialsCrawlText4.Location = New System.Drawing.Point(22, 97)
+        Me.commercialsCrawlText4.Name = "commercialsCrawlText4"
+        Me.commercialsCrawlText4.Size = New System.Drawing.Size(314, 20)
+        Me.commercialsCrawlText4.TabIndex = 6
+        Me.commercialsCrawlText4.Text = "Crawl Text Goes Here"
+        '
+        'commercialsCrawlText3
+        '
+        Me.commercialsCrawlText3.Location = New System.Drawing.Point(22, 71)
+        Me.commercialsCrawlText3.Name = "commercialsCrawlText3"
+        Me.commercialsCrawlText3.Size = New System.Drawing.Size(314, 20)
+        Me.commercialsCrawlText3.TabIndex = 4
+        Me.commercialsCrawlText3.Text = "Crawl Text Goes Here"
+        '
+        'commercialsCrawlText2
+        '
+        Me.commercialsCrawlText2.Location = New System.Drawing.Point(22, 45)
+        Me.commercialsCrawlText2.Name = "commercialsCrawlText2"
+        Me.commercialsCrawlText2.Size = New System.Drawing.Size(314, 20)
+        Me.commercialsCrawlText2.TabIndex = 2
+        Me.commercialsCrawlText2.Text = "Crawl Text Goes Here"
+        '
+        'CommercialCrawlOffBTN
+        '
+        Me.CommercialCrawlOffBTN.Location = New System.Drawing.Point(182, 284)
+        Me.CommercialCrawlOffBTN.Name = "CommercialCrawlOffBTN"
+        Me.CommercialCrawlOffBTN.Size = New System.Drawing.Size(174, 23)
+        Me.CommercialCrawlOffBTN.TabIndex = 10
+        Me.CommercialCrawlOffBTN.Text = "Crawl Off"
+        Me.CommercialCrawlOffBTN.UseVisualStyleBackColor = True
+        '
+        'CommercialCrawlOnBTN
+        '
+        Me.CommercialCrawlOnBTN.Location = New System.Drawing.Point(6, 285)
+        Me.CommercialCrawlOnBTN.Name = "CommercialCrawlOnBTN"
+        Me.CommercialCrawlOnBTN.Size = New System.Drawing.Size(170, 23)
+        Me.CommercialCrawlOnBTN.TabIndex = 8
+        Me.CommercialCrawlOnBTN.Text = "Crawl On"
+        Me.CommercialCrawlOnBTN.UseVisualStyleBackColor = True
+        '
+        'commercialsCrawlText1
+        '
+        Me.commercialsCrawlText1.Location = New System.Drawing.Point(22, 19)
+        Me.commercialsCrawlText1.Name = "commercialsCrawlText1"
+        Me.commercialsCrawlText1.Size = New System.Drawing.Size(314, 20)
+        Me.commercialsCrawlText1.TabIndex = 0
+        Me.commercialsCrawlText1.Text = "Crawl Text Goes Here"
         '
         'TabPage7
         '
@@ -6502,14 +6975,52 @@ Partial Class ADIFootball
         Me.loadBTN.Text = "Load"
         Me.loadBTN.UseVisualStyleBackColor = True
         '
-        'LowerThirdTimePeriodTXT
+        'commsPlaylistStop
         '
-        Me.LowerThirdTimePeriodTXT.FormattingEnabled = True
-        Me.LowerThirdTimePeriodTXT.Items.AddRange(New Object() {"", "FIRST HALF", "HALF TIME", "SECOND HALF", "FULL TIME"})
-        Me.LowerThirdTimePeriodTXT.Location = New System.Drawing.Point(229, 80)
-        Me.LowerThirdTimePeriodTXT.Name = "LowerThirdTimePeriodTXT"
-        Me.LowerThirdTimePeriodTXT.Size = New System.Drawing.Size(121, 21)
-        Me.LowerThirdTimePeriodTXT.TabIndex = 119
+        '
+        'Label118
+        '
+        Me.Label118.AutoSize = True
+        Me.Label118.Location = New System.Drawing.Point(22, 185)
+        Me.Label118.Name = "Label118"
+        Me.Label118.Size = New System.Drawing.Size(115, 13)
+        Me.Label118.TabIndex = 131
+        Me.Label118.Text = "Choose Backing Video"
+        '
+        'commsChooseBackingBTN
+        '
+        Me.commsChooseBackingBTN.Location = New System.Drawing.Point(22, 201)
+        Me.commsChooseBackingBTN.Name = "commsChooseBackingBTN"
+        Me.commsChooseBackingBTN.Size = New System.Drawing.Size(75, 23)
+        Me.commsChooseBackingBTN.TabIndex = 130
+        Me.commsChooseBackingBTN.Text = "Refresh"
+        Me.commsChooseBackingBTN.UseVisualStyleBackColor = True
+        '
+        'commsChooseBackingCOMBI
+        '
+        Me.commsChooseBackingCOMBI.FormattingEnabled = True
+        Me.commsChooseBackingCOMBI.Location = New System.Drawing.Point(103, 203)
+        Me.commsChooseBackingCOMBI.Name = "commsChooseBackingCOMBI"
+        Me.commsChooseBackingCOMBI.Size = New System.Drawing.Size(249, 21)
+        Me.commsChooseBackingCOMBI.TabIndex = 129
+        '
+        'AwayGoalWithoutScoreChange_BTN
+        '
+        Me.AwayGoalWithoutScoreChange_BTN.Location = New System.Drawing.Point(254, 447)
+        Me.AwayGoalWithoutScoreChange_BTN.Name = "AwayGoalWithoutScoreChange_BTN"
+        Me.AwayGoalWithoutScoreChange_BTN.Size = New System.Drawing.Size(220, 23)
+        Me.AwayGoalWithoutScoreChange_BTN.TabIndex = 122
+        Me.AwayGoalWithoutScoreChange_BTN.Text = "GOAL - Without Score Change"
+        Me.AwayGoalWithoutScoreChange_BTN.UseVisualStyleBackColor = True
+        '
+        'HomeGoalWithoutScoreChange_BTN
+        '
+        Me.HomeGoalWithoutScoreChange_BTN.Location = New System.Drawing.Point(14, 447)
+        Me.HomeGoalWithoutScoreChange_BTN.Name = "HomeGoalWithoutScoreChange_BTN"
+        Me.HomeGoalWithoutScoreChange_BTN.Size = New System.Drawing.Size(220, 23)
+        Me.HomeGoalWithoutScoreChange_BTN.TabIndex = 121
+        Me.HomeGoalWithoutScoreChange_BTN.Text = "GOAL - Without Score Change"
+        Me.HomeGoalWithoutScoreChange_BTN.UseVisualStyleBackColor = True
         '
         'ADIFootball
         '
@@ -6576,6 +7087,11 @@ Partial Class ADIFootball
         Me.GroupBox4.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
+        Me.TabPage9.ResumeLayout(False)
+        Me.GroupBox13.ResumeLayout(False)
+        Me.GroupBox13.PerformLayout()
+        Me.GroupBox12.ResumeLayout(False)
+        Me.GroupBox12.PerformLayout()
         Me.TabPage7.ResumeLayout(False)
         Me.TabPage7.PerformLayout()
         Me.TabPage8.ResumeLayout(False)
@@ -7208,5 +7724,52 @@ Partial Class ADIFootball
     Friend WithEvents Label109 As System.Windows.Forms.Label
     Friend WithEvents Label108 As System.Windows.Forms.Label
     Friend WithEvents LowerThirdTimePeriodTXT As System.Windows.Forms.ComboBox
+    Friend WithEvents TabPage9 As System.Windows.Forms.TabPage
+    Friend WithEvents GroupBox13 As System.Windows.Forms.GroupBox
+    Friend WithEvents commsLoadBTN As System.Windows.Forms.Button
+    Friend WithEvents commsSaveBTN As System.Windows.Forms.Button
+    Friend WithEvents commsRadWIPE As System.Windows.Forms.RadioButton
+    Friend WithEvents commsRadPUSH As System.Windows.Forms.RadioButton
+    Friend WithEvents commsRadMIX As System.Windows.Forms.RadioButton
+    Friend WithEvents Label114 As System.Windows.Forms.Label
+    Friend WithEvents commsMoveDOWNBTN As System.Windows.Forms.Button
+    Friend WithEvents commsNextBTN As System.Windows.Forms.Button
+    Friend WithEvents commsMoveUpBTN As System.Windows.Forms.Button
+    Friend WithEvents commsStopBTN As System.Windows.Forms.Button
+    Friend WithEvents commsPlayBTN As System.Windows.Forms.Button
+    Friend WithEvents commsClearBTN As System.Windows.Forms.Button
+    Friend WithEvents commsRemoveBTN As System.Windows.Forms.Button
+    Friend WithEvents commsAddBTN As System.Windows.Forms.Button
+    Friend WithEvents Label115 As System.Windows.Forms.Label
+    Friend WithEvents commsRefreshBTN As System.Windows.Forms.Button
+    Friend WithEvents commsPlayListLB As System.Windows.Forms.ListBox
+    Friend WithEvents commsSourceFilesLB As System.Windows.Forms.ListBox
+    Friend WithEvents GroupBox12 As System.Windows.Forms.GroupBox
+    Friend WithEvents commercialChooseTemplate As System.Windows.Forms.ComboBox
+    Friend WithEvents Label110 As System.Windows.Forms.Label
+    Friend WithEvents Label111 As System.Windows.Forms.Label
+    Friend WithEvents Label112 As System.Windows.Forms.Label
+    Friend WithEvents Label113 As System.Windows.Forms.Label
+    Friend WithEvents commercialsRadio4 As System.Windows.Forms.RadioButton
+    Friend WithEvents commercialsRadio3 As System.Windows.Forms.RadioButton
+    Friend WithEvents commercialsRadio2 As System.Windows.Forms.RadioButton
+    Friend WithEvents commercialsRadio1 As System.Windows.Forms.RadioButton
+    Friend WithEvents commercialsCrawlText4 As System.Windows.Forms.TextBox
+    Friend WithEvents commercialsCrawlText3 As System.Windows.Forms.TextBox
+    Friend WithEvents commercialsCrawlText2 As System.Windows.Forms.TextBox
+    Friend WithEvents CommercialCrawlOffBTN As System.Windows.Forms.Button
+    Friend WithEvents CommercialCrawlOnBTN As System.Windows.Forms.Button
+    Friend WithEvents commercialsCrawlText1 As System.Windows.Forms.TextBox
+    Friend WithEvents commercialRefreshTemplateListBTN As System.Windows.Forms.Button
+    Friend WithEvents Label117 As System.Windows.Forms.Label
+    Friend WithEvents Label116 As System.Windows.Forms.Label
+    Friend WithEvents commericalRefreshImagesBTN As System.Windows.Forms.Button
+    Friend WithEvents commercialCHooseImage As System.Windows.Forms.ComboBox
+    Friend WithEvents commsPlaylistStop As System.Windows.Forms.Timer
+    Friend WithEvents Label118 As System.Windows.Forms.Label
+    Friend WithEvents commsChooseBackingBTN As System.Windows.Forms.Button
+    Friend WithEvents commsChooseBackingCOMBI As System.Windows.Forms.ComboBox
+    Friend WithEvents AwayGoalWithoutScoreChange_BTN As System.Windows.Forms.Button
+    Friend WithEvents HomeGoalWithoutScoreChange_BTN As System.Windows.Forms.Button
 
 End Class

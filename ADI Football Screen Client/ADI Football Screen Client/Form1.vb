@@ -3340,7 +3340,7 @@ Public Class ADIFootball
     Private Sub RemoveHomerScoreresLB_Click(sender As Object, e As EventArgs) Handles RemoveHomerScoreresLB.Click
         If Me.HomeScorers.SelectedIndex >= 0 Then
             HomeScorers.Items.Remove(HomeScorers.SelectedItem)
-            HomeScore.Text = Convert.ToInt32(HomeScore.Text) - 1
+            'HomeScore.Text = Convert.ToInt32(HomeScore.Text) - 1
 
             'update CG
             If Me.CasparDevice.IsConnected = True Then
@@ -3357,7 +3357,7 @@ Public Class ADIFootball
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles RemoveAwayScoreresLB.Click
         If Me.awayScorers.SelectedIndex >= 0 Then
             awayScorers.Items.Remove(awayScorers.SelectedItem)
-            AwayScore.Text = Convert.ToInt32(AwayScore.Text) - 1
+            'AwayScore.Text = Convert.ToInt32(AwayScore.Text) - 1
 
             'update CG
             If Me.CasparDevice.IsConnected = True Then
@@ -5908,6 +5908,16 @@ Public Class ADIFootball
                     sw.WriteLine(awayScorer3)
                     sw.WriteLine(awayScorer4)
                     sw.WriteLine(awayScorer5)
+
+                    'saving commercial tab
+                    sw.WriteLine(commercialsCrawlText1.Text)
+                    sw.WriteLine(commercialsCrawlText2.Text)
+                    sw.WriteLine(commercialsCrawlText3.Text)
+                    sw.WriteLine(commercialsCrawlText4.Text)
+                    sw.WriteLine(commercialChooseTemplate.Text)
+                    sw.WriteLine(commercialCHooseImage.Text)
+                    sw.WriteLine(commsChooseBackingCOMBI.Text)
+
                 End Using
                 myStream.Close()
             End If
@@ -6180,6 +6190,15 @@ Public Class ADIFootball
                             End If
                         Next
 
+
+                        'loading commercial tab
+                        commercialsCrawlText1.Text = tr.ReadLine()
+                        commercialsCrawlText2.Text = tr.ReadLine()
+                        commercialsCrawlText3.Text = tr.ReadLine()
+                        commercialsCrawlText4.Text = tr.ReadLine()
+                        commercialChooseTemplate.Text = tr.ReadLine()
+                        commercialCHooseImage.Text = tr.ReadLine()
+                        commsChooseBackingCOMBI.Text = tr.ReadLine()
 
                     End Using
                 End If
@@ -6515,5 +6534,352 @@ Public Class ADIFootball
             Console.WriteLine("The file could not be read:")
             Console.WriteLine(ex.Message)
         End Try
+    End Sub
+
+
+
+    Private Sub commercialRefreshTemplateListBTN_Click(sender As Object, e As EventArgs) Handles commercialRefreshTemplateListBTN.Click
+        Dim File As Svt.Caspar.TemplateInfo
+        CasparDevice.RefreshTemplates()
+        'Clear list box in case of reload
+        commercialChooseTemplate.Items.Clear()
+        Threading.Thread.Sleep(250)
+
+        For Each File In CasparDevice.Templates.All
+            commercialChooseTemplate.Items.Add((UCase(Replace((File.FullName), "\", "/"))))
+        Next
+    End Sub
+
+    Private Sub CommercialCrawlOnBTN_Click(sender As Object, e As EventArgs) Handles CommercialCrawlOnBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparCGDataCollection.Clear()
+
+            If commercialsRadio1.Checked = True Then
+                CasparCGDataCollection.SetData("f0", commercialsCrawlText1.Text)
+            End If
+
+            If commercialsRadio2.Checked = True Then
+                CasparCGDataCollection.SetData("f0", commercialsCrawlText2.Text)
+            End If
+
+            If commercialsRadio3.Checked = True Then
+                CasparCGDataCollection.SetData("f0", commercialsCrawlText3.Text)
+            End If
+
+            If commercialsRadio4.Checked = True Then
+                CasparCGDataCollection.SetData("f0", commercialsCrawlText4.Text)
+            End If
+
+            'fading in logo part
+            CasparDevice.SendString("MIXER 1-104 OPACITY 0")
+            CasparDevice.SendString("play 1-104 " & commercialCHooseImage.Text)
+            CasparDevice.SendString("MIXER 1-104 OPACITY 1 48 linear")
+
+            'fading in image
+            'CasparDevice.SendString("MIXER 1-100 OPACITY 0")
+            CasparDevice.SendString("play 1-100 " & commsChooseBackingCOMBI.Text)
+            'CasparDevice.SendString("MIXER 1-100 OPACITY 1 48 linear")
+
+
+
+            'CasparDevice.SendString("play 1-102 LT_crawl_crest")
+            CasparDevice.SendString("play 1-103 " & commsChooseBackingCOMBI.Text & "_FLARES")
+
+            Threading.Thread.Sleep(2000)
+            CasparDevice.Channels(0).CG.Add(101, commercialChooseTemplate.Text, True, CasparCGDataCollection.ToAMCPEscapedXml)
+            CasparDevice.Channels(0).CG.Play(101)
+
+            CommercialCrawlOnBTN.BackColor = Color.Green
+            'disable button
+            CommercialCrawlOnBTN.Enabled = False
+
+            crawlToggle = True
+        End If
+    End Sub
+
+    Private Sub CommercialCrawlOffBTN_Click(sender As Object, e As EventArgs) Handles CommercialCrawlOffBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            CasparDevice.Channels(0).CG.Stop(101)
+            CasparDevice.SendString("MIXER 1-100 OPACITY 0 24 linear")
+            countBPS = 0
+            BPlayChanFadeOut.Enabled = True
+            CasparDevice.SendString("STOP 1-102")
+            CasparDevice.SendString("STOP 1-103")
+            CasparDevice.SendString("STOP 1-104")
+            crawlToggle = False
+
+            're-enable button
+            CommercialCrawlOnBTN.Enabled = True
+            CommercialCrawlOnBTN.UseVisualStyleBackColor = True
+        End If
+    End Sub
+
+    Private Sub commericalRefreshImagesBTN_Click(sender As Object, e As EventArgs) Handles commericalRefreshImagesBTN.Click
+        Dim File As Svt.Caspar.MediaInfo
+        CasparDevice.RefreshMediafiles()
+        'Clear list box in case of reload
+        commercialCHooseImage.Items.Clear()
+        Threading.Thread.Sleep(250)
+
+        For Each File In CasparDevice.Mediafiles
+            commercialCHooseImage.Items.Add((UCase(Replace((File.FullName), "\", "/"))))
+        Next
+
+    End Sub
+
+    Private Sub commsRefreshBTN_Click(sender As Object, e As EventArgs) Handles commsRefreshBTN.Click
+        Dim File As Svt.Caspar.MediaInfo
+        CasparDevice.RefreshMediafiles()
+        'Clear list box in case of reload
+        commsSourceFilesLB.Items.Clear()
+        Threading.Thread.Sleep(250)
+
+        For Each File In CasparDevice.Mediafiles
+            commsSourceFilesLB.Items.Add((UCase(Replace((File.FullName), "\", "/"))))
+        Next
+    End Sub
+
+    Private Sub commsAddBTN_Click(sender As Object, e As EventArgs) Handles commsAddBTN.Click
+        commsPlayListLB.Items.Add(commsSourceFilesLB.Text)
+    End Sub
+
+    Private Sub commsClearBTN_Click(sender As Object, e As EventArgs) Handles commsClearBTN.Click
+        commsPlayListLB.Items.Clear()
+    End Sub
+
+    Private Sub commsRemoveBTN_Click(sender As Object, e As EventArgs) Handles commsRemoveBTN.Click
+        commsPlayListLB.Items.Remove(commsPlayListLB.SelectedItem)
+    End Sub
+
+    Private Sub commsMoveUpBTN_Click(sender As Object, e As EventArgs) Handles commsMoveUpBTN.Click
+        'Make sure our item is not the first one on the list.
+        If commsPlayListLB.SelectedIndex > 0 Then
+            Dim I = commsPlayListLB.SelectedIndex - 1
+            commsPlayListLB.Items.Insert(I, commsPlayListLB.SelectedItem)
+            commsPlayListLB.Items.RemoveAt(commsPlayListLB.SelectedIndex)
+            commsPlayListLB.SelectedIndex = I
+        End If
+    End Sub
+
+    Private Sub commsMoveDOWNBTN_Click(sender As Object, e As EventArgs) Handles commsMoveDOWNBTN.Click
+        'Make sure our item is not the last one on the list.
+        If commsPlayListLB.SelectedIndex < commsPlayListLB.Items.Count - 1 Then
+            'Insert places items above the index you supply, since we want
+            'to move it down the list we have to do + 2
+            Dim I = commsPlayListLB.SelectedIndex + 2
+            commsPlayListLB.Items.Insert(I, commsPlayListLB.SelectedItem)
+            commsPlayListLB.Items.RemoveAt(commsPlayListLB.SelectedIndex)
+            commsPlayListLB.SelectedIndex = I - 1
+        End If
+    End Sub
+
+
+    Private Sub commsPlayBTN_Click(sender As Object, e As EventArgs) Handles commsPlayBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            If Me.commsPlayListLB.SelectedIndex >= 0 Then
+
+                'select transition and play file
+                If commsRadMIX.Checked = True Then
+                    CasparDevice.SendString("play 1-799 " & commsPlayListLB.Text & " MIX 12 LINEAR")
+                End If
+                If commsRadWIPE.Checked = True Then
+                    CasparDevice.SendString("play 1-799 " & commsPlayListLB.Text & " SLIDE 20 LEFT")
+                End If
+                If commsRadPUSH.Checked = True Then
+                    CasparDevice.SendString("play 1-799 " & commsPlayListLB.Text & " PUSH 20 EASEINSINE")
+                End If
+
+                commsPlayBTN.BackColor = Color.Green
+                commsNextBTN.BackColor = Color.FromKnownColor(KnownColor.Control)
+                commsNextBTN.UseVisualStyleBackColor = True
+            End If
+        End If
+    End Sub
+
+    Private Sub commsNextBTN_Click(sender As Object, e As EventArgs) Handles commsNextBTN.Click
+        If commsPlayListLB.SelectedIndex <> Nothing Then
+            playlistPosition = commsPlayListLB.SelectedIndex + 1
+        ElseIf commsPlayListLB.SelectedIndex = Nothing Then
+            commsPlayListLB.SelectedIndex = 0
+            playlistPosition = 0
+        End If
+
+
+        If (commsPlayListLB.SelectedIndex < (commsPlayListLB.Items.Count() - 1)) Then
+            commsPlayListLB.SelectedIndex += 1
+
+        End If
+        If (playlistPosition > commsPlayListLB.SelectedIndex) Then
+            commsPlayListLB.SelectedIndex = 0
+            playlistPosition = 0
+        End If
+
+        If Me.CasparDevice.IsConnected = True Then
+
+
+
+            'select transition and play file
+            If commsRadMIX.Checked = True Then
+                CasparDevice.SendString("play 1-799 " & commsPlayListLB.Text & " MIX 12 LINEAR")
+            End If
+            If commsRadWIPE.Checked = True Then
+                CasparDevice.SendString("play 1-799 " & commsPlayListLB.Text & " SLIDE 20 LEFT")
+            End If
+            If commsRadPUSH.Checked = True Then
+                CasparDevice.SendString("play 1-799 " & commsPlayListLB.Text & " PUSH 20 EASEINSINE")
+            End If
+            commsNextBTN.BackColor = Color.Green
+            commsPlayBTN.BackColor = Color.FromKnownColor(KnownColor.Control)
+            commsPlayBTN.UseVisualStyleBackColor = True
+            ' LoopVid.BackColor = Color.FromKnownColor(KnownColor.Control)
+            ' LoopVid.UseVisualStyleBackColor = True
+
+            'reset for next if
+            PreMatchPlayNext = False
+        End If
+    End Sub
+
+    Private Sub commsStopBTN_Click(sender As Object, e As EventArgs) Handles commsStopBTN.Click
+        If Me.CasparDevice.IsConnected = True Then
+            ' fade out opacity and start timer to fade channel back in 
+            CasparDevice.SendString("MIXER 1-799 OPACITY 0 12 linear")
+            commsPlaylistStop.Enabled = True
+            'set button colours back
+            commsPlayBTN.BackColor = Color.FromKnownColor(KnownColor.Control)
+            commsPlayBTN.UseVisualStyleBackColor = True
+            commsNextBTN.BackColor = Color.FromKnownColor(KnownColor.Control)
+            commsNextBTN.UseVisualStyleBackColor = True
+        End If
+    End Sub
+
+    Private Sub commsPlaylistStop_Tick(sender As Object, e As EventArgs) Handles commsPlaylistStop.Tick
+        countPlaylist = countPlaylist + 1
+        If countPlaylist >= 10 Then
+            CasparDevice.SendString("stop 1-799")
+            CasparDevice.SendString("MIXER 1-799 OPACITY 1 0 linear")
+            commsPlaylistStop.Enabled = False
+            countPlaylist = 0
+        End If
+    End Sub
+
+    Private Sub commsSaveBTN_Click(sender As Object, e As EventArgs) Handles commsSaveBTN.Click
+        Dim myStream As Stream
+        Dim saveFileDialog2 As New SaveFileDialog()
+
+        saveFileDialog2.Filter = "E.L.K. Playlist files (*.epl)|*.epl"
+        saveFileDialog2.FilterIndex = 2
+        saveFileDialog2.RestoreDirectory = True
+
+        If saveFileDialog2.ShowDialog() = DialogResult.OK Then
+            myStream = saveFileDialog2.OpenFile()
+            If (myStream IsNot Nothing) Then
+                ' insert code to write to file here, could be anythingbut this is seperate lines to a text file
+                Using sw As StreamWriter = New StreamWriter(myStream)
+                    For Each o As Object In commsPlayListLB.Items
+                        sw.WriteLine(o)
+                    Next
+                End Using
+                myStream.Close()
+            End If
+        End If
+    End Sub
+
+    Private Sub commsLoadBTN_Click(sender As Object, e As EventArgs) Handles commsLoadBTN.Click
+        Dim myStream As Stream = Nothing
+        Dim openFileDialog3 As New OpenFileDialog()
+
+        openFileDialog3.InitialDirectory = "c:\"
+        openFileDialog3.Filter = "E.L.K. Play List files (*.epl)|*.epl"
+        openFileDialog3.FilterIndex = 2
+        openFileDialog3.RestoreDirectory = True
+
+        If openFileDialog3.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+            Try
+                myStream = openFileDialog3.OpenFile()
+                If (myStream IsNot Nothing) Then
+                    'insert code to read from file here, again this could be anything but this reads the five lines written above
+                    Using tr As TextReader = New StreamReader(myStream)
+                        '  If openFileDialog3.ShowDialog() = DialogResult.OK Then
+                        Dim lines = File.ReadAllLines(openFileDialog3.FileName)
+                        commsPlayListLB.Items.Clear()
+                        commsPlayListLB.Items.AddRange(lines)
+                        '  End If
+
+                    End Using
+                End If
+            Catch Ex As Exception
+                MessageBox.Show("Cannot read file from disk. Original error: " & Ex.Message)
+            Finally
+                ' Check this again, since we need to make sure we didn't throw an exception on open. 
+                If (myStream IsNot Nothing) Then
+                    myStream.Close()
+                End If
+            End Try
+        End If
+    End Sub
+
+    Private Sub commsChooseBackingBTN_Click(sender As Object, e As EventArgs) Handles commsChooseBackingBTN.Click
+        Dim File As Svt.Caspar.MediaInfo
+        CasparDevice.RefreshMediafiles()
+        'Clear list box in case of reload
+        commsChooseBackingCOMBI.Items.Clear()
+        Threading.Thread.Sleep(250)
+
+        For Each File In CasparDevice.Mediafiles
+            commsChooseBackingCOMBI.Items.Add((UCase(Replace((File.FullName), "\", "/"))))
+        Next
+    End Sub
+
+    Private Sub HomeGoalWithoutScoreChange_BTN_Click(sender As Object, e As EventArgs) Handles HomeGoalWithoutScoreChange_BTN.Click
+        If Me.ListBox3.SelectedIndex >= 0 Then
+            'HomeScore.Text = Convert.ToInt32(HomeScore.Text) + 1
+            Dim HomeScorerConvert = Convert.ToString(ListBox3.SelectedItem)
+            ' remove numbers
+            Dim NewHomeScorer As String = HomeScorerConvert.Remove(0, 2)
+            'remove white space
+            Dim TrimmedNewHomeScorer As String = NewHomeScorer.Trim()
+            'get goal time
+            Dim GoalTime As String = Convert.ToInt32(min.Text) + 1
+            'make sure if goal is after clocks stopped it shows time of end of clock, not clock plus 1
+            If (Convert.ToInt32(GoalTime) >= Convert.ToInt32(stopClockTime.Text)) Then
+                GoalTime = Convert.ToString(stopClockTime.Text)
+            End If
+            'homeScorers.Text = homeScorers.Text + TrimmedNewHomeScorer + "    " + GoalTime + "'" + Environment.NewLine
+            HomeScorers.Items.Add(TrimmedNewHomeScorer + "    " + GoalTime + "'")
+
+            'update score bug
+            'CasparCGDataCollection.Clear()
+            'CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            'CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            'Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
+        Else
+            MessageBox.Show("You need to select a player to score", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+    End Sub
+
+    Private Sub AwayGoalWithoutScoreChange_BTN_Click(sender As Object, e As EventArgs) Handles AwayGoalWithoutScoreChange_BTN.Click
+        If Me.ListBox4.SelectedIndex >= 0 Then
+            'AwayScore.Text = Convert.ToInt32(AwayScore.Text) + 1
+            Dim AwayScorerConvert = Convert.ToString(ListBox4.SelectedItem)
+            ' remove numbers
+            Dim NewAwayScorer As String = AwayScorerConvert.Remove(0, 2)
+            'remove white space
+            Dim TrimmedNewAwayScorer As String = NewAwayScorer.Trim()
+            'get goal time
+            Dim GoalTime As String = Convert.ToInt32(min.Text) + 1
+            'make sure if goal is after clocks stopped it shows time of end of clock, not clock plus 1
+            If (Convert.ToInt32(GoalTime) >= Convert.ToInt32(stopClockTime.Text)) Then
+                GoalTime = Convert.ToString(stopClockTime.Text)
+            End If
+            'awayScorers.Text = awayScorers.Text + GoalTime + "'    " + TrimmedNewAwayScorer + Environment.NewLine
+            awayScorers.Items.Add(GoalTime + "'" + "    " + TrimmedNewAwayScorer)
+            'update score bug
+            'CasparCGDataCollection.Clear()
+            'CasparCGDataCollection.SetData("f2", HomeScore.Text)
+            'CasparCGDataCollection.SetData("f3", AwayScore.Text)
+            'Me.CasparDevice.Channels(0).CG.Update(402, CasparCGDataCollection)
+        Else
+            MessageBox.Show("You need to select a player to score", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 End Class
