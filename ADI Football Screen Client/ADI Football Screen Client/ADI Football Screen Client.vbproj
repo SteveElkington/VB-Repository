@@ -202,6 +202,7 @@
     <None Include="Resources\LV.JPG" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\lilLVDude.jpg" />
     <Content Include="Soccer-Ball.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

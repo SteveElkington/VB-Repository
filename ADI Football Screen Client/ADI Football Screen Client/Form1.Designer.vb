@@ -445,6 +445,8 @@ Partial Class ADIFootball
         Me.LTStrapKO = New System.Windows.Forms.TextBox()
         Me.LTStrapTXBTN = New System.Windows.Forms.Button()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.AwayGoalWithoutScoreChange_BTN = New System.Windows.Forms.Button()
+        Me.HomeGoalWithoutScoreChange_BTN = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ListBox3 = New System.Windows.Forms.ListBox()
         Me.unknownGoalAway = New System.Windows.Forms.Button()
@@ -478,6 +480,9 @@ Partial Class ADIFootball
         Me.commsPlayListLB = New System.Windows.Forms.ListBox()
         Me.commsSourceFilesLB = New System.Windows.Forms.ListBox()
         Me.GroupBox12 = New System.Windows.Forms.GroupBox()
+        Me.Label118 = New System.Windows.Forms.Label()
+        Me.commsChooseBackingBTN = New System.Windows.Forms.Button()
+        Me.commsChooseBackingCOMBI = New System.Windows.Forms.ComboBox()
         Me.Label117 = New System.Windows.Forms.Label()
         Me.Label116 = New System.Windows.Forms.Label()
         Me.commericalRefreshImagesBTN = New System.Windows.Forms.Button()
@@ -682,17 +687,12 @@ Partial Class ADIFootball
         Me.ColorDialog7 = New System.Windows.Forms.ColorDialog()
         Me.ColorDialog8 = New System.Windows.Forms.ColorDialog()
         Me.ClearGFXOnlyBTN = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.playlistStop = New System.Windows.Forms.Timer(Me.components)
         Me.updateScore = New System.Windows.Forms.Button()
         Me.saveBTN = New System.Windows.Forms.Button()
         Me.loadBTN = New System.Windows.Forms.Button()
         Me.commsPlaylistStop = New System.Windows.Forms.Timer(Me.components)
-        Me.Label118 = New System.Windows.Forms.Label()
-        Me.commsChooseBackingBTN = New System.Windows.Forms.Button()
-        Me.commsChooseBackingCOMBI = New System.Windows.Forms.ComboBox()
-        Me.AwayGoalWithoutScoreChange_BTN = New System.Windows.Forms.Button()
-        Me.HomeGoalWithoutScoreChange_BTN = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Clock.SuspendLayout()
         Me.Crawl.SuspendLayout()
         Me.TabControl1.SuspendLayout()
@@ -4793,6 +4793,24 @@ Partial Class ADIFootball
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Scoring"
         '
+        'AwayGoalWithoutScoreChange_BTN
+        '
+        Me.AwayGoalWithoutScoreChange_BTN.Location = New System.Drawing.Point(254, 447)
+        Me.AwayGoalWithoutScoreChange_BTN.Name = "AwayGoalWithoutScoreChange_BTN"
+        Me.AwayGoalWithoutScoreChange_BTN.Size = New System.Drawing.Size(220, 23)
+        Me.AwayGoalWithoutScoreChange_BTN.TabIndex = 122
+        Me.AwayGoalWithoutScoreChange_BTN.Text = "GOAL - Without Score Change"
+        Me.AwayGoalWithoutScoreChange_BTN.UseVisualStyleBackColor = True
+        '
+        'HomeGoalWithoutScoreChange_BTN
+        '
+        Me.HomeGoalWithoutScoreChange_BTN.Location = New System.Drawing.Point(14, 447)
+        Me.HomeGoalWithoutScoreChange_BTN.Name = "HomeGoalWithoutScoreChange_BTN"
+        Me.HomeGoalWithoutScoreChange_BTN.Size = New System.Drawing.Size(220, 23)
+        Me.HomeGoalWithoutScoreChange_BTN.TabIndex = 121
+        Me.HomeGoalWithoutScoreChange_BTN.Text = "GOAL - Without Score Change"
+        Me.HomeGoalWithoutScoreChange_BTN.UseVisualStyleBackColor = True
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.DarkSalmon
@@ -5131,6 +5149,32 @@ Partial Class ADIFootball
         Me.GroupBox12.TabIndex = 125
         Me.GroupBox12.TabStop = False
         Me.GroupBox12.Text = "Crawl"
+        '
+        'Label118
+        '
+        Me.Label118.AutoSize = True
+        Me.Label118.Location = New System.Drawing.Point(22, 185)
+        Me.Label118.Name = "Label118"
+        Me.Label118.Size = New System.Drawing.Size(115, 13)
+        Me.Label118.TabIndex = 131
+        Me.Label118.Text = "Choose Backing Video"
+        '
+        'commsChooseBackingBTN
+        '
+        Me.commsChooseBackingBTN.Location = New System.Drawing.Point(22, 201)
+        Me.commsChooseBackingBTN.Name = "commsChooseBackingBTN"
+        Me.commsChooseBackingBTN.Size = New System.Drawing.Size(75, 23)
+        Me.commsChooseBackingBTN.TabIndex = 130
+        Me.commsChooseBackingBTN.Text = "Refresh"
+        Me.commsChooseBackingBTN.UseVisualStyleBackColor = True
+        '
+        'commsChooseBackingCOMBI
+        '
+        Me.commsChooseBackingCOMBI.FormattingEnabled = True
+        Me.commsChooseBackingCOMBI.Location = New System.Drawing.Point(103, 203)
+        Me.commsChooseBackingCOMBI.Name = "commsChooseBackingCOMBI"
+        Me.commsChooseBackingCOMBI.Size = New System.Drawing.Size(249, 21)
+        Me.commsChooseBackingCOMBI.TabIndex = 129
         '
         'Label117
         '
@@ -6936,15 +6980,6 @@ Partial Class ADIFootball
         Me.ClearGFXOnlyBTN.Text = "Clear GFX Only"
         Me.ClearGFXOnlyBTN.UseVisualStyleBackColor = True
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Caspar_Test_2___No_PVW.My.Resources.Resources.LV
-        Me.PictureBox1.Location = New System.Drawing.Point(1016, 26)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(252, 85)
-        Me.PictureBox1.TabIndex = 73
-        Me.PictureBox1.TabStop = False
-        '
         'playlistStop
         '
         '
@@ -6978,49 +7013,15 @@ Partial Class ADIFootball
         'commsPlaylistStop
         '
         '
-        'Label118
+        'PictureBox1
         '
-        Me.Label118.AutoSize = True
-        Me.Label118.Location = New System.Drawing.Point(22, 185)
-        Me.Label118.Name = "Label118"
-        Me.Label118.Size = New System.Drawing.Size(115, 13)
-        Me.Label118.TabIndex = 131
-        Me.Label118.Text = "Choose Backing Video"
-        '
-        'commsChooseBackingBTN
-        '
-        Me.commsChooseBackingBTN.Location = New System.Drawing.Point(22, 201)
-        Me.commsChooseBackingBTN.Name = "commsChooseBackingBTN"
-        Me.commsChooseBackingBTN.Size = New System.Drawing.Size(75, 23)
-        Me.commsChooseBackingBTN.TabIndex = 130
-        Me.commsChooseBackingBTN.Text = "Refresh"
-        Me.commsChooseBackingBTN.UseVisualStyleBackColor = True
-        '
-        'commsChooseBackingCOMBI
-        '
-        Me.commsChooseBackingCOMBI.FormattingEnabled = True
-        Me.commsChooseBackingCOMBI.Location = New System.Drawing.Point(103, 203)
-        Me.commsChooseBackingCOMBI.Name = "commsChooseBackingCOMBI"
-        Me.commsChooseBackingCOMBI.Size = New System.Drawing.Size(249, 21)
-        Me.commsChooseBackingCOMBI.TabIndex = 129
-        '
-        'AwayGoalWithoutScoreChange_BTN
-        '
-        Me.AwayGoalWithoutScoreChange_BTN.Location = New System.Drawing.Point(254, 447)
-        Me.AwayGoalWithoutScoreChange_BTN.Name = "AwayGoalWithoutScoreChange_BTN"
-        Me.AwayGoalWithoutScoreChange_BTN.Size = New System.Drawing.Size(220, 23)
-        Me.AwayGoalWithoutScoreChange_BTN.TabIndex = 122
-        Me.AwayGoalWithoutScoreChange_BTN.Text = "GOAL - Without Score Change"
-        Me.AwayGoalWithoutScoreChange_BTN.UseVisualStyleBackColor = True
-        '
-        'HomeGoalWithoutScoreChange_BTN
-        '
-        Me.HomeGoalWithoutScoreChange_BTN.Location = New System.Drawing.Point(14, 447)
-        Me.HomeGoalWithoutScoreChange_BTN.Name = "HomeGoalWithoutScoreChange_BTN"
-        Me.HomeGoalWithoutScoreChange_BTN.Size = New System.Drawing.Size(220, 23)
-        Me.HomeGoalWithoutScoreChange_BTN.TabIndex = 121
-        Me.HomeGoalWithoutScoreChange_BTN.Text = "GOAL - Without Score Change"
-        Me.HomeGoalWithoutScoreChange_BTN.UseVisualStyleBackColor = True
+        Me.PictureBox1.Image = Global.Caspar_Test_2___No_PVW.My.Resources.Resources.lilLVDude
+        Me.PictureBox1.Location = New System.Drawing.Point(1016, 29)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(252, 79)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 73
+        Me.PictureBox1.TabStop = False
         '
         'ADIFootball
         '

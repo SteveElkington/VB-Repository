@@ -6498,6 +6498,7 @@ Public Class ADIFootball
             'update player count
             homePlayerCount.Text = 11
             homeSubsCount.Text = 7
+            homeTeamCount = 18
         Catch ex As Exception
             ' Let the user know what went wrong.
             Console.WriteLine("The file could not be read:")
@@ -6528,6 +6529,7 @@ Public Class ADIFootball
             'update player count
             AwayPlayerCount.Text = 11
             AwaySubsCount.Text = 7
+            awayTeamCount = 18
 
         Catch ex As Exception
             ' Let the user know what went wrong.
@@ -6882,4 +6884,6 @@ Public Class ADIFootball
             MessageBox.Show("You need to select a player to score", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
+
+
 End Class
